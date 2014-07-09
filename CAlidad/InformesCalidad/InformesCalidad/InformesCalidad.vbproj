@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C140F098-E0FA-469C-9385-3BC5F45BD41D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>InformesCalidad</RootNamespace>
+    <AssemblyName>InformesCalidad</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\temp\</OutputPath>
+    <DocumentationFile>InformesCalidad.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>InformesCalidad.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlmacenNC\AlmacenNC.Designer.vb">
+      <DependentUpon>AlmacenNC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AlmacenNC\AlmacenNC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlmacenNoConforme.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlmacenNoConforme.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Controlncidencias.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controlncidencias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="datasetJacinto.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>datasetJacinto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="datasetJacinto.vb">
+      <DependentUpon>datasetJacinto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="estadisticas\DataSetEstadisticas.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEstadisticas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="estadisticas\DataSetEstadisticas.vb">
+      <DependentUpon>DataSetEstadisticas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="estadisticas\form_estadisticas.Designer.vb">
+      <DependentUpon>form_estadisticas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="estadisticas\form_estadisticas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncidenciasEnvasados.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IncidenciasEnvasados.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Incidencias\EvaluacionIncidenciasCalidad.Designer.vb">
+      <DependentUpon>EvaluacionIncidenciasCalidad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Incidencias\EvaluacionIncidenciasCalidad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Incidencias\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Incidencias\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="juegos\frmjuegos.Designer.vb">
+      <DependentUpon>frmjuegos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="juegos\frmjuegos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LADataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LADataSet.vb">
+      <DependentUpon>LADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Proveedores.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Proveedores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.vb">
+      <DependentUpon>Proveedores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\IncidenciasProveedores.Designer.vb">
+      <DependentUpon>IncidenciasProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\IncidenciasProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\ListadoProveedores.Designer.vb">
+      <DependentUpon>ListadoProveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\ListadoProveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlmacenNC\AlmacenNC.rdlc" />
+    <EmbeddedResource Include="AlmacenNC\AlmacenNC.resx">
+      <DependentUpon>AlmacenNC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="estadisticas\form_estadisticas.resx">
+      <DependentUpon>form_estadisticas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="estadisticas\ReportEstadisticas.rdlc" />
+    <EmbeddedResource Include="Incidencias\EvaluacionIncidencias.rdlc" />
+    <EmbeddedResource Include="Incidencias\EvaluacionIncidenciasCalidad.resx">
+      <DependentUpon>EvaluacionIncidenciasCalidad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Incidencias\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Incidencias\IncidenciasEnvasado.rdlc" />
+    <EmbeddedResource Include="Incidencias\SeguimientoIncidencias.rdlc" />
+    <EmbeddedResource Include="juegos\frmjuegos.resx">
+      <DependentUpon>frmjuegos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="juegos\Report1.rdlc" />
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\IncidenciasProveedores.rdlc" />
+    <EmbeddedResource Include="Proveedores\IncidenciasProveedores.resx">
+      <DependentUpon>IncidenciasProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\ListadoProveedores.rdlc" />
+    <EmbeddedResource Include="Proveedores\ListadoProveedores.resx">
+      <DependentUpon>ListadoProveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reporte1.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AlmacenNoConforme.xsc">
+      <DependentUpon>AlmacenNoConforme.xsd</DependentUpon>
+    </None>
+    <None Include="AlmacenNoConforme.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AlmacenNoConforme.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="AlmacenNoConforme.xss">
+      <DependentUpon>AlmacenNoConforme.xsd</DependentUpon>
+    </None>
+    <None Include="app.config" />
+    <None Include="Controlncidencias.xsc">
+      <DependentUpon>Controlncidencias.xsd</DependentUpon>
+    </None>
+    <None Include="Controlncidencias.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Controlncidencias.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Controlncidencias.xss">
+      <DependentUpon>Controlncidencias.xsd</DependentUpon>
+    </None>
+    <None Include="datasetJacinto.xsc">
+      <DependentUpon>datasetJacinto.xsd</DependentUpon>
+    </None>
+    <None Include="datasetJacinto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>datasetJacinto.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="datasetJacinto.xss">
+      <DependentUpon>datasetJacinto.xsd</DependentUpon>
+    </None>
+    <None Include="estadisticas\DataSetEstadisticas.xsc">
+      <DependentUpon>DataSetEstadisticas.xsd</DependentUpon>
+    </None>
+    <None Include="estadisticas\DataSetEstadisticas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEstadisticas.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="estadisticas\DataSetEstadisticas.xss">
+      <DependentUpon>DataSetEstadisticas.xsd</DependentUpon>
+    </None>
+    <None Include="IncidenciasEnvasados.xsc">
+      <DependentUpon>IncidenciasEnvasados.xsd</DependentUpon>
+    </None>
+    <None Include="IncidenciasEnvasados.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IncidenciasEnvasados.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IncidenciasEnvasados.xss">
+      <DependentUpon>IncidenciasEnvasados.xsd</DependentUpon>
+    </None>
+    <None Include="LADataSet.xsc">
+      <DependentUpon>LADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LADataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LADataSet.xss">
+      <DependentUpon>LADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Proveedores.xsc">
+      <DependentUpon>Proveedores.xsd</DependentUpon>
+    </None>
+    <None Include="Proveedores.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Proveedores.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Proveedores.xss">
+      <DependentUpon>Proveedores.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

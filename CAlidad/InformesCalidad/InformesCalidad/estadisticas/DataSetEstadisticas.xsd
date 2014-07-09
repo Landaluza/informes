@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetEstadisticas" targetNamespace="http://tempuri.org/DataSetEstadisticas.xsd" xmlns:mstns="http://tempuri.org/DataSetEstadisticas.xsd" xmlns="http://tempuri.org/DataSetEstadisticas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="LAConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LAConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.InformesCalidad.My.MySettings.GlobalReference.Default.LAConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EnvasadosTableAdapter" GeneratorDataComponentClassName="EnvasadosTableAdapter" Name="Envasados" UserDataComponentName="EnvasadosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LAConnectionString (MySettings)" DbObjectName="LA.dbo.Envasados" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Envasados.EnvasadoID, MAX(CONVERT(varchar(10), Envasados.Fecha, 103)) AS Fecha, COUNT(PaletsProducidos.SCC) AS numPalets
+FROM  Envasados INNER JOIN
+               FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN
+               PaletsProducidos ON FormatosEnvasados.FormatoEnvasadoID = PaletsProducidos.FormatoID
+GROUP BY Envasados.EnvasadoID
+ORDER BY Envasados.EnvasadoID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="numPalets" DataSetColumn="numPalets" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="EnvasadoID" DataSetColumn="EnvasadoID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EvolucionIncidenciasProveedorTableAdapter" GeneratorDataComponentClassName="EvolucionIncidenciasProveedorTableAdapter" Name="EvolucionIncidenciasProveedor" UserDataComponentName="EvolucionIncidenciasProveedorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LAConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ControlIncidencias.Id, ControlIncidencias.Fecha, Proveedores.Nombre AS Proveedor, (TiposFrecuenciasIncidencias.Valor + TiposGravedadesIncidencias.Valores) 
+                         * - 1 AS ValorIncidencia
+FROM            ControlIncidencias_Proveedores INNER JOIN
+                         ControlIncidencias ON ControlIncidencias_Proveedores.Id_control_incidencias = ControlIncidencias.Id INNER JOIN
+                         Proveedores ON ControlIncidencias_Proveedores.id_proveedor = Proveedores.ProveedorID INNER JOIN
+                         TiposFrecuenciasIncidencias ON ControlIncidencias.Id_PuntosFrecuencia = TiposFrecuenciasIncidencias.Id AND 
+                         ControlIncidencias.Id_PuntosFrecuencia = TiposFrecuenciasIncidencias.Id AND ControlIncidencias.Id_PuntosFrecuencia = TiposFrecuenciasIncidencias.Id AND 
+                         ControlIncidencias.Id_PuntosFrecuencia = TiposFrecuenciasIncidencias.Id INNER JOIN
+                         TiposGravedadesIncidencias ON ControlIncidencias.Id_PuntosGravedad = TiposGravedadesIncidencias.Id AND 
+                         ControlIncidencias.Id_PuntosGravedad = TiposGravedadesIncidencias.Id AND ControlIncidencias.Id_PuntosGravedad = TiposGravedadesIncidencias.Id AND 
+                         ControlIncidencias.Id_PuntosGravedad = TiposGravedadesIncidencias.Id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="Proveedor" DataSetColumn="Proveedor" />
+              <Mapping SourceColumn="ValorIncidencia" DataSetColumn="ValorIncidencia" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetEstadisticas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetEstadisticas" msprop:Generator_UserDSName="DataSetEstadisticas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Envasados" msprop:Generator_TableClassName="EnvasadosDataTable" msprop:Generator_TableVarName="tableEnvasados" msprop:Generator_TablePropName="Envasados" msprop:Generator_RowDeletingName="EnvasadosRowDeleting" msprop:Generator_UserTableName="Envasados" msprop:Generator_RowChangingName="EnvasadosRowChanging" msprop:Generator_RowEvHandlerName="EnvasadosRowChangeEventHandler" msprop:Generator_RowDeletedName="EnvasadosRowDeleted" msprop:Generator_RowEvArgName="EnvasadosRowChangeEvent" msprop:Generator_RowChangedName="EnvasadosRowChanged" msprop:Generator_RowClassName="EnvasadosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="numPalets" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnnumPalets" msprop:Generator_ColumnPropNameInRow="numPalets" msprop:Generator_ColumnPropNameInTable="numPaletsColumn" msprop:Generator_UserColumnName="numPalets" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EnvasadoID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEnvasadoID" msprop:Generator_ColumnPropNameInRow="EnvasadoID" msprop:Generator_ColumnPropNameInTable="EnvasadoIDColumn" msprop:Generator_UserColumnName="EnvasadoID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EvolucionIncidenciasProveedor" msprop:Generator_TableClassName="EvolucionIncidenciasProveedorDataTable" msprop:Generator_TableVarName="tableEvolucionIncidenciasProveedor" msprop:Generator_TablePropName="EvolucionIncidenciasProveedor" msprop:Generator_RowDeletingName="EvolucionIncidenciasProveedorRowDeleting" msprop:Generator_UserTableName="EvolucionIncidenciasProveedor" msprop:Generator_RowChangingName="EvolucionIncidenciasProveedorRowChanging" msprop:Generator_RowEvHandlerName="EvolucionIncidenciasProveedorRowChangeEventHandler" msprop:Generator_RowDeletedName="EvolucionIncidenciasProveedorRowDeleted" msprop:Generator_RowEvArgName="EvolucionIncidenciasProveedorRowChangeEvent" msprop:Generator_RowChangedName="EvolucionIncidenciasProveedorRowChanged" msprop:Generator_RowClassName="EvolucionIncidenciasProveedorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Proveedor" msprop:Generator_ColumnVarNameInTable="columnProveedor" msprop:Generator_ColumnPropNameInRow="Proveedor" msprop:Generator_ColumnPropNameInTable="ProveedorColumn" msprop:Generator_UserColumnName="Proveedor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ValorIncidencia" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnValorIncidencia" msprop:Generator_ColumnPropNameInRow="ValorIncidencia" msprop:Generator_ColumnPropNameInTable="ValorIncidenciaColumn" msprop:Generator_UserColumnName="ValorIncidencia" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Envasados" />
+      <xs:field xpath="mstns:EnvasadoID" />
+    </xs:unique>
+    <xs:unique name="EvolucionIncidenciasProveedor_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EvolucionIncidenciasProveedor" />
+      <xs:field xpath="mstns:Id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
