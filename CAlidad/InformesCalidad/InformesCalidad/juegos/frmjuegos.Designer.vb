@@ -162,7 +162,7 @@ Partial Class frmjuegos
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "frmjuegos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "frmjuegos"
+        Me.Text = "OEE"
         CType(Me.ListadoIncidenciasDiariasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CalculoOEEBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

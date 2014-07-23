@@ -25623,26 +25623,27 @@ Namespace LADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, SUM(DATEDIFF(mi, Incidencias"& _ 
-                ".HoraInicio, Incidencias.HoraFin)) AS Minutos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposI"& _ 
-                "ncidencias.Descripcion AS Incidencia, CategoriaIncidencias.Descripcion AS Catego"& _ 
-                "ria, ClasesIncidencias.Descripcion AS Clase, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEn"& _ 
-                "vasado.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvas"& _ 
-                "ados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Incidencia"& _ 
-                "s.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias ON Inc"& _ 
-                "idencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
-                "            ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIncidenc"& _ 
-                "iaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosEnvasad"& _ 
-                "os.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
-                "                    LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID = Line"& _ 
-                "asEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaI"& _ 
-                "ncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.Ca"& _ 
-                "tegoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Envasados.Fecha, 103) = "& _ 
-                "@fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Envasados.EnvasadoID, Envasados.Fecha, TiposIncidencias.Descri"& _ 
-                "pcion, CategoriaIncidencias.Descripcion, ClasesIncidencias.Descripcion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
-                "                   LineasEnvasado.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Linea, Minutos DESC"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, SUM(DATEDIFF(mi, Incidencias" & _
+                ".HoraInicio, Incidencias.HoraFin)) AS Minutos, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposI" & _
+                "ncidencias.Descripcion AS Incidencia, CategoriaIncidencias.Descripcion AS Catego" & _
+                "ria, replace('Nueva','',ClasesIncidencias.Descripcion) AS Clase, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
+                "            LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidenci" & _
+                "as INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
+                "       FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID " & _
+                "INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON FormatosEnvasados.FormatoEnv" & _
+                "asadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Tip" & _
+                "osIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaI" & _
+                "D ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseIncidenciaID = TiposIncid" & _
+                "encias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLinea" & _
+                "s ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLinea" & _
+                "ID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.Li" & _
+                "neaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
+                "          CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = Cat" & _
+                "egoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Enva" & _
+                "sados.Fecha, 103) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Envasados.EnvasadoID, Envasados.Fecha, Tip" & _
+                "osIncidencias.Descripcion, CategoriaIncidencias.Descripcion, ClasesIncidencias.D" & _
+                "escripcion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Line" & _
+                "a, Minutos DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
