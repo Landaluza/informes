@@ -5,7 +5,16 @@
         ' This call is required by the designer.
         InitializeComponent()
 
-        My.Settings.Item("LAConnectionString") = "Data Source=192.168.1.130;Initial Catalog=LA;Persist Security Info=True;User ID=ssa;Password=Trucha0122"
+        My.Settings.Item("LAConnectionString") = "Data Source=192.168.1.101,1608;Initial Catalog=LA;Persist Security Info=True;User ID=ssa;Password=Trucha0122"
+
+    End Sub
+
+    Public Sub New(ByVal connectionstring As String)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        My.Settings.Item("LAConnectionString") = connectionstring
 
     End Sub
     Private Sub EvaluacionIncidenciasCalidad_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
