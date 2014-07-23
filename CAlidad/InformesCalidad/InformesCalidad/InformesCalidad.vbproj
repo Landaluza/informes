@@ -122,12 +122,6 @@
     <Compile Include="estadisticas\form_estadisticas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="incidencias ente fechas\frmEnteFechas.Designer.vb">
-      <DependentUpon>frmEnteFechas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="incidencias ente fechas\frmEnteFechas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="IncidenciasEnvasados.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -211,10 +205,6 @@
       <DependentUpon>form_estadisticas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="estadisticas\ReportEstadisticas.rdlc" />
-    <EmbeddedResource Include="incidencias ente fechas\frmEnteFechas.resx">
-      <DependentUpon>frmEnteFechas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="incidencias ente fechas\Report2.rdlc" />
     <EmbeddedResource Include="Incidencias\EvaluacionIncidencias.rdlc" />
     <EmbeddedResource Include="Incidencias\EvaluacionIncidenciasCalidad.resx">
       <DependentUpon>EvaluacionIncidenciasCalidad.vb</DependentUpon>
