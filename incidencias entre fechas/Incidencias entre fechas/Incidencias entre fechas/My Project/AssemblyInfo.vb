@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Revise los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("Incidencias entre fechas")> 
-<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyDescription("Incidencias entre fechas")> 
 <Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("Incidencias entre fechas")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014")> 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' usando el '*', según se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("14.07.22.1")> 
+<Assembly: AssemblyFileVersion("14.07.22.1")> 

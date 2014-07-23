@@ -4,11 +4,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F6E1FD0F-D0C8-43A9-A477-0BC232935037}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <StartupObject>Incidencias_entre_fechas.My.MyApplication</StartupObject>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
     <RootNamespace>Incidencias_entre_fechas</RootNamespace>
     <AssemblyName>Incidencias entre fechas</AssemblyName>
-    <MyType>WindowsForms</MyType>
+    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>

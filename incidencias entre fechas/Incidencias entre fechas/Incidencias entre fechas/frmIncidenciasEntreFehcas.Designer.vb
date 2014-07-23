@@ -25,11 +25,11 @@ Partial Class frmIncidenciasEntreFehcas
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.LADataSet = New Incidencias_entre_fechas.LADataSet()
         Me.ListadoIncidenciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LADataSet = New Incidencias_entre_fechas.LADataSet()
         Me.ListadoIncidenciasTableAdapter = New Incidencias_entre_fechas.LADataSetTableAdapters.ListadoIncidenciasTableAdapter()
-        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListadoIncidenciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ReportViewer1
@@ -44,15 +44,15 @@ Partial Class frmIncidenciasEntreFehcas
         Me.ReportViewer1.Size = New System.Drawing.Size(682, 386)
         Me.ReportViewer1.TabIndex = 0
         '
-        'LADataSet
-        '
-        Me.LADataSet.DataSetName = "LADataSet"
-        Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'ListadoIncidenciasBindingSource
         '
         Me.ListadoIncidenciasBindingSource.DataMember = "ListadoIncidencias"
         Me.ListadoIncidenciasBindingSource.DataSource = Me.LADataSet
+        '
+        'LADataSet
+        '
+        Me.LADataSet.DataSetName = "LADataSet"
+        Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ListadoIncidenciasTableAdapter
         '
@@ -66,14 +66,14 @@ Partial Class frmIncidenciasEntreFehcas
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "frmIncidenciasEntreFehcas"
         Me.Text = "Form1"
-        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListadoIncidenciasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Friend WithEvents LADataSet As Incidencias_entre_fechas.LADataSet
-    Friend WithEvents ListadoIncidenciasBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ListadoIncidenciasTableAdapter As Incidencias_entre_fechas.LADataSetTableAdapters.ListadoIncidenciasTableAdapter
+    Private WithEvents LADataSet As Incidencias_entre_fechas.LADataSet
+    Private WithEvents ListadoIncidenciasBindingSource As System.Windows.Forms.BindingSource
+    Private WithEvents ListadoIncidenciasTableAdapter As Incidencias_entre_fechas.LADataSetTableAdapters.ListadoIncidenciasTableAdapter
 
 End Class
