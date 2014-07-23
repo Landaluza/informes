@@ -1,0 +1,1272 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+InformesCalidad
+</name>
+</assembly>
+<members>
+<member name="T:InformesCalidad.Proveedores.ProveedoresDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EvolucionGravedadIncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EvolucionMinutosIncidenciasProveedoresDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EntregaPedidosProveedorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ListadoProveedoresDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ListadoProveedoresCeroDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ProveedoresRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EvolucionGravedadIncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EvolucionMinutosIncidenciasProveedoresRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EntregaPedidosProveedorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ListadoProveedoresRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ListadoProveedoresCeroRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ProveedoresRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EvolucionGravedadIncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EvolucionMinutosIncidenciasProveedoresRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.EntregaPedidosProveedorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ListadoProveedoresRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Proveedores.ListadoProveedoresCeroRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Proveedores">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.ProveedoresTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.EvolucionGravedadIncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.EvolucionMinutosIncidenciasProveedoresTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.EntregaPedidosProveedorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.ListadoProveedoresTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.ListadoProveedoresCeroTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager.UpdateUpdatedRows(InformesCalidad.Proveedores,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager.UpdateInsertedRows(InformesCalidad.Proveedores,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager.UpdateDeletedRows(InformesCalidad.Proveedores,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager.UpdateAll(InformesCalidad.Proveedores)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:InformesCalidad.ProveedoresTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.DecripcionDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesInmediatasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesPreventivasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesCorrectivasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.SegumientosIncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.CausasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.CausantesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AlmacenNoConformeDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.EvaluacionIncidenciaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.IncidenciasEnvasadoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.DecripcionRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesInmediatasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesPreventivasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesCorrectivasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.SegumientosIncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.CausasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.CausantesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AlmacenNoConformeRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.EvaluacionIncidenciaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.IncidenciasEnvasadoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.DecripcionRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesInmediatasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesPreventivasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AccionesCorrectivasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.SegumientosIncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.CausasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.CausantesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.AlmacenNoConformeRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.EvaluacionIncidenciaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto.IncidenciasEnvasadoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.datasetJacinto">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.DecripcionTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.AccionesInmediatasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.AccionesPreventivasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.AccionesCorrectivasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.SegumientosIncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.CausasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.CausantesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.AlmacenNoConformeTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.EvaluacionIncidenciaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.IncidenciasEnvasadoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager.UpdateUpdatedRows(InformesCalidad.datasetJacinto,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager.UpdateInsertedRows(InformesCalidad.datasetJacinto,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager.UpdateDeletedRows(InformesCalidad.datasetJacinto,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager.UpdateAll(InformesCalidad.datasetJacinto)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:InformesCalidad.datasetJacintoTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.IncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinustosIncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasPorCategoriaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasCalidadDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasMantenimientoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasPlanificadasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasIntrinsecasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasCalidadMaterialesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ListadoIncidenciasDiariasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasTendenciaCalidadDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasTendenciaMantenimientoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ProduccionDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.EficaciaProduccionDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenEficaciaProduccionDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasCalidadDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasMantenimientoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CalculoOEEDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasIntrinsecasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasGestionRecursosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasPlanificadasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRecuperablesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.LimitesHorariosIncidenciasDiaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.LimitesHorariosProduccionDiariaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.TiempoDisponibleDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.EficaciaPorFormatoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CalculoEficaciaPorFormatoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.OEEDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.TiemposCambiosFormatosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisArranquesLineaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisParadasIntrinsecasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisParadaLineaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CambiosFormatosProductoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CambiosFormatosMaquinaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.FechaOEEDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.IncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinustosIncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasPorCategoriaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasCalidadRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasMantenimientoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasPlanificadasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasIntrinsecasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasCalidadMaterialesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ListadoIncidenciasDiariasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasTendenciaCalidadRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasTendenciaMantenimientoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ProduccionRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.EficaciaProduccionRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenEficaciaProduccionRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasCalidadRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasMantenimientoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CalculoOEERow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasIntrinsecasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasGestionRecursosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasPlanificadasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRecuperablesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.LimitesHorariosIncidenciasDiaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.LimitesHorariosProduccionDiariaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.TiempoDisponibleRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.EficaciaPorFormatoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CalculoEficaciaPorFormatoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.OEERow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.TiemposCambiosFormatosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisArranquesLineaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisParadasIntrinsecasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisParadaLineaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CambiosFormatosProductoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CambiosFormatosMaquinaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.FechaOEERow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.IncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinustosIncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasPorCategoriaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasCalidadRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasMantenimientoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasPlanificadasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasIntrinsecasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasDiariasCalidadMaterialesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ListadoIncidenciasDiariasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasTendenciaCalidadRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.MinutosIncidenciasTendenciaMantenimientoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ProduccionRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.EficaciaProduccionRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenEficaciaProduccionRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasCalidadRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasMantenimientoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CalculoOEERowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasIntrinsecasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasGestionRecursosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasPlanificadasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRecuperablesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.LimitesHorariosIncidenciasDiaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.LimitesHorariosProduccionDiariaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.TiempoDisponibleRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.EficaciaPorFormatoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CalculoEficaciaPorFormatoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.OEERowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.TiemposCambiosFormatosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisArranquesLineaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisParadasIntrinsecasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.AnalisisParadaLineaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CambiosFormatosProductoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.CambiosFormatosMaquinaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet.FechaOEERowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.LADataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.IncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinustosIncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasDiariasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasDiariasPorCategoriaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasDiariasCalidadTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasDiariasMantenimientoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasDiariasPlanificadasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasDiariasIntrinsecasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasDiariasCalidadMaterialesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ListadoIncidenciasDiariasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasTendenciaCalidadTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.MinutosIncidenciasTendenciaMantenimientoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ProduccionTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.EficaciaProduccionTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenEficaciaProduccionTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasCalidadTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasMantenimientoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.CalculoOEETableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasIntrinsecasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasGestionRecursosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasPlanificadasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasRecuperablesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.LimitesHorariosIncidenciasDiaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.LimitesHorariosProduccionDiariaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.TiempoDisponibleTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasGestionRecursosPorFormatoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasPlanificadasPorFormatoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.ResumenListadoIncidenciasRecuperablesPorFormatoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.EficaciaPorFormatoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.CalculoEficaciaPorFormatoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.OEETableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.TiemposCambiosFormatosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.AnalisisArranquesLineaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.AnalisisParadasIntrinsecasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.AnalisisParadaLineaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.CambiosFormatosProductoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.CambiosFormatosMaquinaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.FechaOEETableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:InformesCalidad.LADataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(InformesCalidad.LADataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.LADataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(InformesCalidad.LADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.LADataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(InformesCalidad.LADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:InformesCalidad.LADataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:InformesCalidad.LADataSetTableAdapters.TableAdapterManager.UpdateAll(InformesCalidad.LADataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:InformesCalidad.LADataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:InformesCalidad.Controlncidencias.IncidenciasCalidadGeneralDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Controlncidencias.ControlIncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.Controlncidencias.IncidenciasCalidadGeneralRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Controlncidencias.ControlIncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.Controlncidencias.IncidenciasCalidadGeneralRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Controlncidencias.ControlIncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.Controlncidencias">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:InformesCalidad.ControlncidenciasTableAdapters.IncidenciasCalidadGeneralTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.ControlncidenciasTableAdapters.ControlIncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager.UpdateUpdatedRows(InformesCalidad.Controlncidencias,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager.UpdateInsertedRows(InformesCalidad.Controlncidencias,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager.UpdateDeletedRows(InformesCalidad.Controlncidencias,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager.UpdateAll(InformesCalidad.Controlncidencias)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:InformesCalidad.ControlncidenciasTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticas.EnvasadosDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticas.EvolucionIncidenciasProveedorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticas.EnvasadosRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticas.EvolucionIncidenciasProveedorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticas.EnvasadosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticas.EvolucionIncidenciasProveedorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticas">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticasTableAdapters.EnvasadosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticasTableAdapters.EvolucionIncidenciasProveedorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager.UpdateUpdatedRows(InformesCalidad.DataSetEstadisticas,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager.UpdateInsertedRows(InformesCalidad.DataSetEstadisticas,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager.UpdateDeletedRows(InformesCalidad.DataSetEstadisticas,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager.UpdateAll(InformesCalidad.DataSetEstadisticas)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:InformesCalidad.DataSetEstadisticasTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasados.IncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasados.EvolucionIncidenciaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasados.IncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasados.EvolucionIncidenciaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasados.IncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasados.EvolucionIncidenciaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasados">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasadosTableAdapters.IncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasadosTableAdapters.EvolucionIncidenciaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager.UpdateUpdatedRows(InformesCalidad.IncidenciasEnvasados,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager.UpdateInsertedRows(InformesCalidad.IncidenciasEnvasados,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager.UpdateDeletedRows(InformesCalidad.IncidenciasEnvasados,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager.UpdateAll(InformesCalidad.IncidenciasEnvasados)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:InformesCalidad.IncidenciasEnvasadosTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConforme.AlmacenNCDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConforme.AlmacenNCRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConforme.AlmacenNCRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConforme">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConformeTableAdapters.AlmacenNCTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager.UpdateUpdatedRows(InformesCalidad.AlmacenNoConforme,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager.UpdateInsertedRows(InformesCalidad.AlmacenNoConforme,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager.UpdateDeletedRows(InformesCalidad.AlmacenNoConforme,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager.UpdateAll(InformesCalidad.AlmacenNoConforme)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:InformesCalidad.AlmacenNoConformeTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:InformesCalidad.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:InformesCalidad.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member><member name="P:InformesCalidad.My.Resources.Resources.LAConnectionString">
+	<summary>
+  Busca una cadena traducida similar a Data Source=192.168.1.200;Initial Catalog=LA;Persist Security Info=True;User ID=ssa;Password=Trucha0122.
+</summary>
+</member><member name="T:InformesCalidad.My.Resources.Resources">
+	<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+</members>
+</doc>
