@@ -25,6 +25,13 @@
 
     Private Sub recargar()
         Me.LADataSet.EnforceConstraints = False
+        Dim par1 As New Microsoft.Reporting.WinForms.ReportParameter("fecha1", Me.fecha.ToShortDateString)
+        Dim par2 As New Microsoft.Reporting.WinForms.ReportParameter("fecha2", Me.fecha2.ToShortDateString)
+
+
+
+        ReportViewer1.LocalReport.SetParameters(par1)
+        ReportViewer1.LocalReport.SetParameters(par2)
         'TODO: esta línea de código carga datos en la tabla 'LADataSet.ListadoIncidencias' Puede moverla o quitarla según sea necesario.
         Me.ListadoIncidenciasTableAdapter.Fill(Me.LADataSet.ListadoIncidencias, Me.fecha, Me.fecha2)
 
