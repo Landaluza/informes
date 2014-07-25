@@ -1,12 +1,12 @@
 ﻿Public Class SelectorFecha
-    'Public Sub New(ByVal connectionstring As String)
+    Public Sub New(ByVal connectionstring As String)
 
 
-    '    InitializeComponent()
+        InitializeComponent()
 
-    '    My.Settings.Item("LAConnectionString") = connectionstring
+        My.Settings.Item("LAConnectionString") = connectionstring
 
-    'End Sub
+    End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnVer.Click
         Dim informe As InformeVinagre
