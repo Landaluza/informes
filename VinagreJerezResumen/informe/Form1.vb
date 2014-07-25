@@ -1,19 +1,37 @@
 ﻿Public Class Form1
+    Private fechaInicio As Date
+    Private fechaFin As Date
+
+    Public Sub New()
+
+        InitializeComponent()
+
+        fechaInicio = Now.Date.AddMonths(-1)
+        fechaFin = Now.Date
+    End Sub
+
+    Public Sub New(ByVal fechaIni As Date, ByVal fechaF As Date)
+
+        InitializeComponent()
+
+        Me.fechaFin = fechaF
+        Me.fechaInicio = fechaIni
+    End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'LADataSet.ResumenEmbotelladosIncluyePicos' table. You can move, or remove it, as needed.
-        Me.ResumenEmbotelladosIncluyePicosTableAdapter.Fill(Me.LADataSet.ResumenEmbotelladosIncluyePicos, "01/07/2014", "23/07/2014")
-        Me.ResumenEmbotelladosTableAdapter.Fill(Me.LADataSet.ResumenEmbotellados, "01/07/2014", "23/07/2014")
+        Me.ResumenEmbotelladosIncluyePicosTableAdapter.Fill(Me.LADataSet.ResumenEmbotelladosIncluyePicos, Me.fechaInicio, Me.fechaFin)
+        Me.ResumenEmbotelladosTableAdapter.Fill(Me.LADataSet.ResumenEmbotellados, Me.fechaInicio, Me.fechaFin)
         'TODO: This line of code loads data into the 'LADataSet.ResumenComprasMateriasPrimas' table. You can move, or remove it, as needed.
-        Me.ResumenComprasMateriasPrimasTableAdapter.Fill(Me.LADataSet.ResumenComprasMateriasPrimas, "01/07/2014", "23/07/2014")
+        Me.ResumenComprasMateriasPrimasTableAdapter.Fill(Me.LADataSet.ResumenComprasMateriasPrimas, Me.fechaInicio, Me.fechaFin)
         'TODO: This line of code loads data into the 'LADataSet.DetalleExpedicionesEmbotellado' table. You can move, or remove it, as needed.
-        Me.DetalleExpedicionesEmbotelladoTableAdapter.Fill(Me.LADataSet.DetalleExpedicionesEmbotellado, "01/07/2014", "23/07/2014")
+        Me.DetalleExpedicionesEmbotelladoTableAdapter.Fill(Me.LADataSet.DetalleExpedicionesEmbotellado, Me.fechaInicio, Me.fechaFin)
         'TODO: This line of code loads data into the 'LADataSet.ResumenUsadoIngrediente' table. You can move, or remove it, as needed.
-        Me.ResumenUsadoIngredienteTableAdapter.Fill(Me.LADataSet.ResumenUsadoIngrediente, "01/07/2014", "23/07/2014")
+        Me.ResumenUsadoIngredienteTableAdapter.Fill(Me.LADataSet.ResumenUsadoIngrediente, Me.fechaInicio, Me.fechaFin)
         'TODO: This line of code loads data into the 'LADataSet.ResumenExpedicionEmbotellados' table. You can move, or remove it, as needed.
-        Me.ResumenExpedicionEmbotelladosTableAdapter.Fill(Me.LADataSet.ResumenExpedicionEmbotellados, "01/07/2014", "23/07/2014")
+        Me.ResumenExpedicionEmbotelladosTableAdapter.Fill(Me.LADataSet.ResumenExpedicionEmbotellados, Me.fechaInicio, Me.fechaFin)
         'TODO: This line of code loads data into the 'LADataSet.ResumenExpedicionGranel' table. You can move, or remove it, as needed.
-        Me.ResumenExpedicionGranelTableAdapter.Fill(Me.LADataSet.ResumenExpedicionGranel, "01/07/2014", "23/07/2014")
+        Me.ResumenExpedicionGranelTableAdapter.Fill(Me.LADataSet.ResumenExpedicionGranel, Me.fechaInicio, Me.fechaFin)
 
         Me.ReportViewer1.RefreshReport()
     End Sub

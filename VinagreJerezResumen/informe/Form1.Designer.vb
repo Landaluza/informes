@@ -27,7 +27,6 @@ Partial Class Form1
         Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ResumenExpedicionEmbotelladosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LADataSet = New informe.LADataSet()
         Me.ResumenExpedicionGranelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -35,13 +34,14 @@ Partial Class Form1
         Me.DetalleExpedicionesEmbotelladoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ResumenComprasMateriasPrimasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ResumenEmbotelladosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ResumenEmbotelladosIncluyePicosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ResumenExpedicionEmbotelladosTableAdapter = New informe.LADataSetTableAdapters.ResumenExpedicionEmbotelladosTableAdapter()
         Me.ResumenExpedicionGranelTableAdapter = New informe.LADataSetTableAdapters.ResumenExpedicionGranelTableAdapter()
         Me.ResumenUsadoIngredienteTableAdapter = New informe.LADataSetTableAdapters.ResumenUsadoIngredienteTableAdapter()
         Me.DetalleExpedicionesEmbotelladoTableAdapter = New informe.LADataSetTableAdapters.DetalleExpedicionesEmbotelladoTableAdapter()
         Me.ResumenComprasMateriasPrimasTableAdapter = New informe.LADataSetTableAdapters.ResumenComprasMateriasPrimasTableAdapter()
         Me.ResumenEmbotelladosTableAdapter = New informe.LADataSetTableAdapters.ResumenEmbotelladosTableAdapter()
-        Me.ResumenEmbotelladosIncluyePicosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ResumenEmbotelladosIncluyePicosTableAdapter = New informe.LADataSetTableAdapters.ResumenEmbotelladosIncluyePicosTableAdapter()
         CType(Me.ResumenExpedicionEmbotelladosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,36 +52,6 @@ Partial Class Form1
         CType(Me.ResumenEmbotelladosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResumenEmbotelladosIncluyePicosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ReportViewer1
-        '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "ResumenExpedicionEmbotellados"
-        ReportDataSource1.Value = Me.ResumenExpedicionEmbotelladosBindingSource
-        ReportDataSource2.Name = "ResumenExpedicionGranel"
-        ReportDataSource2.Value = Me.ResumenExpedicionGranelBindingSource
-        ReportDataSource3.Name = "ResumenUsadoIngrediente"
-        ReportDataSource3.Value = Me.ResumenUsadoIngredienteBindingSource
-        ReportDataSource4.Name = "DetalleExpedicionesEmbotellado"
-        ReportDataSource4.Value = Me.DetalleExpedicionesEmbotelladoBindingSource
-        ReportDataSource5.Name = "ResumenComprasMateriasPrimas"
-        ReportDataSource5.Value = Me.ResumenComprasMateriasPrimasBindingSource
-        ReportDataSource6.Name = "ResumenEmbotellados"
-        ReportDataSource6.Value = Me.ResumenEmbotelladosBindingSource
-        ReportDataSource7.Name = "ResumenEmbotelladosIncluyePicos"
-        ReportDataSource7.Value = Me.ResumenEmbotelladosIncluyePicosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "informe.Report1.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(484, 386)
-        Me.ReportViewer1.TabIndex = 0
         '
         'ResumenExpedicionEmbotelladosBindingSource
         '
@@ -118,6 +88,41 @@ Partial Class Form1
         Me.ResumenEmbotelladosBindingSource.DataMember = "ResumenEmbotellados"
         Me.ResumenEmbotelladosBindingSource.DataSource = Me.LADataSet
         '
+        'ResumenEmbotelladosIncluyePicosBindingSource
+        '
+        Me.ResumenEmbotelladosIncluyePicosBindingSource.DataMember = "ResumenEmbotelladosIncluyePicos"
+        Me.ResumenEmbotelladosIncluyePicosBindingSource.DataSource = Me.LADataSet
+        '
+        'ReportViewer1
+        '
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        ReportDataSource1.Name = "ResumenExpedicionEmbotellados"
+        ReportDataSource1.Value = Me.ResumenExpedicionEmbotelladosBindingSource
+        ReportDataSource2.Name = "ResumenExpedicionGranel"
+        ReportDataSource2.Value = Me.ResumenExpedicionGranelBindingSource
+        ReportDataSource3.Name = "ResumenUsadoIngrediente"
+        ReportDataSource3.Value = Me.ResumenUsadoIngredienteBindingSource
+        ReportDataSource4.Name = "DetalleExpedicionesEmbotellado"
+        ReportDataSource4.Value = Me.DetalleExpedicionesEmbotelladoBindingSource
+        ReportDataSource5.Name = "ResumenComprasMateriasPrimas"
+        ReportDataSource5.Value = Me.ResumenComprasMateriasPrimasBindingSource
+        ReportDataSource6.Name = "ResumenEmbotellados"
+        ReportDataSource6.Value = Me.ResumenEmbotelladosBindingSource
+        ReportDataSource7.Name = "ResumenEmbotelladosIncluyePicos"
+        ReportDataSource7.Value = Me.ResumenEmbotelladosIncluyePicosBindingSource
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "informe.Report1.rdlc"
+        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.Size = New System.Drawing.Size(484, 386)
+        Me.ReportViewer1.TabIndex = 0
+        '
         'ResumenExpedicionEmbotelladosTableAdapter
         '
         Me.ResumenExpedicionEmbotelladosTableAdapter.ClearBeforeFill = True
@@ -141,11 +146,6 @@ Partial Class Form1
         'ResumenEmbotelladosTableAdapter
         '
         Me.ResumenEmbotelladosTableAdapter.ClearBeforeFill = True
-        '
-        'ResumenEmbotelladosIncluyePicosBindingSource
-        '
-        Me.ResumenEmbotelladosIncluyePicosBindingSource.DataMember = "ResumenEmbotelladosIncluyePicos"
-        Me.ResumenEmbotelladosIncluyePicosBindingSource.DataSource = Me.LADataSet
         '
         'ResumenEmbotelladosIncluyePicosTableAdapter
         '
