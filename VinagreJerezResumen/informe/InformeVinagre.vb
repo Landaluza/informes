@@ -1,10 +1,12 @@
-﻿Public Class Form1
+﻿Public Class InformeVinagre
     Private fechaInicio As Date
     Private fechaFin As Date
+
 
     Public Sub New()
 
         InitializeComponent()
+
 
         fechaInicio = Now.Date.AddMonths(-1)
         fechaFin = Now.Date

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class InformeVinagre
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -151,14 +151,14 @@ Partial Class Form1
         '
         Me.ResumenEmbotelladosIncluyePicosTableAdapter.ClearBeforeFill = True
         '
-        'Form1
+        'InformeVinagre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 386)
         Me.Controls.Add(Me.VisorDeReporte)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "InformeVinagre"
+        Me.Text = "Resumen vinagre"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.ResumenExpedicionEmbotelladosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).EndInit()
