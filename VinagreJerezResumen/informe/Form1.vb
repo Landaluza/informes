@@ -19,6 +19,12 @@
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Dim parametro As New Microsoft.Reporting.WinForms.ReportParameter("FechaInicio", Me.fechaInicio.ToShortDateString)
+        Dim parametro2 As New Microsoft.Reporting.WinForms.ReportParameter("FechaFin", Me.fechaFin.ToShortDateString)
+        Me.VisorDeReporte.LocalReport.SetParameters(parametro)
+        Me.VisorDeReporte.LocalReport.SetParameters(parametro2)
+
         'TODO: This line of code loads data into the 'LADataSet.ResumenEmbotelladosIncluyePicos' table. You can move, or remove it, as needed.
         Me.ResumenEmbotelladosIncluyePicosTableAdapter.Fill(Me.LADataSet.ResumenEmbotelladosIncluyePicos, Me.fechaInicio, Me.fechaFin)
         Me.ResumenEmbotelladosTableAdapter.Fill(Me.LADataSet.ResumenEmbotellados, Me.fechaInicio, Me.fechaFin)
@@ -33,7 +39,7 @@
         'TODO: This line of code loads data into the 'LADataSet.ResumenExpedicionGranel' table. You can move, or remove it, as needed.
         Me.ResumenExpedicionGranelTableAdapter.Fill(Me.LADataSet.ResumenExpedicionGranel, Me.fechaInicio, Me.fechaFin)
 
-        Me.ReportViewer1.RefreshReport()
+        Me.VisorDeReporte.RefreshReport()
     End Sub
 
 End Class

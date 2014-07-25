@@ -35,7 +35,7 @@ Partial Class Form1
         Me.ResumenComprasMateriasPrimasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ResumenEmbotelladosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ResumenEmbotelladosIncluyePicosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.VisorDeReporte = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ResumenExpedicionEmbotelladosTableAdapter = New informe.LADataSetTableAdapters.ResumenExpedicionEmbotelladosTableAdapter()
         Me.ResumenExpedicionGranelTableAdapter = New informe.LADataSetTableAdapters.ResumenExpedicionGranelTableAdapter()
         Me.ResumenUsadoIngredienteTableAdapter = New informe.LADataSetTableAdapters.ResumenUsadoIngredienteTableAdapter()
@@ -93,9 +93,9 @@ Partial Class Form1
         Me.ResumenEmbotelladosIncluyePicosBindingSource.DataMember = "ResumenEmbotelladosIncluyePicos"
         Me.ResumenEmbotelladosIncluyePicosBindingSource.DataSource = Me.LADataSet
         '
-        'ReportViewer1
+        'VisorDeReporte
         '
-        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VisorDeReporte.Dock = System.Windows.Forms.DockStyle.Fill
         ReportDataSource1.Name = "ResumenExpedicionEmbotellados"
         ReportDataSource1.Value = Me.ResumenExpedicionEmbotelladosBindingSource
         ReportDataSource2.Name = "ResumenExpedicionGranel"
@@ -110,18 +110,18 @@ Partial Class Form1
         ReportDataSource6.Value = Me.ResumenEmbotelladosBindingSource
         ReportDataSource7.Name = "ResumenEmbotelladosIncluyePicos"
         ReportDataSource7.Value = Me.ResumenEmbotelladosIncluyePicosBindingSource
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
-        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "informe.Report1.rdlc"
-        Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
-        Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.Size = New System.Drawing.Size(484, 386)
-        Me.ReportViewer1.TabIndex = 0
+        Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource1)
+        Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource2)
+        Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource3)
+        Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource5)
+        Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource6)
+        Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource7)
+        Me.VisorDeReporte.LocalReport.ReportEmbeddedResource = "informe.Report1.rdlc"
+        Me.VisorDeReporte.Location = New System.Drawing.Point(0, 0)
+        Me.VisorDeReporte.Name = "VisorDeReporte"
+        Me.VisorDeReporte.Size = New System.Drawing.Size(484, 386)
+        Me.VisorDeReporte.TabIndex = 0
         '
         'ResumenExpedicionEmbotelladosTableAdapter
         '
@@ -156,7 +156,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(484, 386)
-        Me.Controls.Add(Me.ReportViewer1)
+        Me.Controls.Add(Me.VisorDeReporte)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -171,7 +171,7 @@ Partial Class Form1
         Me.ResumeLayout(False)
 
     End Sub
-    Private WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
+    Private WithEvents VisorDeReporte As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents ResumenExpedicionEmbotelladosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents LADataSet As informe.LADataSet
     Friend WithEvents ResumenExpedicionGranelBindingSource As System.Windows.Forms.BindingSource

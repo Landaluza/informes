@@ -1145,7 +1145,7 @@
         <Top>2.41184cm</Top>
         <Left>0.635cm</Left>
         <Height>1.91437cm</Height>
-        <Width>17.58491cm</Width>
+        <Width>17.58495cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -3552,7 +3552,7 @@
         <Top>11.2525cm</Top>
         <Left>0.66822cm</Left>
         <Height>5.92833cm</Height>
-        <Width>17.55169cm</Width>
+        <Width>17.55168cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -4870,8 +4870,8 @@
         <DataSetName>ResumenEmbotellados</DataSetName>
         <Top>21.3833cm</Top>
         <Left>0.69469cm</Left>
-        <Height>2.22691cm</Height>
-        <Width>17.51229cm</Width>
+        <Height>2.22692cm</Height>
+        <Width>17.51228cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -6181,8 +6181,8 @@
         </SortExpressions>
         <Top>5.65362cm</Top>
         <Left>0.63497cm</Left>
-        <Height>1.79917cm</Height>
-        <Width>17.58494cm</Width>
+        <Height>1.79918cm</Height>
+        <Width>17.58495cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -6194,6 +6194,16 @@
     <Height>10.7614in</Height>
     <Style />
   </Body>
+  <ReportParameters>
+    <ReportParameter Name="FechaInicio">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="FechaFin">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <Width>7.56152in</Width>
   <Page>
     <PageHeader>
@@ -6243,7 +6253,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Mayo 2014</Value>
+                  <Value>= " Datos entre " &amp; Parameters!FechaInicio.Value &amp; " y " &amp; Parameters!FechaFin.Value</Value>
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontWeight>Bold</FontWeight>
