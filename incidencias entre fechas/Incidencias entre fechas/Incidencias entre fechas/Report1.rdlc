@@ -11,7 +11,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.75875cm</Height>
+              <Height>1.27554cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -57,7 +57,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.67937cm</Height>
+              <Height>1.19616cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -98,7 +98,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.11679cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -140,7 +140,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.11679cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -182,7 +182,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>1.11679cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -932,8 +932,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsIncidencias</DataSetName>
-        <Top>1.50772cm</Top>
-        <Height>3.23812cm</Height>
+        <Top>0.07056cm</Top>
+        <Left>0.10266cm</Left>
+        <Height>5.82207cm</Height>
         <Width>16.52593cm</Width>
         <Style>
           <Border>
@@ -942,13 +943,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.11507in</Height>
+    <Height>2.37549in</Height>
     <Style />
   </Body>
-  <Width>9.55592in</Width>
+  <Width>6.66947in</Width>
   <Page>
     <PageHeader>
-      <Height>3.30412cm</Height>
+      <Height>2.32516cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1086,53 +1087,12 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageFooter>
-      <Height>2.84772cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="PageNumber">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Globals!PageNumber</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>1.8773cm</Top>
-          <Left>20.68461cm</Left>
-          <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
+    <PageHeight>29cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>0.5cm</LeftMargin>
+    <RightMargin>0.5cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>0.5cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
