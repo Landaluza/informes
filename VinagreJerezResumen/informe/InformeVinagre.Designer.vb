@@ -28,7 +28,7 @@ Partial Class InformeVinagre
         Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ResumenExpedicionEmbotelladosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LADataSet = New informe.LADataSet()
+        Me.LADataSet = New InformeResumenVinagre.LADataSet()
         Me.ResumenExpedicionGranelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ResumenUsadoIngredienteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DetalleExpedicionesEmbotelladoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -36,13 +36,13 @@ Partial Class InformeVinagre
         Me.ResumenEmbotelladosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ResumenEmbotelladosIncluyePicosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VisorDeReporte = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.ResumenExpedicionEmbotelladosTableAdapter = New informe.LADataSetTableAdapters.ResumenExpedicionEmbotelladosTableAdapter()
-        Me.ResumenExpedicionGranelTableAdapter = New informe.LADataSetTableAdapters.ResumenExpedicionGranelTableAdapter()
-        Me.ResumenUsadoIngredienteTableAdapter = New informe.LADataSetTableAdapters.ResumenUsadoIngredienteTableAdapter()
-        Me.DetalleExpedicionesEmbotelladoTableAdapter = New informe.LADataSetTableAdapters.DetalleExpedicionesEmbotelladoTableAdapter()
-        Me.ResumenComprasMateriasPrimasTableAdapter = New informe.LADataSetTableAdapters.ResumenComprasMateriasPrimasTableAdapter()
-        Me.ResumenEmbotelladosTableAdapter = New informe.LADataSetTableAdapters.ResumenEmbotelladosTableAdapter()
-        Me.ResumenEmbotelladosIncluyePicosTableAdapter = New informe.LADataSetTableAdapters.ResumenEmbotelladosIncluyePicosTableAdapter()
+        Me.ResumenExpedicionEmbotelladosTableAdapter = New InformeResumenVinagre.LADataSetTableAdapters.ResumenExpedicionEmbotelladosTableAdapter()
+        Me.ResumenExpedicionGranelTableAdapter = New InformeResumenVinagre.LADataSetTableAdapters.ResumenExpedicionGranelTableAdapter()
+        Me.ResumenUsadoIngredienteTableAdapter = New InformeResumenVinagre.LADataSetTableAdapters.ResumenUsadoIngredienteTableAdapter()
+        Me.DetalleExpedicionesEmbotelladoTableAdapter = New InformeResumenVinagre.LADataSetTableAdapters.DetalleExpedicionesEmbotelladoTableAdapter()
+        Me.ResumenComprasMateriasPrimasTableAdapter = New InformeResumenVinagre.LADataSetTableAdapters.ResumenComprasMateriasPrimasTableAdapter()
+        Me.ResumenEmbotelladosTableAdapter = New InformeResumenVinagre.LADataSetTableAdapters.ResumenEmbotelladosTableAdapter()
+        Me.ResumenEmbotelladosIncluyePicosTableAdapter = New InformeResumenVinagre.LADataSetTableAdapters.ResumenEmbotelladosIncluyePicosTableAdapter()
         CType(Me.ResumenExpedicionEmbotelladosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ResumenExpedicionGranelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,19 +173,19 @@ Partial Class InformeVinagre
     End Sub
     Private WithEvents VisorDeReporte As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents ResumenExpedicionEmbotelladosBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents LADataSet As informe.LADataSet
+    Friend WithEvents LADataSet As InformeResumenVinagre.LADataSet
     Friend WithEvents ResumenExpedicionGranelBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ResumenUsadoIngredienteBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DetalleExpedicionesEmbotelladoBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ResumenExpedicionEmbotelladosTableAdapter As informe.LADataSetTableAdapters.ResumenExpedicionEmbotelladosTableAdapter
-    Friend WithEvents ResumenExpedicionGranelTableAdapter As informe.LADataSetTableAdapters.ResumenExpedicionGranelTableAdapter
-    Friend WithEvents ResumenUsadoIngredienteTableAdapter As informe.LADataSetTableAdapters.ResumenUsadoIngredienteTableAdapter
-    Friend WithEvents DetalleExpedicionesEmbotelladoTableAdapter As informe.LADataSetTableAdapters.DetalleExpedicionesEmbotelladoTableAdapter
+    Friend WithEvents ResumenExpedicionEmbotelladosTableAdapter As InformeResumenVinagre.LADataSetTableAdapters.ResumenExpedicionEmbotelladosTableAdapter
+    Friend WithEvents ResumenExpedicionGranelTableAdapter As InformeResumenVinagre.LADataSetTableAdapters.ResumenExpedicionGranelTableAdapter
+    Friend WithEvents ResumenUsadoIngredienteTableAdapter As InformeResumenVinagre.LADataSetTableAdapters.ResumenUsadoIngredienteTableAdapter
+    Friend WithEvents DetalleExpedicionesEmbotelladoTableAdapter As InformeResumenVinagre.LADataSetTableAdapters.DetalleExpedicionesEmbotelladoTableAdapter
     Friend WithEvents ResumenComprasMateriasPrimasBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ResumenComprasMateriasPrimasTableAdapter As informe.LADataSetTableAdapters.ResumenComprasMateriasPrimasTableAdapter
+    Friend WithEvents ResumenComprasMateriasPrimasTableAdapter As InformeResumenVinagre.LADataSetTableAdapters.ResumenComprasMateriasPrimasTableAdapter
     Friend WithEvents ResumenEmbotelladosBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ResumenEmbotelladosTableAdapter As informe.LADataSetTableAdapters.ResumenEmbotelladosTableAdapter
+    Friend WithEvents ResumenEmbotelladosTableAdapter As InformeResumenVinagre.LADataSetTableAdapters.ResumenEmbotelladosTableAdapter
     Friend WithEvents ResumenEmbotelladosIncluyePicosBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents ResumenEmbotelladosIncluyePicosTableAdapter As informe.LADataSetTableAdapters.ResumenEmbotelladosIncluyePicosTableAdapter
+    Friend WithEvents ResumenEmbotelladosIncluyePicosTableAdapter As InformeResumenVinagre.LADataSetTableAdapters.ResumenEmbotelladosIncluyePicosTableAdapter
 
 End Class

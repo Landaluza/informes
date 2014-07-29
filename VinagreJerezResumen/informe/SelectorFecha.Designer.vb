@@ -100,7 +100,7 @@ Partial Class SelectorFecha
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.informe.My.Resources.Resources.vinagrera_y_botella_generic
+        Me.BackgroundImage = Global.InformeResumenVinagre.My.Resources.Resources.vinagrera_y_botella_generic
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(284, 238)
         Me.Controls.Add(Me.btnSalir)
