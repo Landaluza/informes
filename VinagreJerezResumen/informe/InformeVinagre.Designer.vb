@@ -117,10 +117,10 @@ Partial Class InformeVinagre
         Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource5)
         Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource6)
         Me.VisorDeReporte.LocalReport.DataSources.Add(ReportDataSource7)
-        Me.VisorDeReporte.LocalReport.ReportEmbeddedResource = "informe.Report1.rdlc"
+        Me.VisorDeReporte.LocalReport.ReportEmbeddedResource = "InformeResumenVinagre.Report1.rdlc"
         Me.VisorDeReporte.Location = New System.Drawing.Point(0, 0)
         Me.VisorDeReporte.Name = "VisorDeReporte"
-        Me.VisorDeReporte.Size = New System.Drawing.Size(484, 386)
+        Me.VisorDeReporte.Size = New System.Drawing.Size(565, 386)
         Me.VisorDeReporte.TabIndex = 0
         '
         'ResumenExpedicionEmbotelladosTableAdapter
@@ -155,7 +155,7 @@ Partial Class InformeVinagre
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(484, 386)
+        Me.ClientSize = New System.Drawing.Size(565, 386)
         Me.Controls.Add(Me.VisorDeReporte)
         Me.Name = "InformeVinagre"
         Me.Text = "Resumen vinagre"

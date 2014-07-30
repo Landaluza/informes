@@ -22,6 +22,7 @@
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+
         Dim parametro As New Microsoft.Reporting.WinForms.ReportParameter("FechaInicio", Me.fechaInicio.ToShortDateString)
         Dim parametro2 As New Microsoft.Reporting.WinForms.ReportParameter("FechaFin", Me.fechaFin.ToShortDateString)
         Me.VisorDeReporte.LocalReport.SetParameters(parametro)
