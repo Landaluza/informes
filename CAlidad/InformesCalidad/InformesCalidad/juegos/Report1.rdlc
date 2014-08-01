@@ -4507,7 +4507,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Expr1.Value, "FechaSeleccion")</Value>
+                  <Value>=FormatDateTime(First(Fields!Expr1.Value, "FechaSeleccion"), DateFormat.ShortDate)</Value>
                   <Style>
                     <FontSize>16pt</FontSize>
                   </Style>
