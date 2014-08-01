@@ -1,11 +1,18 @@
-﻿Public Class Form1
+﻿Public Class frmOee
     Private con As System.Data.SqlClient.SqlConnection
     Private cmd As System.Data.SqlClient.SqlCommand
     Private reader As System.Data.SqlClient.SqlDataReader
     Private reg As LADataSet.OEEAnoTotalRow
-    Public Sub New()
+    'Public Sub New()
+    '    InitializeComponent()
+    '    My.Settings.Item("LAConnectionString") = "workstation id=192.168.1.200;packet size=4096;Connect Timeout = 3000;User ID=ssa;Password=Trucha0122;Trusted_Connection=False;data source= 192.168.1.200;persist security info=False;initial catalog=LA"
+
+    '    con = New System.Data.SqlClient.SqlConnection(My.Settings.Item("LAConnectionString"))
+    'End Sub
+
+    Public Sub New(ByVal conexion As String)
         InitializeComponent()
-        My.Settings.Item("LAConnectionString") = "workstation id=192.168.1.200;packet size=4096;Connect Timeout = 3000;User ID=ssa;Password=Trucha0122;Trusted_Connection=False;data source= 192.168.1.200;persist security info=False;initial catalog=LA"
+        My.Settings.Item("LAConnectionString") = conexion
 
         con = New System.Data.SqlClient.SqlConnection(My.Settings.Item("LAConnectionString"))
     End Sub
@@ -20,7 +27,7 @@
 
             con.Open()
             cmd = New System.Data.SqlClient.SqlCommand("OEEAnoTotal", con)
-            cmd.CommandTimeout = 500            
+            cmd.CommandTimeout = 500
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Parameters.AddWithValue("@fecha", Me.DateTimePicker1.Value)
             reader = cmd.ExecuteReader()
@@ -42,7 +49,7 @@
             If con.State = ConnectionState.Open Then con.Close()
         End Try
 
-        Try            
+        Try
             Me.OEEMesTableAdapter.Fill(Me.LADataSet.OEEMes, Me.DateTimePicker1.Value)
         Catch ex As Exception
             MessageBox.Show("Error al cargar datos diarios. Detalles: " & Environment.NewLine & ex.Message, "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)

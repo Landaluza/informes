@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class frmOee
     Inherits System.Windows.Forms.Form
 
     'Form invalida a Dispose para limpiar la lista de componentes.
@@ -26,7 +26,7 @@ Partial Class Form1
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOee))
         Me.OEEAnoTotalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LADataSet = New OEE.LADataSet()
         Me.OEEMesBindingSource = New System.Windows.Forms.BindingSource(Me.components)

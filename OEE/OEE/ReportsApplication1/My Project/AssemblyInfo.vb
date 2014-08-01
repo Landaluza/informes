@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 '
 ' Revise los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("ReportsApplication1")> 
+<Assembly: AssemblyTitle("OEE")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("ReportsApplication1")> 
+<Assembly: AssemblyProduct("OEE")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")> 
 
