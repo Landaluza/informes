@@ -98,7 +98,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.85221cm</Height>
+              <Height>0.53471cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -135,17 +135,16 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.85221cm</Height>
+              <Height>0.53471cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Minutos3">
+                    <Textbox Name="Minutos1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -161,7 +160,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Minutos3</rd:DefaultName>
+                      <rd:DefaultName>Minutos1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -278,7 +277,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>4.82953cm</Size>
+                        <Size>7.91598cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox26">
                             <CanGrow>true</CanGrow>
@@ -411,7 +410,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>4.82953cm</Size>
+                        <Size>7.91598cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox27">
                             <CanGrow>true</CanGrow>
@@ -557,7 +556,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>4.82953cm</Size>
+                        <Size>7.91598cm</Size>
                         <CellContents>
                           <Textbox Name="Textbox28">
                             <CanGrow>true</CanGrow>
@@ -609,11 +608,12 @@
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!Incidencia.Value</Value>
+                          <Value>=Sum(Fields!Minutos.Value)</Value>
+                          <Direction>Descending</Direction>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>4.82953cm</Size>
+                        <Size>7.91598cm</Size>
                         <CellContents>
                           <Textbox Name="Incidencia">
                             <CanGrow>true</CanGrow>
@@ -644,6 +644,7 @@
                               <PaddingBottom>2pt</PaddingBottom>
                             </Style>
                           </Textbox>
+                          <rd:Selected>true</rd:Selected>
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
@@ -659,8 +660,8 @@
         <DataSetName>dsIncidencias</DataSetName>
         <Top>0.07056cm</Top>
         <Left>0.10266cm</Left>
-        <Height>2.98549cm</Height>
-        <Width>13.33682cm</Width>
+        <Height>2.35049cm</Height>
+        <Width>16.42327cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -668,7 +669,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.58382in</Height>
+    <Height>1.21924in</Height>
     <Style />
   </Body>
   <Width>6.66947in</Width>
