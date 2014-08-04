@@ -627,7 +627,7 @@
                                   </TextRun>
                                 </TextRuns>
                                 <Style>
-                                  <TextAlign>Center</TextAlign>
+                                  <TextAlign>Left</TextAlign>
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
@@ -686,7 +686,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Resumen de incidencias de</Value>
+                  <Value>Resumen de incidencias del</Value>
                   <Style>
                     <FontSize>18pt</FontSize>
                   </Style>
@@ -699,7 +699,7 @@
           <Top>1.08162cm</Top>
           <Left>0.10266cm</Left>
           <Height>1.24354cm</Height>
-          <Width>8.01688cm</Width>
+          <Width>8.19327cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -728,9 +728,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>1.08162cm</Top>
-          <Left>8.15481cm</Left>
+          <Left>8.43704cm</Left>
           <Height>1.24354cm</Height>
-          <Width>3.7218cm</Width>
+          <Width>3.43957cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -781,7 +781,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>a</Value>
+                  <Value>al</Value>
                   <Style>
                     <FontSize>18pt</FontSize>
                   </Style>
