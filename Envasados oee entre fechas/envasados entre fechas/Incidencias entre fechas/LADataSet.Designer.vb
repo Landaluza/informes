@@ -25,39 +25,43 @@ Option Explicit On
 Partial Public Class LADataSet
     Inherits Global.System.Data.DataSet
     
-    Private tableListadoIncidencias As ListadoIncidenciasDataTable
-
+    Private tableListadoFormatos As ListadoFormatosDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Sub New()
-        MyBase.New()
-        Me.BeginInit()
-        Me.InitClass()
+        MyBase.New
+        Me.BeginInit
+        Me.InitClass
         Dim schemaChangedHandler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
         AddHandler MyBase.Tables.CollectionChanged, schemaChangedHandler
         AddHandler MyBase.Relations.CollectionChanged, schemaChangedHandler
-        Me.EndInit()
+        Me.EndInit
+        Me.InitExpressions
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-        MyBase.New(info, context, False)
-        If (Me.IsBinarySerialized(info, context) = True) Then
-            Me.InitVars(False)
+        MyBase.New(info, context, false)
+        If (Me.IsBinarySerialized(info, context) = true) Then
+            Me.InitVars(false)
             Dim schemaChangedHandler1 As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
             AddHandler Me.Tables.CollectionChanged, schemaChangedHandler1
             AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
+            If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.ExcludeSchema) Then
+                Me.InitExpressions
+            End If
             Return
         End If
-        Dim strSchema As String = CType(info.GetValue("XmlSchema", GetType(String)), String)
+        Dim strSchema As String = CType(info.GetValue("XmlSchema", GetType(String)),String)
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("ListadoIncidencias")) Is Nothing) Then
-                MyBase.Tables.Add(New ListadoIncidenciasDataTable(ds.Tables("ListadoIncidencias")))
+            If (Not (ds.Tables("ListadoFormatos")) Is Nothing) Then
+                MyBase.Tables.Add(New ListadoFormatosDataTable(ds.Tables("ListadoFormatos")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -65,96 +69,98 @@ Partial Public Class LADataSet
             Me.Locale = ds.Locale
             Me.CaseSensitive = ds.CaseSensitive
             Me.EnforceConstraints = ds.EnforceConstraints
-            Me.Merge(ds, False, Global.System.Data.MissingSchemaAction.Add)
-            Me.InitVars()
+            Me.Merge(ds, false, Global.System.Data.MissingSchemaAction.Add)
+            Me.InitVars
         Else
             Me.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
+            Me.InitExpressions
         End If
         Me.GetSerializationData(info, context)
         Dim schemaChangedHandler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
         AddHandler MyBase.Tables.CollectionChanged, schemaChangedHandler
         AddHandler Me.Relations.CollectionChanged, schemaChangedHandler
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-     Global.System.ComponentModel.Browsable(False), _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)> _
-    Public ReadOnly Property ListadoIncidencias() As ListadoIncidenciasDataTable
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property ListadoFormatos() As ListadoFormatosDataTable
         Get
-            Return Me.tableListadoIncidencias
+            Return Me.tableListadoFormatos
         End Get
     End Property
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-     Global.System.ComponentModel.BrowsableAttribute(True), _
-     Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.BrowsableAttribute(true),  _
+     Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
         Get
             Return Me._schemaSerializationMode
         End Get
-        Set(value As Global.System.Data.SchemaSerializationMode)
+        Set
             Me._schemaSerializationMode = value
         End Set
     End Property
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-     Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Hidden)> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
     Public Shadows ReadOnly Property Tables() As Global.System.Data.DataTableCollection
         Get
             Return MyBase.Tables
         End Get
     End Property
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-     Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Hidden)> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
     Public Shadows ReadOnly Property Relations() As Global.System.Data.DataRelationCollection
         Get
             Return MyBase.Relations
         End Get
     End Property
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Protected Overrides Sub InitializeDerivedDataSet()
-        Me.BeginInit()
-        Me.InitClass()
-        Me.EndInit()
+        Me.BeginInit
+        Me.InitClass
+        Me.EndInit
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As LADataSet = CType(MyBase.Clone, LADataSet)
-        cln.InitVars()
+        Dim cln As LADataSet = CType(MyBase.Clone,LADataSet)
+        cln.InitVars
+        cln.InitExpressions
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
     End Function
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Protected Overrides Function ShouldSerializeTables() As Boolean
-        Return False
+        Return false
     End Function
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Protected Overrides Function ShouldSerializeRelations() As Boolean
-        Return False
+        Return false
     End Function
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Protected Overrides Sub ReadXmlSerializable(ByVal reader As Global.System.Xml.XmlReader)
         If (Me.DetermineSchemaSerializationMode(reader) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
-            Me.Reset()
+            Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("ListadoIncidencias")) Is Nothing) Then
-                MyBase.Tables.Add(New ListadoIncidenciasDataTable(ds.Tables("ListadoIncidencias")))
+            If (Not (ds.Tables("ListadoFormatos")) Is Nothing) Then
+                MyBase.Tables.Add(New ListadoFormatosDataTable(ds.Tables("ListadoFormatos")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -162,68 +168,68 @@ Partial Public Class LADataSet
             Me.Locale = ds.Locale
             Me.CaseSensitive = ds.CaseSensitive
             Me.EnforceConstraints = ds.EnforceConstraints
-            Me.Merge(ds, False, Global.System.Data.MissingSchemaAction.Add)
-            Me.InitVars()
+            Me.Merge(ds, false, Global.System.Data.MissingSchemaAction.Add)
+            Me.InitVars
         Else
             Me.ReadXml(reader)
-            Me.InitVars()
+            Me.InitVars
         End If
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Protected Overrides Function GetSchemaSerializable() As Global.System.Xml.Schema.XmlSchema
         Dim stream As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
         Me.WriteXmlSchema(New Global.System.Xml.XmlTextWriter(stream, Nothing))
         stream.Position = 0
         Return Global.System.Xml.Schema.XmlSchema.Read(New Global.System.Xml.XmlTextReader(stream), Nothing)
     End Function
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars()
-        Me.InitVars(True)
+        Me.InitVars(true)
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableListadoIncidencias = CType(MyBase.Tables("ListadoIncidencias"), ListadoIncidenciasDataTable)
-        If (initTable = True) Then
-            If (Not (Me.tableListadoIncidencias) Is Nothing) Then
-                Me.tableListadoIncidencias.InitVars()
+        Me.tableListadoFormatos = CType(MyBase.Tables("ListadoFormatos"),ListadoFormatosDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableListadoFormatos) Is Nothing) Then
+                Me.tableListadoFormatos.InitVars
             End If
         End If
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Sub InitClass()
         Me.DataSetName = "LADataSet"
         Me.Prefix = ""
         Me.Namespace = "http://tempuri.org/LADataSet.xsd"
-        Me.EnforceConstraints = True
+        Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableListadoIncidencias = New ListadoIncidenciasDataTable()
-        MyBase.Tables.Add(Me.tableListadoIncidencias)
+        Me.tableListadoFormatos = New ListadoFormatosDataTable(false)
+        MyBase.Tables.Add(Me.tableListadoFormatos)
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-    Private Function ShouldSerializeListadoIncidencias() As Boolean
-        Return False
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeListadoFormatos() As Boolean
+        Return false
     End Function
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As Global.System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = Global.System.ComponentModel.CollectionChangeAction.Remove) Then
-            Me.InitVars()
+            Me.InitVars
         End If
     End Sub
-
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
         Dim ds As LADataSet = New LADataSet()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
@@ -236,74 +242,110 @@ Partial Public Class LADataSet
         If xs.Contains(dsSchema.TargetNamespace) Then
             Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
             Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-            Try
+            Try 
                 Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
                 dsSchema.Write(s1)
                 Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
                 Do While schemas.MoveNext
-                    schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                    schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
                     s2.SetLength(0)
                     schema.Write(s2)
                     If (s1.Length = s2.Length) Then
                         s1.Position = 0
                         s2.Position = 0
-
-                        Do While ((s1.Position <> s1.Length) _
+                        
+                        Do While ((s1.Position <> s1.Length)  _
                                     AndAlso (s1.ReadByte = s2.ReadByte))
-
-
+                            
+                            
                         Loop
                         If (s1.Position = s1.Length) Then
                             Return type
                         End If
                     End If
-
+                    
                 Loop
             Finally
                 If (Not (s1) Is Nothing) Then
-                    s1.Close()
+                    s1.Close
                 End If
                 If (Not (s2) Is Nothing) Then
-                    s2.Close()
+                    s2.Close
                 End If
             End Try
         End If
         xs.Add(dsSchema)
         Return type
     End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Sub InitExpressions()
+        Me.ListadoFormatos.TiempoEnvasadoCorregidoColumn.Expression = "TiempoRegistradoEnvasado-Planificadas-GestionRecursos-Intrinsecas-CambiosFormato"
+        Me.ListadoFormatos.UnidadesEsperadasColumn.Expression = "(VelocidadTeorica/60)*TiempoEnvasadoCorregido"
+        Me.ListadoFormatos.EficaciaColumn.Expression = "UnidadesFabricadas/UnidadesEsperadas"
+        Me.ListadoFormatos.VelocidadMaquinaColumn.Expression = "UnidadesFabricadas/(TiempoEnvasadoCorregido/60)"
+        Me.ListadoFormatos.DisponibilidadColumn.Expression = "TiempoEnvasadoCorregido/TiempoRegistradoEnvasado"
+        Me.ListadoFormatos.OEEColumn.Expression = "Disponibilidad*Eficacia"
+    End Sub
 
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-    Public Delegate Sub ListadoIncidenciasRowChangeEventHandler(ByVal sender As Object, ByVal e As ListadoIncidenciasRowChangeEvent)
+    Public Delegate Sub ListadoFormatosRowChangeEventHandler(ByVal sender As Object, ByVal e As ListadoFormatosRowChangeEvent)
 
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(), _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
-    Partial Public Class ListadoIncidenciasDataTable
-        Inherits Global.System.Data.TypedTableBase(Of ListadoIncidenciasRow)
-
-        Private columnEnvasadoID As Global.System.Data.DataColumn
-
-        Private columnFecha As Global.System.Data.DataColumn
-
-        Private columnMinutos As Global.System.Data.DataColumn
-
-        Private columnIncidencia As Global.System.Data.DataColumn
-
-        Private columnCategoria As Global.System.Data.DataColumn
-
-        Private columnClase As Global.System.Data.DataColumn
+    Partial Public Class ListadoFormatosDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ListadoFormatosRow)
 
         Private columnLinea As Global.System.Data.DataColumn
+
+        Private columnFormato As Global.System.Data.DataColumn
+
+        Private columnTiempoRegistradoEnvasado As Global.System.Data.DataColumn
+
+        Private columnVelocidadTeorica As Global.System.Data.DataColumn
+
+        Private columnUnidadesFabricadas As Global.System.Data.DataColumn
+
+        Private columnPlanificadas As Global.System.Data.DataColumn
+
+        Private columnGestionRecursos As Global.System.Data.DataColumn
+
+        Private columnIntrinsecas As Global.System.Data.DataColumn
+
+        Private columnCambiosFormato As Global.System.Data.DataColumn
+
+        Private columnTiempoEnvasadoCorregido As Global.System.Data.DataColumn
+
+        Private columnUnidadesEsperadas As Global.System.Data.DataColumn
+
+        Private columnEficacia As Global.System.Data.DataColumn
+
+        Private columnVelocidadMaquina As Global.System.Data.DataColumn
+
+        Private columnDisponibilidad As Global.System.Data.DataColumn
+
+        Private columnOEE As Global.System.Data.DataColumn
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
+            Me.New(False)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New(ByVal initExpressions As Boolean)
             MyBase.New()
-            Me.TableName = "ListadoIncidencias"
+            Me.TableName = "ListadoFormatos"
             Me.BeginInit()
             Me.InitClass()
+            If (initExpressions = True) Then
+                Me.InitExpressions()
+            End If
             Me.EndInit()
         End Sub
 
@@ -334,57 +376,121 @@ Partial Public Class LADataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property EnvasadoIDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEnvasadoID
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property FechaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnFecha
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property MinutosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnMinutos
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property IncidenciaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIncidencia
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property CategoriaColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCategoria
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property ClaseColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnClase
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public ReadOnly Property LineaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnLinea
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property FormatoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnFormato
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property TiempoRegistradoEnvasadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTiempoRegistradoEnvasado
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property VelocidadTeoricaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVelocidadTeorica
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property UnidadesFabricadasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUnidadesFabricadas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property PlanificadasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPlanificadas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property GestionRecursosColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnGestionRecursos
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property IntrinsecasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIntrinsecas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property CambiosFormatoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCambiosFormato
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property TiempoEnvasadoCorregidoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTiempoEnvasadoCorregido
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property UnidadesEsperadasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnUnidadesEsperadas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property EficaciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEficacia
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property VelocidadMaquinaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVelocidadMaquina
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property DisponibilidadColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDisponibilidad
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property OEEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOEE
             End Get
         End Property
 
@@ -399,44 +505,54 @@ Partial Public Class LADataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Default Public ReadOnly Property Item(ByVal index As Integer) As ListadoIncidenciasRow
+        Default Public ReadOnly Property Item(ByVal index As Integer) As ListadoFormatosRow
             Get
-                Return CType(Me.Rows(index), ListadoIncidenciasRow)
+                Return CType(Me.Rows(index), ListadoFormatosRow)
             End Get
         End Property
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event ListadoIncidenciasRowChanging As ListadoIncidenciasRowChangeEventHandler
+        Public Event ListadoFormatosRowChanging As ListadoFormatosRowChangeEventHandler
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event ListadoIncidenciasRowChanged As ListadoIncidenciasRowChangeEventHandler
+        Public Event ListadoFormatosRowChanged As ListadoFormatosRowChangeEventHandler
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event ListadoIncidenciasRowDeleting As ListadoIncidenciasRowChangeEventHandler
+        Public Event ListadoFormatosRowDeleting As ListadoFormatosRowChangeEventHandler
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event ListadoIncidenciasRowDeleted As ListadoIncidenciasRowChangeEventHandler
+        Public Event ListadoFormatosRowDeleted As ListadoFormatosRowChangeEventHandler
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Sub AddListadoIncidenciasRow(ByVal row As ListadoIncidenciasRow)
+        Public Overloads Sub AddListadoFormatosRow(ByVal row As ListadoFormatosRow)
             Me.Rows.Add(row)
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddListadoIncidenciasRow(ByVal Fecha As Date, ByVal Minutos As Integer, ByVal Incidencia As String, ByVal Categoria As String, ByVal Clase As String, ByVal Linea As String) As ListadoIncidenciasRow
-            Dim rowListadoIncidenciasRow As ListadoIncidenciasRow = CType(Me.NewRow, ListadoIncidenciasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha, Minutos, Incidencia, Categoria, Clase, Linea}
-            rowListadoIncidenciasRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowListadoIncidenciasRow)
-            Return rowListadoIncidenciasRow
+        Public Overloads Function AddListadoFormatosRow(ByVal Linea As String, ByVal Formato As String, ByVal TiempoRegistradoEnvasado As Integer, ByVal VelocidadTeorica As Integer, ByVal UnidadesFabricadas As Integer, ByVal Planificadas As Integer, ByVal GestionRecursos As Integer, ByVal Intrinsecas As Integer, ByVal CambiosFormato As Integer, ByVal TiempoEnvasadoCorregido As Decimal, ByVal UnidadesEsperadas As Decimal, ByVal Eficacia As Decimal, ByVal VelocidadMaquina As Decimal, ByVal Disponibilidad As Decimal, ByVal OEE As Decimal) As ListadoFormatosRow
+            Dim rowListadoFormatosRow As ListadoFormatosRow = CType(Me.NewRow, ListadoFormatosRow)
+            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, TiempoEnvasadoCorregido, UnidadesEsperadas, Eficacia, VelocidadMaquina, Disponibilidad, OEE}
+            rowListadoFormatosRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowListadoFormatosRow)
+            Return rowListadoFormatosRow
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Function AddListadoFormatosRow(ByVal Linea As String, ByVal Formato As String, ByVal TiempoRegistradoEnvasado As Integer, ByVal VelocidadTeorica As Integer, ByVal UnidadesFabricadas As Integer, ByVal Planificadas As Integer, ByVal GestionRecursos As Integer, ByVal Intrinsecas As Integer, ByVal CambiosFormato As Integer) As ListadoFormatosRow
+            Dim rowListadoFormatosRow As ListadoFormatosRow = CType(Me.NewRow, ListadoFormatosRow)
+            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing}
+            rowListadoFormatosRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowListadoFormatosRow)
+            Return rowListadoFormatosRow
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As ListadoIncidenciasDataTable = CType(MyBase.Clone, ListadoIncidenciasDataTable)
+            Dim cln As ListadoFormatosDataTable = CType(MyBase.Clone, ListadoFormatosDataTable)
             cln.InitVars()
             Return cln
         End Function
@@ -444,77 +560,114 @@ Partial Public Class LADataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New ListadoIncidenciasDataTable()
+            Return New ListadoFormatosDataTable()
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Sub InitVars()
-            Me.columnEnvasadoID = MyBase.Columns("EnvasadoID")
-            Me.columnFecha = MyBase.Columns("Fecha")
-            Me.columnMinutos = MyBase.Columns("Minutos")
-            Me.columnIncidencia = MyBase.Columns("Incidencia")
-            Me.columnCategoria = MyBase.Columns("Categoria")
-            Me.columnClase = MyBase.Columns("Clase")
             Me.columnLinea = MyBase.Columns("Linea")
+            Me.columnFormato = MyBase.Columns("Formato")
+            Me.columnTiempoRegistradoEnvasado = MyBase.Columns("TiempoRegistradoEnvasado")
+            Me.columnVelocidadTeorica = MyBase.Columns("VelocidadTeorica")
+            Me.columnUnidadesFabricadas = MyBase.Columns("UnidadesFabricadas")
+            Me.columnPlanificadas = MyBase.Columns("Planificadas")
+            Me.columnGestionRecursos = MyBase.Columns("GestionRecursos")
+            Me.columnIntrinsecas = MyBase.Columns("Intrinsecas")
+            Me.columnCambiosFormato = MyBase.Columns("CambiosFormato")
+            Me.columnTiempoEnvasadoCorregido = MyBase.Columns("TiempoEnvasadoCorregido")
+            Me.columnUnidadesEsperadas = MyBase.Columns("UnidadesEsperadas")
+            Me.columnEficacia = MyBase.Columns("Eficacia")
+            Me.columnVelocidadMaquina = MyBase.Columns("VelocidadMaquina")
+            Me.columnDisponibilidad = MyBase.Columns("Disponibilidad")
+            Me.columnOEE = MyBase.Columns("OEE")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitClass()
-            Me.columnEnvasadoID = New Global.System.Data.DataColumn("EnvasadoID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEnvasadoID)
-            Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnFecha)
-            Me.columnMinutos = New Global.System.Data.DataColumn("Minutos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMinutos)
-            Me.columnIncidencia = New Global.System.Data.DataColumn("Incidencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIncidencia)
-            Me.columnCategoria = New Global.System.Data.DataColumn("Categoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCategoria)
-            Me.columnClase = New Global.System.Data.DataColumn("Clase", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnClase)
             Me.columnLinea = New Global.System.Data.DataColumn("Linea", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnLinea)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnEnvasadoID}, False))
-            Me.columnEnvasadoID.AutoIncrement = True
-            Me.columnEnvasadoID.AutoIncrementSeed = -1
-            Me.columnEnvasadoID.AutoIncrementStep = -1
-            Me.columnEnvasadoID.ReadOnly = True
-            Me.columnEnvasadoID.Unique = True
-            Me.columnMinutos.ReadOnly = True
-            Me.columnIncidencia.MaxLength = 50
-            Me.columnCategoria.AllowDBNull = False
-            Me.columnCategoria.MaxLength = 50
-            Me.columnClase.ReadOnly = True
-            Me.columnClase.MaxLength = 8000
+            Me.columnFormato = New Global.System.Data.DataColumn("Formato", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFormato)
+            Me.columnTiempoRegistradoEnvasado = New Global.System.Data.DataColumn("TiempoRegistradoEnvasado", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTiempoRegistradoEnvasado)
+            Me.columnVelocidadTeorica = New Global.System.Data.DataColumn("VelocidadTeorica", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVelocidadTeorica)
+            Me.columnUnidadesFabricadas = New Global.System.Data.DataColumn("UnidadesFabricadas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnidadesFabricadas)
+            Me.columnPlanificadas = New Global.System.Data.DataColumn("Planificadas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPlanificadas)
+            Me.columnGestionRecursos = New Global.System.Data.DataColumn("GestionRecursos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnGestionRecursos)
+            Me.columnIntrinsecas = New Global.System.Data.DataColumn("Intrinsecas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIntrinsecas)
+            Me.columnCambiosFormato = New Global.System.Data.DataColumn("CambiosFormato", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCambiosFormato)
+            Me.columnTiempoEnvasadoCorregido = New Global.System.Data.DataColumn("TiempoEnvasadoCorregido", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTiempoEnvasadoCorregido)
+            Me.columnUnidadesEsperadas = New Global.System.Data.DataColumn("UnidadesEsperadas", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnidadesEsperadas)
+            Me.columnEficacia = New Global.System.Data.DataColumn("Eficacia", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEficacia)
+            Me.columnVelocidadMaquina = New Global.System.Data.DataColumn("VelocidadMaquina", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVelocidadMaquina)
+            Me.columnDisponibilidad = New Global.System.Data.DataColumn("Disponibilidad", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDisponibilidad)
+            Me.columnOEE = New Global.System.Data.DataColumn("OEE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOEE)
             Me.columnLinea.MaxLength = 50
+            Me.columnFormato.MaxLength = 50
+            Me.columnTiempoRegistradoEnvasado.ReadOnly = True
+            Me.columnVelocidadTeorica.ReadOnly = True
+            Me.columnUnidadesFabricadas.ReadOnly = True
+            Me.columnPlanificadas.ReadOnly = True
+            Me.columnGestionRecursos.ReadOnly = True
+            Me.columnIntrinsecas.ReadOnly = True
+            Me.columnCambiosFormato.ReadOnly = True
+            Me.columnTiempoEnvasadoCorregido.ReadOnly = True
+            Me.columnUnidadesEsperadas.ReadOnly = True
+            Me.columnEficacia.ReadOnly = True
+            Me.columnVelocidadMaquina.ReadOnly = True
+            Me.columnDisponibilidad.ReadOnly = True
+            Me.columnOEE.ReadOnly = True
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function NewListadoIncidenciasRow() As ListadoIncidenciasRow
-            Return CType(Me.NewRow, ListadoIncidenciasRow)
+        Public Function NewListadoFormatosRow() As ListadoFormatosRow
+            Return CType(Me.NewRow, ListadoFormatosRow)
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New ListadoIncidenciasRow(builder)
+            Return New ListadoFormatosRow(builder)
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(ListadoIncidenciasRow)
+            Return GetType(ListadoFormatosRow)
         End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitExpressions()
+            Me.TiempoEnvasadoCorregidoColumn.Expression = "TiempoRegistradoEnvasado-Planificadas-GestionRecursos-Intrinsecas-CambiosFormato"
+            Me.UnidadesEsperadasColumn.Expression = "(VelocidadTeorica/60)*TiempoEnvasadoCorregido"
+            Me.EficaciaColumn.Expression = "UnidadesFabricadas/UnidadesEsperadas"
+            Me.VelocidadMaquinaColumn.Expression = "UnidadesFabricadas/(TiempoEnvasadoCorregido/60)"
+            Me.DisponibilidadColumn.Expression = "TiempoEnvasadoCorregido/TiempoRegistradoEnvasado"
+            Me.OEEColumn.Expression = "Disponibilidad*Eficacia"
+        End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.ListadoIncidenciasRowChangedEvent) Is Nothing) Then
-                RaiseEvent ListadoIncidenciasRowChanged(Me, New ListadoIncidenciasRowChangeEvent(CType(e.Row, ListadoIncidenciasRow), e.Action))
+            If (Not (Me.ListadoFormatosRowChangedEvent) Is Nothing) Then
+                RaiseEvent ListadoFormatosRowChanged(Me, New ListadoFormatosRowChangeEvent(CType(e.Row, ListadoFormatosRow), e.Action))
             End If
         End Sub
 
@@ -522,8 +675,8 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.ListadoIncidenciasRowChangingEvent) Is Nothing) Then
-                RaiseEvent ListadoIncidenciasRowChanging(Me, New ListadoIncidenciasRowChangeEvent(CType(e.Row, ListadoIncidenciasRow), e.Action))
+            If (Not (Me.ListadoFormatosRowChangingEvent) Is Nothing) Then
+                RaiseEvent ListadoFormatosRowChanging(Me, New ListadoFormatosRowChangeEvent(CType(e.Row, ListadoFormatosRow), e.Action))
             End If
         End Sub
 
@@ -531,8 +684,8 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.ListadoIncidenciasRowDeletedEvent) Is Nothing) Then
-                RaiseEvent ListadoIncidenciasRowDeleted(Me, New ListadoIncidenciasRowChangeEvent(CType(e.Row, ListadoIncidenciasRow), e.Action))
+            If (Not (Me.ListadoFormatosRowDeletedEvent) Is Nothing) Then
+                RaiseEvent ListadoFormatosRowDeleted(Me, New ListadoFormatosRowChangeEvent(CType(e.Row, ListadoFormatosRow), e.Action))
             End If
         End Sub
 
@@ -540,14 +693,14 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.ListadoIncidenciasRowDeletingEvent) Is Nothing) Then
-                RaiseEvent ListadoIncidenciasRowDeleting(Me, New ListadoIncidenciasRowChangeEvent(CType(e.Row, ListadoIncidenciasRow), e.Action))
+            If (Not (Me.ListadoFormatosRowDeletingEvent) Is Nothing) Then
+                RaiseEvent ListadoFormatosRowDeleting(Me, New ListadoFormatosRowChangeEvent(CType(e.Row, ListadoFormatosRow), e.Action))
             End If
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub RemoveListadoIncidenciasRow(ByVal row As ListadoIncidenciasRow)
+        Public Sub RemoveListadoFormatosRow(ByVal row As ListadoFormatosRow)
             Me.Rows.Remove(row)
         End Sub
 
@@ -574,7 +727,7 @@ Partial Public Class LADataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "ListadoIncidenciasDataTable"
+            attribute2.FixedValue = "ListadoFormatosDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -621,221 +774,460 @@ Partial Public Class LADataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class ListadoIncidenciasRow
+    Partial Public Class ListadoFormatosRow
         Inherits Global.System.Data.DataRow
 
-        Private tableListadoIncidencias As ListadoIncidenciasDataTable
+        Private tableListadoFormatos As ListadoFormatosDataTable
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableListadoIncidencias = CType(Me.Table, ListadoIncidenciasDataTable)
+            Me.tableListadoFormatos = CType(Me.Table, ListadoFormatosDataTable)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property EnvasadoID() As Integer
-            Get
-                Try
-                    Return CType(Me(Me.tableListadoIncidencias.EnvasadoIDColumn), Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'EnvasadoID' de la tabla 'ListadoIncidencias' es DBNull.", e)
-                End Try
-            End Get
-            Set(value As Integer)
-                Me(Me.tableListadoIncidencias.EnvasadoIDColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Fecha() As Date
-            Get
-                Try
-                    Return CType(Me(Me.tableListadoIncidencias.FechaColumn), Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Fecha' de la tabla 'ListadoIncidencias' es DBNull.", e)
-                End Try
-            End Get
-            Set(value As Date)
-                Me(Me.tableListadoIncidencias.FechaColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Minutos() As Integer
-            Get
-                Try
-                    Return CType(Me(Me.tableListadoIncidencias.MinutosColumn), Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Minutos' de la tabla 'ListadoIncidencias' es DBNull.", e)
-                End Try
-            End Get
-            Set(value As Integer)
-                Me(Me.tableListadoIncidencias.MinutosColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Incidencia() As String
-            Get
-                Try
-                    Return CType(Me(Me.tableListadoIncidencias.IncidenciaColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Incidencia' de la tabla 'ListadoIncidencias' es DBNull.", e)
-                End Try
-            End Get
-            Set(value As String)
-                Me(Me.tableListadoIncidencias.IncidenciaColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Categoria() As String
-            Get
-                Return CType(Me(Me.tableListadoIncidencias.CategoriaColumn), String)
-            End Get
-            Set(value As String)
-                Me(Me.tableListadoIncidencias.CategoriaColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Clase() As String
-            Get
-                Try
-                    Return CType(Me(Me.tableListadoIncidencias.ClaseColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Clase' de la tabla 'ListadoIncidencias' es DBNull.", e)
-                End Try
-            End Get
-            Set(value As String)
-                Me(Me.tableListadoIncidencias.ClaseColumn) = value
-            End Set
-        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property Linea() As String
             Get
                 Try
-                    Return CType(Me(Me.tableListadoIncidencias.LineaColumn), String)
+                    Return CType(Me(Me.tableListadoFormatos.LineaColumn), String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Linea' de la tabla 'ListadoIncidencias' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Linea' de la tabla 'ListadoFormatos' es DBNull.", e)
                 End Try
             End Get
             Set(value As String)
-                Me(Me.tableListadoIncidencias.LineaColumn) = value
+                Me(Me.tableListadoFormatos.LineaColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsEnvasadoIDNull() As Boolean
-            Return Me.IsNull(Me.tableListadoIncidencias.EnvasadoIDColumn)
-        End Function
+        Public Property Formato() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.FormatoColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Formato' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableListadoFormatos.FormatoColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetEnvasadoIDNull()
-            Me(Me.tableListadoIncidencias.EnvasadoIDColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property TiempoRegistradoEnvasado() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.TiempoRegistradoEnvasadoColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TiempoRegistradoEnvasado' de la tabla 'ListadoFormatos' e" & _
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableListadoFormatos.TiempoRegistradoEnvasadoColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsFechaNull() As Boolean
-            Return Me.IsNull(Me.tableListadoIncidencias.FechaColumn)
-        End Function
+        Public Property VelocidadTeorica() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.VelocidadTeoricaColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'VelocidadTeorica' de la tabla 'ListadoFormatos' es DBNull" & _
+                            ".", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableListadoFormatos.VelocidadTeoricaColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetFechaNull()
-            Me(Me.tableListadoIncidencias.FechaColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property UnidadesFabricadas() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.UnidadesFabricadasColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'UnidadesFabricadas' de la tabla 'ListadoFormatos' es DBNu" & _
+                            "ll.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableListadoFormatos.UnidadesFabricadasColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsMinutosNull() As Boolean
-            Return Me.IsNull(Me.tableListadoIncidencias.MinutosColumn)
-        End Function
+        Public Property Planificadas() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.PlanificadasColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Planificadas' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableListadoFormatos.PlanificadasColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetMinutosNull()
-            Me(Me.tableListadoIncidencias.MinutosColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property GestionRecursos() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.GestionRecursosColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'GestionRecursos' de la tabla 'ListadoFormatos' es DBNull." & _
+                            "", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableListadoFormatos.GestionRecursosColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsIncidenciaNull() As Boolean
-            Return Me.IsNull(Me.tableListadoIncidencias.IncidenciaColumn)
-        End Function
+        Public Property Intrinsecas() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.IntrinsecasColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Intrinsecas' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableListadoFormatos.IntrinsecasColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetIncidenciaNull()
-            Me(Me.tableListadoIncidencias.IncidenciaColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property CambiosFormato() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.CambiosFormatoColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CambiosFormato' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableListadoFormatos.CambiosFormatoColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function IsClaseNull() As Boolean
-            Return Me.IsNull(Me.tableListadoIncidencias.ClaseColumn)
-        End Function
+        Public Property TiempoEnvasadoCorregido() As Decimal
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.TiempoEnvasadoCorregidoColumn), Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TiempoEnvasadoCorregido' de la tabla 'ListadoFormatos' es" & _
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableListadoFormatos.TiempoEnvasadoCorregidoColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub SetClaseNull()
-            Me(Me.tableListadoIncidencias.ClaseColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property UnidadesEsperadas() As Decimal
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.UnidadesEsperadasColumn), Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'UnidadesEsperadas' de la tabla 'ListadoFormatos' es DBNul" & _
+                            "l.", e)
+                End Try
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableListadoFormatos.UnidadesEsperadasColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Eficacia() As Decimal
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.EficaciaColumn), Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Eficacia' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableListadoFormatos.EficaciaColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property VelocidadMaquina() As Decimal
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.VelocidadMaquinaColumn), Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'VelocidadMaquina' de la tabla 'ListadoFormatos' es DBNull" & _
+                            ".", e)
+                End Try
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableListadoFormatos.VelocidadMaquinaColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Disponibilidad() As Decimal
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.DisponibilidadColumn), Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Disponibilidad' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableListadoFormatos.DisponibilidadColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property OEE() As Decimal
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.OEEColumn), Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'OEE' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Decimal)
+                Me(Me.tableListadoFormatos.OEEColumn) = value
+            End Set
+        End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function IsLineaNull() As Boolean
-            Return Me.IsNull(Me.tableListadoIncidencias.LineaColumn)
+            Return Me.IsNull(Me.tableListadoFormatos.LineaColumn)
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub SetLineaNull()
-            Me(Me.tableListadoIncidencias.LineaColumn) = Global.System.Convert.DBNull
+            Me(Me.tableListadoFormatos.LineaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsFormatoNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.FormatoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetFormatoNull()
+            Me(Me.tableListadoFormatos.FormatoColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsTiempoRegistradoEnvasadoNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.TiempoRegistradoEnvasadoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetTiempoRegistradoEnvasadoNull()
+            Me(Me.tableListadoFormatos.TiempoRegistradoEnvasadoColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsVelocidadTeoricaNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.VelocidadTeoricaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetVelocidadTeoricaNull()
+            Me(Me.tableListadoFormatos.VelocidadTeoricaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsUnidadesFabricadasNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.UnidadesFabricadasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetUnidadesFabricadasNull()
+            Me(Me.tableListadoFormatos.UnidadesFabricadasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsPlanificadasNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.PlanificadasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetPlanificadasNull()
+            Me(Me.tableListadoFormatos.PlanificadasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsGestionRecursosNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.GestionRecursosColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetGestionRecursosNull()
+            Me(Me.tableListadoFormatos.GestionRecursosColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsIntrinsecasNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.IntrinsecasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetIntrinsecasNull()
+            Me(Me.tableListadoFormatos.IntrinsecasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCambiosFormatoNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.CambiosFormatoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCambiosFormatoNull()
+            Me(Me.tableListadoFormatos.CambiosFormatoColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsTiempoEnvasadoCorregidoNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.TiempoEnvasadoCorregidoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetTiempoEnvasadoCorregidoNull()
+            Me(Me.tableListadoFormatos.TiempoEnvasadoCorregidoColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsUnidadesEsperadasNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.UnidadesEsperadasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetUnidadesEsperadasNull()
+            Me(Me.tableListadoFormatos.UnidadesEsperadasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsEficaciaNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.EficaciaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetEficaciaNull()
+            Me(Me.tableListadoFormatos.EficaciaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsVelocidadMaquinaNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.VelocidadMaquinaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetVelocidadMaquinaNull()
+            Me(Me.tableListadoFormatos.VelocidadMaquinaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsDisponibilidadNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.DisponibilidadColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetDisponibilidadNull()
+            Me(Me.tableListadoFormatos.DisponibilidadColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsOEENull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.OEEColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetOEENull()
+            Me(Me.tableListadoFormatos.OEEColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
-
+    
     '''<summary>
     '''Row event argument class
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-    Public Class ListadoIncidenciasRowChangeEvent
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class ListadoFormatosRowChangeEvent
         Inherits Global.System.EventArgs
-
-        Private eventRow As ListadoIncidenciasRow
-
+        
+        Private eventRow As ListadoFormatosRow
+        
         Private eventAction As Global.System.Data.DataRowAction
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub New(ByVal row As ListadoIncidenciasRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New()
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As ListadoFormatosRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
             Me.eventRow = row
             Me.eventAction = action
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public ReadOnly Property Row() As ListadoIncidenciasRow
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As ListadoFormatosRow
             Get
                 Return Me.eventRow
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Action() As Global.System.Data.DataRowAction
             Get
                 Return Me.eventAction
@@ -845,57 +1237,57 @@ Partial Public Class LADataSet
 End Class
 
 Namespace LADataSetTableAdapters
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
-    Partial Public Class ListadoIncidenciasTableAdapter
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class ListadoFormatosTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -909,189 +1301,320 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "ListadoIncidencias"
-            tableMapping.ColumnMappings.Add("EnvasadoID", "EnvasadoID")
-            tableMapping.ColumnMappings.Add("Fecha", "Fecha")
-            tableMapping.ColumnMappings.Add("Minutos", "Minutos")
-            tableMapping.ColumnMappings.Add("Incidencia", "Incidencia")
-            tableMapping.ColumnMappings.Add("Categoria", "Categoria")
-            tableMapping.ColumnMappings.Add("Clase", "Clase")
+            tableMapping.DataSetTable = "ListadoFormatos"
             tableMapping.ColumnMappings.Add("Linea", "Linea")
+            tableMapping.ColumnMappings.Add("Formato", "Formato")
+            tableMapping.ColumnMappings.Add("TiempoRegistradoEnvasado", "TiempoRegistradoEnvasado")
+            tableMapping.ColumnMappings.Add("VelocidadTeorica", "VelocidadTeorica")
+            tableMapping.ColumnMappings.Add("UnidadesFabricadas", "UnidadesFabricadas")
+            tableMapping.ColumnMappings.Add("Planificadas", "Planificadas")
+            tableMapping.ColumnMappings.Add("GestionRecursos", "GestionRecursos")
+            tableMapping.ColumnMappings.Add("Intrinsecas", "Intrinsecas")
+            tableMapping.ColumnMappings.Add("CambiosFormato", "CambiosFormato")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.Envasados_entre_fechas.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT        Envasados.EnvasadoID, Envasados.Fecha, SUM(DATEDIFF(mi, Incidenc" & _
-                "ias.HoraInicio, Incidencias.HoraFin)) AS Minutos, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Ti" & _
-                "posIncidencias.Descripcion AS Incidencia, CategoriaIncidencias.Descripcion AS Ca" & _
-                "tegoria, REPLACE(ClasesIncidencias.Descripcion, 'Nueva', '') AS Clase, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                   LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesI" & _
-                "ncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
-                "                 FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.E" & _
-                "nvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON FormatosEnvasados" & _
-                ".FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.Tip" & _
-                "oIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseIncidenciaID" & _
-                " = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Tipo" & _
-                "sFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.Ti" & _
-                "poFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFo" & _
-                "rmatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias ON ClasesIncidencias.id_categoria" & _
-                "Incidencia = CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        Envasados" & _
-                ".Fecha BETWEEN @fecha AND @fecha2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Envasados.EnvasadoID, Envasados.Fec" & _
-                "ha, LineasEnvasado.Descripcion, ClasesIncidencias.Descripcion,  CategoriaInciden" & _
-                "cias.Descripcion, TiposIncidencias.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "order by  linea, fecha asc, Min" & _
-                "utos desc"
+            Me._commandCollection(0).CommandText = "SELECT        EficaciaPorFormato.Linea, EficaciaPorFormato.Formato, sum(EficaciaP"& _ 
+                "orFormato.TiempoEnvasado) AS TiempoRegistradoEnvasado, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  avg(EficaciaPorFormato.VelocidadTeorica) VelocidadTeorica, sum(EficaciaPorForm"& _ 
+                "ato.UnidadesFabricadas) as UnidadesFabricadas, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&" sum(ISNULL(TiempoPlanifi"& _ 
+                "cadas.MinutosIncidencia, 0)) AS Planificadas, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         sum(ISN"& _ 
+                "ULL(TiempoGestionRecursos.MinutosIncidencia, 0)) AS GestionRecursos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&Global.Microsoft.VisualBasic.ChrW(9)&" su"& _ 
+                "m(ISNULL(TiempoIntrinsecas.MinutosIncidencia, 0)) AS Intrinsecas, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             ISNULL(SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio, Cambio"& _ 
+                "sFormatosEnvasados.HoraFin)), 0) AS CambiosFormato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            (SELECT     "& _ 
+                "   Envasados_1.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Incidencias."& _ 
+                "HoraFin)) AS MinutosIncidencia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                              "& _ 
+                "      CategoriaIncidencias.Descripcion AS Categoria, LineasEnvasado_1.Descripcio"& _ 
+                "n AS Linea, CategoriaIncidencias.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "                              TiposFormatosLineas_1.Descripcion AS Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                      FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "                                        Envasados AS Envasados_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                                                 FormatosEnvasados AS FormatosEn"& _ 
+                "vasados_1 ON Envasados_1.EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                    Incidencias ON FormatosEnva"& _ 
+                "sados_1.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "                                          TiposIncidencias ON Incidencias.TipoIn"& _ 
+                "cidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                            "& _ 
+                "                        ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.C"& _ 
+                "laseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                   "& _ 
+                " TiposFormatosLineas AS TiposFormatosLineas_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             "& _ 
+                "                       FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLin"& _ 
+                "eas_1.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                           "& _ 
+                "         LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasa"& _ 
+                "doID = LineasEnvasado_1.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "                              CategoriaIncidencias ON ClasesIncidencias.id_categ"& _ 
+                "oriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "       GROUP BY LineasEnvasado_1.Descripcion, Envasados_1.EnvasadoID, CategoriaI"& _ 
+                "ncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "                                          TiposFormatosLineas_1.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                       HAVING         (CategoriaIncidencias.CategoriaIncidenciaI"& _ 
+                "D = 11)) AS TiempoPlanificadas RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             (S"& _ 
+                "ELECT        TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnva"& _ 
+                "sado.Descripcion AS Linea, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                   "& _ 
+                "      TiposFormatosLineas_4.Descripcion AS Formato, SUM(DATEDIFF(mi, PaletsConte"& _ 
+                "nidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "                                           AVG(TiposFormatosLineas_TiposFormatos"& _ 
+                "_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCaj"& _ 
+                "as.Capacidad) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         AS Unid"& _ 
+                "adesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenid"& _ 
+                "os.HoraFin) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         * TiposFo"& _ 
+                "rmatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                                                AVG(PaletsContenidos.CantidadCaj"& _ 
+                "as * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio,"& _ 
+                " PaletsContenidos.HoraFin)) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                  "& _ 
+                "       AS VelocidadMaquina"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               FROM            Palet"& _ 
+                "sContenidos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                        "& _ 
+                " Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         "& _ 
+                "FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvas"& _ 
+                "ados_4.EnvasadoID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         "& _ 
+                "PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNE"& _ 
+                "R JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         TiposFormatos A"& _ 
+                "S TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1"& _ 
+                ".TipoFormatoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                     "& _ 
+                "    TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         TiposFormatosLineas_Ti"& _ 
+                "posFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
+                "                                        TiposFormatosLineas AS TiposFormatosLine"& _ 
+                "as_4 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         Lineas"& _ 
+                "Envasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasado"& _ 
+                "ID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         TiposFormatosLi"& _ 
+                "neas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLinea"& _ 
+                "ID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         TiposFormatos_1"& _ 
+                ".TipoFormatoID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                                                  FormatosEnvasados_4.TipoFormat"& _ 
+                "oLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "                  WHERE        (Envasados.Fecha between @Fecha and @FechaFin)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                              GROUP BY Envasados.EnvasadoID, Envasados.Fecha, Li"& _ 
+                "neasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                   "& _ 
+                "            ORDER BY Linea) AS EficaciaPorFormato LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            TiposFormatosLineas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnv"& _ 
+                "asados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CambiosFormatosEnvasados ON Formatos"& _ 
+                "Envasados.FormatoEnvasadoID = CambiosFormatosEnvasados.FormatoEnvasadoAID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        TiposFormatosLineas.TipoFormatoLineaID = FormatosEnvasad"& _ 
+                "os.TipoFormatoLineaID ON EficaciaPorFormato.Formato = TiposFormatosLineas.Descri"& _ 
+                "pcion AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         EficaciaPorFormato.EnvasadoID = FormatosEnv"& _ 
+                "asados.EnvasadoID LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             (SELECT        E"& _ 
+                "nvasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2."& _ 
+                "HoraFin)) AS MinutosIncidencia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                              "& _ 
+                "           CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Des"& _ 
+                "cripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "                                            TiposFormatosLineas_3.Descripcion AS"& _ 
+                " Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               FROM            ClasesIncidencias AS Cl"& _ 
+                "asesIncidencias_2 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                  "& _ 
+                "       Envasados AS Envasados_3 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                    "& _ 
+                "                     FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3.Env"& _ 
+                "asadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                           "& _ 
+                "                              Incidencias AS Incidencias_2 ON FormatosEnvasados_"& _ 
+                "3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "                                           TiposIncidencias AS TiposIncidencias_"& _ 
+                "2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                                                        ClasesIncidencias_2.Clas"& _ 
+                "eIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "                                          TiposFormatosLineas AS TiposFormatosLi"& _ 
+                "neas_3 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         FormatosEnv"& _ 
+                "asados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER JOI"& _ 
+                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         LineasEnvasado AS Li"& _ 
+                "neasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID = LineasEnvasado_3.Linea"& _ 
+                "EnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                   "& _ 
+                "      CategoriaIncidencias AS CategoriaIncidencias_2 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "                                   ClasesIncidencias_2.id_categoriaIncidencia = "& _ 
+                "CategoriaIncidencias_2.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               GRO"& _ 
+                "UP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoID, CategoriaIncidencias"& _ 
+                "_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "                                         TiposFormatosLineas_3.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                           HAVING         (CategoriaIncidencias_2.CategoriaIncid"& _ 
+                "enciaID = 10)) AS TiempoIntrinsecas ON EficaciaPorFormato.EnvasadoID = TiempoInt"& _ 
+                "rinsecas.EnvasadoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         EficaciaPorFormato.Linea = Ti"& _ 
+                "empoIntrinsecas.Linea AND EficaciaPorFormato.Formato = TiempoIntrinsecas.Formato"& _ 
+                " LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                             (SELECT        Envasados_2.Envasa"& _ 
+                "doID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidencias_1.HoraFin)) AS Minu"& _ 
+                "tosIncidencia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         Catego"& _ 
+                "riaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS Linea"& _ 
+                ", CategoriaIncidencias_1.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                              "& _ 
+                "                           TiposFormatosLineas_2.Descripcion AS Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                        FROM            ClasesIncidencias AS ClasesIncidencias_1"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         Envasados "& _ 
+                "AS Envasados_2 INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                     "& _ 
+                "    FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = Formato"& _ 
+                "sEnvasados_2.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                            "& _ 
+                "             Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnvasado"& _ 
+                "ID = Incidencias_1.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               "& _ 
+                "                          TiposIncidencias AS TiposIncidencias_1 ON Incidencias_"& _ 
+                "1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "                                       ClasesIncidencias_1.ClaseIncidenciaID = T"& _ 
+                "iposIncidencias_1.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                "& _ 
+                "                         TiposFormatosLineas AS TiposFormatosLineas_2 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                                                    FormatosEnvasados_2.TipoForm"& _ 
+                "atoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "                                           LineasEnvasado AS LineasEnvasado_2 ON"& _ 
+                " TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGHT "& _ 
+                "OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         CategoriaIn"& _ 
+                "cidencias AS CategoriaIncidencias_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                       "& _ 
+                "                  ClasesIncidencias_1.id_categoriaIncidencia = CategoriaIncidenc"& _ 
+                "ias_1.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               GROUP BY LineasEnvas"& _ 
+                "ado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion, C"& _ 
+                "ategoriaIncidencias_1.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                 "& _ 
+                "                        TiposFormatosLineas_2.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "          HAVING         (CategoriaIncidencias_1.CategoriaIncidenciaID = 12)) AS"& _ 
+                " TiempoGestionRecursos ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         EficaciaPorFormato.Envasado"& _ 
+                "ID = TiempoGestionRecursos.EnvasadoID AND EficaciaPorFormato.Linea = TiempoGesti"& _ 
+                "onRecursos.Linea AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         EficaciaPorFormato.Formato = Tie"& _ 
+                "mpoGestionRecursos.Formato ON TiempoPlanificadas.Linea = EficaciaPorFormato.Line"& _ 
+                "a AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiempoPlanificadas.EnvasadoID = EficaciaPorForm"& _ 
+                "ato.EnvasadoID AND TiempoPlanificadas.Formato = EficaciaPorFormato.Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROU"& _ 
+                "P BY  EficaciaPorFormato.Linea, EficaciaPorFormato.Formato                      "& _ 
+                "  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha2", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaFin", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ListadoIncidenciasDataTable, ByVal fecha As Date, ByVal fecha2 As Date) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ListadoFormatosDataTable, ByVal Fecha As Date, ByVal FechaFin As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha2, Date)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FechaFin,Date)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As Date, ByVal fecha2 As Date) As LADataSet.ListadoIncidenciasDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal Fecha As Date, ByVal FechaFin As Date) As LADataSet.ListadoFormatosDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha2, Date)
-            Dim dataTable As LADataSet.ListadoIncidenciasDataTable = New LADataSet.ListadoIncidenciasDataTable()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FechaFin,Date)
+            Dim dataTable As LADataSet.ListadoFormatosDataTable = New LADataSet.ListadoFormatosDataTable(true)
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD" & _
-        "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD"& _ 
+        "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")>  _
     Partial Public Class TableAdapterManager
         Inherits Global.System.ComponentModel.Component
-
+        
         Private _updateOrder As UpdateOrderOption
-
+        
         Private _backupDataSetBeforeUpdate As Boolean
-
+        
         Private _connection As Global.System.Data.IDbConnection
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property UpdateOrder() As UpdateOrderOption
             Get
                 Return Me._updateOrder
             End Get
-            Set(value As UpdateOrderOption)
+            Set
                 Me._updateOrder = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
                 Return Me._backupDataSetBeforeUpdate
             End Get
-            Set(value As Boolean)
+            Set
                 Me._backupDataSetBeforeUpdate = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Browsable(False)> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
         Public Property Connection() As Global.System.Data.IDbConnection
             Get
                 If (Not (Me._connection) Is Nothing) Then
@@ -1099,62 +1622,62 @@ Namespace LADataSetTableAdapters
                 End If
                 Return Nothing
             End Get
-            Set(value As Global.System.Data.IDbConnection)
+            Set
                 Me._connection = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Browsable(False)> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
                 Return count
             End Get
         End Property
-
+        
         '''<summary>
         '''Update rows in top-down order.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As LADataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
-
+        
         '''<summary>
         '''Insert rows in top-down order.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As LADataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
-
+        
         '''<summary>
         '''Delete rows in bottom-up order.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As LADataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
-
+        
         '''<summary>
         '''Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function GetRealUpdatedRows(ByVal updatedRows() As Global.System.Data.DataRow, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Global.System.Data.DataRow()
-            If ((updatedRows Is Nothing) _
+            If ((updatedRows Is Nothing)  _
                         OrElse (updatedRows.Length < 1)) Then
                 Return updatedRows
             End If
-            If ((allAddedRows Is Nothing) _
+            If ((allAddedRows Is Nothing)  _
                         OrElse (allAddedRows.Count < 1)) Then
                 Return updatedRows
             End If
@@ -1162,43 +1685,43 @@ Namespace LADataSetTableAdapters
             Dim i As Integer = 0
             Do While (i < updatedRows.Length)
                 Dim row As Global.System.Data.DataRow = updatedRows(i)
-                If (allAddedRows.Contains(row) = False) Then
+                If (allAddedRows.Contains(row) = false) Then
                     realUpdatedRows.Add(row)
                 End If
                 i = (i + 1)
             Loop
             Return realUpdatedRows.ToArray
         End Function
-
+        
         '''<summary>
         '''Update all changes to the dataset.
         '''</summary>
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overridable Function UpdateAll(ByVal dataSet As LADataSet) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
-            If (dataSet.HasChanges = False) Then
+            If (dataSet.HasChanges = false) Then
                 Return 0
             End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
-                Throw New Global.System.ApplicationException("TableAdapterManager no contiene información de conexión. Establezca cada propieda" & _
+                Throw New Global.System.ApplicationException("TableAdapterManager no contiene información de conexión. Establezca cada propieda"& _ 
                         "d TableAdapterManager TableAdapter en una instancia TableAdapter válida.")
             End If
-            Dim workConnOpened As Boolean = False
-            If ((workConnection.State And Global.System.Data.ConnectionState.Broken) _
+            Dim workConnOpened As Boolean = false
+            If ((workConnection.State And Global.System.Data.ConnectionState.Broken)  _
                         = Global.System.Data.ConnectionState.Broken) Then
-                workConnection.Close()
+                workConnection.Close
             End If
             If (workConnection.State = Global.System.Data.ConnectionState.Closed) Then
-                workConnection.Open()
-                workConnOpened = True
+                workConnection.Open
+                workConnOpened = true
             End If
             Dim workTransaction As Global.System.Data.IDbTransaction = workConnection.BeginTransaction
             If (workTransaction Is Nothing) Then
-                Throw New Global.System.ApplicationException("La transacción no puede comenzar. La conexión de datos actual no es compatible co" & _
+                Throw New Global.System.ApplicationException("La transacción no puede comenzar. La conexión de datos actual no es compatible co"& _ 
                         "n las transacciones o el estado actual no permite que comience la transacción.")
             End If
             Dim allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow) = New Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)()
@@ -1211,7 +1734,7 @@ Namespace LADataSetTableAdapters
                 backupDataSet = New Global.System.Data.DataSet()
                 backupDataSet.Merge(dataSet)
             End If
-            Try
+            Try 
                 '---- Prepare for update -----------
                 '
                 '
@@ -1228,14 +1751,14 @@ Namespace LADataSetTableAdapters
                 '
                 '---- Commit updates -----------
                 '
-                workTransaction.Commit()
+                workTransaction.Commit
                 If (0 < allAddedRows.Count) Then
                     Dim rows((allAddedRows.Count) - 1) As Global.System.Data.DataRow
                     allAddedRows.CopyTo(rows)
                     Dim i As Integer = 0
                     Do While (i < rows.Length)
                         Dim row As Global.System.Data.DataRow = rows(i)
-                        row.AcceptChanges()
+                        row.AcceptChanges
                         i = (i + 1)
                     Loop
                 End If
@@ -1245,16 +1768,16 @@ Namespace LADataSetTableAdapters
                     Dim i As Integer = 0
                     Do While (i < rows.Length)
                         Dim row As Global.System.Data.DataRow = rows(i)
-                        row.AcceptChanges()
+                        row.AcceptChanges
                         i = (i + 1)
                     Loop
                 End If
             Catch ex As Global.System.Exception
-                workTransaction.Rollback()
+                workTransaction.Rollback
                 '---- Restore the dataset -----------
                 If Me.BackupDataSetBeforeUpdate Then
                     Global.System.Diagnostics.Debug.Assert((Not (backupDataSet) Is Nothing))
-                    dataSet.Clear()
+                    dataSet.Clear
                     dataSet.Merge(backupDataSet)
                 Else
                     If (0 < allAddedRows.Count) Then
@@ -1263,8 +1786,8 @@ Namespace LADataSetTableAdapters
                         Dim i As Integer = 0
                         Do While (i < rows.Length)
                             Dim row As Global.System.Data.DataRow = rows(i)
-                            row.AcceptChanges()
-                            row.SetAdded()
+                            row.AcceptChanges
+                            row.SetAdded
                             i = (i + 1)
                         Loop
                     End If
@@ -1272,7 +1795,7 @@ Namespace LADataSetTableAdapters
                 Throw ex
             Finally
                 If workConnOpened Then
-                    workConnection.Close()
+                    workConnection.Close
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter
@@ -1280,63 +1803,63 @@ Namespace LADataSetTableAdapters
                     Dim i As Integer = 0
                     Do While (i < adapters.Length)
                         Dim adapter As Global.System.Data.Common.DataAdapter = adapters(i)
-                        adapter.AcceptChangesDuringUpdate = True
+                        adapter.AcceptChangesDuringUpdate = true
                         i = (i + 1)
                     Loop
                 End If
             End Try
             Return result
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overridable Sub SortSelfReferenceRows(ByVal rows() As Global.System.Data.DataRow, ByVal relation As Global.System.Data.DataRelation, ByVal childFirst As Boolean)
             Global.System.Array.Sort(Of Global.System.Data.DataRow)(rows, New SelfReferenceComparer(relation, childFirst))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overridable Function MatchTableAdapterConnection(ByVal inputConnection As Global.System.Data.IDbConnection) As Boolean
             If (Not (Me._connection) Is Nothing) Then
-                Return True
+                Return true
             End If
-            If ((Me.Connection Is Nothing) _
+            If ((Me.Connection Is Nothing)  _
                         OrElse (inputConnection Is Nothing)) Then
-                Return True
+                Return true
             End If
             If String.Equals(Me.Connection.ConnectionString, inputConnection.ConnectionString, Global.System.StringComparison.Ordinal) Then
-                Return True
+                Return true
             End If
-            Return False
+            Return false
         End Function
-
+        
         '''<summary>
         '''Update Order Option
         '''</summary>
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Enum UpdateOrderOption
-
+            
             InsertUpdateDelete = 0
-
+            
             UpdateInsertDelete = 1
         End Enum
-
+        
         '''<summary>
         '''Used to sort self-referenced table's rows
         '''</summary>
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Class SelfReferenceComparer
             Inherits Object
             Implements Global.System.Collections.Generic.IComparer(Of Global.System.Data.DataRow)
-
+            
             Private _relation As Global.System.Data.DataRelation
-
+            
             Private _childFirst As Integer
-
-            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+            
+            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
             Friend Sub New(ByVal relation As Global.System.Data.DataRelation, ByVal childFirst As Boolean)
-                MyBase.New()
+                MyBase.New
                 Me._relation = relation
                 If childFirst Then
                     Me._childFirst = -1
@@ -1344,9 +1867,9 @@ Namespace LADataSetTableAdapters
                     Me._childFirst = 1
                 End If
             End Sub
-
-            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+            
+            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
             Private Function GetRoot(ByVal row As Global.System.Data.DataRow, ByRef distance As Integer) As Global.System.Data.DataRow
                 Global.System.Diagnostics.Debug.Assert((Not (row) Is Nothing))
                 Dim root As Global.System.Data.DataRow = row
@@ -1357,8 +1880,8 @@ Namespace LADataSetTableAdapters
 
                 Dim parent As Global.System.Data.DataRow = row.GetParentRow(Me._relation, Global.System.Data.DataRowVersion.[Default])
 
-                Do While ((Not (parent) Is Nothing) _
-                            AndAlso (traversedRows.ContainsKey(parent) = False))
+                Do While ((Not (parent) Is Nothing)  _
+                            AndAlso (traversedRows.ContainsKey(parent) = false))
                     distance = (distance + 1)
                     root = parent
                     traversedRows(parent) = parent
@@ -1367,12 +1890,12 @@ Namespace LADataSetTableAdapters
                 Loop
 
                 If (distance = 0) Then
-                    traversedRows.Clear()
+                    traversedRows.Clear
                     traversedRows(row) = row
                     parent = row.GetParentRow(Me._relation, Global.System.Data.DataRowVersion.Original)
 
-                    Do While ((Not (parent) Is Nothing) _
-                                AndAlso (traversedRows.ContainsKey(parent) = False))
+                    Do While ((Not (parent) Is Nothing)  _
+                                AndAlso (traversedRows.ContainsKey(parent) = false))
                         distance = (distance + 1)
                         root = parent
                         traversedRows(parent) = parent
@@ -1383,9 +1906,9 @@ Namespace LADataSetTableAdapters
 
                 Return root
             End Function
-
-            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+            
+            <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+             Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
             Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements Global.System.Collections.Generic.IComparer(Of Global.System.Data.DataRow).Compare
                 If Object.ReferenceEquals(row1, row2) Then
                     Return 0
@@ -1406,7 +1929,7 @@ Namespace LADataSetTableAdapters
                 If Object.ReferenceEquals(root1, root2) Then
                     Return (Me._childFirst * distance1.CompareTo(distance2))
                 Else
-                    Global.System.Diagnostics.Debug.Assert(((Not (root1.Table) Is Nothing) _
+                    Global.System.Diagnostics.Debug.Assert(((Not (root1.Table) Is Nothing)  _
                                     AndAlso (Not (root2.Table) Is Nothing)))
                     If (root1.Table.Rows.IndexOf(root1) < root2.Table.Rows.IndexOf(root2)) Then
                         Return -1

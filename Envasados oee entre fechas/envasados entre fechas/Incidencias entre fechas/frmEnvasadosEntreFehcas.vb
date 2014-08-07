@@ -20,6 +20,7 @@
         Me.fecha2 = fechafin
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         recargar()
     End Sub
 
@@ -33,7 +34,8 @@
         ReportViewer1.LocalReport.SetParameters(par1)
         ReportViewer1.LocalReport.SetParameters(par2)
         'TODO: esta línea de código carga datos en la tabla 'LADataSet.ListadoIncidencias' Puede moverla o quitarla según sea necesario.
-        Me.ListadoIncidenciasTableAdapter.Fill(Me.LADataSet.ListadoIncidencias, Me.fecha, Me.fecha2)
+        Me.ListadoFormatosTableAdapter.Fill(Me.LADataSet.ListadoFormatos, Me.fecha, Me.fecha2)
+
 
         Me.ReportViewer1.RefreshReport()
     End Sub

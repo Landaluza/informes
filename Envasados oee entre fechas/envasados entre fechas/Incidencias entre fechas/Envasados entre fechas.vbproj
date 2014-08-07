@@ -72,16 +72,19 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmIncidenciasEntreFehcas.vb">
+    <Compile Include="frmEnvasadosEntreFehcas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmIncidenciasEntreFehcas.Designer.vb">
-      <DependentUpon>frmIncidenciasEntreFehcas.vb</DependentUpon>
+    <Compile Include="frmEnvasadosEntreFehcas.Designer.vb">
+      <DependentUpon>frmEnvasadosEntreFehcas.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>LADataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LADataSet.vb">
       <DependentUpon>LADataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -101,8 +104,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmIncidenciasEntreFehcas.resx">
-      <DependentUpon>frmIncidenciasEntreFehcas.vb</DependentUpon>
+    <EmbeddedResource Include="frmEnvasadosEntreFehcas.resx">
+      <DependentUpon>frmEnvasadosEntreFehcas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
