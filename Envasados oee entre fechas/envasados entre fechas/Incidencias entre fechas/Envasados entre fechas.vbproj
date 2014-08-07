@@ -7,8 +7,8 @@
     <OutputType>Library</OutputType>
     <StartupObject>
     </StartupObject>
-    <RootNamespace>Incidencias_entre_fechas</RootNamespace>
-    <AssemblyName>Incidencias entre fechas</AssemblyName>
+    <RootNamespace>Envasados_entre_fechas</RootNamespace>
+    <AssemblyName>Envasados entre fechas</AssemblyName>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\..\temp\</OutputPath>
-    <DocumentationFile>Incidencias entre fechas.xml</DocumentationFile>
+    <DocumentationFile>Envasados entre fechas.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +30,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Incidencias entre fechas.xml</DocumentationFile>
+    <DocumentationFile>Envasados entre fechas.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>

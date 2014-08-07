@@ -1,4 +1,4 @@
-﻿Public Class frmIncidenciasEntreFehcas
+﻿Public Class frmEnvasadosEntreFehcas
     Private connection As String
     Private fecha As DateTime
     Private fecha2 As DateTime

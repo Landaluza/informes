@@ -74,10 +74,10 @@ Namespace My
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Module MySettingsProperty
         
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Incidencias_entre_fechas.My.MySettings
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
+        Friend ReadOnly Property Settings() As Global.Envasados_entre_fechas.My.MySettings
             Get
-                Return Global.Incidencias_entre_fechas.My.MySettings.Default
+                Return Global.Envasados_entre_fechas.My.MySettings.Default
             End Get
         End Property
     End Module

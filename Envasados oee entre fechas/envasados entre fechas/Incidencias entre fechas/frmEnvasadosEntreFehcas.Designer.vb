@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmIncidenciasEntreFehcas
+Partial Class frmEnvasadosEntreFehcas
     Inherits System.Windows.Forms.Form
 
     'Form invalida a Dispose para limpiar la lista de componentes.
@@ -26,8 +26,8 @@ Partial Class frmIncidenciasEntreFehcas
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.ListadoIncidenciasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LADataSet = New Incidencias_entre_fechas.LADataSet()
-        Me.ListadoIncidenciasTableAdapter = New Incidencias_entre_fechas.LADataSetTableAdapters.ListadoIncidenciasTableAdapter()
+        Me.LADataSet = New Envasados_entre_fechas.LADataSet()
+        Me.ListadoIncidenciasTableAdapter = New Envasados_entre_fechas.LADataSetTableAdapters.ListadoIncidenciasTableAdapter()
         CType(Me.ListadoIncidenciasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -72,8 +72,8 @@ Partial Class frmIncidenciasEntreFehcas
 
     End Sub
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
-    Private WithEvents LADataSet As Incidencias_entre_fechas.LADataSet
+    Private WithEvents LADataSet As Envasados_entre_fechas.LADataSet
     Private WithEvents ListadoIncidenciasBindingSource As System.Windows.Forms.BindingSource
-    Private WithEvents ListadoIncidenciasTableAdapter As Incidencias_entre_fechas.LADataSetTableAdapters.ListadoIncidenciasTableAdapter
+    Private WithEvents ListadoIncidenciasTableAdapter As Envasados_entre_fechas.LADataSetTableAdapters.ListadoIncidenciasTableAdapter
 
 End Class

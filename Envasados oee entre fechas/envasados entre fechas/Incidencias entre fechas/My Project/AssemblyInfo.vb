@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 '
 ' Revise los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("Incidencias entre fechas")> 
-<Assembly: AssemblyDescription("Incidencias entre fechas")> 
+<Assembly: AssemblyTitle("Envasados entre fechas")> 
+<Assembly: AssemblyDescription("Envasados entre fechas")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Incidencias entre fechas")> 
+<Assembly: AssemblyProduct("Envasados entre fechas")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")> 
 
