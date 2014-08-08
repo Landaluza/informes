@@ -50,7 +50,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.36731cm</Height>
+              <Height>1.29675cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -643,7 +643,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.66174cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -656,7 +656,7 @@
                             <TextRun>
                               <Value>=Fields!Formato.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -692,7 +692,7 @@
                             <TextRun>
                               <Value>=Fields!TiempoRegistradoEnvasado.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -727,7 +727,7 @@
                             <TextRun>
                               <Value>=Fields!Planificadas.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -762,7 +762,7 @@
                             <TextRun>
                               <Value>=Fields!GestionRecursos.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -797,7 +797,7 @@
                             <TextRun>
                               <Value>=Fields!Intrinsecas.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -832,7 +832,7 @@
                             <TextRun>
                               <Value>=Fields!CambiosFormato.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -867,7 +867,7 @@
                             <TextRun>
                               <Value>=Fields!TiempoEnvasadoCorregido.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -902,7 +902,7 @@
                             <TextRun>
                               <Value>=Fields!UnidadesEsperadas.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>n0</Format>
                               </Style>
                             </TextRun>
@@ -938,7 +938,7 @@
                             <TextRun>
                               <Value>=Fields!UnidadesFabricadas.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>n0</Format>
                               </Style>
                             </TextRun>
@@ -974,7 +974,7 @@
                             <TextRun>
                               <Value>=Fields!VelocidadTeorica.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>n0</Format>
                               </Style>
                             </TextRun>
@@ -1010,7 +1010,7 @@
                             <TextRun>
                               <Value>=Fields!VelocidadMaquina.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>n0</Format>
                               </Style>
                             </TextRun>
@@ -1046,7 +1046,7 @@
                             <TextRun>
                               <Value>=Fields!Disponibilidad.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0.00%</Format>
                               </Style>
@@ -1084,7 +1084,7 @@
                             <TextRun>
                               <Value>=Fields!Eficacia.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>#,0.00%</Format>
                               </Style>
@@ -1122,7 +1122,7 @@
                             <TextRun>
                               <Value>=Fields!OEE.Value</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0.00%</Format>
                               </Style>
@@ -1152,7 +1152,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.89103cm</Height>
+              <Height>0.66172cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1165,7 +1165,7 @@
                             <TextRun>
                               <Value>Total por linea</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1201,7 +1201,8 @@
                             <TextRun>
                               <Value>=Sum(Fields!TiempoRegistradoEnvasado.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1237,7 +1238,8 @@
                             <TextRun>
                               <Value>=Sum(Fields!Planificadas.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1273,7 +1275,8 @@
                             <TextRun>
                               <Value>=Sum(Fields!GestionRecursos.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1309,7 +1312,8 @@
                             <TextRun>
                               <Value>=Sum(Fields!Intrinsecas.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1345,7 +1349,8 @@
                             <TextRun>
                               <Value>=Sum(Fields!CambiosFormato.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
+                                <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1381,7 +1386,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!TiempoEnvasadoCorregido.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1417,7 +1422,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!UnidadesEsperadas.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
@@ -1454,7 +1459,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!UnidadesFabricadas.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
@@ -1491,7 +1496,7 @@
                             <TextRun>
                               <Value>=Avg(Fields!VelocidadTeorica.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
@@ -1528,7 +1533,7 @@
                             <TextRun>
                               <Value>=Avg(Fields!VelocidadMaquina.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <Format>#,0;(#,0)</Format>
                               </Style>
                             </TextRun>
@@ -1565,7 +1570,7 @@
                             <TextRun>
                               <Value>=Avg(Fields!Disponibilidad.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0.00%</Format>
                               </Style>
@@ -1603,7 +1608,7 @@
                             <TextRun>
                               <Value>=Avg(Fields!Eficacia.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>#,0.00%</Format>
                               </Style>
@@ -1641,7 +1646,7 @@
                             <TextRun>
                               <Value>=Avg(Fields!OEE.Value)</Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>6pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0.00%</Format>
                               </Style>
@@ -1798,7 +1803,7 @@
         <DataSetName>dsFormatos</DataSetName>
         <Top>0.2251cm</Top>
         <Left>0.29104cm</Left>
-        <Height>2.85834cm</Height>
+        <Height>2.62022cm</Height>
         <Width>18.92918cm</Width>
         <Style>
           <Border>
@@ -1807,13 +1812,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>1.46924in</Height>
+    <Height>1.31299in</Height>
     <Style />
   </Body>
   <Width>7.73368in</Width>
   <Page>
     <PageHeader>
-      <Height>2.32516cm</Height>
+      <Height>1.55787cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1834,10 +1839,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.08162cm</Top>
-          <Left>1.09702cm</Left>
-          <Height>1.24354cm</Height>
-          <Width>8.19327cm</Width>
+          <Top>0.44662cm</Top>
+          <Left>0.46202cm</Left>
+          <Height>0.84667cm</Height>
+          <Width>7.61119cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1865,9 +1870,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.08162cm</Top>
-          <Left>9.4314cm</Left>
-          <Height>1.24354cm</Height>
+          <Top>0.44662cm</Top>
+          <Left>8.10848cm</Left>
+          <Height>0.84667cm</Height>
           <Width>3.43957cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
@@ -1897,9 +1902,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.08162cm</Top>
-          <Left>13.58456cm</Left>
-          <Height>1.24354cm</Height>
+          <Top>0.44662cm</Top>
+          <Left>12.26164cm</Left>
+          <Height>0.84667cm</Height>
           <Width>3.93573cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
@@ -1929,9 +1934,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>1.08162cm</Top>
-          <Left>12.87098cm</Left>
-          <Height>1.24354cm</Height>
+          <Top>0.44662cm</Top>
+          <Left>11.54806cm</Left>
+          <Height>0.84667cm</Height>
           <Width>0.71358cm</Width>
           <ZIndex>3</ZIndex>
           <Style>

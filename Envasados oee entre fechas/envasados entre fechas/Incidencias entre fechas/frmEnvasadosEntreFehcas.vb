@@ -6,8 +6,8 @@
 
     Public Sub New()
         InitializeComponent()
-        Me.fecha = DateTime.Now.Date.AddDays(-10)
-        Me.fecha2 = DateTime.Now.Date.AddDays(-2)
+        Me.fecha = DateTime.Now.Date.AddMonths(-1)
+        Me.fecha2 = DateTime.Now.Date.AddDays(-1)
         'Throw New Exception("Constructor no valido")
     End Sub
 
