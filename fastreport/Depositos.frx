@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/22/2014 07:57:24" ReportInfo.Modified="08/12/2014 12:25:36" ReportInfo.CreatorVersion="2014.2.4.0">
+  <Styles Name="Azul">
+    <Style Name="Título" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Encabezado" Fill.Color="LightSkyBlue" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Grupo" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Datos"/>
+    <Style Name="Pie" Fill.Color="LightSkyBlue"/>
+    <Style Name="Eventos de filas" Fill.Color="AliceBlue"/>
+  </Styles>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8fkDXtATjB3tKlOxixjqMXsRgD9+QYvHsNmljh2nJv0rSaf8++SifcqSQ76//QF0iXnlUBx/QkzLR61C0ynHiHgiOYmhiHIQcSg6RS82kwqLvRs1Ze12swmjPmGBiBcIiWaGJLOXFYt5VNUOMYKTQZx4s4ck18/f3KbZwj7khrkTuJMlW19MeFtyqo6aix1SB3gliuQ56rOlo2T1efTEZUw=">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	Depositos.Codigo,  Depositos.Capacidad, Depositos.Listado,Lotes.TipoLoteID, Lotes.CodigoLote, Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN dbo.DepositoLavado(Depositos.DepositoID) &#13;&#10;	ELSE Lotes.Descripcion END AS Descripcion,Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol, &#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Densidad') as Densidad, dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Sulfuroso') as Sulfuroso &#13;&#10;from &#13;&#10;	Lotes RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where (Depositos.BotaID Is NULL and Depositos.Listado = 'TRUE') ORDER BY Depositos.Codigo">
+        <Column Name="Codigo" DataType="System.Int32"/>
+        <Column Name="Capacidad" DataType="System.Single"/>
+        <Column Name="Listado" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="TipoLoteID" DataType="System.Int32"/>
+        <Column Name="CodigoLote" DataType="System.String"/>
+        <Column Name="CantidadRestante" DataType="System.Single"/>
+        <Column Name="Descripcion" DataType="System.String"/>
+        <Column Name="TipoProductoID" DataType="System.Int32"/>
+        <Column Name="Acidez" DataType="System.Single"/>
+        <Column Name="Alcohol" DataType="System.Single"/>
+        <Column Name="Densidad" DataType="System.Single"/>
+        <Column Name="Sulfuroso" DataType="System.Single"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="47.25">
+      <TextObject Name="Text1" Width="718.2" Height="47.25" Dock="Fill" Anchor="None" Text="Listado depósitos al día   [Date]" HorzAlign="Center" VertAlign="Center" Font="Arial, 15.75pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="51.25" Width="718.2" Height="18.9" Border.Lines="All" Border.Width="4">
+      <TextObject Name="Text3" Width="28.35" Height="18.9" Fill.Color="LightSkyBlue" Text="Nº" Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text5" Left="28.35" Width="56.7" Height="18.9" Fill.Color="LightSkyBlue" Text="Capacida" Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text11" Left="85.05" Width="113.4" Height="18.9" Fill.Color="LightSkyBlue" Text="Contenido" Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text15" Left="198.45" Width="330.75" Height="18.9" Fill.Color="LightSkyBlue" Text="Descripcion" Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text19" Left="595.35" Width="28.35" Height="18.9" Fill.Color="LightSkyBlue" Text="Aci." Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text21" Left="623.7" Width="47.25" Height="18.9" Fill.Color="LightSkyBlue" Text="Alc." Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text23" Left="652.05" Width="28.35" Height="18.9" Fill.Color="LightSkyBlue" Text="Den." Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text25" Left="680.4" Width="37.8" Height="18.9" Fill.Color="LightSkyBlue" Text="Sul." Font="Arial, 7.5pt, style=Bold"/>
+      <TextObject Name="Text13" Left="529.2" Width="66.15" Height="18.9" Fill.Color="LightSkyBlue" Text="Cantidad" Font="Arial, 7.5pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="18.9" Border.Lines="All" EvenStyle="Eventos de filas" Guides="9.45" DataSource="Table">
+      <TableObject Name="Table1" Width="718.2" Height="18.9" Dock="Fill">
+        <TableColumn Name="Column1" Width="32.55"/>
+        <TableColumn Name="Column2" Width="51.45"/>
+        <TableColumn Name="Column3" Width="117.6"/>
+        <TableColumn Name="Column4" Width="325.5"/>
+        <TableColumn Name="Column5" Width="70.35"/>
+        <TableColumn Name="Column6" Width="23.1"/>
+        <TableColumn Name="Column7" Width="32.55"/>
+        <TableColumn Name="Column8" Width="32.55"/>
+        <TableColumn Name="Column9" Width="32.55"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Text="[Table.Codigo]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[Table.Capacidad]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="[Table.CodigoLote]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[Table.Descripcion]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="[Table.CantidadRestante]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="[Table.Acidez]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="[Table.Alcohol]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="[Table.Densidad]" Font="Arial, 7pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="[Table.Sulfuroso]" Font="Arial, 7pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="97.05" Width="718.2" Height="18.9">
+      <TextObject Name="Text26" Width="718.2" Height="18.9" Dock="Fill" Fill.Color="LightSkyBlue" Text="[PageN]" HorzAlign="Right" Style="Pie"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
