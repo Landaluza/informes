@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="08/12/2014 13:13:40" ReportInfo.Modified="08/13/2014 14:51:06" ReportInfo.CreatorVersion="2014.2.4.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/12/2014 13:13:40" ReportInfo.Modified="08/14/2014 12:41:29" ReportInfo.CreatorVersion="2014.2.4.0">
   <Styles Name="Arena">
     <Style Name="Título" Font="Arial, 12pt, style=Bold"/>
     <Style Name="Encabezado" Fill.Color="Moccasin" Font="Arial, 10pt, style=Bold"/>
@@ -9,7 +9,7 @@
     <Style Name="Eventos de filas" Fill.Color="FloralWhite"/>
   </Styles>
   <Dictionary>
-    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8fkDXtATjB3tKlOxixjqMXsRgD9+QYvHsNmljh2nJv0rSaf8++SifcqSQ76//QF0iXnlUBx/QkzLR61C0ynHiHgiOYmhiHIQcSg6RS82kwqLvRs1Ze12swmjPmGBiBcIiWaGJLOXFYt5VNUOMYKTQZx4s4ck18/f3KbZwj7khrkTuJMlW19MeFtyqo6aix1SBwmy+JGUz40d8DZxpjADTIs=">
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8fkDXtATjB3tKlOxixjqMXsRgD9+QYvHsNmljh2nJv0rSaf8++SifcqSQ76//QF0iXnlUBx/QkzLR61C0ynHiHgiOYmhiHIQcSg6RS82kwqLvRs1Ze12swmjPmGBiBcIiWaGJLOXFYt5VNUOMYKTQZx4s4ck18/f3KbZwj7khrkTuJMlW19MeFtyqo6aix1SB52QZINBWsR+b7EAPYdqQyY=">
       <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select  distinct&#13;&#10;	[dbo].[TiposProductos].[Descripcion]&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		Depositos.BotaID Is NULL and Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	ORDER BY [TiposProductos].[Descripcion]">
         <Column Name="Descripcion" DataType="System.String"/>
       </TableDataSource>
@@ -97,13 +97,15 @@
     </PageHeaderBand>
     <GroupHeaderBand Name="GroupHeader1" Top="78.15" Width="718.2" Height="28.35" Condition="[Table.Descripcion]">
       <TextObject Name="Text28" Width="718.2" Height="28.35" Dock="Fill" Fill.Color="LightSkyBlue" Text="[Table.Descripcion]" Font="Microsoft Sans Serif, 8pt, style=Bold"/>
-      <DataBand Name="Data1" Top="110.5" Width="718.2" Height="47.25" EvenStyle="Eventos de filas" DataSource="Table">
-        <SubreportObject Name="Subreport1" Top="28.35" Width="718.2" Height="18.9" ReportPage="Page2"/>
+      <DataBand Name="Data1" Top="110.5" Width="718.2" Height="18.9" EvenStyle="Eventos de filas" DataSource="Table">
         <SubreportObject Name="Subreport2" Width="718.2" Height="18.9" ReportPage="Page3"/>
+        <ChildBand Name="Child1" Top="133.4" Width="718.2" Height="18.9">
+          <SubreportObject Name="Subreport1" Width="718.2" Height="18.9" ReportPage="Page2"/>
+        </ChildBand>
       </DataBand>
-      <GroupFooterBand Name="GroupFooter1" Top="161.75" Width="718.2" Height="9.45"/>
+      <GroupFooterBand Name="GroupFooter1" Top="156.3" Width="718.2" Height="9.45"/>
     </GroupHeaderBand>
-    <PageFooterBand Name="PageFooter1" Top="175.2" Width="718.2" Height="18.9">
+    <PageFooterBand Name="PageFooter1" Top="169.75" Width="718.2" Height="18.9">
       <TextObject Name="Text29" Width="718.2" Height="18.9" Dock="Fill" Fill.Color="CornflowerBlue" Text="[PageN]" HorzAlign="Right" Style="Pie"/>
     </PageFooterBand>
   </ReportPage>
