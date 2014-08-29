@@ -1,5 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="03/22/2014 07:57:24" ReportInfo.Modified="08/14/2014 08:42:45" ReportInfo.CreatorVersion="2014.2.4.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/22/2014 07:57:24" ReportInfo.Modified="08/29/2014 10:02:08" ReportInfo.CreatorVersion="2014.2.4.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+namespace FastReport
+{
+  public class ReportScript
+  {
+  }
+}
+</ScriptText>
   <Styles Name="Azul">
     <Style Name="Título" Font="Arial, 12pt, style=Bold"/>
     <Style Name="Encabezado" Fill.Color="LightSkyBlue" Font="Arial, 10pt, style=Bold"/>
@@ -9,7 +29,7 @@
     <Style Name="Eventos de filas" Fill.Color="AliceBlue"/>
   </Styles>
   <Dictionary>
-    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8fkDXtATjB3tKlOxixjqMXsRgD9+QYvHsNmljh2nJv0rSaf8++SifcqSQ76//QF0iXnlUBx/QkzLR61C0ynHiHgiOYmhiHIQcSg6RS82kwqLvRs1Ze12swmjPmGBiBcIiWaGJLOXFYt5VNUOMYKTQZx4s4ck18/f3KbZwj7khrkTuJMlW19MeFtyqo6aix1SB+VjaTeOoc+7aTZgr0PJeZY=">
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHE+UVBHO0O0957hJkIVu0pr0o3tdi+bjs79JTf9Q1W293oXgaKSTMqwFS4SXc8Twrtdcmy6F+GC5XcW6J143+z7XiZ71kGivjQWmKOB8DCNKK3B5Wx53V/jGyJwbbpIpEKtnc11LX+5MINLCsBHtrjPOJPDK8NznbADPZx9UcJBUDMMokPLo6t+ArKPWjZhT">
       <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	Depositos.Codigo,  Depositos.Capacidad, Depositos.Listado,Lotes.TipoLoteID, Lotes.CodigoLote, Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN dbo.DepositoLavado(Depositos.DepositoID) &#13;&#10;	ELSE Lotes.Descripcion END AS Descripcion,Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol, &#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Densidad') as Densidad, dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Sulfuroso') as Sulfuroso &#13;&#10;from &#13;&#10;	Lotes RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where (Depositos.BotaID Is NULL and Depositos.Listado = 'TRUE') ORDER BY Depositos.Codigo">
         <Column Name="Codigo" DataType="System.Int32"/>
         <Column Name="Capacidad" DataType="System.Single"/>
