@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="08/12/2014 13:13:40" ReportInfo.Modified="08/29/2014 12:19:18" ReportInfo.CreatorVersion="2014.2.1.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/12/2014 13:13:40" ReportInfo.Modified="09/01/2014 13:42:13" ReportInfo.CreatorVersion="2014.2.4.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace FastReport
       <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="select  distinct&#13;&#10;	[dbo].[TiposProductos].[Descripcion]&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		Depositos.BotaID Is NULL and Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	ORDER BY [TiposProductos].[Descripcion]">
         <Column Name="Descripcion" DataType="System.String"/>
       </TableDataSource>
-      <TableDataSource Name="Table1" Alias="Table10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	Depositos.Codigo,  &#13;&#10;	Depositos.Capacidad, &#13;&#10;	Depositos.Listado,&#13;&#10;	Lotes.TipoLoteID, &#13;&#10;	Lotes.CodigoLote, &#13;&#10;	Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN iif(len(dbo.DepositoLavado(Depositos.DepositoID))&gt;45,substring(dbo.DepositoLavado(Depositos.DepositoID), 0, 45),dbo.DepositoLavado(Depositos.DepositoID))&#13;&#10;	ELSE iif(len(Lotes.Descripcion)&gt;45,substring(Lotes.Descripcion, 0, 45)+'...', Lotes.Descripcion) END AS Descripcion,&#13;&#10;	Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;--	and tipoloteid = 10&#13;&#10;and &#13;&#10;	(depositos.botaid is not null or botapiernaid is not null)&#13;&#10;ORDER BY [TiposProductos].[Descripcion], Depositos.Codigo">
+      <TableDataSource Name="Table1" Alias="Table10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	Depositos.Codigo,  &#13;&#10;	Depositos.Capacidad, &#13;&#10;	Depositos.Listado,&#13;&#10;	Lotes.TipoLoteID, &#13;&#10;	Lotes.CodigoLote, &#13;&#10;	Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN iif(len(dbo.DepositoLavado(Depositos.DepositoID))&gt;88,substring(dbo.DepositoLavado(Depositos.DepositoID), 0, 88),dbo.DepositoLavado(Depositos.DepositoID))&#13;&#10;	ELSE iif(len(Lotes.Descripcion)&gt;88,substring(Lotes.Descripcion, 0, 88)+'...', Lotes.Descripcion) END AS Descripcion,&#13;&#10;	Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;--	and tipoloteid = 10&#13;&#10;and &#13;&#10;	(depositos.botaid is not null or botapiernaid is not null)&#13;&#10;ORDER BY [TiposProductos].[Descripcion], Depositos.Codigo">
         <Column Name="Descripcion" DataType="System.String"/>
         <Column Name="Codigo" DataType="System.Int32"/>
         <Column Name="Capacidad" DataType="System.Single"/>
@@ -48,7 +48,7 @@ namespace FastReport
         <Column Name="AlcGR" DataType="System.Double" PropName="Column" Calculated="true" Expression="[Table10.CantidadRestante]*[Table10.Alcohol]"/>
         <Column Name="AcdGR" DataType="System.Double" PropName="Column1" Calculated="true" Expression="[Table10.CantidadRestante]*[Table10.Acidez]"/>
       </TableDataSource>
-      <TableDataSource Name="Table2" Alias="TableNo10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	Depositos.Codigo,  &#13;&#10;	Depositos.Capacidad, &#13;&#10;	Depositos.Listado,&#13;&#10;	Lotes.TipoLoteID, &#13;&#10;	Lotes.CodigoLote, &#13;&#10;	Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN iif(len(dbo.DepositoLavado(Depositos.DepositoID))&gt;45,substring(dbo.DepositoLavado(Depositos.DepositoID), 0, 45),dbo.DepositoLavado(Depositos.DepositoID))&#13;&#10;	ELSE iif(len(Lotes.Descripcion)&gt;45,substring(Lotes.Descripcion, 0, 45)+'...', Lotes.Descripcion) END AS Descripcion,&#13;&#10;	Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	and	&#13;&#10;		Depositos.BotaID Is NULL&#13;&#10;	and&#13;&#10;		Depositos.botapiernaid is null&#13;&#10;	ORDER BY [TiposProductos].[Descripcion], Depositos.Codigo">
+      <TableDataSource Name="Table2" Alias="TableNo10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	Depositos.Codigo,  &#13;&#10;	Depositos.Capacidad, &#13;&#10;	Depositos.Listado,&#13;&#10;	Lotes.TipoLoteID, &#13;&#10;	Lotes.CodigoLote, &#13;&#10;	Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN iif(len(dbo.DepositoLavado(Depositos.DepositoID))&gt;88,substring(dbo.DepositoLavado(Depositos.DepositoID), 0, 88),dbo.DepositoLavado(Depositos.DepositoID))&#13;&#10;	ELSE iif(len(Lotes.Descripcion)&gt;88,substring(Lotes.Descripcion, 0, 88)+'...', Lotes.Descripcion) END AS Descripcion,&#13;&#10;	Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	and	&#13;&#10;		Depositos.BotaID Is NULL&#13;&#10;	and&#13;&#10;		Depositos.botapiernaid is null&#13;&#10;	ORDER BY [TiposProductos].[Descripcion], Depositos.Codigo">
         <Column Name="Descripcion" DataType="System.String"/>
         <Column Name="Codigo" DataType="System.Int32"/>
         <Column Name="Capacidad" DataType="System.Single"/>
@@ -63,7 +63,7 @@ namespace FastReport
         <Column Name="AlcGR" DataType="System.Double" PropName="Column" Calculated="true" Expression="[TableNo10.CantidadRestante]*[TableNo10.Alcohol]"/>
         <Column Name="AcdGR" DataType="System.Double" PropName="Column1" Calculated="true" Expression="[TableNo10.CantidadRestante]*[TableNo10.Acidez]"/>
       </TableDataSource>
-      <TableDataSource Name="Table3" Alias="Totales10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	sum(Depositos.Capacidad) Capacidad, &#13;&#10;	sum(Lotes.CantidadRestante) CantidadRestante,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez')) as Acidez,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol')) as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		Depositos.BotaID Is NULL and Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	and tipoloteid = 10&#13;&#10;group by 	[TiposProductos].[Descripcion]&#13;&#10;	ORDER BY [TiposProductos].[Descripcion]">
+      <TableDataSource Name="Table3" Alias="Totales10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	sum(Depositos.Capacidad) Capacidad, &#13;&#10;	sum(Lotes.CantidadRestante) CantidadRestante,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez')) as Acidez,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol')) as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;--	and tipoloteid = 10&#13;&#10;and &#13;&#10;	(depositos.botaid is not null or botapiernaid is not null)&#13;&#10;group by 	[TiposProductos].[Descripcion]&#13;&#10;	ORDER BY [TiposProductos].[Descripcion]">
         <Column Name="Descripcion" DataType="System.String"/>
         <Column Name="Capacidad" DataType="System.Double"/>
         <Column Name="CantidadRestante" DataType="System.Double"/>
@@ -72,7 +72,7 @@ namespace FastReport
         <Column Name="AlcGR" DataType="System.Double" PropName="Column" Calculated="true" Expression="[Totales10.CantidadRestante]*[Totales10.Alcohol]"/>
         <Column Name="AcdGR" DataType="System.Double" PropName="Column1" Calculated="true" Expression="[Totales10.CantidadRestante]*[Totales10.Acidez]"/>
       </TableDataSource>
-      <TableDataSource Name="Table4" Alias="TotalesNo10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	sum(Depositos.Capacidad) Capacidad, &#13;&#10;	sum(Lotes.CantidadRestante) CantidadRestante,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez')) as Acidez,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol')) as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		Depositos.BotaID Is NULL and Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	and tipoloteid &lt;&gt; 10&#13;&#10;group by 	[TiposProductos].[Descripcion]&#13;&#10;	ORDER BY [TiposProductos].[Descripcion]">
+      <TableDataSource Name="Table4" Alias="TotalesNo10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	sum(Depositos.Capacidad) Capacidad, &#13;&#10;	sum(Lotes.CantidadRestante) CantidadRestante,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez')) as Acidez,&#13;&#10;	avg(dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol')) as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	and	&#13;&#10;		Depositos.BotaID Is NULL&#13;&#10;	and&#13;&#10;		Depositos.botapiernaid is null&#13;&#10;group by 	[TiposProductos].[Descripcion]&#13;&#10;	ORDER BY [TiposProductos].[Descripcion]">
         <Column Name="Descripcion" DataType="System.String"/>
         <Column Name="Capacidad" DataType="System.Double"/>
         <Column Name="CantidadRestante" DataType="System.Double"/>
@@ -100,10 +100,10 @@ namespace FastReport
     <Total Name="Total1AcidezGrado" Expression="[Table10.AcdGR]" Evaluator="Data4"/>
   </Dictionary>
   <ReportPage Name="Page1">
-    <ReportTitleBand Name="ReportTitle1" Top="20" Width="718.2" Height="37.8">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
       <TextObject Name="Text1" Width="718.2" Height="37.8" Dock="Fill" Text="Existencias de productos a granell al dia [Date]" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold" Style="Título"/>
     </ReportTitleBand>
-    <PageHeaderBand Name="PageHeader1" Top="77.8" Width="718.2" Height="9.45" Fill.Color="CornflowerBlue">
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="9.45" Fill.Color="CornflowerBlue">
       <TextObject Name="Text3" Width="18.9" Height="9.45" Fill.Color="CornflowerBlue" Text="Nº" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
       <TextObject Name="Text5" Left="18.9" Width="56.7" Height="9.45" Fill.Color="CornflowerBlue" Text="Capacidad" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
       <TextObject Name="Text7" Left="75.6" Width="66.15" Height="9.45" Fill.Color="CornflowerBlue" Text="Contenido" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
@@ -113,24 +113,24 @@ namespace FastReport
       <TextObject Name="Text25" Left="633.15" Width="37.8" Height="9.45" Fill.Color="CornflowerBlue" Text="Alcoholº" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
       <TextObject Name="Text27" Left="670.95" Width="37.8" Height="9.45" Fill.Color="CornflowerBlue" Text="Acidezº" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
       <TextObject Name="Text57" Left="595.35" Width="37.8" Height="9.45" Fill.Color="CornflowerBlue" Text="Alcohol" HorzAlign="Center" Font="Arial, 6pt, style=Bold"/>
-      <ChildBand Name="Child2" Top="107.25" Width="718.2" Height="9.45"/>
+      <ChildBand Name="Child2" Top="55.25" Width="718.2" Height="9.45"/>
     </PageHeaderBand>
-    <GroupHeaderBand Name="GroupHeader1" Top="136.7" Width="718.2" Height="18.9" Condition="[Table.Descripcion]">
+    <GroupHeaderBand Name="GroupHeader1" Top="68.7" Width="718.2" Height="18.9" Condition="[Table.Descripcion]">
       <TextObject Name="Text28" Width="718.2" Height="18.9" Fill.Color="LightSkyBlue" Text="[Table.Descripcion]" VertAlign="Center" Font="Microsoft Sans Serif, 8.25pt, style=Bold"/>
-      <DataBand Name="Data1" Top="175.6" Width="718.2" Height="18.9" EvenStyle="Eventos de filas" DataSource="Table">
+      <DataBand Name="Data1" Top="91.6" Width="718.2" Height="18.9" EvenStyle="Eventos de filas" DataSource="Table">
         <SubreportObject Name="Subreport2" Width="718.2" Height="18.9" ReportPage="Page3"/>
-        <ChildBand Name="Child1" Top="214.5" Width="718.2" Height="18.9" Guides="28.35,28.35">
+        <ChildBand Name="Child1" Top="114.5" Width="718.2" Height="18.9" Guides="28.35,28.35">
           <SubreportObject Name="Subreport1" Width="718.2" Height="18.9" ReportPage="Page2"/>
         </ChildBand>
       </DataBand>
-      <GroupFooterBand Name="GroupFooter1" Top="253.4" Width="718.2" Height="9.45"/>
+      <GroupFooterBand Name="GroupFooter1" Top="137.4" Width="718.2" Height="9.45"/>
     </GroupHeaderBand>
-    <PageFooterBand Name="PageFooter1" Top="282.85" Width="718.2" Height="18.9">
+    <PageFooterBand Name="PageFooter1" Top="150.85" Width="718.2" Height="18.9">
       <TextObject Name="Text29" Width="718.2" Height="18.9" Dock="Fill" Fill.Color="CornflowerBlue" Text="[PageN]" HorzAlign="Right" Style="Pie"/>
     </PageFooterBand>
   </ReportPage>
   <ReportPage Name="Page2">
-    <DataBand Name="Data4" Top="20" Width="718.2" Height="13.23" DataSource="Table1">
+    <DataBand Name="Data4" Width="718.2" Height="13.23" DataSource="Table1">
       <TextObject Name="Text4" Width="28.35" Height="13.23" Border.Lines="All" Text="[Table10.Codigo]" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 6pt"/>
       <TextObject Name="Text16" Left="170.1" Width="330.75" Height="13.23" Border.Lines="All" Text="[Table10.Descripcion1]" VertAlign="Center" Font="Microsoft Sans Serif, 6pt" Trimming="EllipsisCharacter"/>
       <TextObject Name="Text6" Left="28.35" Width="47.25" Height="13.23" Border.Lines="All" Text="[Table10.Capacidad]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator="." Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 6pt"/>
@@ -141,7 +141,7 @@ namespace FastReport
       <TextObject Name="Text24" Left="623.7" Width="47.25" Height="13.23" Border.Lines="All" Text="[Table10.AlcGR]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator="." Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 6pt"/>
       <TextObject Name="Text26" Left="670.95" Width="47.25" Height="13.23" Border.Lines="All" Text="[Table10.AcdGR]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator="." Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 6pt"/>
     </DataBand>
-    <DataBand Name="Data2" Top="53.23" Width="718.2" Height="9.45" Fill.Color="LightGray" DataSource="Table3">
+    <DataBand Name="Data2" Top="17.23" Width="718.2" Height="9.45" Fill.Color="LightGray" DataSource="Table3">
       <TextObject Name="Text46" Left="500.85" Width="47.25" Height="9.45" Text="[Totales10.CantidadRestante]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator="." Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 6pt, style=Bold"/>
       <TextObject Name="Text45" Left="9.45" Width="66.15" Height="9.45" Text="[Totales10.Capacidad]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="," Format.GroupSeparator="." Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 6pt, style=Bold"/>
       <TextObject Name="Text47" Left="548.1" Width="37.8" Height="9.45" Text="[Totales10.Acidez]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="2" Format.DecimalSeparator="," Format.GroupSeparator="." Format.NegativePattern="1" HorzAlign="Right" VertAlign="Center" Font="Microsoft Sans Serif, 6pt, style=Bold"/>
