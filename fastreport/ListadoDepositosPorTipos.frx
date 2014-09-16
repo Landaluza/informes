@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="08/12/2014 13:13:40" ReportInfo.Modified="09/01/2014 13:42:13" ReportInfo.CreatorVersion="2014.2.4.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/12/2014 13:13:40" ReportInfo.Modified="09/16/2014 11:52:51" ReportInfo.CreatorVersion="2014.2.4.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace FastReport
       </TableDataSource>
       <TableDataSource Name="Table1" Alias="Table10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	Depositos.Codigo,  &#13;&#10;	Depositos.Capacidad, &#13;&#10;	Depositos.Listado,&#13;&#10;	Lotes.TipoLoteID, &#13;&#10;	Lotes.CodigoLote, &#13;&#10;	Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN iif(len(dbo.DepositoLavado(Depositos.DepositoID))&gt;88,substring(dbo.DepositoLavado(Depositos.DepositoID), 0, 88),dbo.DepositoLavado(Depositos.DepositoID))&#13;&#10;	ELSE iif(len(Lotes.Descripcion)&gt;88,substring(Lotes.Descripcion, 0, 88)+'...', Lotes.Descripcion) END AS Descripcion,&#13;&#10;	Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;--	and tipoloteid = 10&#13;&#10;and &#13;&#10;	(depositos.botaid is not null or botapiernaid is not null)&#13;&#10;ORDER BY [TiposProductos].[Descripcion], Depositos.Codigo">
         <Column Name="Descripcion" DataType="System.String"/>
-        <Column Name="Codigo" DataType="System.Int32"/>
+        <Column Name="Codigo" DataType="System.String"/>
         <Column Name="Capacidad" DataType="System.Single"/>
         <Column Name="Listado" DataType="System.Boolean" BindableControl="CheckBox"/>
         <Column Name="TipoLoteID" DataType="System.Int32"/>
@@ -50,7 +50,7 @@ namespace FastReport
       </TableDataSource>
       <TableDataSource Name="Table2" Alias="TableNo10" DataType="System.Int32" Enabled="true" SelectCommand="select &#13;&#10;	[dbo].[TiposProductos].[Descripcion],&#13;&#10;	Depositos.Codigo,  &#13;&#10;	Depositos.Capacidad, &#13;&#10;	Depositos.Listado,&#13;&#10;	Lotes.TipoLoteID, &#13;&#10;	Lotes.CodigoLote, &#13;&#10;	Lotes.CantidadRestante,&#13;&#10;	CASE WHEN CodigoLote is NULL THEN iif(len(dbo.DepositoLavado(Depositos.DepositoID))&gt;88,substring(dbo.DepositoLavado(Depositos.DepositoID), 0, 88),dbo.DepositoLavado(Depositos.DepositoID))&#13;&#10;	ELSE iif(len(Lotes.Descripcion)&gt;88,substring(Lotes.Descripcion, 0, 88)+'...', Lotes.Descripcion) END AS Descripcion,&#13;&#10;	Lotes.TipoProductoID,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Acidez') as Acidez,&#13;&#10;	dbo.DevolerValorParametroDeLote(Lotes.LoteID, 'Alcohol') as Alcohol&#13;&#10;	from&#13;&#10;		[dbo].[TiposProductos] inner join Lotes on lotes.TipoProductoID = TiposProductos.TipoProductoID &#13;&#10;		RIGHT OUTER JOIN  Depositos ON Lotes.DepositoID = Depositos.DepositoID&#13;&#10;	where&#13;&#10;		 Depositos.Listado = 'TRUE'&#13;&#10;	and&#13;&#10;		enologico = 'False'&#13;&#10;	and	&#13;&#10;		Depositos.BotaID Is NULL&#13;&#10;	and&#13;&#10;		Depositos.botapiernaid is null&#13;&#10;	ORDER BY [TiposProductos].[Descripcion], Depositos.Codigo">
         <Column Name="Descripcion" DataType="System.String"/>
-        <Column Name="Codigo" DataType="System.Int32"/>
+        <Column Name="Codigo" DataType="System.String"/>
         <Column Name="Capacidad" DataType="System.Single"/>
         <Column Name="Listado" DataType="System.Boolean" BindableControl="CheckBox"/>
         <Column Name="TipoLoteID" DataType="System.Int32"/>
