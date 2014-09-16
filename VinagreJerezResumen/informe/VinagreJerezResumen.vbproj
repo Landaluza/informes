@@ -7,14 +7,13 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{2489B909-706F-4F45-A725-6C715CF3C0B3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <StartupObject>
-    </StartupObject>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>InformeResumenVinagre.My.MyApplication</StartupObject>
     <RootNamespace>InformeResumenVinagre</RootNamespace>
     <AssemblyName>InformeResumenVinagre</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
-    <MyType>Windows</MyType>
+    <MyType>WindowsForms</MyType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

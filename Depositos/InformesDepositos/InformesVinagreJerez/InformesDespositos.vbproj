@@ -7,12 +7,13 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E028037D-F081-4041-A0B5-1D11716716BB}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <StartupObject>InformesDepositos.frmExistenciasPorTipoProducto</StartupObject>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
     <RootNamespace>InformesDepositos</RootNamespace>
     <AssemblyName>InformeDepositos</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
