@@ -79,6 +79,12 @@
       <DependentUpon>frmEnvasadosEntreFehcas.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmEnvasadosMensuales.Designer.vb">
+      <DependentUpon>frmEnvasadosMensuales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEnvasadosMensuales.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +113,9 @@
     <EmbeddedResource Include="frmEnvasadosEntreFehcas.resx">
       <DependentUpon>frmEnvasadosEntreFehcas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEnvasadosMensuales.resx">
+      <DependentUpon>frmEnvasadosMensuales.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -114,6 +123,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report2.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LADataSet.xsc">
@@ -137,6 +147,9 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\glyphicons_198_ok.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

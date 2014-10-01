@@ -15,6 +15,10 @@ Envasadosentrefechas
   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
 </summary>
+</member><member name="P:Envasados_entre_fechas.My.Resources.Resources.glyphicons_198_ok">
+	<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
 </member><member name="T:Envasados_entre_fechas.My.Resources.Resources">
 	<summary>
   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
@@ -23,11 +27,23 @@ Envasadosentrefechas
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
+</member><member name="T:Envasados_entre_fechas.LADataSet.ListadoFormatosPorMesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
 </member><member name="T:Envasados_entre_fechas.LADataSet.ListadoFormatosRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
+</member><member name="T:Envasados_entre_fechas.LADataSet.ListadoFormatosPorMesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
 </member><member name="T:Envasados_entre_fechas.LADataSet.ListadoFormatosRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Envasados_entre_fechas.LADataSet.ListadoFormatosPorMesRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -36,6 +52,10 @@ Row event argument class
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member><member name="T:Envasados_entre_fechas.LADataSetTableAdapters.ListadoFormatosTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Envasados_entre_fechas.LADataSetTableAdapters.ListadoFormatosPorMesTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

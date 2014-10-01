@@ -122,6 +122,144 @@ ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListadoFormatosPorMesTableAdapter" GeneratorDataComponentClassName="ListadoFormatosPorMesTableAdapter" Name="ListadoFormatosPorMes" UserDataComponentName="ListadoFormatosPorMesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LAConnectionString (MySettings)" DbObjectName="SELECT TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, TiposFormatosLineas_4.Descripcion AS Formato, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS VelocidadMaquina FROM PaletsContenidos INNER JOIN Envasados INNER JOIN FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN TiposFormatos AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormatoID INNER JOIN TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON TiposFormatos_1.TipoFormatoID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID WHERE (Envasados.Fecha BETWEEN @Fecha AND @FechaFin) GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion ORDER BY Linea" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   month(EficaciaPorFormato.fecha) mes,  EficaciaPorFormato.Linea, EficaciaPorFormato.Formato, sum(EficaciaPorFormato.TiempoEnvasado) AS TiempoRegistradoEnvasado, 
+								 avg(EficaciaPorFormato.VelocidadTeorica) VelocidadTeorica, sum(EficaciaPorFormato.UnidadesFabricadas) as UnidadesFabricadas, 
+								 sum(ISNULL(TiempoPlanificadas.MinutosIncidencia, 0)) AS Planificadas, 
+								 sum(ISNULL(TiempoGestionRecursos.MinutosIncidencia, 0)) AS GestionRecursos, 
+								 sum(ISNULL(TiempoIntrinsecas.MinutosIncidencia, 0)) AS Intrinsecas, 
+								 ISNULL(SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio, CambiosFormatosEnvasados.HoraFin)), 0) AS CambiosFormato
+		FROM            (SELECT       Envasados_1.fecha, Envasados_1.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin)) AS MinutosIncidencia, 
+															CategoriaIncidencias.Descripcion AS Categoria, LineasEnvasado_1.Descripcion AS Linea, CategoriaIncidencias.CategoriaIncidenciaID, 
+															TiposFormatosLineas_1.Descripcion AS Formato
+								  FROM            ClasesIncidencias INNER JOIN
+															Envasados AS Envasados_1 INNER JOIN
+															FormatosEnvasados AS FormatosEnvasados_1 ON Envasados_1.EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN
+															Incidencias ON FormatosEnvasados_1.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN
+															TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON 
+															ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN
+															TiposFormatosLineas AS TiposFormatosLineas_1 ON 
+															FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN
+															LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = LineasEnvasado_1.LineaEnvasadoID RIGHT OUTER JOIN
+															CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID
+								  GROUP BY LineasEnvasado_1.Descripcion, Envasados_1.EnvasadoID, CategoriaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID, 
+															TiposFormatosLineas_1.Descripcion, envasados_1.fecha
+								  HAVING         (CategoriaIncidencias.CategoriaIncidenciaID = 11)
+						) AS TiempoPlanificadas 
+						
+						RIGHT OUTER JOIN
+						
+						(SELECT        
+							TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, 
+												TiposFormatosLineas_4.Descripcion AS Formato, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, 
+												AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) 
+												AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) 
+												* TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, 
+												AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) 
+												AS VelocidadMaquina
+									FROM            PaletsContenidos INNER JOIN
+																 Envasados INNER JOIN
+																 FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON 
+																 PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN
+																 TiposFormatos AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormatoID INNER JOIN
+																 TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN
+																 TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN
+																 TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN
+																 LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON 
+																 TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON 
+																 TiposFormatos_1.TipoFormatoID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND 
+																 FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID
+									WHERE        (Envasados.Fecha between @Fecha and @FechaFin)
+									GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion
+									ORDER BY Linea
+						) AS EficaciaPorFormato 
+						
+						LEFT OUTER JOIN
+								
+						TiposFormatosLineas INNER JOIN
+						FormatosEnvasados INNER JOIN
+						CambiosFormatosEnvasados ON FormatosEnvasados.FormatoEnvasadoID = CambiosFormatosEnvasados.FormatoEnvasadoAID ON 
+						TiposFormatosLineas.TipoFormatoLineaID = FormatosEnvasados.TipoFormatoLineaID ON EficaciaPorFormato.Formato = TiposFormatosLineas.Descripcion AND 
+						EficaciaPorFormato.EnvasadoID = FormatosEnvasados.EnvasadoID 
+						
+						LEFT OUTER JOIN
+						
+						(SELECT        Envasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin)) AS MinutosIncidencia, 
+																 CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, 
+																 TiposFormatosLineas_3.Descripcion AS Formato
+									   FROM            ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN
+																 Envasados AS Envasados_3 INNER JOIN
+																 FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN
+																 Incidencias AS Incidencias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INNER JOIN
+																 TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON 
+																 ClasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN
+																 TiposFormatosLineas AS TiposFormatosLineas_3 ON 
+																 FormatosEnvasados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER JOIN
+																 LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID = LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN
+																 CategoriaIncidencias AS CategoriaIncidencias_2 ON 
+																 ClasesIncidencias_2.id_categoriaIncidencia = CategoriaIncidencias_2.CategoriaIncidenciaID
+									   GROUP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenciaID, 
+																 TiposFormatosLineas_3.Descripcion
+									   HAVING         (CategoriaIncidencias_2.CategoriaIncidenciaID = 10)
+						) AS TiempoIntrinsecas 
+						ON EficaciaPorFormato.EnvasadoID = TiempoIntrinsecas.EnvasadoID 
+						AND 
+						EficaciaPorFormato.Linea = TiempoIntrinsecas.Linea 
+						AND EficaciaPorFormato.Formato = TiempoIntrinsecas.Formato 
+						
+						LEFT OUTER JOIN
+						(SELECT        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidencias_1.HoraFin)) AS MinutosIncidencia, 
+													CategoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID, 
+													TiposFormatosLineas_2.Descripcion AS Formato
+							FROM            ClasesIncidencias AS ClasesIncidencias_1 INNER JOIN
+														Envasados AS Envasados_2 INNER JOIN
+														FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = FormatosEnvasados_2.EnvasadoID INNER JOIN
+														Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnvasadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN
+														TiposIncidencias AS TiposIncidencias_1 ON Incidencias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON 
+														ClasesIncidencias_1.ClaseIncidenciaID = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN
+														TiposFormatosLineas AS TiposFormatosLineas_2 ON 
+														FormatosEnvasados_2.TipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN
+														LineasEnvasado AS LineasEnvasado_2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGHT OUTER JOIN
+														CategoriaIncidencias AS CategoriaIncidencias_1 ON 
+														ClasesIncidencias_1.id_categoriaIncidencia = CategoriaIncidencias_1.CategoriaIncidenciaID
+							GROUP BY LineasEnvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion, CategoriaIncidencias_1.CategoriaIncidenciaID, 
+														TiposFormatosLineas_2.Descripcion
+							HAVING         (CategoriaIncidencias_1.CategoriaIncidenciaID = 12)
+						) AS TiempoGestionRecursos 
+						ON 
+						EficaciaPorFormato.EnvasadoID = TiempoGestionRecursos.EnvasadoID AND EficaciaPorFormato.Linea = TiempoGestionRecursos.Linea AND 
+						EficaciaPorFormato.Formato = TiempoGestionRecursos.Formato ON TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND 
+						TiempoPlanificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID AND TiempoPlanificadas.Formato = EficaciaPorFormato.Formato
+		GROUP BY  EficaciaPorFormato.Linea, EficaciaPorFormato.Formato    
+			,month(EficaciaPorFormato.fecha)                    
+		--ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="Fecha" ColumnName="" DataSourceName="" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="FechaFin" ColumnName="" DataSourceName="" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@FechaFin" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Linea" DataSetColumn="Linea" />
+              <Mapping SourceColumn="Formato" DataSetColumn="Formato" />
+              <Mapping SourceColumn="TiempoRegistradoEnvasado" DataSetColumn="TiempoRegistradoEnvasado" />
+              <Mapping SourceColumn="VelocidadTeorica" DataSetColumn="VelocidadTeorica" />
+              <Mapping SourceColumn="UnidadesFabricadas" DataSetColumn="UnidadesFabricadas" />
+              <Mapping SourceColumn="Planificadas" DataSetColumn="Planificadas" />
+              <Mapping SourceColumn="GestionRecursos" DataSetColumn="GestionRecursos" />
+              <Mapping SourceColumn="Intrinsecas" DataSetColumn="Intrinsecas" />
+              <Mapping SourceColumn="CambiosFormato" DataSetColumn="CambiosFormato" />
+              <Mapping SourceColumn="mes" DataSetColumn="mes" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -130,7 +268,7 @@ ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato</CommandText>
   <xs:element name="LADataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LADataSet" msprop:Generator_UserDSName="LADataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ListadoFormatos" msprop:Generator_TableClassName="ListadoFormatosDataTable" msprop:Generator_TableVarName="tableListadoFormatos" msprop:Generator_TablePropName="ListadoFormatos" msprop:Generator_RowDeletingName="ListadoFormatosRowDeleting" msprop:Generator_RowChangingName="ListadoFormatosRowChanging" msprop:Generator_RowEvHandlerName="ListadoFormatosRowChangeEventHandler" msprop:Generator_RowDeletedName="ListadoFormatosRowDeleted" msprop:Generator_UserTableName="ListadoFormatos" msprop:Generator_RowChangedName="ListadoFormatosRowChanged" msprop:Generator_RowEvArgName="ListadoFormatosRowChangeEvent" msprop:Generator_RowClassName="ListadoFormatosRow">
+        <xs:element name="ListadoFormatos" msprop:Generator_TableClassName="ListadoFormatosDataTable" msprop:Generator_TableVarName="tableListadoFormatos" msprop:Generator_RowChangedName="ListadoFormatosRowChanged" msprop:Generator_TablePropName="ListadoFormatos" msprop:Generator_RowDeletingName="ListadoFormatosRowDeleting" msprop:Generator_RowChangingName="ListadoFormatosRowChanging" msprop:Generator_RowEvHandlerName="ListadoFormatosRowChangeEventHandler" msprop:Generator_RowDeletedName="ListadoFormatosRowDeleted" msprop:Generator_RowClassName="ListadoFormatosRow" msprop:Generator_UserTableName="ListadoFormatos" msprop:Generator_RowEvArgName="ListadoFormatosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Linea" msprop:Generator_ColumnVarNameInTable="columnLinea" msprop:Generator_ColumnPropNameInRow="Linea" msprop:Generator_ColumnPropNameInTable="LineaColumn" msprop:Generator_UserColumnName="Linea" minOccurs="0">
@@ -160,6 +298,40 @@ ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato</CommandText>
               <xs:element name="VelocidadMaquina" msdata:ReadOnly="true" msdata:Expression="UnidadesFabricadas/(TiempoEnvasadoCorregido/60)" msprop:Generator_ColumnVarNameInTable="columnVelocidadMaquina" msprop:Generator_ColumnPropNameInRow="VelocidadMaquina" msprop:Generator_ColumnPropNameInTable="VelocidadMaquinaColumn" msprop:Generator_UserColumnName="VelocidadMaquina" type="xs:decimal" minOccurs="0" />
               <xs:element name="Disponibilidad" msdata:ReadOnly="true" msdata:Expression="TiempoEnvasadoCorregido/TiempoRegistradoEnvasado" msprop:Generator_ColumnVarNameInTable="columnDisponibilidad" msprop:Generator_ColumnPropNameInRow="Disponibilidad" msprop:Generator_ColumnPropNameInTable="DisponibilidadColumn" msprop:Generator_UserColumnName="Disponibilidad" type="xs:decimal" minOccurs="0" />
               <xs:element name="OEE" msdata:ReadOnly="true" msdata:Expression="Disponibilidad*Eficacia" msprop:Generator_ColumnVarNameInTable="columnOEE" msprop:Generator_ColumnPropNameInRow="OEE" msprop:Generator_ColumnPropNameInTable="OEEColumn" msprop:Generator_UserColumnName="OEE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ListadoFormatosPorMes" msprop:Generator_TableClassName="ListadoFormatosPorMesDataTable" msprop:Generator_TableVarName="tableListadoFormatosPorMes" msprop:Generator_TablePropName="ListadoFormatosPorMes" msprop:Generator_RowDeletingName="ListadoFormatosPorMesRowDeleting" msprop:Generator_RowChangingName="ListadoFormatosPorMesRowChanging" msprop:Generator_RowEvHandlerName="ListadoFormatosPorMesRowChangeEventHandler" msprop:Generator_RowDeletedName="ListadoFormatosPorMesRowDeleted" msprop:Generator_UserTableName="ListadoFormatosPorMes" msprop:Generator_RowChangedName="ListadoFormatosPorMesRowChanged" msprop:Generator_RowEvArgName="ListadoFormatosPorMesRowChangeEvent" msprop:Generator_RowClassName="ListadoFormatosPorMesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Linea" msprop:Generator_ColumnVarNameInTable="columnLinea" msprop:Generator_ColumnPropNameInRow="Linea" msprop:Generator_ColumnPropNameInTable="LineaColumn" msprop:Generator_UserColumnName="Linea" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Formato" msprop:Generator_ColumnVarNameInTable="columnFormato" msprop:Generator_ColumnPropNameInRow="Formato" msprop:Generator_ColumnPropNameInTable="FormatoColumn" msprop:Generator_UserColumnName="Formato" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TiempoRegistradoEnvasado" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTiempoRegistradoEnvasado" msprop:Generator_ColumnPropNameInRow="TiempoRegistradoEnvasado" msprop:Generator_ColumnPropNameInTable="TiempoRegistradoEnvasadoColumn" msprop:Generator_UserColumnName="TiempoRegistradoEnvasado" type="xs:int" minOccurs="0" />
+              <xs:element name="VelocidadTeorica" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnVelocidadTeorica" msprop:Generator_ColumnPropNameInRow="VelocidadTeorica" msprop:Generator_ColumnPropNameInTable="VelocidadTeoricaColumn" msprop:Generator_UserColumnName="VelocidadTeorica" type="xs:int" minOccurs="0" />
+              <xs:element name="UnidadesFabricadas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUnidadesFabricadas" msprop:Generator_ColumnPropNameInRow="UnidadesFabricadas" msprop:Generator_ColumnPropNameInTable="UnidadesFabricadasColumn" msprop:Generator_UserColumnName="UnidadesFabricadas" type="xs:int" minOccurs="0" />
+              <xs:element name="Planificadas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPlanificadas" msprop:Generator_ColumnPropNameInRow="Planificadas" msprop:Generator_ColumnPropNameInTable="PlanificadasColumn" msprop:Generator_UserColumnName="Planificadas" type="xs:int" minOccurs="0" />
+              <xs:element name="GestionRecursos" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGestionRecursos" msprop:Generator_ColumnPropNameInRow="GestionRecursos" msprop:Generator_ColumnPropNameInTable="GestionRecursosColumn" msprop:Generator_UserColumnName="GestionRecursos" type="xs:int" minOccurs="0" />
+              <xs:element name="Intrinsecas" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIntrinsecas" msprop:Generator_ColumnPropNameInRow="Intrinsecas" msprop:Generator_ColumnPropNameInTable="IntrinsecasColumn" msprop:Generator_UserColumnName="Intrinsecas" type="xs:int" minOccurs="0" />
+              <xs:element name="CambiosFormato" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCambiosFormato" msprop:Generator_ColumnPropNameInRow="CambiosFormato" msprop:Generator_ColumnPropNameInTable="CambiosFormatoColumn" msprop:Generator_UserColumnName="CambiosFormato" type="xs:int" minOccurs="0" />
+              <xs:element name="TiempoEnvasadoCorregido" msdata:ReadOnly="true" msdata:Expression="TiempoRegistradoEnvasado-Planificadas-GestionRecursos-Intrinsecas-CambiosFormato" msprop:Generator_ColumnVarNameInTable="columnTiempoEnvasadoCorregido" msprop:Generator_ColumnPropNameInRow="TiempoEnvasadoCorregido" msprop:Generator_ColumnPropNameInTable="TiempoEnvasadoCorregidoColumn" msprop:Generator_UserColumnName="TiempoEnvasadoCorregido" type="xs:decimal" minOccurs="0" />
+              <xs:element name="UnidadesEsperadas" msdata:ReadOnly="true" msdata:Expression="(VelocidadTeorica/60)*TiempoEnvasadoCorregido" msprop:Generator_ColumnVarNameInTable="columnUnidadesEsperadas" msprop:Generator_ColumnPropNameInRow="UnidadesEsperadas" msprop:Generator_ColumnPropNameInTable="UnidadesEsperadasColumn" msprop:Generator_UserColumnName="UnidadesEsperadas" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Eficacia" msdata:ReadOnly="true" msdata:Expression="iif(UnidadesEsperadas=0 ,0,UnidadesFabricadas/UnidadesEsperadas)" msprop:Generator_ColumnVarNameInTable="columnEficacia" msprop:Generator_ColumnPropNameInRow="Eficacia" msprop:Generator_ColumnPropNameInTable="EficaciaColumn" msprop:Generator_UserColumnName="Eficacia" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VelocidadMaquina" msdata:ReadOnly="true" msdata:Expression="UnidadesFabricadas/(TiempoEnvasadoCorregido/60)" msprop:Generator_ColumnVarNameInTable="columnVelocidadMaquina" msprop:Generator_ColumnPropNameInRow="VelocidadMaquina" msprop:Generator_ColumnPropNameInTable="VelocidadMaquinaColumn" msprop:Generator_UserColumnName="VelocidadMaquina" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Disponibilidad" msdata:ReadOnly="true" msdata:Expression="iif(TiempoRegistradoEnvasado=0, 0, TiempoEnvasadoCorregido/TiempoRegistradoEnvasado)" msprop:Generator_ColumnVarNameInTable="columnDisponibilidad" msprop:Generator_ColumnPropNameInRow="Disponibilidad" msprop:Generator_ColumnPropNameInTable="DisponibilidadColumn" msprop:Generator_UserColumnName="Disponibilidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OEE" msdata:ReadOnly="true" msdata:Expression="Disponibilidad*Eficacia" msprop:Generator_ColumnVarNameInTable="columnOEE" msprop:Generator_ColumnPropNameInRow="OEE" msprop:Generator_ColumnPropNameInTable="OEEColumn" msprop:Generator_UserColumnName="OEE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mes" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmes" msprop:Generator_ColumnPropNameInRow="mes" msprop:Generator_ColumnPropNameInTable="mesColumn" msprop:Generator_UserColumnName="mes" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

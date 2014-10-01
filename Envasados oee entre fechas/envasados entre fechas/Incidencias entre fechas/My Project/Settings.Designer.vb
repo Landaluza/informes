@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=VMSQL\SQLEXPRESS,1608;Initial Catalog=LA;Persist Security Info=True;U"& _ 
-            "ser ID=ssa;Password=Trucha0122")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.200;Initial Catalog=LA;Persist Security Info=False;User ID="& _ 
+            "ssa;Password=Trucha0122;Trusted_Connection=False;")>  _
         Public ReadOnly Property LAConnectionString() As String
             Get
                 Return CType(Me("LAConnectionString"),String)
