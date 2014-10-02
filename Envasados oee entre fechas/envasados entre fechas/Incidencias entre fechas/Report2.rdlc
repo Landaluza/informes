@@ -17,6 +17,7 @@
                           <TextRun>
                             <Value>Linea</Value>
                             <Style>
+                              <FontSize>9pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -50,15 +51,18 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>9.29979cm</Width>
+              <Width>7.73875cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.52104cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.52104cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.2825cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -122,6 +126,43 @@
                         <LeftBorder>
                           <Style>None</Style>
                         </LeftBorder>
+                        <RightBorder>
+                          <Style>None</Style>
+                        </RightBorder>
+                        <BackgroundColor>CornflowerBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <LeftBorder>
+                          <Style>None</Style>
+                        </LeftBorder>
                         <BackgroundColor>CornflowerBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -134,7 +175,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.52063cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -146,7 +187,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Formato.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -177,6 +220,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!OEE.Value)</Value>
                               <Style>
+                                <FontSize>7pt</FontSize>
                                 <Format>0.00</Format>
                               </Style>
                             </TextRun>
@@ -190,6 +234,40 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="OEE">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!OEE.Value)/Max(Fields!mes.Value)</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                                <Format>0.00</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>OEE</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -218,6 +296,7 @@
                             <Value>Formato</Value>
                             <Style>
                               <FontStyle>Normal</FontStyle>
+                              <FontSize>9pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -275,9 +354,10 @@
                           <TextRun>
                             <Value>=Switch(Fields!mes.Value=1, "Enero",Fields!mes.Value=2, "Febrero", Fields!mes.Value=3, "Marzo",
 Fields!mes.Value=4, "Abril", Fields!mes.Value=5, "Mayo", Fields!mes.Value=6,"Junio",
-Fields!mes.Value=7,"Julio",Fields!mes.Value=8,"Agosto", Fields!mes.Value=9,"Septiembre",
+Fields!mes.Value=7,"Julio",Fields!mes.Value=8,"Agosto", Fields!mes.Value=9,"Sept",
 Fields!mes.Value=10, "Octubre", Fields!mes.Value=11, "Noviembre", Fields!mes.Value=12,"Diciembre")</Value>
                             <Style>
+                              <FontSize>8pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
@@ -303,12 +383,52 @@ Fields!mes.Value=10, "Octubre", Fields!mes.Value=11, "Noviembre", Fields!mes.Val
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
                 <TablixMember />
               </TablixMembers>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>0.6cm</Size>
+                <CellContents>
+                  <Textbox Name="Textbox1">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Media</Value>
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox1</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>Solid</Style>
+                      </Border>
+                      <LeftBorder>
+                        <Style>None</Style>
+                      </LeftBorder>
+                      <BackgroundColor>Orange</BackgroundColor>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
             </TablixMember>
           </TablixMembers>
         </TablixColumnHierarchy>
@@ -326,7 +446,7 @@ Fields!mes.Value=10, "Octubre", Fields!mes.Value=11, "Noviembre", Fields!mes.Val
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>1.99729cm</Size>
                 <CellContents>
                   <Textbox Name="Linea15">
                     <CanGrow>true</CanGrow>
@@ -337,7 +457,7 @@ Fields!mes.Value=10, "Octubre", Fields!mes.Value=11, "Noviembre", Fields!mes.Val
                           <TextRun>
                             <Value>=Fields!Linea.Value</Value>
                             <Style>
-                              <FontSize>11pt</FontSize>
+                              <FontSize>9pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -393,8 +513,8 @@ Fields!mes.Value=10, "Octubre", Fields!mes.Value=11, "Noviembre", Fields!mes.Val
         </SortExpressions>
         <Top>1.14741cm</Top>
         <Left>0.7112cm</Left>
-        <Height>1.8cm</Height>
-        <Width>14.29979cm</Width>
+        <Height>1.40312cm</Height>
+        <Width>12.77812cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
