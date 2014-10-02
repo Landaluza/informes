@@ -996,39 +996,29 @@ Namespace LADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "SELECT        Envasados.EnvasadoID, Envasados.Fecha, SUM(DATEDIFF(mi, Incidenc" & _
-                "ias.HoraInicio, Incidencias.HoraFin)) AS Minutos, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Ti" & _
-                "posIncidencias.Descripcion AS Incidencia, CategoriaIncidencias.Descripcion AS Ca" & _
-                "tegoria, REPLACE(ClasesIncidencias.Descripcion, 'Nueva', '') AS Clase, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                   LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesI" & _
-                "ncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
-                "                 FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.E" & _
-                "nvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON FormatosEnvasados" & _
-                ".FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.Tip" & _
-                "oIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseIncidenciaID" & _
-                " = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Tipo" & _
-                "sFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.Ti" & _
-                "poFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFo" & _
-                "rmatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias ON ClasesIncidencias.id_categoria" & _
-                "Incidencia = CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        Envasados" & _
-                ".Fecha BETWEEN @fecha AND @fecha2" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Envasados.EnvasadoID, Envasados.Fec" & _
-                "ha, LineasEnvasado.Descripcion, ClasesIncidencias.Descripcion,  CategoriaInciden" & _
-                "cias.Descripcion, TiposIncidencias.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "order by  linea, fecha asc, Min" & _
-                "utos desc"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha2", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).CommandText = "dbo.IncidenciasEntreFechas"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha2", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ListadoIncidenciasDataTable, ByVal fecha As Date, ByVal fecha2 As Date) As Integer
+        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ListadoIncidenciasDataTable, ByVal fecha As Global.System.Nullable(Of Date), ByVal fecha2 As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha2, Date)
+            If (fecha.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (fecha2.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(fecha2.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             If (Me.ClearBeforeFill = True) Then
                 dataTable.Clear()
             End If
@@ -1040,10 +1030,18 @@ Namespace LADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As Date, ByVal fecha2 As Date) As LADataSet.ListadoIncidenciasDataTable
+        Public Overridable Overloads Function GetData(ByVal fecha As Global.System.Nullable(Of Date), ByVal fecha2 As Global.System.Nullable(Of Date)) As LADataSet.ListadoIncidenciasDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha2, Date)
+            If (fecha.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (fecha2.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(fecha2.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             Dim dataTable As LADataSet.ListadoIncidenciasDataTable = New LADataSet.ListadoIncidenciasDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable

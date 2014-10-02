@@ -4,12 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F6E1FD0F-D0C8-43A9-A477-0BC232935037}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <StartupObject>
-    </StartupObject>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Envasados_entre_fechas.My.MyApplication</StartupObject>
     <RootNamespace>Envasados_entre_fechas</RootNamespace>
     <AssemblyName>Envasados entre fechas</AssemblyName>
-    <MyType>Windows</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
