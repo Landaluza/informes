@@ -5950,6 +5950,10 @@ Partial Public Class LADataSet
         
         Private columnFormato As Global.System.Data.DataColumn
         
+        Private columnHoraInicio1 As Global.System.Data.DataColumn
+        
+        Private columnHoraFin1 As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -6107,6 +6111,22 @@ Partial Public Class LADataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property HoraInicio1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHoraInicio1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property HoraFin1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnHoraFin1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6143,9 +6163,9 @@ Partial Public Class LADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddProduccionRow(ByVal Fecha As Date, ByVal Linea As String, ByVal Articulo As String, ByVal HoraInicio As Date, ByVal HoraFin As Date, ByVal Segundos As Integer, ByVal Vel As Integer, ByVal CajasFabricadas As Integer, ByVal UnidadesCaja As Integer, ByVal total As Decimal, ByVal UnidadesEsperadas As Decimal, ByVal MinutosRegistrados As Decimal, ByVal Formato As String) As ProduccionRow
+        Public Overloads Function AddProduccionRow(ByVal Fecha As Date, ByVal Linea As String, ByVal Articulo As String, ByVal HoraInicio As Date, ByVal HoraFin As Date, ByVal Segundos As Integer, ByVal Vel As Integer, ByVal CajasFabricadas As Integer, ByVal UnidadesCaja As Integer, ByVal total As Decimal, ByVal UnidadesEsperadas As Decimal, ByVal MinutosRegistrados As Decimal, ByVal Formato As String, ByVal HoraInicio1 As System.TimeSpan, ByVal HoraFin1 As System.TimeSpan) As ProduccionRow
             Dim rowProduccionRow As ProduccionRow = CType(Me.NewRow,ProduccionRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha, Linea, Articulo, HoraInicio, HoraFin, Segundos, Vel, CajasFabricadas, UnidadesCaja, total, UnidadesEsperadas, MinutosRegistrados, Formato}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha, Linea, Articulo, HoraInicio, HoraFin, Segundos, Vel, CajasFabricadas, UnidadesCaja, total, UnidadesEsperadas, MinutosRegistrados, Formato, HoraInicio1, HoraFin1}
             rowProduccionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProduccionRow)
             Return rowProduccionRow
@@ -6153,9 +6173,9 @@ Partial Public Class LADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddProduccionRow(ByVal Fecha As Date, ByVal Linea As String, ByVal Articulo As String, ByVal HoraInicio As Date, ByVal HoraFin As Date, ByVal Segundos As Integer, ByVal Vel As Integer, ByVal CajasFabricadas As Integer, ByVal UnidadesCaja As Integer, ByVal Formato As String) As ProduccionRow
+        Public Overloads Function AddProduccionRow(ByVal Fecha As Date, ByVal Linea As String, ByVal Articulo As String, ByVal HoraInicio As Date, ByVal HoraFin As Date, ByVal Segundos As Integer, ByVal Vel As Integer, ByVal CajasFabricadas As Integer, ByVal UnidadesCaja As Integer, ByVal Formato As String, ByVal HoraInicio1 As System.TimeSpan, ByVal HoraFin1 As System.TimeSpan) As ProduccionRow
             Dim rowProduccionRow As ProduccionRow = CType(Me.NewRow,ProduccionRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha, Linea, Articulo, HoraInicio, HoraFin, Segundos, Vel, CajasFabricadas, UnidadesCaja, Nothing, Nothing, Nothing, Formato}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Fecha, Linea, Articulo, HoraInicio, HoraFin, Segundos, Vel, CajasFabricadas, UnidadesCaja, Nothing, Nothing, Nothing, Formato, HoraInicio1, HoraFin1}
             rowProduccionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProduccionRow)
             Return rowProduccionRow
@@ -6198,6 +6218,8 @@ Partial Public Class LADataSet
             Me.columnUnidadesEsperadas = MyBase.Columns("UnidadesEsperadas")
             Me.columnMinutosRegistrados = MyBase.Columns("MinutosRegistrados")
             Me.columnFormato = MyBase.Columns("Formato")
+            Me.columnHoraInicio1 = MyBase.Columns("HoraInicio1")
+            Me.columnHoraFin1 = MyBase.Columns("HoraFin1")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6231,6 +6253,10 @@ Partial Public Class LADataSet
             MyBase.Columns.Add(Me.columnMinutosRegistrados)
             Me.columnFormato = New Global.System.Data.DataColumn("Formato", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFormato)
+            Me.columnHoraInicio1 = New Global.System.Data.DataColumn("HoraInicio1", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHoraInicio1)
+            Me.columnHoraFin1 = New Global.System.Data.DataColumn("HoraFin1", GetType(Global.System.TimeSpan), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnHoraFin1)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnEnvasadoID}, true))
             Me.columnEnvasadoID.AutoIncrement = true
             Me.columnEnvasadoID.AutoIncrementSeed = -1
@@ -6240,7 +6266,6 @@ Partial Public Class LADataSet
             Me.columnEnvasadoID.Unique = true
             Me.columnFecha.AllowDBNull = false
             Me.columnLinea.MaxLength = 50
-            Me.columnArticulo.AllowDBNull = false
             Me.columnArticulo.MaxLength = 100
             Me.columnHoraInicio.AllowDBNull = false
             Me.columnHoraFin.AllowDBNull = false
@@ -6252,6 +6277,8 @@ Partial Public Class LADataSet
             Me.columnUnidadesEsperadas.ReadOnly = true
             Me.columnMinutosRegistrados.ReadOnly = true
             Me.columnFormato.MaxLength = 50
+            Me.columnHoraInicio1.Caption = "HoraInicio"
+            Me.columnHoraFin1.Caption = "HoraFin"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17152,7 +17179,11 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Articulo() As String
             Get
-                Return CType(Me(Me.tableProduccion.ArticuloColumn),String)
+                Try 
+                    Return CType(Me(Me.tableProduccion.ArticuloColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Articulo' de la tabla 'Produccion' es DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableProduccion.ArticuloColumn) = value
@@ -17291,6 +17322,36 @@ Partial Public Class LADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property HoraInicio1() As System.TimeSpan
+            Get
+                Try 
+                    Return CType(Me(Me.tableProduccion.HoraInicio1Column),Global.System.TimeSpan)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'HoraInicio1' de la tabla 'Produccion' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProduccion.HoraInicio1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property HoraFin1() As System.TimeSpan
+            Get
+                Try 
+                    Return CType(Me(Me.tableProduccion.HoraFin1Column),Global.System.TimeSpan)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'HoraFin1' de la tabla 'Produccion' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProduccion.HoraFin1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsLineaNull() As Boolean
             Return Me.IsNull(Me.tableProduccion.LineaColumn)
         End Function
@@ -17299,6 +17360,18 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetLineaNull()
             Me(Me.tableProduccion.LineaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsArticuloNull() As Boolean
+            Return Me.IsNull(Me.tableProduccion.ArticuloColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetArticuloNull()
+            Me(Me.tableProduccion.ArticuloColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17359,6 +17432,30 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetFormatoNull()
             Me(Me.tableProduccion.FormatoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsHoraInicio1Null() As Boolean
+            Return Me.IsNull(Me.tableProduccion.HoraInicio1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetHoraInicio1Null()
+            Me(Me.tableProduccion.HoraInicio1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsHoraFin1Null() As Boolean
+            Return Me.IsNull(Me.tableProduccion.HoraFin1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetHoraFin1Null()
+            Me(Me.tableProduccion.HoraFin1Column) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -25623,116 +25720,116 @@ Namespace LADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, SUM(DATEDIFF(mi, Incidencias" & _
-                ".HoraInicio, Incidencias.HoraFin)) AS Minutos, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposI" & _
-                "ncidencias.Descripcion AS Incidencia, CategoriaIncidencias.Descripcion AS Catego" & _
-                "ria, replace(ClasesIncidencias.Descripcion, 'Nueva','') AS Clase, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "             LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidenc" & _
-                "ias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " & _
-                "        FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID" & _
-                " INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON FormatosEnvasados.FormatoEn" & _
-                "vasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Ti" & _
-                "posIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidencia" & _
-                "ID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseIncidenciaID = TiposInci" & _
-                "dencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLine" & _
-                "as ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLine" & _
-                "aID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.L" & _
-                "ineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "           CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = Ca" & _
-                "tegoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Env" & _
-                "asados.Fecha, 103) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Envasados.EnvasadoID, Envasados.Fecha, Ti" & _
-                "posIncidencias.Descripcion, CategoriaIncidencias.Descripcion, ClasesIncidencias." & _
-                "Descripcion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Lin" & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, SUM(DATEDIFF(mi, Incidencias"& _ 
+                ".HoraInicio, Incidencias.HoraFin)) AS Minutos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposI"& _ 
+                "ncidencias.Descripcion AS Incidencia, CategoriaIncidencias.Descripcion AS Catego"& _ 
+                "ria, replace(ClasesIncidencias.Descripcion, 'Nueva','') AS Clase, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             LineasEnvasado.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidenc"& _ 
+                "ias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                 "& _ 
+                "        FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias ON FormatosEnvasados.FormatoEn"& _ 
+                "vasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Ti"& _ 
+                "posIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidencia"& _ 
+                "ID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias.ClaseIncidenciaID = TiposInci"& _ 
+                "dencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLine"& _ 
+                "as ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLine"& _ 
+                "aID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.L"& _ 
+                "ineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "           CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = Ca"& _ 
+                "tegoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Env"& _ 
+                "asados.Fecha, 103) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Envasados.EnvasadoID, Envasados.Fecha, Ti"& _ 
+                "posIncidencias.Descripcion, CategoriaIncidencias.Descripcion, ClasesIncidencias."& _ 
+                "Descripcion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Lin"& _ 
                 "ea, Minutos DESC"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ListadoIncidenciasDiariasDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ListadoIncidenciasDiariasDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ListadoIncidenciasDiariasDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ListadoIncidenciasDiariasDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ListadoIncidenciasDiariasDataTable = New LADataSet.ListadoIncidenciasDiariasDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class MinutosIncidenciasTendenciaCalidadTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -25746,65 +25843,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -25821,116 +25918,116 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Linea", "Linea")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin, DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin) AS Mi" & _
-                "nutos, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias.Descripcion AS Categoria," & _
-                " ClasesIncidencias.Descripcion AS Clase, CategoriaIncidencias.CategoriaIncidenci" & _
-                "aID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM       " & _
-                "     ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias" & _
-                " ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaInc" & _
-                "idenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "              FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.Enva" & _
-                "sadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON FormatosEnvasados.For" & _
-                "matoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "    TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoInci" & _
-                "denciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseIncidenciaID = Tip" & _
-                "osIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormat" & _
-                "osLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoForma" & _
-                "toLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLi" & _
-                "neas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CategoriaIn" & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin, DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin) AS Mi"& _ 
+                "nutos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias.Descripcion AS Categoria,"& _ 
+                " ClasesIncidencias.Descripcion AS Clase, CategoriaIncidencias.CategoriaIncidenci"& _ 
+                "aID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
+                "     ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias"& _ 
+                " ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaInc"& _ 
+                "idenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.Enva"& _ 
+                "sadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias ON FormatosEnvasados.For"& _ 
+                "matoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoInci"& _ 
+                "denciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias.ClaseIncidenciaID = Tip"& _ 
+                "osIncidencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormat"& _ 
+                "osLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoForma"& _ 
+                "toLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLi"& _ 
+                "neas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CategoriaIn"& _ 
                 "cidencias.CategoriaIncidenciaID = 7)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.MinutosIncidenciasTendenciaCalidadDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.MinutosIncidenciasTendenciaCalidadDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As LADataSet.MinutosIncidenciasTendenciaCalidadDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As LADataSet.MinutosIncidenciasTendenciaCalidadDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As LADataSet.MinutosIncidenciasTendenciaCalidadDataTable = New LADataSet.MinutosIncidenciasTendenciaCalidadDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class MinutosIncidenciasTendenciaMantenimientoTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -25944,65 +26041,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -26019,116 +26116,116 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Linea", "Linea")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin, DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin) AS Mi" & _
-                "nutos, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias.Descripcion AS Categoria," & _
-                " ClasesIncidencias.Descripcion AS Clase, CategoriaIncidencias.CategoriaIncidenci" & _
-                "aID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM       " & _
-                "     ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias" & _
-                " ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaInc" & _
-                "idenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "              FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.Enva" & _
-                "sadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON FormatosEnvasados.For" & _
-                "matoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "    TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoInci" & _
-                "denciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseIncidenciaID = Tip" & _
-                "osIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormat" & _
-                "osLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoForma" & _
-                "toLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLi" & _
-                "neas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CategoriaIn" & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin, DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin) AS Mi"& _ 
+                "nutos, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias.Descripcion AS Categoria,"& _ 
+                " ClasesIncidencias.Descripcion AS Clase, CategoriaIncidencias.CategoriaIncidenci"& _ 
+                "aID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
+                "     ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias"& _ 
+                " ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaInc"& _ 
+                "idenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.Enva"& _ 
+                "sadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias ON FormatosEnvasados.For"& _ 
+                "matoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoInci"& _ 
+                "denciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias.ClaseIncidenciaID = Tip"& _ 
+                "osIncidencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormat"& _ 
+                "osLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoForma"& _ 
+                "toLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLi"& _ 
+                "neas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CategoriaIn"& _ 
                 "cidencias.CategoriaIncidenciaID = 8)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.MinutosIncidenciasTendenciaMantenimientoDataTable) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.MinutosIncidenciasTendenciaMantenimientoDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData() As LADataSet.MinutosIncidenciasTendenciaMantenimientoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As LADataSet.MinutosIncidenciasTendenciaMantenimientoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As LADataSet.MinutosIncidenciasTendenciaMantenimientoDataTable = New LADataSet.MinutosIncidenciasTendenciaMantenimientoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ProduccionTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -26142,65 +26239,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -26210,132 +26307,132 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Fecha", "Fecha")
             tableMapping.ColumnMappings.Add("Linea", "Linea")
             tableMapping.ColumnMappings.Add("Articulo", "Articulo")
-            tableMapping.ColumnMappings.Add("HoraInicio", "HoraInicio")
-            tableMapping.ColumnMappings.Add("HoraFin", "HoraFin")
             tableMapping.ColumnMappings.Add("Segundos", "Segundos")
             tableMapping.ColumnMappings.Add("Vel", "Vel")
             tableMapping.ColumnMappings.Add("CajasFabricadas", "CajasFabricadas")
             tableMapping.ColumnMappings.Add("UnidadesCaja", "UnidadesCaja")
             tableMapping.ColumnMappings.Add("Formato", "Formato")
+            tableMapping.ColumnMappings.Add("HoraInicio", "HoraInicio1")
+            tableMapping.ColumnMappings.Add("HoraFin", "HoraFin1")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion A" & _
-                "S Linea, TiposFormatosLineas.Descripcion AS Formato, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
-                "TiposFormatos.Descripcion AS Articulo, PaletsContenidos.HoraInicio, PaletsConten" & _
-                "idos.HoraFin, DATEDIFF(second, PaletsContenidos.HoraInicio, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
-                "       PaletsContenidos.HoraFin) AS Segundos, TiposFormatosLineas_TiposFormatos." & _
-                "Velocidad AS Vel, PaletsContenidos.CantidadCajas AS CajasFabricadas, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                TiposCajas.Capacidad AS UnidadesCaja" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            PaletsCont" & _
-                "enidos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "           FormatosEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.Envasad" & _
-                "oID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         PaletsContenidos.id_formatoEnvasado = Formatos" & _
-                "Envasados.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatos O" & _
-                "N FormatosEnvasados.TipoFormatoEnvasadoID = TiposFormatos.TipoFormatoID INNER JO" & _
-                "IN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposCajas ON TiposFormatos.TipoCajaID = TiposCajas" & _
-                ".TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas_TiposFormat" & _
-                "os INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
-                "                 LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID = LineasE" & _
-                "nvasado.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas_TiposF" & _
-                "ormatos.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  TiposFormatos.TipoFormatoID = TiposFormatosLineas_TiposFormato" & _
-                "s.TipoFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados.TipoFormatoLine" & _
-                "aID = TiposFormatosLineas_TiposFormatos.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Envasa" & _
-                "dos.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Linea, Formato"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion A"& _ 
+                "S Linea, TiposFormatosLineas.Descripcion AS Formato, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "ArticulosEnvasadosHistoricoSinLinea.articulo AS Articulo, PaletsContenidos.HoraI"& _ 
+                "nicio, PaletsContenidos.HoraFin, DATEDIFF(second, PaletsContenidos.HoraInicio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PaletsContenidos.HoraFin) AS Segundos, TiposFormatosLi"& _ 
+                "neas_TiposFormatos.Velocidad AS Vel, PaletsContenidos.CantidadCajas AS CajasFabr"& _ 
+                "icadas, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposCajas.Capacidad AS UnidadesCaja"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM   "& _ 
+                "         PaletsContenidos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER J"& _ 
+                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Envasados.EnvasadoID = Format"& _ 
+                "osEnvasados.EnvasadoID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PaletsContenidos.id_formato"& _ 
+                "Envasado = FormatosEnvasados.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    ArticulosEnvasadosHistoricoSinLinea  ON FormatosEnvasados.TipoFormatoEnvasad"& _ 
+                "oID = ArticulosEnvasadosHistoricoSinLinea.TipoFormato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "           TiposCajas ON ArticulosEnvasadosHistoricoSinLinea.TipoCajaID = TiposC"& _ 
+                "ajas.TipoCajaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas_TiposFo"& _ 
+                "rmatos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID = Lin"& _ 
+                "easEnvasado.LineaEnvasadoID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas_Ti"& _ 
+                "posFormatos.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      ArticulosEnvasadosHistoricoSinLinea.TipoFormato = TiposFor"& _ 
+                "matosLineas_TiposFormatos.TipoFormatoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosE"& _ 
+                "nvasados.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos.TipoFormatoLinea"& _ 
+                "ID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Envasados.Fecha = @Fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Linea, Formato"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ProduccionDataTable, ByVal Fecha As Date) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ProduccionDataTable, ByVal Fecha As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal Fecha As Date) As LADataSet.ProduccionDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal Fecha As Date) As LADataSet.ProduccionDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
-            Dim dataTable As LADataSet.ProduccionDataTable = New LADataSet.ProduccionDataTable(True)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
+            Dim dataTable As LADataSet.ProduccionDataTable = New LADataSet.ProduccionDataTable(true)
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class EficaciaProduccionTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -26349,65 +26446,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -26424,126 +26521,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Expr1", "Expr1")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion A" & _
-                "S Linea, DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
-                "                        AS TiempoEnvasado, TiposFormatosLineas_TiposFormatos.Vel" & _
-                "ocidad AS VelocidadTeorica, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         PaletsContenidos.Cantidad" & _
-                "Cajas * TiposCajas.Capacidad AS UnidadesFabricadas, DATEDIFF(second, PaletsConte" & _
-                "nidos.HoraInicio, PaletsContenidos.HoraFin) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         * TiposFo" & _
-                "rmatosLineas_TiposFormatos.Velocidad / 3600 AS UnidadesEsperadas, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "             PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATE" & _
-                "DIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) AS Velocidad" & _
-                "Maquina, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas.Descripcion AS Expr1" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FR" & _
-                "OM            PaletsContenidos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados IN" & _
-                "NER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados ON Envasados.EnvasadoID = F" & _
-                "ormatosEnvasados.EnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         PaletsContenidos.id_fo" & _
-                "rmatoEnvasado = FormatosEnvasados.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         TiposFormatos ON FormatosEnvasados.TipoFormatoEnvasadoID = TiposFormato" & _
-                "s.TipoFormatoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposCajas ON TiposFormatos" & _
-                ".TipoCajaID = TiposCajas.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFo" & _
-                "rmatosLineas_TiposFormatos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLin" & _
-                "eas INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.L" & _
-                "ineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Ti" & _
-                "posFormatosLineas_TiposFormatos.TipoFormatoLineaID = TiposFormatosLineas.TipoFor" & _
-                "matoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatos.TipoFormatoID = TiposFor" & _
-                "matosLineas_TiposFormatos.TipoFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosE" & _
-                "nvasados.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos.TipoFormatoLinea" & _
-                "ID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Envasados.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Linea"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion A"& _ 
+                "S Linea, DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        AS TiempoEnvasado, TiposFormatosLineas_TiposFormatos.Vel"& _ 
+                "ocidad AS VelocidadTeorica, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PaletsContenidos.Cantidad"& _ 
+                "Cajas * TiposCajas.Capacidad AS UnidadesFabricadas, DATEDIFF(second, PaletsConte"& _ 
+                "nidos.HoraInicio, PaletsContenidos.HoraFin) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         * TiposFo"& _ 
+                "rmatosLineas_TiposFormatos.Velocidad / 3600 AS UnidadesEsperadas, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATE"& _ 
+                "DIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) AS Velocidad"& _ 
+                "Maquina, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas.Descripcion AS Expr1"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FR"& _ 
+                "OM            PaletsContenidos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados IN"& _ 
+                "NER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Envasados.EnvasadoID = F"& _ 
+                "ormatosEnvasados.EnvasadoID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PaletsContenidos.id_fo"& _ 
+                "rmatoEnvasado = FormatosEnvasados.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         ArticulosEnvasadosHistoricoSinLinea  ON FormatosEnvasados.TipoFormatoEn"& _ 
+                "vasadoID = ArticulosEnvasadosHistoricoSinLinea.TipoFormato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                TiposCajas ON ArticulosEnvasadosHistoricoSinLinea.TipoCajaID = T"& _ 
+                "iposCajas.TipoCajaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas_Ti"& _ 
+                "posFormatos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID "& _ 
+                "= LineasEnvasado.LineaEnvasadoID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLine"& _ 
+                "as_TiposFormatos.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID ON "& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasadosHistoricoSinLinea.TipoFormato = Tip"& _ 
+                "osFormatosLineas_TiposFormatos.TipoFormatoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Form"& _ 
+                "atosEnvasados.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos.TipoFormato"& _ 
+                "LineaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Envasados.Fecha = @Fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Linea"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.EficaciaProduccionDataTable, ByVal Fecha As Date) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.EficaciaProduccionDataTable, ByVal Fecha As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal Fecha As Date) As LADataSet.EficaciaProduccionDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal Fecha As Date) As LADataSet.EficaciaProduccionDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
             Dim dataTable As LADataSet.EficaciaProduccionDataTable = New LADataSet.EficaciaProduccionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenEficaciaProduccionTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -26557,65 +26654,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -26631,126 +26728,128 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("VelocidadMaquina", "VelocidadMaquina")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion A" & _
-                "S Linea, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)" & _
-                ") " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         AS TiempoEnvasado, AVG(TiposFormatosLineas_TiposFor" & _
-                "matos.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * Tipos" & _
-                "Cajas.Capacidad) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         AS UnidadesFabricadas, SUM(DATEDIFF(" & _
-                "second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) * TiposFormatosLi" & _
-                "neas_TiposFormatos.Velocidad / 3600) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         AS UnidadesEsper" & _
-                "adas, AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIF" & _
-                "F(second, PaletsContenidos.HoraInicio, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         PaletsContenid" & _
-                "os.HoraFin)) AS VelocidadMaquina" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            PaletsContenidos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
-                "                        Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosE" & _
-                "nvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "              PaletsContenidos.id_formatoEnvasado = FormatosEnvasados.FormatoEnv" & _
-                "asadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatos ON FormatosEnvasados." & _
-                "TipoFormatoEnvasadoID = TiposFormatos.TipoFormatoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         TiposCajas ON TiposFormatos.TipoCajaID = TiposCajas.TipoCajaID INNER JO" & _
-                "IN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas_TiposFormatos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                    TiposFormatosLineas INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Lin" & _
-                "easEnvasado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasad" & _
-                "oID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas_TiposFormatos.TipoFormatoL" & _
-                "ineaID = TiposFormatosLineas.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Ti" & _
-                "posFormatos.TipoFormatoID = TiposFormatosLineas_TiposFormatos.TipoFormatoID AND " & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados.TipoFormatoLineaID = TiposFormatosL" & _
-                "ineas_TiposFormatos.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Envasados.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORD" & _
-                "ER BY Linea"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion A"& _ 
+                "S Linea, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)"& _ 
+                ") "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS TiempoEnvasado, AVG(TiposFormatosLineas_TiposFor"& _ 
+                "matos.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * Tipos"& _ 
+                "Cajas.Capacidad) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS UnidadesFabricadas, SUM(DATEDIFF("& _ 
+                "second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) * TiposFormatosLi"& _ 
+                "neas_TiposFormatos.Velocidad / 3600) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         AS UnidadesEsper"& _ 
+                "adas, AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIF"& _ 
+                "F(second, PaletsContenidos.HoraInicio, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PaletsContenid"& _ 
+                "os.HoraFin)) AS VelocidadMaquina"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            PaletsContenidos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosE"& _ 
+                "nvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              PaletsContenidos.id_formatoEnvasado = FormatosEnvasados.FormatoEnv"& _ 
+                "asadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasadosHistoricoSinLinea"& _ 
+                "  ON FormatosEnvasados.TipoFormatoEnvasadoID = ArticulosEnvasadosHistoricoSinLin"& _ 
+                "ea.TipoFormato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposCajas ON ArticulosEnvas"& _ 
+                "adosHistoricoSinLinea.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              TiposFormatosLineas_TiposFormatos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     TiposFormatosLineas INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON "& _ 
+                "TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   TiposFormatosLineas_TiposFormatos.TipoFormatoLineaID = TiposF"& _ 
+                "ormatosLineas.TipoFormatoLineaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasado"& _ 
+                "sHistoricoSinLinea.TipoFormato = TiposFormatosLineas_TiposFormatos.TipoFormatoID"& _ 
+                " AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados.TipoFormatoLineaID = TiposForm"& _ 
+                "atosLineas_TiposFormatos.TipoFormatoLineaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Envasados.Fecha = @Fe"& _ 
+                "cha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Linea"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenEficaciaProduccionDataTable, ByVal Fecha As Date) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenEficaciaProduccionDataTable, ByVal Fecha As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal Fecha As Date) As LADataSet.ResumenEficaciaProduccionDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal Fecha As Date) As LADataSet.ResumenEficaciaProduccionDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha,Date)
             Dim dataTable As LADataSet.ResumenEficaciaProduccionDataTable = New LADataSet.ResumenEficaciaProduccionDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -26764,65 +26863,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -26834,126 +26933,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("MinutosIncidencia", "MinutosIncidencia")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM     " & _
-                "       ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JO" & _
-                "IN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados ON Envasados.EnvasadoID = Formato" & _
-                "sEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON Format" & _
-                "osEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                   TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncid" & _
-                "encias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseInc" & _
-                "idenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "    TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosL" & _
-                "ineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON " & _
-                "TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER" & _
-                " JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias ON ClasesIncidencias.id_cat" & _
-                "egoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CON" & _
-                "VERT(varchar(10), Envasados.Fecha, 103) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descr" & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     "& _ 
+                "       ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JO"& _ 
+                "IN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Envasados.EnvasadoID = Formato"& _ 
+                "sEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias ON Format"& _ 
+                "osEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncid"& _ 
+                "encias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias.ClaseInc"& _ 
+                "idenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosL"& _ 
+                "ineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON "& _ 
+                "TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER"& _ 
+                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias ON ClasesIncidencias.id_cat"& _ 
+                "egoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CON"& _ 
+                "VERT(varchar(10), Envasados.Fecha, 103) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descr"& _ 
                 "ipcion, Envasados.EnvasadoID, CategoriaIncidencias.Descripcion"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasDataTable = New LADataSet.ResumenListadoIncidenciasDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasCalidadTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -26967,65 +27066,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -27038,126 +27137,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("CategoriaIncidenciaID", "CategoriaIncidenciaID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Formato" & _
-                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci" & _
-                "dencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias " & _
-                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn" & _
-                "cidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosE" & _
-                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID " & _
-                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Cate" & _
-                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc" & _
-                "ias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1" & _
-                "03) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego" & _
-                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING  " & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Formato"& _ 
+                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci"& _ 
+                "dencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias "& _ 
+                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn"& _ 
+                "cidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosE"& _ 
+                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID "& _ 
+                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Cate"& _ 
+                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc"& _ 
+                "ias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1"& _ 
+                "03) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego"& _ 
+                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING  "& _ 
                 "      (CategoriaIncidencias.CategoriaIncidenciaID = 7)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasCalidadDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasCalidadDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasCalidadDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasCalidadDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasCalidadDataTable = New LADataSet.ResumenListadoIncidenciasCalidadDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasMantenimientoTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -27171,65 +27270,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -27242,126 +27341,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("CategoriaIncidenciaID", "CategoriaIncidenciaID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Formato" & _
-                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci" & _
-                "dencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias " & _
-                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn" & _
-                "cidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosE" & _
-                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID " & _
-                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Cate" & _
-                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc" & _
-                "ias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1" & _
-                "03) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego" & _
-                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING  " & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Formato"& _ 
+                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci"& _ 
+                "dencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias "& _ 
+                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn"& _ 
+                "cidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosE"& _ 
+                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID "& _ 
+                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Cate"& _ 
+                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc"& _ 
+                "ias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1"& _ 
+                "03) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego"& _ 
+                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING  "& _ 
                 "      (CategoriaIncidencias.CategoriaIncidenciaID = 8)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasMantenimientoDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasMantenimientoDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasMantenimientoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasMantenimientoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasMantenimientoDataTable = New LADataSet.ResumenListadoIncidenciasMantenimientoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class CalculoOEETableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -27375,65 +27474,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -27455,95 +27554,95 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("TiempoDisponible", "TiempoDisponible")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "dbo.calculoOEEJacinto"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.CalculoOEEDataTable, ByVal fecha As Global.System.Nullable(Of Date)) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.CalculoOEEDataTable, ByVal fecha As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (fecha.HasValue = True) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha.Value, Date)
+            If (fecha.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasIntrinsecasTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -27557,65 +27656,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -27628,126 +27727,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("CategoriaIncidenciaID", "CategoriaIncidenciaID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Formato" & _
-                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci" & _
-                "dencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias " & _
-                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn" & _
-                "cidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosE" & _
-                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID " & _
-                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Cate" & _
-                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc" & _
-                "ias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1" & _
-                "03) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego" & _
-                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING  " & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Formato"& _ 
+                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci"& _ 
+                "dencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias "& _ 
+                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn"& _ 
+                "cidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosE"& _ 
+                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID "& _ 
+                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Cate"& _ 
+                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc"& _ 
+                "ias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1"& _ 
+                "03) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego"& _ 
+                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING  "& _ 
                 "      (CategoriaIncidencias.CategoriaIncidenciaID = 9)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasIntrinsecasDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasIntrinsecasDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasIntrinsecasDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasIntrinsecasDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasIntrinsecasDataTable = New LADataSet.ResumenListadoIncidenciasIntrinsecasDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasGestionRecursosTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -27761,65 +27860,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -27832,126 +27931,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("CategoriaIncidenciaID", "CategoriaIncidenciaID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Formato" & _
-                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci" & _
-                "dencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias " & _
-                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn" & _
-                "cidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosE" & _
-                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID " & _
-                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Cate" & _
-                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc" & _
-                "ias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1" & _
-                "03) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego" & _
-                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING  " & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Formato"& _ 
+                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci"& _ 
+                "dencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias "& _ 
+                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn"& _ 
+                "cidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosE"& _ 
+                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID "& _ 
+                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Cate"& _ 
+                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc"& _ 
+                "ias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1"& _ 
+                "03) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego"& _ 
+                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING  "& _ 
                 "      (CategoriaIncidencias.CategoriaIncidenciaID = 10)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasGestionRecursosDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasGestionRecursosDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasGestionRecursosDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasGestionRecursosDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasGestionRecursosDataTable = New LADataSet.ResumenListadoIncidenciasGestionRecursosDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasPlanificadasTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -27965,65 +28064,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -28036,126 +28135,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("CategoriaIncidenciaID", "CategoriaIncidenciaID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Formato" & _
-                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci" & _
-                "dencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias " & _
-                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn" & _
-                "cidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosE" & _
-                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID " & _
-                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Cate" & _
-                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc" & _
-                "ias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1" & _
-                "03) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego" & _
-                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING  " & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Formato"& _ 
+                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci"& _ 
+                "dencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias "& _ 
+                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn"& _ 
+                "cidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosE"& _ 
+                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID "& _ 
+                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Cate"& _ 
+                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc"& _ 
+                "ias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1"& _ 
+                "03) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego"& _ 
+                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING  "& _ 
                 "      (CategoriaIncidencias.CategoriaIncidenciaID = 11)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasPlanificadasDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasPlanificadasDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasPlanificadasDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasPlanificadasDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasPlanificadasDataTable = New LADataSet.ResumenListadoIncidenciasPlanificadasDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasRecuperablesTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -28169,65 +28268,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -28240,126 +28339,126 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("CategoriaIncidenciaID", "CategoriaIncidenciaID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Formato" & _
-                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci" & _
-                "dencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias " & _
-                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn" & _
-                "cidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosE" & _
-                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID " & _
-                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Cate" & _
-                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc" & _
-                "ias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1" & _
-                "03) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego" & _
-                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING  " & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Formato"& _ 
+                "sEnvasados ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       Incidencias ON FormatosEnvasados.FormatoEnvasadoID = Inci"& _ 
+                "dencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias "& _ 
+                "ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIn"& _ 
+                "cidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosE"& _ 
+                "nvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID "& _ 
+                "= LineasEnvasado.LineaEnvasadoID RIGHT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Cate"& _ 
+                "goriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidenc"& _ 
+                "ias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVERT(varchar(10), Envasados.Fecha, 1"& _ 
+                "03) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descripcion, Envasados.EnvasadoID, Catego"& _ 
+                "riaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING  "& _ 
                 "      (CategoriaIncidencias.CategoriaIncidenciaID = 12)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasRecuperablesDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasRecuperablesDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasRecuperablesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasRecuperablesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasRecuperablesDataTable = New LADataSet.ResumenListadoIncidenciasRecuperablesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class LimitesHorariosIncidenciasDiaTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -28373,65 +28472,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -28444,112 +28543,112 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Linea", "Linea")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.Fecha, MIN(Incidencias.HoraInicio) AS HoraMinimaIncidenci" & _
-                "a, MAX(Incidencias.HoraFin) AS HoraMaximaIncidencia, Envasados.EnvasadoID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
-                "                      LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            Incid" & _
-                "encias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados ON Incidencias.For" & _
-                "matoEnvasadoID = FormatosEnvasados.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
-                "          Envasados ON FormatosEnvasados.EnvasadoID = Envasados.EnvasadoID INNER" & _
-                " JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosEnvasados.TipoFor" & _
-                "matoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
-                "          LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado" & _
-                ".LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Envasados.Fecha = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Envasados.Fe" & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.Fecha, MIN(Incidencias.HoraInicio) AS HoraMinimaIncidenci"& _ 
+                "a, MAX(Incidencias.HoraFin) AS HoraMaximaIncidencia, Envasados.EnvasadoID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      LineasEnvasado.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Incid"& _ 
+                "encias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Incidencias.For"& _ 
+                "matoEnvasadoID = FormatosEnvasados.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "          Envasados ON FormatosEnvasados.EnvasadoID = Envasados.EnvasadoID INNER"& _ 
+                " JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosEnvasados.TipoFor"& _ 
+                "matoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"               "& _ 
+                "          LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado"& _ 
+                ".LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Envasados.Fecha = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Envasados.Fe"& _ 
                 "cha, Envasados.EnvasadoID, LineasEnvasado.Descripcion"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.LimitesHorariosIncidenciasDiaDataTable, ByVal fecha As Date) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.LimitesHorariosIncidenciasDiaDataTable, ByVal fecha As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As Date) As LADataSet.LimitesHorariosIncidenciasDiaDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As Date) As LADataSet.LimitesHorariosIncidenciasDiaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
             Dim dataTable As LADataSet.LimitesHorariosIncidenciasDiaDataTable = New LADataSet.LimitesHorariosIncidenciasDiaDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class LimitesHorariosProduccionDiariaTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -28563,65 +28662,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -28634,113 +28733,113 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Linea", "Linea")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, MIN(PaletsContenidos.HoraIni" & _
-                "cio) AS MinimoHoraInicioProduccion, MAX(PaletsContenidos.HoraFin) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "             AS MaximaHoraFinalProduccion, LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "FROM            PaletsContenidos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEn" & _
-                "vasados ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados.FormatoEnvasa" & _
-                "doID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados ON FormatosEnvasados.Envasad" & _
-                "oID = Envasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLin" & _
-                "eas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLin" & _
-                "eaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas." & _
-                "LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Envasados.Fecha " & _
-                "= @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descri" & _
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, Envasados.Fecha, MIN(PaletsContenidos.HoraIni"& _ 
+                "cio) AS MinimoHoraInicioProduccion, MAX(PaletsContenidos.HoraFin) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             AS MaximaHoraFinalProduccion, LineasEnvasado.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "FROM            PaletsContenidos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEn"& _ 
+                "vasados ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados.FormatoEnvasa"& _ 
+                "doID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados ON FormatosEnvasados.Envasad"& _ 
+                "oID = Envasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLin"& _ 
+                "eas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLin"& _ 
+                "eaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas."& _ 
+                "LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Envasados.Fecha "& _ 
+                "= @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descri"& _ 
                 "pcion"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.LimitesHorariosProduccionDiariaDataTable, ByVal fecha As Date) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.LimitesHorariosProduccionDiariaDataTable, ByVal fecha As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As Date) As LADataSet.LimitesHorariosProduccionDiariaDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As Date) As LADataSet.LimitesHorariosProduccionDiariaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
             Dim dataTable As LADataSet.LimitesHorariosProduccionDiariaDataTable = New LADataSet.LimitesHorariosProduccionDiariaDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class TiempoDisponibleTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -28754,65 +28853,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -28831,271 +28930,271 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("EnvasadoID", "EnvasadoID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        LimiteHorarioProduccion.EnvasadoID, LimiteHorarioIncidencia.Linea, " & _
-                "LimiteHorarioIncidencia.HoraMinimaIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteH" & _
-                "orarioIncidencia.HoraMaximaIncidencia, LimiteHorarioProduccion.MinimoHoraInicioP" & _
-                "roduccion, LimiteHorarioProduccion.MaximaHoraFinalProduccion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "         DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVE" & _
-                "RT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                    CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT" & _
-                "(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoP" & _
-                "roduccion1, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         DATEDIFF(mi, CONVERT(varchar(10), CURRENT" & _
-                "_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraI" & _
-                "nicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CONVERT(varchar(10), CURRENT_T" & _
-                "IMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMaximaInc" & _
-                "idencia, 108)) AS TiempoProduccion2, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         DATEDIFF(mi, CON" & _
-                "VERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHora" & _
-                "rioProduccion.MinimoHoraInicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CONVE" & _
-                "RT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorari" & _
-                "oProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoProduccion3, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "              DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + " & _
-                "CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                   CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(" & _
-                "varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoPr" & _
-                "oduccion4, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CASE WHEN DATEDIFF(mi, CONVERT(varchar(10)" & _
-                ", CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Mi" & _
-                "nimoHoraInicioProduccion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         108), CONVERT(varchar(10), " & _
-                "CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Maxi" & _
-                "maHoraFinalProduccion, 108)) >= DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CONVERT(" & _
-                "varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioPr" & _
-                "oduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "           CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioInci" & _
-                "dencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                    CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHo" & _
-                "rarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHora" & _
-                "rioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(1" & _
-                "0), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8" & _
-                "), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10)" & _
-                ", " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8)," & _
-                " LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND DATEDIFF(mi, CONVE" & _
-                "RT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CURRENT_TIMESTAMP, 120) + ' ' + CONVE" & _
-                "RT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT" & _
-                "(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CURRENT_TIMESTAMP, 120) + ' ' + CONVERT" & _
-                "(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIF" & _
-                "F(mi, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CURRENT_TIMESTAMP, 120) + " & _
-                "' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CO" & _
-                "NVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CO" & _
-                "NVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) THEN " & _
-                "DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    " & _
-                "     + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProducc" & _
-                "ion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      " & _
-                "   + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion" & _
-                ", 108)) WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHora" & _
-                "InicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMaximaIn" & _
-                "cidencia, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
-                "                        + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Mini" & _
-                "moHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
-                "                      + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Maxima" & _
-                "HoraFinalProduccion, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTA" & _
-                "MP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CONVERT(varchar(8), LimiteHorarioPro" & _
-                "duccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP" & _
-                ", 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CONVERT(varchar(8), LimiteHorarioIncid" & _
-                "encia.HoraMaximaIncidencia, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_T" & _
-                "IMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CONVERT(varchar(8), LimiteHora" & _
-                "rioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIM" & _
-                "ESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CONVERT(varchar(8), LimiteHorari" & _
-                "oProduccion.MaximaHoraFinalProduccion, 108)) AND DATEDIFF(mi, CONVERT(varchar(10" & _
-                "), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CONVERT(varchar(8)" & _
-                ", LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10)," & _
-                " CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CONVERT(varchar(8), " & _
-                "LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) >= DATEDIFF(mi, CONVERT(varc" & _
-                "har(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         + ' ' + CONVERT(varc" & _
-                "har(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varchar(10)," & _
-                " CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
-                "LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) THEN DATEDIFF(mi, CONVE" & _
-                "RT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "               LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT" & _
-                "(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "             LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) WHEN DATEDIFF(m" & _
-                "i, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                       LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108)," & _
-                " CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    " & _
-                "                     LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >=" & _
-                " DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varch" & _
-                "ar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MinimoHoraInicioProduc" & _
-                "cion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar" & _
-                "(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MaximaHoraFinalProduccio" & _
-                "n, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + C" & _
-                "ONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MinimoHora" & _
-                "InicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CON" & _
-                "VERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MaximaHoraFi" & _
-                "nalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120" & _
-                ") + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion" & _
-                ".MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & _
-                "+ ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioIncidencia.H" & _
-                "oraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTA" & _
-                "MP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioPro" & _
-                "duccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP" & _
-                ", 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProdu" & _
-                "ccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURR" & _
-                "ENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Limit" & _
-                "eHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varchar(10), CURRENT_TIME" & _
-                "STAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorario" & _
-                "Produccion.MaximaHoraFinalProduccion, 108)) THEN DATEDIFF(mi, CONVERT(varchar(10" & _
-                "), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
-                "  LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10)," & _
-                " CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
-                "LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) WHEN DATEDIFF(mi, CONVE" & _
-                "RT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "               LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varch" & _
-                "ar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
-                "       LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, " & _
-                "CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                    LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CO" & _
-                "NVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND D" & _
-                "ATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar" & _
-                "(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioIncidencia.HoraMinimaIncidencia, 10" & _
-                "8), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
-                "                        LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108))" & _
-                " >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(va" & _
-                "rchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MinimoHoraInicioPro" & _
-                "duccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varc" & _
-                "har(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioIncidencia.HoraMaximaIncidencia," & _
-                " 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CON" & _
-                "VERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioIncidencia.HoraMinimaIn" & _
-                "cidencia, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(var" & _
-                "char(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MaximaHoraFinalProdu" & _
-                "ccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' " & _
-                "+ CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MinimoH" & _
-                "oraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + " & _
-                "CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.MaximaHor" & _
-                "aFinalProduccion, 108)) THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP" & _
-                ", 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioIncid" & _
-                "encia.HoraMinimaIncidencia, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) +" & _
-                " ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioProduccion.Ma" & _
-                "ximaHoraFinalProduccion, 108)) ELSE 'Error' END AS TiempoDisponible" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM       " & _
-                "     (SELECT        Envasados.Fecha, MIN(Incidencias.HoraInicio) AS HoraMinimaIn" & _
-                "cidencia, MAX(Incidencias.HoraFin) AS HoraMaximaIncidencia, Envasados.EnvasadoID" & _
-                ", " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                    LineasEnvasado.Descripci" & _
-                "on AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          FROM            Incidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
-                "                                                   FormatosEnvasados ON Incidenc" & _
-                "ias.FormatoEnvasadoID = FormatosEnvasados.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
-                "                                            Envasados ON FormatosEnvasados.Envas" & _
-                "adoID = Envasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                       " & _
-                "             TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = Tipos" & _
-                "FormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                  " & _
-                "                  LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID = Lineas" & _
-                "Envasado.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          WHERE        (Envasados.Fech" & _
-                "a = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          GROUP BY Envasados.Fecha, Envasados.Envas" & _
-                "adoID, LineasEnvasado.Descripcion) AS LimiteHorarioIncidencia LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
-                "                            (SELECT        Envasados_1.EnvasadoID, Envasados_1.F" & _
-                "echa, MIN(PaletsContenidos.HoraInicio) AS MinimoHoraInicioProduccion, MAX(Palets" & _
-                "Contenidos.HoraFin) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         A" & _
-                "S MaximaHoraFinalProduccion, LineasEnvasado_1.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "                   FROM            PaletsContenidos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "                                         FormatosEnvasados AS FormatosEnvasados_" & _
-                "1 ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_1.FormatoEnvasadoID" & _
-                " INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Envasados " & _
-                "AS Envasados_1 ON FormatosEnvasados_1.EnvasadoID = Envasados_1.EnvasadoID INNER " & _
-                "JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         TiposFormatosLine" & _
-                "as AS TiposFormatosLineas_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                               " & _
-                "          FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFor" & _
-                "matoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                        " & _
-                " LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = L" & _
-                "ineasEnvasado_1.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY Envasad" & _
-                "os_1.EnvasadoID, Envasados_1.Fecha, LineasEnvasado_1.Descripcion) AS LimiteHorar" & _
-                "ioProduccion ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LimiteHorarioIncidencia.EnvasadoID = " & _
-                "LimiteHorarioProduccion.EnvasadoID AND LimiteHorarioIncidencia.Linea = LimiteHor" & _
-                "arioProduccion.Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY LimiteHorarioIncidencia.Linea"
+            Me._commandCollection(0).CommandText = "SELECT        LimiteHorarioProduccion.EnvasadoID, LimiteHorarioIncidencia.Linea, "& _ 
+                "LimiteHorarioIncidencia.HoraMinimaIncidencia, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteH"& _ 
+                "orarioIncidencia.HoraMaximaIncidencia, LimiteHorarioProduccion.MinimoHoraInicioP"& _ 
+                "roduccion, LimiteHorarioProduccion.MaximaHoraFinalProduccion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "         DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVE"& _ 
+                "RT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT"& _ 
+                "(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoP"& _ 
+                "roduccion1, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DATEDIFF(mi, CONVERT(varchar(10), CURRENT"& _ 
+                "_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraI"& _ 
+                "nicioProduccion, 108), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONVERT(varchar(10), CURRENT_T"& _ 
+                "IMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMaximaInc"& _ 
+                "idencia, 108)) AS TiempoProduccion2, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DATEDIFF(mi, CON"& _ 
+                "VERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHora"& _ 
+                "rioProduccion.MinimoHoraInicioProduccion, 108), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONVE"& _ 
+                "RT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorari"& _ 
+                "oProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoProduccion3, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + "& _ 
+                "CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"      "& _ 
+                "                   CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT("& _ 
+                "varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoPr"& _ 
+                "oduccion4, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CASE WHEN DATEDIFF(mi, CONVERT(varchar(10)"& _ 
+                ", CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Mi"& _ 
+                "nimoHoraInicioProduccion, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         108), CONVERT(varchar(10), "& _ 
+                "CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Maxi"& _ 
+                "maHoraFinalProduccion, 108)) >= DATEDIFF(mi, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CONVERT("& _ 
+                "varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioPr"& _ 
+                "oduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
+                "           CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioInci"& _ 
+                "dencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHo"& _ 
+                "rarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHora"& _ 
+                "rioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(1"& _ 
+                "0), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8"& _ 
+                "), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10)"& _ 
+                ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8),"& _ 
+                " LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND DATEDIFF(mi, CONVE"& _ 
+                "RT(varchar(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURRENT_TIMESTAMP, 120) + ' ' + CONVE"& _ 
+                "RT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT"& _ 
+                "(varchar(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURRENT_TIMESTAMP, 120) + ' ' + CONVERT"& _ 
+                "(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIF"& _ 
+                "F(mi, CONVERT(varchar(10), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CURRENT_TIMESTAMP, 120) + "& _ 
+                "' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CO"& _ 
+                "NVERT(varchar(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CO"& _ 
+                "NVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) THEN "& _ 
+                "DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
+                "     + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProducc"& _ 
+                "ion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
+                "   + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion"& _ 
+                ", 108)) WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHora"& _ 
+                "InicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
+                "                + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMaximaIn"& _ 
+                "cidencia, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Mini"& _ 
+                "moHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
+                "                      + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Maxima"& _ 
+                "HoraFinalProduccion, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTA"& _ 
+                "MP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CONVERT(varchar(8), LimiteHorarioPro"& _ 
+                "duccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP"& _ 
+                ", 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CONVERT(varchar(8), LimiteHorarioIncid"& _ 
+                "encia.HoraMaximaIncidencia, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_T"& _ 
+                "IMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CONVERT(varchar(8), LimiteHora"& _ 
+                "rioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIM"& _ 
+                "ESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CONVERT(varchar(8), LimiteHorari"& _ 
+                "oProduccion.MaximaHoraFinalProduccion, 108)) AND DATEDIFF(mi, CONVERT(varchar(10"& _ 
+                "), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CONVERT(varchar(8)"& _ 
+                ", LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10),"& _ 
+                " CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CONVERT(varchar(8), "& _ 
+                "LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) >= DATEDIFF(mi, CONVERT(varc"& _ 
+                "har(10), CURRENT_TIMESTAMP, 120) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         + ' ' + CONVERT(varc"& _ 
+                "har(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varchar(10),"& _ 
+                " CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) THEN DATEDIFF(mi, CONVE"& _ 
+                "RT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "               LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT"& _ 
+                "(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) WHEN DATEDIFF(m"& _ 
+                "i, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"  "& _ 
+                "                       LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108),"& _ 
+                " CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"    "& _ 
+                "                     LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >="& _ 
+                " DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varch"& _ 
+                "ar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MinimoHoraInicioProduc"& _ 
+                "cion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar"& _ 
+                "(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MaximaHoraFinalProduccio"& _ 
+                "n, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + C"& _ 
+                "ONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MinimoHora"& _ 
+                "InicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CON"& _ 
+                "VERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MaximaHoraFi"& _ 
+                "nalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120"& _ 
+                ") + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion"& _ 
+                ".MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) "& _ 
+                "+ ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioIncidencia.H"& _ 
+                "oraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTA"& _ 
+                "MP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioPro"& _ 
+                "duccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP"& _ 
+                ", 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProdu"& _ 
+                "ccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURR"& _ 
+                "ENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Limit"& _ 
+                "eHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varchar(10), CURRENT_TIME"& _ 
+                "STAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorario"& _ 
+                "Produccion.MaximaHoraFinalProduccion, 108)) THEN DATEDIFF(mi, CONVERT(varchar(10"& _ 
+                "), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
+                "  LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10),"& _ 
+                " CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) WHEN DATEDIFF(mi, CONVE"& _ 
+                "RT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"          "& _ 
+                "               LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varch"& _ 
+                "ar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  "& _ 
+                "       LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, "& _ 
+                "CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CO"& _ 
+                "NVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"       "& _ 
+                "                  LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND D"& _ 
+                "ATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar"& _ 
+                "(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioIncidencia.HoraMinimaIncidencia, 10"& _ 
+                "8), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                        LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108))"& _ 
+                " >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(va"& _ 
+                "rchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MinimoHoraInicioPro"& _ 
+                "duccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varc"& _ 
+                "har(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioIncidencia.HoraMaximaIncidencia,"& _ 
+                " 108)) AND DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CON"& _ 
+                "VERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioIncidencia.HoraMinimaIn"& _ 
+                "cidencia, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(var"& _ 
+                "char(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MaximaHoraFinalProdu"& _ 
+                "ccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' "& _ 
+                "+ CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MinimoH"& _ 
+                "oraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + "& _ 
+                "CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.MaximaHor"& _ 
+                "aFinalProduccion, 108)) THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP"& _ 
+                ", 120) + ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioIncid"& _ 
+                "encia.HoraMinimaIncidencia, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) +"& _ 
+                " ' ' + CONVERT(varchar(8), "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioProduccion.Ma"& _ 
+                "ximaHoraFinalProduccion, 108)) ELSE 'Error' END AS TiempoDisponible"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
+                "     (SELECT        Envasados.Fecha, MIN(Incidencias.HoraInicio) AS HoraMinimaIn"& _ 
+                "cidencia, MAX(Incidencias.HoraFin) AS HoraMaximaIncidencia, Envasados.EnvasadoID"& _ 
+                ", "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                    LineasEnvasado.Descripci"& _ 
+                "on AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                          FROM            Incidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                                                   FormatosEnvasados ON Incidenc"& _ 
+                "ias.FormatoEnvasadoID = FormatosEnvasados.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                                            Envasados ON FormatosEnvasados.Envas"& _ 
+                "adoID = Envasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                       "& _ 
+                "             TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = Tipos"& _ 
+                "FormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                  "& _ 
+                "                  LineasEnvasado ON TiposFormatosLineas.LineaEnvasadoID = Lineas"& _ 
+                "Envasado.LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                          WHERE        (Envasados.Fech"& _ 
+                "a = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                          GROUP BY Envasados.Fecha, Envasados.Envas"& _ 
+                "adoID, LineasEnvasado.Descripcion) AS LimiteHorarioIncidencia LEFT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" "& _ 
+                "                            (SELECT        Envasados_1.EnvasadoID, Envasados_1.F"& _ 
+                "echa, MIN(PaletsContenidos.HoraInicio) AS MinimoHoraInicioProduccion, MAX(Palets"& _ 
+                "Contenidos.HoraFin) "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         A"& _ 
+                "S MaximaHoraFinalProduccion, LineasEnvasado_1.Descripcion AS Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "                   FROM            PaletsContenidos INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                "& _ 
+                "                                         FormatosEnvasados AS FormatosEnvasados_"& _ 
+                "1 ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_1.FormatoEnvasadoID"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         Envasados "& _ 
+                "AS Envasados_1 ON FormatosEnvasados_1.EnvasadoID = Envasados_1.EnvasadoID INNER "& _ 
+                "JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                         TiposFormatosLine"& _ 
+                "as AS TiposFormatosLineas_1 ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                               "& _ 
+                "          FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFor"& _ 
+                "matoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                                                        "& _ 
+                " LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = L"& _ 
+                "ineasEnvasado_1.LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                               GROUP BY Envasad"& _ 
+                "os_1.EnvasadoID, Envasados_1.Fecha, LineasEnvasado_1.Descripcion) AS LimiteHorar"& _ 
+                "ioProduccion ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LimiteHorarioIncidencia.EnvasadoID = "& _ 
+                "LimiteHorarioProduccion.EnvasadoID AND LimiteHorarioIncidencia.Linea = LimiteHor"& _ 
+                "arioProduccion.Linea"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY LimiteHorarioIncidencia.Linea"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.TiempoDisponibleDataTable, ByVal fecha As Date) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.TiempoDisponibleDataTable, ByVal fecha As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As Date) As LADataSet.TiempoDisponibleDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As Date) As LADataSet.TiempoDisponibleDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
             Dim dataTable As LADataSet.TiempoDisponibleDataTable = New LADataSet.TiempoDisponibleDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasGestionRecursosPorFormatoTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -29109,65 +29208,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -29181,129 +29280,129 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Formato", "Formato")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID, TiposFormatosLineas.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "F" & _
-                "ROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados " & _
-                "INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados ON Envasados.EnvasadoID =" & _
-                " FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias O" & _
-                "N FormatosEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias ON Incidencias.TipoIncidenciaID = Ti" & _
-                "posIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias." & _
-                "ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
-                "            TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposF" & _
-                "ormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnva" & _
-                "sado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIG" & _
-                "HT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias ON ClasesIncidencia" & _
-                "s.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE    " & _
-                "    (CONVERT(varchar(10), Envasados.Fecha, 103) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasa" & _
-                "do.Descripcion, Envasados.EnvasadoID, CategoriaIncidencias.Descripcion, Categori" & _
-                "aIncidencias.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLine" & _
-                "as.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING        (CategoriaIncidencias.CategoriaIncidenciaID = 10)"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID, TiposFormatosLineas.Descripcion AS Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"F"& _ 
+                "ROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados "& _ 
+                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Envasados.EnvasadoID ="& _ 
+                " FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias O"& _ 
+                "N FormatosEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias ON Incidencias.TipoIncidenciaID = Ti"& _ 
+                "posIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias."& _ 
+                "ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposF"& _ 
+                "ormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnva"& _ 
+                "sado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIG"& _ 
+                "HT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias ON ClasesIncidencia"& _ 
+                "s.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (CONVERT(varchar(10), Envasados.Fecha, 103) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasa"& _ 
+                "do.Descripcion, Envasados.EnvasadoID, CategoriaIncidencias.Descripcion, Categori"& _ 
+                "aIncidencias.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLine"& _ 
+                "as.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (CategoriaIncidencias.CategoriaIncidenciaID = 10)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoDataTable = New LADataSet.ResumenListadoIncidenciasGestionRecursosPorFormatoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasPlanificadasPorFormatoTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -29317,65 +29416,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -29389,129 +29488,129 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Formato", "Formato")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID, TiposFormatosLineas.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "F" & _
-                "ROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados " & _
-                "INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados ON Envasados.EnvasadoID =" & _
-                " FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias O" & _
-                "N FormatosEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias ON Incidencias.TipoIncidenciaID = Ti" & _
-                "posIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias." & _
-                "ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
-                "            TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposF" & _
-                "ormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnva" & _
-                "sado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIG" & _
-                "HT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias ON ClasesIncidencia" & _
-                "s.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE    " & _
-                "    (CONVERT(varchar(10), Envasados.Fecha, 103) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasa" & _
-                "do.Descripcion, Envasados.EnvasadoID, CategoriaIncidencias.Descripcion, Categori" & _
-                "aIncidencias.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLine" & _
-                "as.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING        (CategoriaIncidencias.CategoriaIncidenciaID = 11)"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID, TiposFormatosLineas.Descripcion AS Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"F"& _ 
+                "ROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados "& _ 
+                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Envasados.EnvasadoID ="& _ 
+                " FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias O"& _ 
+                "N FormatosEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias ON Incidencias.TipoIncidenciaID = Ti"& _ 
+                "posIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias."& _ 
+                "ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposF"& _ 
+                "ormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnva"& _ 
+                "sado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIG"& _ 
+                "HT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias ON ClasesIncidencia"& _ 
+                "s.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (CONVERT(varchar(10), Envasados.Fecha, 103) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasa"& _ 
+                "do.Descripcion, Envasados.EnvasadoID, CategoriaIncidencias.Descripcion, Categori"& _ 
+                "aIncidencias.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLine"& _ 
+                "as.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (CategoriaIncidencias.CategoriaIncidenciaID = 11)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoDataTable = New LADataSet.ResumenListadoIncidenciasPlanificadasPorFormatoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class ResumenListadoIncidenciasRecuperablesPorFormatoTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -29525,65 +29624,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -29597,129 +29696,129 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Formato", "Formato")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
-                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate" & _
-                "goria, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado.Descripcion AS Linea, Categoria" & _
-                "Incidencias.CategoriaIncidenciaID, TiposFormatosLineas.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "F" & _
-                "ROM            ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados " & _
-                "INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados ON Envasados.EnvasadoID =" & _
-                " FormatosEnvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias O" & _
-                "N FormatosEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposIncidencias ON Incidencias.TipoIncidenciaID = Ti" & _
-                "posIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias." & _
-                "ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
-                "            TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposF" & _
-                "ormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnva" & _
-                "sado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIG" & _
-                "HT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias ON ClasesIncidencia" & _
-                "s.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE    " & _
-                "    (CONVERT(varchar(10), Envasados.Fecha, 103) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasa" & _
-                "do.Descripcion, Envasados.EnvasadoID, CategoriaIncidencias.Descripcion, Categori" & _
-                "aIncidencias.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLine" & _
-                "as.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING        (CategoriaIncidencias.CategoriaIncidenciaID = 12)"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
+                "dencias.HoraFin)) AS MinutosIncidencia, CategoriaIncidencias.Descripcion AS Cate"& _ 
+                "goria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado.Descripcion AS Linea, Categoria"& _ 
+                "Incidencias.CategoriaIncidenciaID, TiposFormatosLineas.Descripcion AS Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"F"& _ 
+                "ROM            ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados "& _ 
+                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Envasados.EnvasadoID ="& _ 
+                " FormatosEnvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias O"& _ 
+                "N FormatosEnvasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposIncidencias ON Incidencias.TipoIncidenciaID = Ti"& _ 
+                "posIncidencias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias."& _ 
+                "ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposF"& _ 
+                "ormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnva"& _ 
+                "sado ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIG"& _ 
+                "HT OUTER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias ON ClasesIncidencia"& _ 
+                "s.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (CONVERT(varchar(10), Envasados.Fecha, 103) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasa"& _ 
+                "do.Descripcion, Envasados.EnvasadoID, CategoriaIncidencias.Descripcion, Categori"& _ 
+                "aIncidencias.CategoriaIncidenciaID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLine"& _ 
+                "as.Descripcion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (CategoriaIncidencias.CategoriaIncidenciaID = 12)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoDataTable, ByVal fecha As String) As Integer
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
-            If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear()
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
             End If
             Dim dataTable As LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoDataTable = New LADataSet.ResumenListadoIncidenciasRecuperablesPorFormatoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-
+    
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
-     Global.System.ComponentModel.ToolboxItem(True), _
-     Global.System.ComponentModel.DataObjectAttribute(True), _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
     Partial Public Class EficaciaPorFormatoTableAdapter
         Inherits Global.System.ComponentModel.Component
-
+        
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-
+        
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-
+        
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-
+        
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-
+        
         Private _clearBeforeFill As Boolean
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
-            MyBase.New()
-            Me.ClearBeforeFill = True
+            MyBase.New
+            Me.ClearBeforeFill = true
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter()
+                    Me.InitAdapter
                 End If
                 Return Me._adapter
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection()
+                    Me.InitConnection
                 End If
                 Return Me._connection
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlConnection)
+            Set
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -29733,65 +29832,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+            Set
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing) _
+                If ((Not (Me.Adapter) Is Nothing)  _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection()
+                    Me.InitCommandCollection
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set(value As Boolean)
+            Set
                 Me._clearBeforeFill = value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -29808,16 +29907,16 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("Formato", "Formato")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
@@ -29836,19 +29935,20 @@ Namespace LADataSetTableAdapters
                 "               Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados " & _
                 "ON Envasados.EnvasadoID = FormatosEnvasados.EnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    " & _
                 "     PaletsContenidos.id_formatoEnvasado = FormatosEnvasados.FormatoEnvasadoID I" & _
-                "NNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatos ON FormatosEnvasados.TipoForma" & _
-                "toEnvasadoID = TiposFormatos.TipoFormatoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
-                "TiposCajas ON TiposFormatos.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                    TiposFormatosLineas_TiposFormatos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "           TiposFormatosLineas INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasa" & _
-                "do ON TiposFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "                         TiposFormatosLineas_TiposFormatos.TipoFormatoLineaID = " & _
-                "TiposFormatosLineas.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormat" & _
-                "os.TipoFormatoID = TiposFormatosLineas_TiposFormatos.TipoFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                  FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas_Tip" & _
-                "osFormatos.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Envasados.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY" & _
-                " Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormato" & _
-                "sLineas.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Linea"
+                "NNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ArticulosEnvasadosHistoricoSinLinea  ON Form" & _
+                "atosEnvasados.TipoFormatoEnvasadoID = ArticulosEnvasadosHistoricoSinLinea.TipoFo" & _
+                "rmato INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposCajas ON ArticulosEnvasadosHisto" & _
+                "ricoSinLinea.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    " & _
+                "     TiposFormatosLineas_TiposFormatos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Tipo" & _
+                "sFormatosLineas INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposForm" & _
+                "atosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
+                "          TiposFormatosLineas_TiposFormatos.TipoFormatoLineaID = TiposFormatosLi" & _
+                "neas.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ArticulosEnvasadosHistoric" & _
+                "oSinLinea.TipoFormato = TiposFormatosLineas_TiposFormatos.TipoFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "                       FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLinea" & _
+                "s_TiposFormatos.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (Envasados.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GRO" & _
+                "UP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFo" & _
+                "rmatosLineas.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Linea"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
@@ -30088,105 +30188,105 @@ Namespace LADataSetTableAdapters
                 "vasadoID = FormatosEnvasados_4.EnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                 " & _
                 "                        PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_" & _
                 "4.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                " & _
-                "         TiposFormatos AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnva" & _
-                "sadoID = TiposFormatos_1.TipoFormatoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             " & _
-                "                            TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCaja" & _
-                "s.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                       " & _
-                "  TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER" & _
-                " JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         TiposFormatosLin" & _
-                "eas AS TiposFormatosLineas_4 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                       " & _
-                "                  LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = Line" & _
-                "asEnvasado.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                " & _
-                "         TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosL" & _
-                "ineas_4.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                " & _
-                "         TiposFormatos_1.TipoFormatoID = TiposFormatosLineas_TiposFormatos_1.Tip" & _
-                "oFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Format" & _
-                "osEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoForma" & _
-                "toLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               WHERE        (Envasados.Fecha = @Fecha" & _
-                ")" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY Envasados.EnvasadoID, Envasados.Fecha" & _
-                ", LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
-                "                ORDER BY Linea) AS EficaciaPorFormato LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                TiposFormatosLineas INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Formato" & _
-                "sEnvasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CambiosFormatosEnvasados ON Form" & _
-                "atosEnvasados.FormatoEnvasadoID = CambiosFormatosEnvasados.FormatoEnvasadoAID ON" & _
-                " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas.TipoFormatoLineaID = FormatosEnv" & _
-                "asados.TipoFormatoLineaID ON EficaciaPorFormato.Formato = TiposFormatosLineas.De" & _
-                "scripcion AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.EnvasadoID = Formato" & _
-                "sEnvasados.EnvasadoID LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (SELECT     " & _
-                "   Envasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencia" & _
-                "s_2.HoraFin)) AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                          " & _
-                "               CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3" & _
-                ".Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                                                TiposFormatosLineas_3.Descripcio" & _
-                "n AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               FROM            ClasesIncidencias A" & _
-                "S ClasesIncidencias_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              " & _
-                "           Envasados AS Envasados_3 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                " & _
-                "                         FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3" & _
-                ".EnvasadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
-                "                                  Incidencias AS Incidencias_2 ON FormatosEnvasa" & _
-                "dos_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "                                               TiposIncidencias AS TiposIncidenc" & _
-                "ias_2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON" & _
-                " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         ClasesIncidencias_2." & _
-                "ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "                                              TiposFormatosLineas AS TiposFormat" & _
-                "osLineas_3 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Formato" & _
-                "sEnvasados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER" & _
-                " JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LineasEnvasado A" & _
-                "S LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID = LineasEnvasado_3.L" & _
-                "ineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                               " & _
-                "          CategoriaIncidencias AS CategoriaIncidencias_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
-                "                                       ClasesIncidencias_2.id_categoriaIncidenci" & _
-                "a = CategoriaIncidencias_2.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
-                " GROUP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoID, CategoriaInciden" & _
-                "cias_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "                                             TiposFormatosLineas_3.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "                               HAVING         (CategoriaIncidencias_2.CategoriaI" & _
-                "ncidenciaID = 10)) AS TiempoIntrinsecas ON EficaciaPorFormato.EnvasadoID = Tiemp" & _
-                "oIntrinsecas.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.Linea " & _
-                "= TiempoIntrinsecas.Linea AND EficaciaPorFormato.Formato = TiempoIntrinsecas.For" & _
-                "mato LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (SELECT        Envasados_2.En" & _
-                "vasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidencias_1.HoraFin)) AS " & _
-                "MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Ca" & _
-                "tegoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS L" & _
-                "inea, CategoriaIncidencias_1.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          " & _
-                "                               TiposFormatosLineas_2.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
-                "                            FROM            ClasesIncidencias AS ClasesIncidenci" & _
-                "as_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Envasa" & _
-                "dos AS Envasados_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                 " & _
-                "        FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = For" & _
-                "matosEnvasados_2.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                        " & _
-                "                 Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnva" & _
-                "sadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " & _
-                "                              TiposIncidencias AS TiposIncidencias_1 ON Incidenc" & _
-                "ias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "                                           ClasesIncidencias_1.ClaseIncidenciaID" & _
-                " = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                            " & _
-                "                             TiposFormatosLineas AS TiposFormatosLineas_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
-                "                                                        FormatosEnvasados_2.Tipo" & _
-                "FormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "                                               LineasEnvasado AS LineasEnvasado_" & _
-                "2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RI" & _
-                "GHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Categor" & _
-                "iaIncidencias AS CategoriaIncidencias_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                   " & _
-                "                      ClasesIncidencias_1.id_categoriaIncidencia = CategoriaInci" & _
-                "dencias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY LineasE" & _
-                "nvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcio" & _
-                "n, CategoriaIncidencias_1.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             " & _
-                "                            TiposFormatosLineas_2.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " & _
-                "              HAVING         (CategoriaIncidencias_1.CategoriaIncidenciaID = 12)" & _
-                ") AS TiempoGestionRecursos ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.Enva" & _
-                "sadoID = TiempoGestionRecursos.EnvasadoID AND EficaciaPorFormato.Linea = TiempoG" & _
-                "estionRecursos.Linea AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.Formato =" & _
-                " TiempoGestionRecursos.Formato ON TiempoPlanificadas.Linea = EficaciaPorFormato." & _
-                "Linea AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiempoPlanificadas.EnvasadoID = EficaciaPor" & _
-                "Formato.EnvasadoID AND TiempoPlanificadas.Formato = EficaciaPorFormato.Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "GROUP BY EficaciaPorFormato.EnvasadoID, EficaciaPorFormato.Linea, EficaciaPorFor" & _
-                "mato.Formato, EficaciaPorFormato.TiempoEnvasado, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Efic" & _
-                "aciaPorFormato.VelocidadTeorica, EficaciaPorFormato.UnidadesFabricadas, ISNULL(T" & _
-                "iempoPlanificadas.MinutosIncidencia, 0), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ISNULL(Tiemp" & _
-                "oGestionRecursos.MinutosIncidencia, 0), ISNULL(TiempoIntrinsecas.MinutosIncidenc" & _
-                "ia, 0)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato"
+                "         ArticulosEnvasadosHistoricoSinLinea  AS TiposFormatos_1 ON FormatosEnva" & _
+                "sados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
+                "                                                 TiposCajas ON TiposFormatos_1.T" & _
+                "ipoCajaID = TiposCajas.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                  " & _
+                "                       TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_" & _
+                "TiposFormatos_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                    " & _
+                "     TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
+                "                                       LineasEnvasado ON TiposFormatosLineas_4.L" & _
+                "ineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " & _
+                "                              TiposFormatosLineas_TiposFormatos_1.TipoFormatoLin" & _
+                "eaID = TiposFormatosLineas_4.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " & _
+                "                              TiposFormatos_1.TipoFormato = TiposFormatosLineas_" & _
+                "TiposFormatos_1.TipoFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                            " & _
+                "             FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposF" & _
+                "ormatos_1.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               WHERE        (Envas" & _
+                "ados.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY Envasados.Envasado" & _
+                "ID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripci" & _
+                "on" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               ORDER BY Linea) AS EficaciaPorFormato LEFT OU" & _
+                "TER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
+                "            FormatosEnvasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CambiosFormat" & _
+                "osEnvasados ON FormatosEnvasados.FormatoEnvasadoID = CambiosFormatosEnvasados.Fo" & _
+                "rmatoEnvasadoAID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas.TipoFormatoLi" & _
+                "neaID = FormatosEnvasados.TipoFormatoLineaID ON EficaciaPorFormato.Formato = Tip" & _
+                "osFormatosLineas.Descripcion AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.E" & _
+                "nvasadoID = FormatosEnvasados.EnvasadoID LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      " & _
+                "       (SELECT        Envasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.Hor" & _
+                "aInicio, Incidencias_2.HoraFin)) AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
+                "                                  CategoriaIncidencias_2.Descripcion AS Categori" & _
+                "a, LineasEnvasado_3.Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncide" & _
+                "nciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         TiposFormatos" & _
+                "Lineas_3.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               FROM            " & _
+                "ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " & _
+                "                              Envasados AS Envasados_3 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
+                "                                            FormatosEnvasados AS FormatosEnvasad" & _
+                "os_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    " & _
+                "                                                     Incidencias AS Incidencias_" & _
+                "2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INN" & _
+                "ER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         TiposIncidenci" & _
+                "as AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2." & _
+                "TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         C" & _
+                "lasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNE" & _
+                "R JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         TiposFormatosLi" & _
+                "neas AS TiposFormatosLineas_3 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                             " & _
+                "            FormatosEnvasados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoF" & _
+                "ormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                      " & _
+                "   LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID =" & _
+                " LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                            " & _
+                "                             CategoriaIncidencias AS CategoriaIncidencias_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         ClasesIncidencias_2.id" & _
+                "_categoriaIncidencia = CategoriaIncidencias_2.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
+                "                    GROUP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoI" & _
+                "D, CategoriaIncidencias_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenci" & _
+                "aID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         TiposFormatosLin" & _
+                "eas_3.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               HAVING         (CategoriaIncid" & _
+                "encias_2.CategoriaIncidenciaID = 10)) AS TiempoIntrinsecas ON EficaciaPorFormato" & _
+                ".EnvasadoID = TiempoIntrinsecas.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Eficac" & _
+                "iaPorFormato.Linea = TiempoIntrinsecas.Linea AND EficaciaPorFormato.Formato = Ti" & _
+                "empoIntrinsecas.Formato LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (SELECT   " & _
+                "     Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidenc" & _
+                "ias_1.HoraFin)) AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                        " & _
+                "                 CategoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado" & _
+                "_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
+                "                                                  TiposFormatosLineas_2.Descripc" & _
+                "ion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               FROM            ClasesIncidencias" & _
+                " AS ClasesIncidencias_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                            " & _
+                "             Envasados AS Envasados_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
+                "                           FormatosEnvasados AS FormatosEnvasados_2 ON Envasados" & _
+                "_2.EnvasadoID = FormatosEnvasados_2.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
+                "                                    Incidencias AS Incidencias_1 ON FormatosEnva" & _
+                "sados_2.FormatoEnvasadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
+                "                                                 TiposIncidencias AS TiposIncide" & _
+                "ncias_1 ON Incidencias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID " & _
+                "ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         ClasesIncidencias_" & _
+                "1.ClaseIncidenciaID = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
+                "                                                TiposFormatosLineas AS TiposForm" & _
+                "atosLineas_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Forma" & _
+                "tosEnvasados_2.TipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INN" & _
+                "ER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LineasEnvasado" & _
+                " AS LineasEnvasado_2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2" & _
+                ".LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                             " & _
+                "            CategoriaIncidencias AS CategoriaIncidencias_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "                                         ClasesIncidencias_1.id_categoriaInciden" & _
+                "cia = CategoriaIncidencias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                            " & _
+                "   GROUP BY LineasEnvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncid" & _
+                "encias_1.Descripcion, CategoriaIncidencias_1.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
+                "                                               TiposFormatosLineas_2.Descripcion" & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               HAVING         (CategoriaIncidencias_1.Categori" & _
+                "aIncidenciaID = 12)) AS TiempoGestionRecursos ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Efic" & _
+                "aciaPorFormato.EnvasadoID = TiempoGestionRecursos.EnvasadoID AND EficaciaPorForm" & _
+                "ato.Linea = TiempoGestionRecursos.Linea AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaP" & _
+                "orFormato.Formato = TiempoGestionRecursos.Formato ON TiempoPlanificadas.Linea = " & _
+                "EficaciaPorFormato.Linea AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiempoPlanificadas.Envas" & _
+                "adoID = EficaciaPorFormato.EnvasadoID AND TiempoPlanificadas.Formato = EficaciaP" & _
+                "orFormato.Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY EficaciaPorFormato.EnvasadoID, EficaciaPorFormato.Li" & _
+                "nea, EficaciaPorFormato.Formato, EficaciaPorFormato.TiempoEnvasado, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
+                "               EficaciaPorFormato.VelocidadTeorica, EficaciaPorFormato.UnidadesF" & _
+                "abricadas, ISNULL(TiempoPlanificadas.MinutosIncidencia, 0), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
+                "       ISNULL(TiempoGestionRecursos.MinutosIncidencia, 0), ISNULL(TiempoIntrinse" & _
+                "cas.MinutosIncidencia, 0)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato" & _
+                ".Formato"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
@@ -30421,298 +30521,299 @@ Namespace LADataSetTableAdapters
                 "doID = FormatosEnvasados_4.EnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                     " & _
                 "                    PaletsContenidos_1.id_formatoEnvasado = FormatosEnvasados_4." & _
                 "FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                  " & _
-                "       TiposFormatos ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormato" & _
-                "s.TipoFormatoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                    " & _
-                "     TiposCajas ON TiposFormatos.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "                                                         TiposFormatosLineas_Tip" & _
-                "osFormatos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         " & _
-                "TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
-                "                                  LineasEnvasado AS LineasEnvasado_4 ON TiposFor" & _
-                "matosLineas_4.LineaEnvasadoID = LineasEnvasado_4.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "                                               TiposFormatosLineas_TiposFormatos" & _
-                ".TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "                                             TiposFormatos.TipoFormatoID = Tipos" & _
-                "FormatosLineas_TiposFormatos.TipoFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
-                "                          FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatos" & _
-                "Lineas_TiposFormatos.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               WHERE   " & _
-                "     (Envasados_4.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY Envas" & _
-                "ados_4.EnvasadoID, Envasados_4.Fecha, LineasEnvasado_4.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "                   ORDER BY Linea) AS EficaciaPorFormato LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                       (SELECT        TOP (100) PERCENT LimiteHorarioProduccion." & _
-                "EnvasadoID, LimiteHorarioIncidencia.Linea, LimiteHorarioIncidencia.HoraMinimaInc" & _
-                "idencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteHorari" & _
-                "oIncidencia.HoraMaximaIncidencia, LimiteHorarioProduccion.MinimoHoraInicioProduc" & _
-                "cion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteHorarioPr" & _
-                "oduccion.MaximaHoraFinalProduccion, DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TI" & _
-                "MESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                    " & _
-                "                     LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), C" & _
-                "ONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                                                   LimiteHorarioProduccion.Maxim" & _
-                "aHoraFinalProduccion, 108)) AS TiempoProduccion1, DATEDIFF(mi, CONVERT(varchar(1" & _
-                "0), CURRENT_TIMESTAMP, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                       " & _
-                "  120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProdu" & _
-                "ccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                    " & _
-                "                                     + ' ' + CONVERT(varchar(8), LimiteHorarioIn" & _
-                "cidencia.HoraMaximaIncidencia, 108)) AS TiempoProduccion2, DATEDIFF(mi, CONVERT(" & _
-                "varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CURRENT_" & _
-                "TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraIn" & _
-                "icioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                   " & _
-                "                      CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), Limite" & _
-                "HorarioProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoProduccion3, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                                                    DATEDIFF(mi, CONVERT(varchar" & _
-                "(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidenci" & _
-                "a.HoraMinimaIncidencia, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                " & _
-                "         CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8)" & _
-                ", LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " & _
-                "                                      AS TiempoProduccion4, CASE WHEN DATEDIFF(m" & _
-                "i, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                                                       LimiteHorarioProduccion.M" & _
-                "inimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + " & _
-                "' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                    " & _
-                "     LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CO" & _
-                "NVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                   " & _
-                "                      + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Minimo" & _
-                "HoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                                                    + ' ' + CONVERT(varchar(8), " & _
-                "LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVERT(var" & _
-                "char(10), CURRENT_TIMESTAMP, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                 " & _
-                "        120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInici" & _
-                "oProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "                                           + ' ' + CONVERT(varchar(8), LimiteHor" & _
-                "arioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(" & _
-                "10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CURRENT_TIMESTAM" & _
-                "P, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProd" & _
-                "uccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                           " & _
-                "              CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioP" & _
-                "roduccion.MaximaHoraFinalProduccion, 108)) AND DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
-                "                                       CONVERT(varchar(10), CURRENT_TIMESTAMP, 1" & _
-                "20) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProducci" & _
-                "on, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CONVERT(var" & _
-                "char(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProdu" & _
-                "ccion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                       " & _
-                "                  >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) +" & _
-                " ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                                                    108), CONVERT(varchar(10), C" & _
-                "URRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Maxim" & _
-                "aHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                  " & _
-                "       THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CO" & _
-                "NVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Lim" & _
-                "iteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURR" & _
-                "ENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
-                "                           LimiteHorarioProduccion.MaximaHoraFinalProduccion, 10" & _
-                "8)) WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "                                              + ' ' + CONVERT(varchar(8), Limite" & _
-                "HorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT" & _
-                "_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         + ' " & _
-                "' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) >= D" & _
-                "ATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          " & _
-                "                               120) + ' ' + CONVERT(varchar(8), LimiteHorarioPro" & _
-                "duccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP" & _
-                ", 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         + ' ' + CONVER" & _
-                "T(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND DATED" & _
-                "IFF(mi, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                 " & _
-                "        CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProducc" & _
-                "ion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " & _
-                "                                      CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(va" & _
-                "rchar(8), LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) >= DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "                                                         CONVERT(varchar(10), CU" & _
-                "RRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Minimo" & _
-                "HoraInicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                  " & _
-                "       CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & _
-                "LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " & _
-                "                                        DATEDIFF(mi, CONVERT(varchar(10), CURREN" & _
-                "T_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHora" & _
-                "InicioProduccion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         108" & _
-                "), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), Limi" & _
-                "teHorarioIncidencia.HoraMaximaIncidencia, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
-                "                           >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAM" & _
-                "P, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia" & _
-                ", " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         108), CONVERT(varch" & _
-                "ar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProducc" & _
-                "ion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                         " & _
-                "                THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) +" & _
-                " ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                   " & _
-                "      LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(" & _
-                "10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "                                    LimiteHorarioIncidencia.HoraMaximaIncidencia" & _
-                ", 108)) WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
-                "                                                  + ' ' + CONVERT(varchar(8), Li" & _
-                "miteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CUR" & _
-                "RENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         " & _
-                "+ ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 1" & _
-                "08)) >= DATEDIFF(mi, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                    " & _
-                "                     CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteH" & _
-                "orarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                                                   CURRENT_TIMESTAMP, 120) + ' '" & _
-                " + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) " & _
-                "AND DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CONV" & _
-                "ERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorar" & _
-                "ioProduccion.MinimoHoraInicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
-                "                          CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + C" & _
-                "ONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
-                "                                                       >= DATEDIFF(mi, CONVERT(v" & _
-                "archar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
-                "                                           LimiteHorarioProduccion.MinimoHoraIni" & _
-                "cioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVER" & _
-                "T(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteH" & _
-                "orarioIncidencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVERT(varchar(10" & _
-                "), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                   " & _
-                "      + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProduc" & _
-                "cion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "                                    + ' ' + CONVERT(varchar(8), LimiteHorarioPro" & _
-                "duccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "                                                         CURRENT_TIMESTAMP, 120)" & _
-                " + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108)," & _
-                " CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                        " & _
-                " CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Max" & _
-                "imaHoraFinalProduccion, 108)) THEN DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
-                "                           CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + " & _
-                "CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
-                "                                                         CONVERT(varchar(10), CU" & _
-                "RRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Maxima" & _
-                "HoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                   " & _
-                "      WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CON" & _
-                "VERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
-                "                                          108), CONVERT(varchar(10), CURRENT_TIM" & _
-                "ESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinal" & _
-                "Produccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         >= " & _
-                "DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varcha" & _
-                "r(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteHorarioPr" & _
-                "oduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAM" & _
-                "P, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                          " & _
-                "               LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND DATE" & _
-                "DIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        " & _
-                "                                 + ' ' + CONVERT(varchar(8), LimiteHorarioIncide" & _
-                "ncia.HoraMinimaIncidencia, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "       ArticulosEnvasadosHistoricoSinLinea  ON FormatosEnvasados_4.TipoFormatoEn" & _
+                "vasadoID = ArticulosEnvasadosHistoricoSinLinea.TipoFormato INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
+                "                                                TiposCajas ON ArticulosEnvasados" & _
+                "HistoricoSinLinea.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
+                "                                          TiposFormatosLineas_TiposFormatos INNE" & _
+                "R JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         TiposFormatosLi" & _
+                "neas AS TiposFormatosLineas_4 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                      " & _
+                "                   LineasEnvasado AS LineasEnvasado_4 ON TiposFormatosLineas_4.L" & _
+                "ineaEnvasadoID = LineasEnvasado_4.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
+                "                                TiposFormatosLineas_TiposFormatos.TipoFormatoLin" & _
+                "eaID = TiposFormatosLineas_4.TipoFormatoLineaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " & _
+                "                              ArticulosEnvasadosHistoricoSinLinea.TipoFormato = " & _
+                "TiposFormatosLineas_TiposFormatos.TipoFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          " & _
+                "                               FormatosEnvasados_4.TipoFormatoLineaID = TiposFor" & _
+                "matosLineas_TiposFormatos.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               WHE" & _
+                "RE        (Envasados_4.Fecha = @Fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY " & _
+                "Envasados_4.EnvasadoID, Envasados_4.Fecha, LineasEnvasado_4.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
+                "                        ORDER BY Linea) AS EficaciaPorFormato LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+                "                            (SELECT        TOP (100) PERCENT LimiteHorarioProduc" & _
+                "cion.EnvasadoID, LimiteHorarioIncidencia.Linea, LimiteHorarioIncidencia.HoraMini" & _
+                "maIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteH" & _
+                "orarioIncidencia.HoraMaximaIncidencia, LimiteHorarioProduccion.MinimoHoraInicioP" & _
+                "roduccion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteHora" & _
+                "rioProduccion.MaximaHoraFinalProduccion, DATEDIFF(mi, CONVERT(varchar(10), CURRE" & _
+                "NT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
+                "                          LimiteHorarioProduccion.MinimoHoraInicioProduccion, 10" & _
+                "8), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+                "                                                        LimiteHorarioProduccion." & _
+                "MaximaHoraFinalProduccion, 108)) AS TiempoProduccion1, DATEDIFF(mi, CONVERT(varc" & _
+                "har(10), CURRENT_TIMESTAMP, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                  " & _
+                "       120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicio" & _
+                "Produccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "               " & _
+                "                                          + ' ' + CONVERT(varchar(8), LimiteHora" & _
+                "rioIncidencia.HoraMaximaIncidencia, 108)) AS TiempoProduccion2, DATEDIFF(mi, CON" & _
+                "VERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CUR" & _
+                "RENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoH" & _
+                "oraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
+                "                           CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), L" & _
+                "imiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AS TiempoProduccion3, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                                                         DATEDIFF(mi, CONVERT(va" & _
+                "rchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioInci" & _
+                "dencia.HoraMinimaIncidencia, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                           " & _
+                "              CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varch" & _
+                "ar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
+                "                                           AS TiempoProduccion4, CASE WHEN DATED" & _
+                "IFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8)," & _
+                " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteHorarioProducc" & _
+                "ion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 12" & _
+                "0) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                               " & _
+                "          LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(m" & _
+                "i, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
+                "                           + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.M" & _
+                "inimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
                 "                                                         + ' ' + CONVERT(varchar" & _
-                "(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CO" & _
-                "NVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CU" & _
-                "RRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Minimo" & _
-                "HoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             " & _
-                "                            CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & _
-                "LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                                                CONVERT(varchar(10), CURRENT_TIM" & _
+                "(8), LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVER" & _
+                "T(varchar(10), CURRENT_TIMESTAMP, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                            " & _
+                "             120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHora" & _
+                "InicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
+                "                                                + ' ' + CONVERT(varchar(8), Limi" & _
+                "teHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(var" & _
+                "char(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CURRENT_TIM" & _
+                "ESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInici" & _
+                "oProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                      " & _
+                "                   CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHor" & _
+                "arioProduccion.MaximaHoraFinalProduccion, 108)) AND DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
+                "                                            CONVERT(varchar(10), CURRENT_TIMESTA" & _
+                "MP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioPro" & _
+                "duccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CONVER" & _
+                "T(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorario" & _
+                "Produccion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                  " & _
+                "                       >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 1" & _
+                "20) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                                                         108), CONVERT(varchar(1" & _
+                "0), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion." & _
+                "MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                             " & _
+                "            THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' '" & _
+                " + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                       " & _
+                "  LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10)," & _
+                " CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
+                "                                LimiteHorarioProduccion.MaximaHoraFinalProduccio" & _
+                "n, 108)) WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
+                "                                                   + ' ' + CONVERT(varchar(8), L" & _
+                "imiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CU" & _
+                "RRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                        " & _
+                " + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMaximaIncidencia, 108))" & _
+                " >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
+                "                                    120) + ' ' + CONVERT(varchar(8), LimiteHorar" & _
+                "ioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIME" & _
+                "STAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         + ' ' + C" & _
+                "ONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND " & _
+                "DATEDIFF(mi, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                            " & _
+                "             CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioPr" & _
+                "oduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "              " & _
+                "                                           CURRENT_TIMESTAMP, 120) + ' ' + CONVE" & _
+                "RT(varchar(8), LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) >= DATEDIFF(m" & _
+                "i, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CONVERT(varchar(10" & _
+                "), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.M" & _
+                "inimoHoraInicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                             " & _
+                "            CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar" & _
+                "(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
+                "                                             DATEDIFF(mi, CONVERT(varchar(10), C" & _
+                "URRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.Minim" & _
+                "oHoraInicioProduccion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                       " & _
+                "  108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8)," & _
+                " LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
+                "                                >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIM" & _
                 "ESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncid" & _
-                "encia, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CONVERT(" & _
+                "encia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         108), CONVERT(" & _
                 "varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioPr" & _
                 "oduccion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                    " & _
-                "                     >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120" & _
-                ") + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                " & _
-                "         LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varch" & _
-                "ar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
-                "                                       LimiteHorarioProduccion.MaximaHoraFinalPr" & _
-                "oduccion, 108)) THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         + ' ' + CONVERT(varcha" & _
-                "r(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varchar(10), C" & _
-                "URRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                       " & _
-                "  + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion," & _
-                " 108)) ELSE 'Error' END AS TiempoDisponible" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               FROM" & _
-                "            (SELECT        Envasados.Fecha, MIN(Incidencias.HoraInicio) AS HoraM" & _
-                "inimaIncidencia, MAX(Incidencias.HoraFin) AS HoraMaximaIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "                                                                        Envasado" & _
-                "s.EnvasadoID, LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             " & _
-                "                            FROM            Incidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "                                                                       FormatosE" & _
-                "nvasados ON Incidencias.FormatoEnvasadoID = FormatosEnvasados.FormatoEnvasadoID " & _
-                "INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                                    " & _
-                "               Envasados ON FormatosEnvasados.EnvasadoID = Envasados.EnvasadoID " & _
-                "INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                                    " & _
-                "               TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = Tip" & _
-                "osFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                " & _
-                "                                                   LineasEnvasado ON TiposFormat" & _
-                "osLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "                                    GROUP BY Envasados.Fecha, Envasados.Envasado" & _
-                "ID, LineasEnvasado.Descripcion) AS LimiteHorarioIncidencia LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    " & _
-                "                                                         (SELECT        Envasado" & _
-                "s_1.EnvasadoID, Envasados_1.Fecha, MIN(PaletsContenidos.HoraInicio) AS MinimoHor" & _
-                "aInicioProduccion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                           " & _
-                "                              MAX(PaletsContenidos.HoraFin) AS MaximaHoraFinalPr" & _
-                "oduccion, LineasEnvasado_1.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
-                "                                FROM            PaletsContenidos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
+                "                     THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 1" & _
+                "20) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              " & _
+                "           LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(var" & _
+                "char(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "                                         LimiteHorarioIncidencia.HoraMaximaIncid" & _
+                "encia, 108)) WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "                                                       + ' ' + CONVERT(varchar(8" & _
+                "), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10)" & _
+                ", CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                    " & _
+                "     + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProducci" & _
+                "on, 108)) >= DATEDIFF(mi, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
+                "                          CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), Li" & _
+                "miteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+                "                                                        CURRENT_TIMESTAMP, 120) " & _
+                "+ ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 1" & _
+                "08)) AND DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                        " & _
+                " CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), Limite" & _
+                "HorarioProduccion.MinimoHoraInicioProduccion, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          " & _
+                "                               CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' " & _
+                "' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108))" & _
+                " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         >= DATEDIFF(mi, CONV" & _
+                "ERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
+                "                                                LimiteHorarioProduccion.MinimoHo" & _
+                "raInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + C" & _
+                "ONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Li" & _
+                "miteHorarioIncidencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, CONVERT(varch" & _
+                "ar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              " & _
+                "           + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioP" & _
+                "roduccion, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "                                         + ' ' + CONVERT(varchar(8), LimiteHorar" & _
+                "ioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(mi, CONVERT(varchar(10" & _
+                "), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CURRENT_TIMESTAMP," & _
+                " 120) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, " & _
+                "108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                   " & _
+                "      CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccio" & _
+                "n.MaximaHoraFinalProduccion, 108)) THEN DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
+                "                                CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + '" & _
+                " ' + CONVERT(varchar(8), LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108" & _
+                "), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CONVERT(varchar(10" & _
+                "), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.M" & _
+                "aximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              " & _
+                "           WHEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' " & _
+                "+ CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
+                "                                               108), CONVERT(varchar(10), CURREN" & _
+                "T_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHora" & _
+                "FinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                       " & _
+                "  >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(v" & _
+                "archar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         LimiteHora" & _
+                "rioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(varchar(10), CURRENT_TIM" & _
+                "ESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                     " & _
+                "                    LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) AND" & _
+                " DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                   " & _
+                "                                      + ' ' + CONVERT(varchar(8), LimiteHorarioI" & _
+                "ncidencia.HoraMinimaIncidencia, 108), CONVERT(varchar(10), CURRENT_TIMESTAMP, 12" & _
+                "0) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         + ' ' + CONVERT(va" & _
+                "rchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduccion, 108)) >= DATEDIFF(m" & _
+                "i, CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                      " & _
+                "   CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.M" & _
+                "inimoHoraInicioProduccion, 108), CONVERT(varchar(10), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        " & _
+                "                                 CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar" & _
+                "(8), LimiteHorarioIncidencia.HoraMaximaIncidencia, 108)) AND DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    " & _
+                "                                                     CONVERT(varchar(10), CURREN" & _
+                "T_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHorarioIncidencia.HoraMinima" & _
+                "Incidencia, 108), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CON" & _
+                "VERT(varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), LimiteHora" & _
+                "rioProduccion.MaximaHoraFinalProduccion, 108)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
+                "                          >= DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP" & _
+                ", 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                           " & _
+                "              LimiteHorarioProduccion.MinimoHoraInicioProduccion, 108), CONVERT(" & _
+                "varchar(10), CURRENT_TIMESTAMP, 120) + ' ' + CONVERT(varchar(8), " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "             " & _
+                "                                            LimiteHorarioProduccion.MaximaHoraFi" & _
+                "nalProduccion, 108)) THEN DATEDIFF(mi, CONVERT(varchar(10), CURRENT_TIMESTAMP, 1" & _
+                "20) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         + ' ' + CONVERT(v" & _
+                "archar(8), LimiteHorarioIncidencia.HoraMinimaIncidencia, 108), CONVERT(varchar(1" & _
+                "0), CURRENT_TIMESTAMP, 120) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                  " & _
+                "       + ' ' + CONVERT(varchar(8), LimiteHorarioProduccion.MaximaHoraFinalProduc" & _
+                "cion, 108)) ELSE 'Error' END AS TiempoDisponible" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
+                " FROM            (SELECT        Envasados.Fecha, MIN(Incidencias.HoraInicio) AS " & _
+                "HoraMinimaIncidencia, MAX(Incidencias.HoraFin) AS HoraMaximaIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
+                "                                                                             Env" & _
+                "asados.EnvasadoID, LineasEnvasado.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        " & _
+                "                                 FROM            Incidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
+                "                                                                            Form" & _
+                "atosEnvasados ON Incidencias.FormatoEnvasadoID = FormatosEnvasados.FormatoEnvasa" & _
+                "doID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                               " & _
+                "                    Envasados ON FormatosEnvasados.EnvasadoID = Envasados.Envasa" & _
+                "doID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                               " & _
+                "                    TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID " & _
+                "= TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " & _
+                "                                                        LineasEnvasado ON TiposF" & _
+                "ormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "                                         GROUP BY Envasados.Fecha, Envasados.Env" & _
+                "asadoID, LineasEnvasado.Descripcion) AS LimiteHorarioIncidencia LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                             (SELECT        Env" & _
+                "asados_1.EnvasadoID, Envasados_1.Fecha, MIN(PaletsContenidos.HoraInicio) AS Mini" & _
+                "moHoraInicioProduccion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                      " & _
+                "                                   MAX(PaletsContenidos.HoraFin) AS MaximaHoraFi" & _
+                "nalProduccion, LineasEnvasado_1.Descripcion AS Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          " & _
+                "                                     FROM            PaletsContenidos INNER JOIN" & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                                              " & _
+                "           FormatosEnvasados AS FormatosEnvasados_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
+                "                                                                  PaletsContenid" & _
+                "os.id_formatoEnvasado = FormatosEnvasados_1.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
                 "                                                                                " & _
-                "      FormatosEnvasados AS FormatosEnvasados_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                            " & _
-                "                                                             PaletsContenidos.id" & _
-                "_formatoEnvasado = FormatosEnvasados_1.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "                                                                              En" & _
-                "vasados AS Envasados_1 ON FormatosEnvasados_1.EnvasadoID = Envasados_1.EnvasadoI" & _
-                "D INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                                  " & _
-                "                       TiposFormatosLineas AS TiposFormatosLineas_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
+                "   Envasados AS Envasados_1 ON FormatosEnvasados_1.EnvasadoID = Envasados_1.Enva" & _
+                "sadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                             " & _
+                "                            TiposFormatosLineas AS TiposFormatosLineas_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
                 "                                                                                " & _
-                "  FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLine" & _
-                "aID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                                " & _
-                "                         LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLine" & _
-                "as_1.LineaEnvasadoID = LineasEnvasado_1.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
-                "                                        GROUP BY Envasados_1.EnvasadoID, Envasad" & _
-                "os_1.Fecha, LineasEnvasado_1.Descripcion) AS LimiteHorarioProduccion ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                                                   LimiteHorarioIncidencia.Envas" & _
-                "adoID = LimiteHorarioProduccion.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
-                "                          LimiteHorarioIncidencia.Linea = LimiteHorarioProduccio" & _
-                "n.Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               ORDER BY LimiteHorarioIncidencia.Linea) " & _
-                "AS TiempoDisponible ON EficaciaPorFormato.EnvasadoID = TiempoDisponible.Envasado" & _
-                "ID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.Linea = TiempoDisponible.Li" & _
-                "nea LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (SELECT        Envasados_3.Env" & _
-                "asadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin)) AS M" & _
-                "inutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Cat" & _
-                "egoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Descripcion AS Li" & _
-                "nea, CategoriaIncidencias_2.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             " & _
-                "  FROM            ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         " & _
-                "                                                Envasados AS Envasados_3 INNER J" & _
-                "OIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         FormatosEnvasados " & _
-                "AS FormatosEnvasados_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.EnvasadoI" & _
-                "D INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Incidenci" & _
-                "as AS Incidencias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.For" & _
-                "matoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                     " & _
-                "    TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaID = T" & _
-                "iposIncidencias_2.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                        " & _
-                "                 ClasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2.Clas" & _
-                "eIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                      " & _
-                "   TiposFormatosLineas AS TiposFormatosLineas_3 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                           " & _
-                "                              FormatosEnvasados_3.TipoFormatoLineaID = TiposForm" & _
-                "atosLineas_3.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                    " & _
-                "                     LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3" & _
-                ".LineaEnvasadoID = LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "                                               CategoriaIncidencias AS Categoria" & _
-                "Incidencias_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Clas" & _
-                "esIncidencias_2.id_categoriaIncidencia = CategoriaIncidencias_2.CategoriaInciden" & _
-                "ciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY LineasEnvasado_3.Descripcion, Env" & _
-                "asados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "                                    CategoriaIncidencias_2.CategoriaIncidenciaID" & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               HAVING         (CategoriaIncidencias_2.Categori" & _
-                "aIncidenciaID = 10)) AS TiempoIntrinsecas ON EficaciaPorFormato.EnvasadoID = Tie" & _
-                "mpoIntrinsecas.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.Line" & _
-                "a = TiempoIntrinsecas.Linea LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (SELEC" & _
-                "T        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Inci" & _
-                "dencias_1.HoraFin)) AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                    " & _
-                "                     CategoriaIncidencias_1.Descripcion AS Categoria, LineasEnva" & _
-                "sado_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                          FROM            ClasesIncidencias AS ClasesIncidencias" & _
-                "_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Envasado" & _
-                "s AS Envasados_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                   " & _
-                "      FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = Forma" & _
-                "tosEnvasados_2.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                          " & _
-                "               Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnvasa" & _
-                "doID = Incidencias_1.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             " & _
-                "                            TiposIncidencias AS TiposIncidencias_1 ON Incidencia" & _
-                "s_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
-                "                                         ClasesIncidencias_1.ClaseIncidenciaID =" & _
-                " TiposIncidencias_1.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                              " & _
-                "                           TiposFormatosLineas AS TiposFormatosLineas_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
-                "                                                      FormatosEnvasados_2.TipoFo" & _
-                "rmatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            " & _
-                "                                             LineasEnvasado AS LineasEnvasado_2 " & _
-                "ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGH" & _
-                "T OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Categoria" & _
-                "Incidencias AS CategoriaIncidencias_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                     " & _
-                "                    ClasesIncidencias_1.id_categoriaIncidencia = CategoriaIncide" & _
-                "ncias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY LineasEnv" & _
-                "asado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion," & _
-                " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CategoriaIncidencias" & _
-                "_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               HAVING         (Categor" & _
-                "iaIncidencias_1.CategoriaIncidenciaID = 12)) AS TiempoGestionRecursos ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
-                "                    EficaciaPorFormato.EnvasadoID = TiempoGestionRecursos.Envasa" & _
-                "doID AND EficaciaPorFormato.Linea = TiempoGestionRecursos.Linea ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
-                "              TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND TiempoPlan" & _
-                "ificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY EficaciaPorFormato" & _
-                ".Linea"
+                "       FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormat" & _
+                "oLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                           " & _
+                "                              LineasEnvasado AS LineasEnvasado_1 ON TiposFormato" & _
+                "sLineas_1.LineaEnvasadoID = LineasEnvasado_1.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                  " & _
+                "                                             GROUP BY Envasados_1.EnvasadoID, En" & _
+                "vasados_1.Fecha, LineasEnvasado_1.Descripcion) AS LimiteHorarioProduccion ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " " & _
+                "                                                        LimiteHorarioIncidencia." & _
+                "EnvasadoID = LimiteHorarioProduccion.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          " & _
+                "                               LimiteHorarioIncidencia.Linea = LimiteHorarioProd" & _
+                "uccion.Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               ORDER BY LimiteHorarioIncidencia.Li" & _
+                "nea) AS TiempoDisponible ON EficaciaPorFormato.EnvasadoID = TiempoDisponible.Env" & _
+                "asadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato.Linea = TiempoDisponib" & _
+                "le.Linea LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (SELECT        Envasados_" & _
+                "3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin))" & _
+                " AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                       " & _
+                "  CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Descripcion " & _
+                "AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        " & _
+                "       FROM            ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    " & _
+                "                                                     Envasados AS Envasados_3 IN" & _
+                "NER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         FormatosEnvas" & _
+                "ados AS FormatosEnvasados_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.Enva" & _
+                "sadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Inci" & _
+                "dencias AS Incidencias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_" & _
+                "2.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                " & _
+                "         TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaI" & _
+                "D = TiposIncidencias_2.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                   " & _
+                "                      ClasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2" & _
+                ".ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                 " & _
+                "        TiposFormatosLineas AS TiposFormatosLineas_3 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                      " & _
+                "                                   FormatosEnvasados_3.TipoFormatoLineaID = Tipo" & _
+                "sFormatosLineas_3.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
+                "                          LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLin" & _
+                "eas_3.LineaEnvasadoID = LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     " & _
+                "                                                    CategoriaIncidencias AS Cate" & _
+                "goriaIncidencias_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                        " & _
+                " ClasesIncidencias_2.id_categoriaIncidencia = CategoriaIncidencias_2.CategoriaIn" & _
+                "cidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY LineasEnvasado_3.Descripcion" & _
+                ", Envasados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                " & _
+                "                                         CategoriaIncidencias_2.CategoriaInciden" & _
+                "ciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               HAVING         (CategoriaIncidencias_2.Cat" & _
+                "egoriaIncidenciaID = 10)) AS TiempoIntrinsecas ON EficaciaPorFormato.EnvasadoID " & _
+                "= TiempoIntrinsecas.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         EficaciaPorFormato" & _
+                ".Linea = TiempoIntrinsecas.Linea LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (" & _
+                "SELECT        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio," & _
+                " Incidencias_1.HoraFin)) AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               " & _
+                "                          CategoriaIncidencias_1.Descripcion AS Categoria, Linea" & _
+                "sEnvasado_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                               FROM            ClasesIncidencias AS ClasesIncide" & _
+                "ncias_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Env" & _
+                "asados AS Envasados_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                              " & _
+                "           FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = " & _
+                "FormatosEnvasados_2.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                     " & _
+                "                    Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoE" & _
+                "nvasadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        " & _
+                "                                 TiposIncidencias AS TiposIncidencias_1 ON Incid" & _
+                "encias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
+                "                                              ClasesIncidencias_1.ClaseIncidenci" & _
+                "aID = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         " & _
+                "                                TiposFormatosLineas AS TiposFormatosLineas_2 ON " & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         FormatosEnvasados_2.T" & _
+                "ipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "       " & _
+                "                                                  LineasEnvasado AS LineasEnvasa" & _
+                "do_2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID" & _
+                " RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         Cate" & _
+                "goriaIncidencias AS CategoriaIncidencias_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                " & _
+                "                         ClasesIncidencias_1.id_categoriaIncidencia = CategoriaI" & _
+                "ncidencias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               GROUP BY Line" & _
+                "asEnvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descrip" & _
+                "cion, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                                         CategoriaIncide" & _
+                "ncias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               HAVING         (Ca" & _
+                "tegoriaIncidencias_1.CategoriaIncidenciaID = 12)) AS TiempoGestionRecursos ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                         EficaciaPorFormato.EnvasadoID = TiempoGestionRecursos.E" & _
+                "nvasadoID AND EficaciaPorFormato.Linea = TiempoGestionRecursos.Linea ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
+                "                   TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND Tiemp" & _
+                "oPlanificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY EficaciaPorFo" & _
+                "rmato.Linea"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
@@ -31357,57 +31458,57 @@ Namespace LADataSetTableAdapters
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class AnalisisParadaLineaTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -31421,65 +31522,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -31491,127 +31592,127 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("MinutosParadaLinea", "MinutosParadaLinea")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci"& _ 
-                "dencias.HoraFin)) AS MinutosParadaLinea, LineasEnvasado.Descripcion AS Linea, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         TiposFormatosLineas.Descripcion AS Formato"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
-                "     ClasesIncidencias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados INNER JOIN"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados ON Envasados.EnvasadoID = FormatosE"& _ 
-                "nvasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Incidencias ON Formatos"& _ 
-                "Envasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposInciden"& _ 
-                "cias.TipoIncidenciaID ON "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ClasesIncidencias.ClaseIncid"& _ 
-                "enciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLin"& _ 
-                "eas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON Ti"& _ 
-                "posFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER J"& _ 
-                "OIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         CategoriaIncidencias ON ClasesIncidencias.id_categ"& _ 
-                "oriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (CONVE"& _ 
-                "RT(varchar(10), Envasados.Fecha, 103) = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"GROUP BY LineasEnvasado.Descrip"& _ 
-                "cion, Envasados.EnvasadoID, TiposFormatosLineas.Descripcion, TiposIncidencias.Ti"& _ 
-                "poIncidenciaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"HAVING        (TiposIncidencias.TipoIncidenciaID = 639)"
+            Me._commandCollection(0).CommandText = "SELECT        Envasados.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Inci" & _
+                "dencias.HoraFin)) AS MinutosParadaLinea, LineasEnvasado.Descripcion AS Linea, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                         TiposFormatosLineas.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM       " & _
+                "     ClasesIncidencias INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados INNER JOIN" & _
+                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasados ON Envasados.EnvasadoID = FormatosE" & _
+                "nvasados.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Incidencias ON Formatos" & _
+                "Envasados.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        " & _
+                "                 TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposInciden" & _
+                "cias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ClasesIncidencias.ClaseIncid" & _
+                "enciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                       " & _
+                "  TiposFormatosLineas ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLin" & _
+                "eas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON Ti" & _
+                "posFormatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID RIGHT OUTER J" & _
+                "OIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         CategoriaIncidencias ON ClasesIncidencias.id_categ" & _
+                "oriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE        (CONVE" & _
+                "RT(varchar(10), Envasados.Fecha, 103) = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY LineasEnvasado.Descrip" & _
+                "cion, Envasados.EnvasadoID, TiposFormatosLineas.Descripcion, TiposIncidencias.Ti" & _
+                "poIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "HAVING        (TiposIncidencias.TipoIncidenciaID = 639)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.AnalisisParadaLineaDataTable, ByVal fecha As String) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.AnalisisParadaLineaDataTable, ByVal fecha As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
             End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal fecha As String) As LADataSet.AnalisisParadaLineaDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal fecha As String) As LADataSet.AnalisisParadaLineaDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (fecha Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("fecha")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, String)
             End If
             Dim dataTable As LADataSet.AnalisisParadaLineaDataTable = New LADataSet.AnalisisParadaLineaDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
     Partial Public Class CambiosFormatosProductoTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
+            MyBase.New()
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
-            Set
+            Set(value As Global.System.Data.SqlClient.SqlConnection)
                 Me._connection = value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
                     Me.Adapter.InsertCommand.Connection = value
@@ -31625,65 +31726,65 @@ Namespace LADataSetTableAdapters
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
-            Set
+            Set(value As Global.System.Data.SqlClient.SqlTransaction)
                 Me._transaction = value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
-            Set
+            Set(value As Boolean)
                 Me._clearBeforeFill = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -31701,80 +31802,81 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("HoraInicio", "HoraInicio1")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.InformesCalidad.My.MySettings.Default.LAConnectionString
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT DISTINCT "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados.Fecha, LineasEnvasado.Descri"& _ 
-                "pcion AS Linea, TiposFormatosLineas.Descripcion AS FormatoPartida, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
-                "              TiposFormatosLineas_1.Descripcion AS FormatoFinal, Articulos1.Desc"& _ 
-                "ripcionLA AS ArticuloPartida, Articulos1_1.DescripcionLA AS ArticuloFinal, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                      TiposFormatosLineas.TipoFormatoLineaID AS IDFormatoPartida"& _ 
-                ", TiposFormatosLineas_1.TipoFormatoLineaID AS IDFormatoFinal, DATEDIFF(mi, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                      CambiosFormatosEnvasados.HoraInicio, CambiosFormatosEnvasa"& _ 
-                "dos.HoraFin) AS MinutosCambios, CambiosFormatosEnvasados.HoraInicio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM       "& _ 
-                "     CambiosFormatosEnvasados INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvas"& _ 
-                "ados ON CambiosFormatosEnvasados.FormatoEnvasadoAID = FormatosEnvasados.FormatoE"& _ 
-                "nvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas ON FormatosEn"& _ 
-                "vasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         Envasados ON FormatosEnvasados.EnvasadoID = Envasados.E"& _ 
-                "nvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatos ON FormatosEnvasado"& _ 
-                "s.TipoFormatoEnvasadoID = TiposFormatos.TipoFormatoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"              "& _ 
-                "           TiposFormatos AS TiposFormatos_1 ON CambiosFormatosEnvasados.Tipoform"& _ 
-                "atoInicialID = TiposFormatos_1.TipoFormatoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  FormatosEnvasados AS FormatosEnvasados_1 ON TiposFormatos_1.TipoFormatoID = Fo"& _ 
-                "rmatosEnvasados_1.TipoFormatoEnvasadoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados"& _ 
-                ".EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  TiposFormatosLineas AS TiposFormatosLineas_1 ON FormatosEnvasados_1.TipoFormat"& _ 
-                "oLineaID = TiposFormatosLineas_1.TipoFormatoLineaID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      "& _ 
-                "   TiposFormatosLineas.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLin"& _ 
-                "eaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasesTerciarios ON TiposFor"& _ 
-                "matos_1.TipoFormatoID = ArticulosEnvasesTerciarios.SccEtiquetaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"   "& _ 
-                "                      Articulos1 ON ArticulosEnvasesTerciarios.ArticuloID = Arti"& _ 
-                "culos1.ArticuloID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasesTerciario"& _ 
-                "s AS ArticulosEnvasesTerciarios_1 ON TiposFormatos.TipoFormatoID = ArticulosEnva"& _ 
-                "sesTerciarios_1.SccEtiquetaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Articulos1 AS"& _ 
-                " Articulos1_1 ON ArticulosEnvasesTerciarios_1.ArticuloID = Articulos1_1.Articulo"& _ 
-                "ID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.Li"& _ 
-                "neaEnvasadoID = LineasEnvasado.LineaEnvasadoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Ti"& _ 
-                "posFormatosLineas_1.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     "& _ 
-                "   (Envasados.Fecha = @fecha)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Linea, CambiosFormatosEnvasados.HoraInic"& _ 
-                "io"
+            Me._commandCollection(0).CommandText = "SELECT DISTINCT " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados.Fecha, LineasEnvasado.Descri" & _
+                "pcion AS Linea, TiposFormatosLineas.Descripcion AS FormatoPartida, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "           " & _
+                "              TiposFormatosLineas_1.Descripcion AS FormatoFinal, Articulos1.Desc" & _
+                "ripcionLA AS ArticuloPartida, Articulos1_1.DescripcionLA AS ArticuloFinal, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
+                "                      TiposFormatosLineas.TipoFormatoLineaID AS IDFormatoPartida" & _
+                ", TiposFormatosLineas_1.TipoFormatoLineaID AS IDFormatoFinal, DATEDIFF(mi, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
+                "                      CambiosFormatosEnvasados.HoraInicio, CambiosFormatosEnvasa" & _
+                "dos.HoraFin) AS MinutosCambios, CambiosFormatosEnvasados.HoraInicio" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM       " & _
+                "     CambiosFormatosEnvasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvas" & _
+                "ados ON CambiosFormatosEnvasados.FormatoEnvasadoAID = FormatosEnvasados.FormatoE" & _
+                "nvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLineas ON FormatosEn" & _
+                "vasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & _
+                "                         Envasados ON FormatosEnvasados.EnvasadoID = Envasados.E" & _
+                "nvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ArticulosEnvasadosHistoricoSinLin" & _
+                "ea  ON FormatosEnvasados.TipoFormatoEnvasadoID = ArticulosEnvasadosHistoricoSinL" & _
+                "inea.TipoFormato INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ArticulosEnvasadosHistoric" & _
+                "oSinLinea AS TiposFormatos_1 ON CambiosFormatosEnvasados.TipoformatoInicialID = " & _
+                "TiposFormatos_1.TipoFormato INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         FormatosEnvasad" & _
+                "os AS FormatosEnvasados_1 ON TiposFormatos_1.TipoFormato = FormatosEnvasados_1.T" & _
+                "ipoFormatoEnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Envasados.EnvasadoID = Forma" & _
+                "tosEnvasados_1.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLine" & _
+                "as AS TiposFormatosLineas_1 ON FormatosEnvasados_1.TipoFormatoLineaID = TiposFor" & _
+                "matosLineas_1.TipoFormatoLineaID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         TiposFormatosLin" & _
+                "eas.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  " & _
+                "                       ArticulosEnvasesTerciarios ON TiposFormatos_1.TipoFormato" & _
+                " = ArticulosEnvasesTerciarios.SccEtiquetaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                        " & _
+                " Articulos1 ON ArticulosEnvasesTerciarios.ArticuloID = Articulos1.ArticuloID INN" & _
+                "ER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         ArticulosEnvasesTerciarios AS ArticulosEnvases" & _
+                "Terciarios_1 ON ArticulosEnvasadosHistoricoSinLinea.TipoFormato = ArticulosEnvas" & _
+                "esTerciarios_1.SccEtiquetaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Articulos1 AS " & _
+                "Articulos1_1 ON ArticulosEnvasesTerciarios_1.ArticuloID = Articulos1_1.ArticuloI" & _
+                "D INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         LineasEnvasado ON TiposFormatosLineas.Lin" & _
+                "eaEnvasadoID = LineasEnvasado.LineaEnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         Tip" & _
+                "osFormatosLineas_1.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "WHERE      " & _
+                "  (Envasados.Fecha = @fecha)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY Linea, CambiosFormatosEnvasados.HoraInici" & _
+                "o"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As LADataSet.CambiosFormatosProductoDataTable, ByVal fecha As Date) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.CambiosFormatosProductoDataTable, ByVal fecha As Date) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData(ByVal fecha As Date) As LADataSet.CambiosFormatosProductoDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal fecha As Date) As LADataSet.CambiosFormatosProductoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha,Date)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(fecha, Date)
             Dim dataTable As LADataSet.CambiosFormatosProductoDataTable = New LADataSet.CambiosFormatosProductoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -31945,29 +32047,30 @@ Namespace LADataSetTableAdapters
                 "sados.FormatoEnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas"& _ 
                 " ON FormatosEnvasados.TipoFormatoLineaID = TiposFormatosLineas.TipoFormatoLineaI"& _ 
                 "D INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados ON FormatosEnvasados.EnvasadoID"& _ 
-                " = Envasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatos ON Fo"& _ 
-                "rmatosEnvasados.TipoFormatoEnvasadoID = TiposFormatos.TipoFormatoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                         TiposFormatos AS TiposFormatos_1 ON CambiosFormatosEnva"& _ 
-                "sados.TipoformatoInicialID = TiposFormatos_1.TipoFormatoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "                FormatosEnvasados AS FormatosEnvasados_1 ON TiposFormatos_1.Tipo"& _ 
-                "FormatoID = FormatosEnvasados_1.TipoFormatoEnvasadoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                    "& _ 
-                "     Envasados.EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"         "& _ 
-                "                TiposFormatosLineas AS TiposFormatosLineas_1 ON FormatosEnvasado"& _ 
-                "s_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
-                "                 TiposFormatosLineas.TipoFormatoLineaID <> TiposFormatosLineas_1"& _ 
-                ".TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasesTerciar"& _ 
-                "ios ON TiposFormatos_1.TipoFormatoID = ArticulosEnvasesTerciarios.SccEtiquetaID "& _ 
-                "INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Articulos1 ON ArticulosEnvasesTerciarios.Ar"& _ 
-                "ticuloID = Articulos1.ArticuloID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosE"& _ 
-                "nvasesTerciarios AS ArticulosEnvasesTerciarios_1 ON TiposFormatos.TipoFormatoID "& _ 
-                "= ArticulosEnvasesTerciarios_1.SccEtiquetaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                       "& _ 
-                "  Articulos1 AS Articulos1_1 ON ArticulosEnvasesTerciarios_1.ArticuloID = Articu"& _ 
-                "los1_1.ArticuloID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFo"& _ 
-                "rmatosLineas.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
-                "             TiposFormatosLineas_1.LineaEnvasadoID = LineasEnvasado.LineaEnvasad"& _ 
-                "oID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Envasados.Fecha = @fecha)"
+                " = Envasados.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasadosH"& _ 
+                "istoricoSinLinea  ON FormatosEnvasados.TipoFormatoEnvasadoID = ArticulosEnvasado"& _ 
+                "sHistoricoSinLinea.TipoFormato INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormato"& _ 
+                "s AS TiposFormatos_1 ON CambiosFormatosEnvasados.TipoformatoInicialID = TiposFor"& _ 
+                "matos_1.TipoFormatoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         FormatosEnvasados AS "& _ 
+                "FormatosEnvasados_1 ON TiposFormatos_1.TipoFormatoID = FormatosEnvasados_1.TipoF"& _ 
+                "ormatoEnvasadoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Envasados.EnvasadoID = FormatosE"& _ 
+                "nvasados_1.EnvasadoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas A"& _ 
+                "S TiposFormatosLineas_1 ON FormatosEnvasados_1.TipoFormatoLineaID = TiposFormato"& _ 
+                "sLineas_1.TipoFormatoLineaID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         TiposFormatosLineas."& _ 
+                "TipoFormatoLineaID <> TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"     "& _ 
+                "                    ArticulosEnvasesTerciarios ON TiposFormatos_1.TipoFormatoID "& _ 
+                "= ArticulosEnvasesTerciarios.SccEtiquetaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "Articulos1 ON ArticulosEnvasesTerciarios.ArticuloID = Articulos1.ArticuloID INNE"& _ 
+                "R JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ArticulosEnvasesTerciarios AS ArticulosEnvasesT"& _ 
+                "erciarios_1 ON ArticulosEnvasadosHistoricoSinLinea.TipoFormato = ArticulosEnvase"& _ 
+                "sTerciarios_1.SccEtiquetaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Articulos1 AS A"& _ 
+                "rticulos1_1 ON ArticulosEnvasesTerciarios_1.ArticuloID = Articulos1_1.ArticuloID"& _ 
+                " INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         LineasEnvasado ON TiposFormatosLineas.Line"& _ 
+                "aEnvasadoID = LineasEnvasado.LineaEnvasadoID AND "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Tipo"& _ 
+                "sFormatosLineas_1.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE       "& _ 
+                " (Envasados.Fecha = @fecha)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.SmallDateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

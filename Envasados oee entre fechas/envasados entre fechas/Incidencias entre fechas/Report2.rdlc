@@ -251,7 +251,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!OEE.Value)/Max(Fields!mes.Value)</Value>
+                              <Value>=Avg(Fields!OEE.Value)</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <Format>0.00</Format>
@@ -274,6 +274,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -513,7 +514,7 @@ Fields!mes.Value=10, "Octubre", Fields!mes.Value=11, "Noviembre", Fields!mes.Val
         </SortExpressions>
         <Top>1.14741cm</Top>
         <Left>0.7112cm</Left>
-        <Height>1.40312cm</Height>
+        <Height>1.40313cm</Height>
         <Width>12.77812cm</Width>
         <Style>
           <Border>
