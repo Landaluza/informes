@@ -7,13 +7,12 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C140F098-E0FA-469C-9385-3BC5F45BD41D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <StartupObject>
-    </StartupObject>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>InformesCalidad.My.MyApplication</StartupObject>
     <RootNamespace>InformesCalidad</RootNamespace>
     <AssemblyName>InformesCalidad</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Windows</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
