@@ -1,0 +1,192 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+EvaluacionIncidencia
+</name>
+</assembly>
+<members>
+<member name="P:EvaluacionIncidencia.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:EvaluacionIncidencia.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.ControlIncidenciasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasClientesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasProveedoresDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasInternasDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasCalidadEnvasadoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.ControlIncidenciasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasClientesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasProveedoresRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasInternasRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasCalidadEnvasadoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.ControlIncidenciasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasClientesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasProveedoresRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasInternasRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet.IncidenciasCalidadEnvasadoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.ControlIncidenciasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.IncidenciasClientesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.IncidenciasProveedoresTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.IncidenciasInternasTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.IncidenciasCalidadEnvasadoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(EvaluacionIncidencia.LADataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(EvaluacionIncidencia.LADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(EvaluacionIncidencia.LADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager.UpdateAll(EvaluacionIncidencia.LADataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:EvaluacionIncidencia.LADataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:EvaluacionIncidencia.Expediciones.ControlExpedicionesDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.Expediciones.ControlExpedicionesRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:EvaluacionIncidencia.Expediciones.ControlExpedicionesRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:EvaluacionIncidencia.Expediciones">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:EvaluacionIncidencia.ExpedicionesTableAdapters.ControlExpedicionesTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager.UpdateUpdatedRows(EvaluacionIncidencia.Expediciones,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager.UpdateInsertedRows(EvaluacionIncidencia.Expediciones,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager.UpdateDeletedRows(EvaluacionIncidencia.Expediciones,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager.UpdateAll(EvaluacionIncidencia.Expediciones)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:EvaluacionIncidencia.ExpedicionesTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,13 @@
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\bin\Debug\InformesVinagreJerez.exe.config
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\bin\Debug\InformesVinagreJerez.exe
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\bin\Debug\InformesVinagreJerez.pdb
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\bin\Debug\InformesVinagreJerez.xml
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\InformesVinagreJerez.vbprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\InformesVinagreJerez.Form1.resources
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\InformesVinagreJerez.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\InformesVinagreJerez.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\InformesVinagreJerez.exe
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\InformesVinagreJerez.xml
+C:\Users\Administrador\Desktop\git\Informes\VinagresJerez\InformesVinagreJerez\InformesVinagreJerez\obj\x86\Debug\InformesVinagreJerez.pdb

@@ -1,0 +1,14 @@
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformesDepositos.frmExistenciasPorDeposito.resources
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformesDepositos.frmExistenciasPorDepositoFecha.resources
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformesDepositos.frmExistenciasPorTipoProducto.resources
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformesDepositos.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformesDespositos.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\InformeDepositos.dll.config
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformeDepositos.dll
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformeDepositos.xml
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\Debug\InformeDepositos.pdb
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\InformeDepositos.dll
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\InformeDepositos.pdb
+C:\Users\Administrador\Desktop\git\Informes\Depositos\InformesDepositos\InformesVinagreJerez\obj\x86\InformeDepositos.xml

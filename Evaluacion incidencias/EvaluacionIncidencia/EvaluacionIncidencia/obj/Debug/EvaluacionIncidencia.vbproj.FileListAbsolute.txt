@@ -1,0 +1,15 @@
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\temp2\EvaluacionIncidencia.exe.config
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.vbprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.ControlExpediciones.resources
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.IncidenciasCalidad.resources
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.Form1.resources
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\temp2\EvaluacionIncidencia.exe
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\temp2\EvaluacionIncidencia.pdb
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\temp2\EvaluacionIncidencia.xml
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.exe
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.xml
+C:\Users\Administrador\Desktop\git\Informes\Evaluacion incidencias\EvaluacionIncidencia\EvaluacionIncidencia\obj\Debug\EvaluacionIncidencia.pdb

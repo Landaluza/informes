@@ -1,0 +1,17 @@
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\bin\Debug\InformePuestosEmpleados.exe.config
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\bin\Debug\InformePuestosEmpleados.exe.manifest
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\bin\Debug\InformePuestosEmpleados.application
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\bin\Debug\InformePuestosEmpleados.exe
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\bin\Debug\InformePuestosEmpleados.pdb
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\bin\Debug\InformePuestosEmpleados.xml
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.vbprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.Form1.resources
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.exe.manifest
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.application
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.exe
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.xml
+C:\Users\Administrador\Desktop\git\Informes\Puestos\InformePuestosEmpleados\InformePuestosEmpleados\obj\Debug\InformePuestosEmpleados.pdb

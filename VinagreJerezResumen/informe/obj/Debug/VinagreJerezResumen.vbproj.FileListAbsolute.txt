@@ -1,0 +1,17 @@
+C:\Users\Administrador\Desktop\git\Informes\temp\InformeResumenVinagre.exe.config
+C:\Users\Administrador\Desktop\git\Informes\temp\InformeResumenVinagre.exe
+C:\Users\Administrador\Desktop\git\Informes\temp\InformeResumenVinagre.pdb
+C:\Users\Administrador\Desktop\git\Informes\temp\InformeResumenVinagre.xml
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\temp\InformeResumenVinagre.pdb
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\temp\InformeResumenVinagre.xml
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\InformeResumenVinagre.InformeVinagre.resources
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\InformeResumenVinagre.SelectorFecha.resources
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\InformeResumenVinagre.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\VinagreJerezResumen.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\InformeResumenVinagre.xml
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\InformeResumenVinagre.pdb
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\temp\InformeResumenVinagre.exe.config
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\temp\InformeResumenVinagre.exe
+C:\Users\Administrador\Desktop\git\Informes\VinagreJerezResumen\informe\obj\Debug\InformeResumenVinagre.exe

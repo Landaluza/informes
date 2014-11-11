@@ -1,0 +1,14 @@
+C:\Users\Administrador\Desktop\git\Informes\Empleados\t\InformesEmpleados.pdb
+C:\Users\Administrador\Desktop\git\Informes\Empleados\t\InformesEmpleados.xml
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.vbprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.ControlEmpleados.resources
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.ListadoEmpleados.resources
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.xml
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.pdb
+C:\Users\Administrador\Desktop\git\Informes\Empleados\t\InformesEmpleados.exe.config
+C:\Users\Administrador\Desktop\git\Informes\Empleados\t\InformesEmpleados.exe
+C:\Users\Administrador\Desktop\git\Informes\Empleados\InformesEmpleados\InformesEmpleados\obj\x86\Debug\InformesEmpleados.exe

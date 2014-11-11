@@ -48,7 +48,7 @@
   <xs:element name="LADataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="LADataSet" msprop:Generator_UserDSName="LADataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EtiquetasPaletSelect" msprop:Generator_TableClassName="EtiquetasPaletSelectDataTable" msprop:Generator_TableVarName="tableEtiquetasPaletSelect" msprop:Generator_RowChangedName="EtiquetasPaletSelectRowChanged" msprop:Generator_TablePropName="EtiquetasPaletSelect" msprop:Generator_RowDeletingName="EtiquetasPaletSelectRowDeleting" msprop:Generator_RowChangingName="EtiquetasPaletSelectRowChanging" msprop:Generator_RowEvHandlerName="EtiquetasPaletSelectRowChangeEventHandler" msprop:Generator_RowDeletedName="EtiquetasPaletSelectRowDeleted" msprop:Generator_RowClassName="EtiquetasPaletSelectRow" msprop:Generator_UserTableName="EtiquetasPaletSelect" msprop:Generator_RowEvArgName="EtiquetasPaletSelectRowChangeEvent">
+        <xs:element name="EtiquetasPaletSelect" msprop:Generator_TableClassName="EtiquetasPaletSelectDataTable" msprop:Generator_TableVarName="tableEtiquetasPaletSelect" msprop:Generator_TablePropName="EtiquetasPaletSelect" msprop:Generator_RowDeletingName="EtiquetasPaletSelectRowDeleting" msprop:Generator_RowChangingName="EtiquetasPaletSelectRowChanging" msprop:Generator_RowEvHandlerName="EtiquetasPaletSelectRowChangeEventHandler" msprop:Generator_RowDeletedName="EtiquetasPaletSelectRowDeleted" msprop:Generator_UserTableName="EtiquetasPaletSelect" msprop:Generator_RowChangedName="EtiquetasPaletSelectRowChanged" msprop:Generator_RowEvArgName="EtiquetasPaletSelectRowChangeEvent" msprop:Generator_RowClassName="EtiquetasPaletSelectRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="marca" msprop:Generator_ColumnVarNameInTable="columnmarca" msprop:Generator_ColumnPropNameInRow="marca" msprop:Generator_ColumnPropNameInTable="marcaColumn" msprop:Generator_UserColumnName="marca" minOccurs="0">
@@ -108,9 +108,9 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="lote" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlote" msprop:Generator_ColumnPropNameInRow="lote" msprop:Generator_ColumnPropNameInTable="loteColumn" msprop:Generator_UserColumnName="lote" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="SCC" msprop:Generator_ColumnVarNameInTable="columnSCC" msprop:Generator_ColumnPropNameInRow="SCC" msprop:Generator_ColumnPropNameInTable="SCCColumn" msprop:Generator_UserColumnName="SCC" type="xs:int" minOccurs="0" />
+              <xs:element name="SCC" msprop:Generator_ColumnVarNameInTable="columnSCC" msprop:Generator_ColumnPropNameInRow="SCC" msprop:Generator_ColumnPropNameInTable="SCCColumn" msprop:Generator_UserColumnName="SCC" type="xs:string" minOccurs="0" />
               <xs:element name="paletproducidoid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnpaletproducidoid" msprop:Generator_ColumnPropNameInRow="paletproducidoid" msprop:Generator_ColumnPropNameInTable="paletproducidoidColumn" msprop:Generator_UserColumnName="paletproducidoid" type="xs:int" />
-              <xs:element name="anoscaducidad" msprop:Generator_ColumnVarNameInTable="columnanoscaducidad" msprop:Generator_ColumnPropNameInRow="anoscaducidad" msprop:Generator_ColumnPropNameInTable="anoscaducidadColumn" msprop:Generator_UserColumnName="anoscaducidad" type="xs:int" minOccurs="0" />
+              <xs:element name="anoscaducidad" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="anoscaducidad" msprop:Generator_ColumnVarNameInTable="columnanoscaducidad" msprop:Generator_ColumnPropNameInTable="anoscaducidadColumn" msprop:Generator_UserColumnName="anoscaducidad" type="xs:string" default="&quot;&quot;" minOccurs="0" />
               <xs:element name="cabecera" msprop:Generator_ColumnVarNameInTable="columncabecera" msprop:Generator_ColumnPropNameInRow="cabecera" msprop:Generator_ColumnPropNameInTable="cabeceraColumn" msprop:Generator_UserColumnName="cabecera" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -120,6 +120,10 @@
               </xs:element>
               <xs:element name="tipopalet" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntipopalet" msprop:Generator_ColumnPropNameInRow="tipopalet" msprop:Generator_ColumnPropNameInTable="tipopaletColumn" msprop:Generator_UserColumnName="tipopalet" type="xs:int" minOccurs="0" />
               <xs:element name="TipoLoteado" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnTipoLoteado" msprop:Generator_ColumnPropNameInRow="TipoLoteado" msprop:Generator_ColumnPropNameInTable="TipoLoteadoColumn" msprop:Generator_UserColumnName="TipoLoteado" type="xs:int" minOccurs="0" />
+              <xs:element name="loteTexto" msprop:Generator_ColumnVarNameInTable="columnloteTexto" msprop:Generator_ColumnPropNameInRow="loteTexto" msprop:Generator_ColumnPropNameInTable="loteTextoColumn" msprop:Generator_UserColumnName="loteTexto" type="xs:string" minOccurs="0" />
+              <xs:element name="CaducidadTexto" msprop:Generator_ColumnVarNameInTable="columnCaducidadTexto" msprop:Generator_ColumnPropNameInRow="CaducidadTexto" msprop:Generator_ColumnPropNameInTable="CaducidadTextoColumn" msprop:Generator_UserColumnName="CaducidadTexto" type="xs:string" minOccurs="0" />
+              <xs:element name="img1" msprop:Generator_ColumnVarNameInTable="columnimg1" msprop:Generator_ColumnPropNameInRow="img1" msprop:Generator_ColumnPropNameInTable="img1Column" msprop:Generator_UserColumnName="img1" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="img2" msprop:Generator_ColumnVarNameInTable="columnimg2" msprop:Generator_ColumnPropNameInRow="img2" msprop:Generator_ColumnPropNameInTable="img2Column" msprop:Generator_UserColumnName="img2" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -1,0 +1,18 @@
+C:\Users\Administrador\AppData\Local\Temporary Projects\Incidencias entre fechas\bin\Debug\Incidencias entre fechas.exe.config
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\bin\Debug\Incidencias entre fechas.dll.config
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\bin\Debug\Incidencias entre fechas.dll
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\bin\Debug\Incidencias entre fechas.pdb
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\bin\Debug\Incidencias entre fechas.xml
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\temp\Incidencias entre fechas.dll.config
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\temp\Incidencias entre fechas.dll
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\temp\Incidencias entre fechas.pdb
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\temp\Incidencias entre fechas.xml
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\Incidencias entre fechas.vbprojResolveAssemblyReference.cache
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\Incidencias_entre_fechas.frmIncidenciasEntreFehcas.resources
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\Incidencias_entre_fechas.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\Incidencias entre fechas.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\Incidencias entre fechas.dll
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\Incidencias entre fechas.xml
+C:\Users\Administrador\Desktop\git\Informes\incidencias entre fechas\Incidencias entre fechas\Incidencias entre fechas\obj\Debug\Incidencias entre fechas.pdb

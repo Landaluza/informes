@@ -1,0 +1,13 @@
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\bin\Debug\InformesPartes.exe.config
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\bin\Debug\InformesPartes.exe
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\bin\Debug\InformesPartes.pdb
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\bin\Debug\InformesPartes.xml
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\InformesPartes.frmInformePersonal.resources
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\InformesPartes.Resources.resources
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\InformesPartes.Form1.resources
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\InformesPartes.vbproj.GenerateResource.Cache
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\RdlCompile.cache
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\RdlCompile.compiled
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\InformesPartes.exe
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\InformesPartes.xml
+C:\Users\Administrador\Desktop\git\Informes\PartesPersonal\InformesPartes\InformesPartes\obj\x86\Debug\InformesPartes.pdb

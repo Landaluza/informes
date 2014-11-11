@@ -11,7 +11,6 @@
               <TextRun>
                 <Value>=First(Fields!cabecera.Value, "DataSet1")</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
                   <FontWeight>ExtraBold</FontWeight>
                 </Style>
               </TextRun>
@@ -22,9 +21,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
-        <Top>0.0671cm</Top>
-        <Left>0.34078cm</Left>
-        <Height>0.57354cm</Height>
+        <Left>0.39371cm</Left>
+        <Height>0.57009cm</Height>
         <Width>7.96397cm</Width>
         <Style>
           <Border>
@@ -38,14 +36,18 @@
         </Style>
       </Textbox>
       <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>lote1</Value>
+        <Source>Database</Source>
+        <Value>=First(Fields!img1.Value, "DataSet1")</Value>
+        <MIMEType>image/jpeg</MIMEType>
         <Sizing>Fit</Sizing>
-        <Top>5.22675cm</Top>
+        <Top>5.86175cm</Top>
         <Left>0.36724cm</Left>
         <Height>2.26716cm</Height>
         <Width>7.96396cm</Width>
         <ZIndex>1</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(  Sum(Fields!tipopalet.Value, "DataSet1")=  94 Or First(Fields!ean13.Value, "DataSet1") = "", true, false)</Hidden>
+        </Visibility>
         <Style>
           <Border>
             <Style>None</Style>
@@ -53,14 +55,18 @@
         </Style>
       </Image>
       <Image Name="Image2">
-        <Source>Embedded</Source>
-        <Value>matricula</Value>
+        <Source>Database</Source>
+        <Value>=First(Fields!img2.Value, "DataSet1")</Value>
+        <MIMEType>image/jpeg</MIMEType>
         <Sizing>Fit</Sizing>
-        <Top>7.94371cm</Top>
+        <Top>8.57871cm</Top>
         <Left>0.39371cm</Left>
         <Height>2.26716cm</Height>
         <Width>7.96396cm</Width>
         <ZIndex>2</ZIndex>
+        <Visibility>
+          <Hidden>=IIf( First(Fields!ean14.Value, "DataSet1")="" and First(Fields!ean13.Value, "DataSet1")&lt;&gt;"" , true, false)</Hidden>
+        </Visibility>
         <Style>
           <Border>
             <Style>None</Style>
@@ -86,7 +92,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox48</rd:DefaultName>
-        <Top>7.52919cm</Top>
+        <Top>8.16419cm</Top>
         <Left>0.36724cm</Left>
         <Height>0.34396cm</Height>
         <Width>7.96396cm</Width>
@@ -121,7 +127,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox48</rd:DefaultName>
-        <Top>10.24614cm</Top>
+        <Top>10.88114cm</Top>
         <Left>0.36724cm</Left>
         <Height>0.35278cm</Height>
         <Width>7.96396cm</Width>
@@ -223,10 +229,14 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=First(Fields!botellas.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <Top>1.5875cm</Top>
@@ -252,7 +262,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=First(Fields!cantidadBotellas.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -315,7 +327,9 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=First(Fields!palet.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style>
@@ -324,9 +338,9 @@
               </Paragraph>
             </Paragraphs>
             <Top>0.10584cm</Top>
-            <Left>4.01284cm</Left>
+            <Left>4.06577cm</Left>
             <Height>0.48534cm</Height>
-            <Width>3.70416cm</Width>
+            <Width>3.65124cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -363,16 +377,16 @@
                   <TextRun>
                     <Value>=First(Fields!SCC.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>6pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>1.54341cm</Top>
-            <Left>1.60514cm</Left>
-            <Height>0.37041cm</Height>
+            <Top>1.93146cm</Top>
+            <Left>1.60513cm</Left>
+            <Height>0.2293cm</Height>
             <Width>6.11188cm</Width>
             <Style>
               <Border>
@@ -394,7 +408,7 @@
                   <TextRun>
                     <Value>GTIN14:</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>6pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -427,7 +441,7 @@
                   <TextRun>
                     <Value>GETIN13:</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>6pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -451,39 +465,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox4">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>LOTE:</Value>
-                    <Style>
-                      <FontSize>7pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>1.06716cm</Top>
-            <Left>0.10584cm</Left>
-            <Height>0.40569cm</Height>
-            <Width>1.32291cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <VerticalAlign>Middle</VerticalAlign>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
           <Textbox Name="txtLote">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -491,20 +472,20 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!lote.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!loteTexto.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>6pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>1.06716cm</Top>
+            <Top>1.19944cm</Top>
             <Left>1.60514cm</Left>
-            <Height>0.40569cm</Height>
+            <Height>0.41452cm</Height>
             <Width>6.11188cm</Width>
-            <ZIndex>4</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -525,7 +506,7 @@
                   <TextRun>
                     <Value>=First(Fields!ean13.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>6pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -536,7 +517,7 @@
             <Left>1.60514cm</Left>
             <Height>0.40569cm</Height>
             <Width>6.11187cm</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -557,7 +538,7 @@
                   <TextRun>
                     <Value>=First(Fields!ean14.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>6pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -568,7 +549,7 @@
             <Left>1.60514cm</Left>
             <Height>0.40569cm</Height>
             <Width>6.11187cm</Width>
-            <ZIndex>6</ZIndex>
+            <ZIndex>5</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -587,6 +568,74 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
+                    <Value>=First(Fields!CaducidadTexto.Value, "DataSet1")</Value>
+                    <Style>
+                      <FontSize>5pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.26659cm</Top>
+            <Left>4.03049cm</Left>
+            <Height>0.56444cm</Height>
+            <Width>3.65124cm</Width>
+            <ZIndex>6</ZIndex>
+            <Visibility>
+              <Hidden>=IIf(First(Fields!CaducidadTexto.Value, "DataSet1") = "", true, false)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>LOTE:</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.19944cm</Top>
+            <Left>0.15875cm</Left>
+            <Height>0.41452cm</Height>
+            <Width>1.32291cm</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="lCaducidad">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
                     <Value>Fecha de consumo preferente(aammdd):</Value>
                     <Style>
                       <FontSize>5pt</FontSize>
@@ -596,11 +645,45 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>1.94909cm</Top>
-            <Left>4.22451cm</Left>
-            <Height>0.35278cm</Height>
-            <Width>3.4925cm</Width>
-            <ZIndex>7</ZIndex>
+            <Top>2.26659cm</Top>
+            <Height>0.56444cm</Height>
+            <Width>3.88938cm</Width>
+            <ZIndex>8</ZIndex>
+            <Visibility>
+              <Hidden>=IIf(First(Fields!CaducidadTexto.Value, "DataSet1") = "", true, false)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="txtSCC2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>SSCC:</Value>
+                    <Style>
+                      <FontSize>6pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <Top>1.93146cm</Top>
+            <Left>0.15875cm</Left>
+            <Height>0.29985cm</Height>
+            <Width>1.19063cm</Width>
+            <ZIndex>9</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -616,7 +699,7 @@
         <KeepTogether>true</KeepTogether>
         <Top>2.74849cm</Top>
         <Left>0.36724cm</Left>
-        <Height>2.37243cm</Height>
+        <Height>2.93687cm</Height>
         <Width>7.9375cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
@@ -629,10 +712,10 @@
         </Style>
       </Rectangle>
       <Line Name="Line1">
-        <Top>4.2037cm</Top>
-        <Left>8.30474cm</Left>
+        <Top>4.57412cm</Top>
+        <Left>8.33121cm</Left>
         <Height>0cm</Height>
-        <Width>-7.9375cm</Width>
+        <Width>-7.96397cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -640,71 +723,6 @@
           </Border>
         </Style>
       </Line>
-      <Textbox Name="Textbox1">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>SSCC:</Value>
-                <Style>
-                  <FontSize>7pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>4.25662cm</Top>
-        <Left>0.47307cm</Left>
-        <Height>0.40569cm</Height>
-        <Width>1.05833cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="lCaducidad">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Fecha de consumo preferente(aammdd):</Value>
-                <Style>
-                  <FontSize>5pt</FontSize>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <Top>4.69759cm</Top>
-        <Left>0.36724cm</Left>
-        <Height>0.35278cm</Height>
-        <Width>4.15396cm</Width>
-        <ZIndex>9</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>9.66542in</Height>
     <Style />
@@ -775,7 +793,7 @@
         </Field>
         <Field Name="SCC">
           <DataField>SCC</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="paletproducidoid">
           <DataField>paletproducidoid</DataField>
@@ -783,7 +801,7 @@
         </Field>
         <Field Name="anoscaducidad">
           <DataField>anoscaducidad</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="cabecera">
           <DataField>cabecera</DataField>
@@ -797,10 +815,26 @@
           <DataField>TipoLoteado</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="loteTexto">
+          <DataField>loteTexto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CaducidadTexto">
+          <DataField>CaducidadTexto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="img1">
+          <DataField>img1</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="img2">
+          <DataField>img2</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>LADataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Administrador\AppData\Local\Temporary Projects\etiquetas\LADataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\LADataSet.xsd</rd:SchemaPath>
         <rd:TableName>EtiquetasPaletSelect</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
