@@ -1,0 +1,13 @@
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.pdb
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.xml
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.vbprojResolveAssemblyReference.cache
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.Form1.resources
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.Resources.resources
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.vbproj.GenerateResource.Cache
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\RdlCompile.cache
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\RdlCompile.compiled
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.xml
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.pdb
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe.config
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe
+C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.exe
