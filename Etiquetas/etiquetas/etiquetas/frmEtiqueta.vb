@@ -7,25 +7,7 @@
 
         ' Llamada necesaria para el diseñador.
         InitializeComponent()
-        id = 56002
-        id = 56017
-        id = 56015
-        id = 56013
-        id = 56012
-        id = 56011
-        id = 56002
-        id = 56000
-        id = 55942
-        id = 55940
-        id = 55935
-        id = 55933
-        id = 55932
-        id = 55930
-        id = 55929
-        id = 55928
-        id = 55927
-        id = 55926
-        id = 55922
+        
         loteador = New Loteado
         barcode = New CodigoBarra
         barc = New BarcodeLib.Barcode

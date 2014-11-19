@@ -4,11 +4,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{35BA148E-E94F-482C-ABEE-9668BE2737A0}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <StartupObject>etiquetas.My.MyApplication</StartupObject>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
     <RootNamespace>etiquetas</RootNamespace>
     <AssemblyName>etiquetas</AssemblyName>
-    <MyType>WindowsForms</MyType>
+    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
