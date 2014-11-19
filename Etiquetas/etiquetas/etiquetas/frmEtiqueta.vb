@@ -81,7 +81,7 @@
             Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = Convert.ToDateTime(Me.LADataSet.EtiquetasPaletSelect(0).lote).AddYears(Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad).ToString("yyMMdd")
         End If
 
-
+        generarCB1()
         If Me.LADataSet.EtiquetasPaletSelect(0).loteTexto <> "" Then
             generarCB1()
         Else

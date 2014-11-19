@@ -25,3 +25,4 @@ C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\De
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe.config
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.exe
+C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.frmEtiquetaDoypack.resources
