@@ -81,7 +81,7 @@
             Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = Convert.ToDateTime(Me.LADataSet.EtiquetasPaletSelect(0).lote).AddYears(Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad).ToString("yyMMdd")
         End If
 
-        generarCB1()
+
         If Me.LADataSet.EtiquetasPaletSelect(0).loteTexto <> "" Then
             generarCB1()
         Else
@@ -138,7 +138,7 @@
         barc.IncludeLabel = True
         barc.LabelPosition = BarcodeLib.LabelPositions.BOTTOMLEFT
 
-        temp = New Bitmap(barc.Encode(BarcodeLib.TYPE.CODE128C, texto, Color.Black, Color.White, 1280, 700))
+        temp = New Bitmap(barc.Encode(BarcodeLib.TYPE.DOYPACK, texto, Color.Black, Color.White, 1280, 700))
 
         Dim bitmapbytes As Byte()
         Using stream As New System.IO.MemoryStream()

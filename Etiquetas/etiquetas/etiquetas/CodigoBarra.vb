@@ -169,9 +169,6 @@
         Dim cont As Integer = Len(cod) - 4
         Dim tope As Integer = LONGITUD_BARCODE_2 - 1 - Len(scc)
 
-        If g13 = "" Then
-            Return "(00)" & scc
-        End If
 
         While cont < tope
             sccCorregido = sccCorregido & "0"

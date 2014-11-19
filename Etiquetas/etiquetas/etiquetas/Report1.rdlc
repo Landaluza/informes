@@ -97,6 +97,9 @@
         <Height>0.34396cm</Height>
         <Width>7.96396cm</Width>
         <ZIndex>3</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(  Sum(Fields!tipopalet.Value, "DataSet1")=  94 Or First(Fields!ean13.Value, "DataSet1") = "", true, false)</Hidden>
+        </Visibility>
         <Style>
           <Border>
             <Style>None</Style>
@@ -132,6 +135,9 @@
         <Height>0.35278cm</Height>
         <Width>7.96396cm</Width>
         <ZIndex>4</ZIndex>
+        <Visibility>
+          <Hidden>=IIf( First(Fields!ean14.Value, "DataSet1")="" and First(Fields!ean13.Value, "DataSet1")&lt;&gt;"" , true, false)</Hidden>
+        </Visibility>
         <Style>
           <Border>
             <Style>None</Style>
