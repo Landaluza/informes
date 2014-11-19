@@ -24,4 +24,24 @@
             Return FNC1 & Codigo1 & lote
         End Get
     End Property
+
+    Public ReadOnly Property SSCC_etiqueta As String
+        Get
+            Return Codigo1 & Codugo2
+        End Get
+    End Property
+
+
+    Public ReadOnly Property Empresa_etiqueta As String
+        Get
+            Dim lote As String = Codugo2
+            If lote.Length Mod 2 <> 0 Then
+                Dim lot1 As String = lote.Substring(0, lote.Length - 1)
+                Dim lot2 As String = lote.Substring(lote.Length - 1, 1)
+                lote = lot1 & lot2
+            End If
+
+            Return Codigo1 & lote
+        End Get
+    End Property
 End Class

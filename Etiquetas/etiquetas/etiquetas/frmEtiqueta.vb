@@ -3,15 +3,15 @@
     Private barcode As CodigoBarra
     Private barc As BarcodeLib.Barcode
     Private id As Integer
-    'Public Sub New()
+    Public Sub New()
 
-    '    ' Llamada necesaria para el diseñador.
-    '    InitializeComponent()
-    '    id = 40492
-    '    loteador = New Loteado
-    '    barcode = New CodigoBarra
-    '    barc = New BarcodeLib.Barcode
-    'End Sub
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        id = 56002
+        loteador = New Loteado
+        barcode = New CodigoBarra
+        barc = New BarcodeLib.Barcode
+    End Sub
 
     Public Sub New(ByVal id As Integer, ByVal connection As String)
 
@@ -78,7 +78,7 @@
             bitmapbytes = stream.ToArray
         End Using
         Me.LADataSet.EtiquetasPaletSelect(0).img1 = bitmapbytes
-
+        Me.LADataSet.EtiquetasPaletSelect(0).texto_codigo1 = gs.Empresa_etiqueta
         'barc.SaveImage(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\bar1.jpg", BarcodeLib.SaveTypes.JPG)
 
         'Dim fs As System.IO.FileStream
@@ -111,6 +111,7 @@
             bitmapbytes = stream.ToArray
         End Using
         Me.LADataSet.EtiquetasPaletSelect(0).img2 = bitmapbytes
+        Me.LADataSet.EtiquetasPaletSelect(0).texto_codigo2 = gs.SSCC_etiqueta
 
         'barc.SaveImage(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\bar2.jpg", BarcodeLib.SaveTypes.JPG)
 

@@ -321,6 +321,10 @@ Partial Public Class LADataSet
 
         Private columnimg2 As Global.System.Data.DataColumn
 
+        Private columntexto_codigo1 As Global.System.Data.DataColumn
+
+        Private columntexto_codigo2 As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -509,6 +513,22 @@ Partial Public Class LADataSet
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property texto_codigo1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntexto_codigo1
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property texto_codigo2Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntexto_codigo2
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -562,9 +582,11 @@ Partial Public Class LADataSet
                     ByVal loteTexto As String, _
                     ByVal CaducidadTexto As String, _
                     ByVal img1() As Byte, _
-                    ByVal img2() As Byte) As EtiquetasPaletSelectRow
+                    ByVal img2() As Byte, _
+                    ByVal texto_codigo1 As String, _
+                    ByVal texto_codigo2 As String) As EtiquetasPaletSelectRow
             Dim rowEtiquetasPaletSelectRow As EtiquetasPaletSelectRow = CType(Me.NewRow, EtiquetasPaletSelectRow)
-            Dim columnValuesArray() As Object = New Object() {marca, producto, botellas, palet, cajas, cantidadBotellas, ean13, ean14, lote, SCC, Nothing, anoscaducidad, cabecera, tipopalet, Nothing, loteTexto, CaducidadTexto, img1, img2}
+            Dim columnValuesArray() As Object = New Object() {marca, producto, botellas, palet, cajas, cantidadBotellas, ean13, ean14, lote, SCC, Nothing, anoscaducidad, cabecera, tipopalet, Nothing, loteTexto, CaducidadTexto, img1, img2, texto_codigo1, texto_codigo2}
             rowEtiquetasPaletSelectRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEtiquetasPaletSelectRow)
             Return rowEtiquetasPaletSelectRow
@@ -606,6 +628,8 @@ Partial Public Class LADataSet
             Me.columnCaducidadTexto = MyBase.Columns("CaducidadTexto")
             Me.columnimg1 = MyBase.Columns("img1")
             Me.columnimg2 = MyBase.Columns("img2")
+            Me.columntexto_codigo1 = MyBase.Columns("texto_codigo1")
+            Me.columntexto_codigo2 = MyBase.Columns("texto_codigo2")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -649,6 +673,10 @@ Partial Public Class LADataSet
             MyBase.Columns.Add(Me.columnimg1)
             Me.columnimg2 = New Global.System.Data.DataColumn("img2", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnimg2)
+            Me.columntexto_codigo1 = New Global.System.Data.DataColumn("texto_codigo1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntexto_codigo1)
+            Me.columntexto_codigo2 = New Global.System.Data.DataColumn("texto_codigo2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntexto_codigo2)
             Me.columnmarca.MaxLength = 200
             Me.columnproducto.ReadOnly = True
             Me.columnproducto.MaxLength = 50
@@ -1101,6 +1129,38 @@ Partial Public Class LADataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property texto_codigo1() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelect.texto_codigo1Column), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'texto_codigo1' de la tabla 'EtiquetasPaletSelect' es DBNu" & _
+                            "ll.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelect.texto_codigo1Column) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property texto_codigo2() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelect.texto_codigo2Column), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'texto_codigo2' de la tabla 'EtiquetasPaletSelect' es DBNu" & _
+                            "ll.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelect.texto_codigo2Column) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function IsmarcaNull() As Boolean
             Return Me.IsNull(Me.tableEtiquetasPaletSelect.marcaColumn)
         End Function
@@ -1313,6 +1373,30 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub Setimg2Null()
             Me(Me.tableEtiquetasPaletSelect.img2Column) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Istexto_codigo1Null() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelect.texto_codigo1Column)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Settexto_codigo1Null()
+            Me(Me.tableEtiquetasPaletSelect.texto_codigo1Column) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Istexto_codigo2Null() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelect.texto_codigo2Column)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Settexto_codigo2Null()
+            Me(Me.tableEtiquetasPaletSelect.texto_codigo2Column) = Global.System.Convert.DBNull
         End Sub
     End Class
 

@@ -80,7 +80,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(01)18411831500161(10)30214</Value>
+                <Value>=First(Fields!texto_codigo1.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>6pt</FontSize>
                 </Style>
@@ -115,7 +115,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>(00)084118310000401904</Value>
+                <Value>=First(Fields!texto_codigo2.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>6pt</FontSize>
                 </Style>
@@ -830,6 +830,14 @@
         <Field Name="img2">
           <DataField>img2</DataField>
           <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="texto_codigo1">
+          <DataField>texto_codigo1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="texto_codigo2">
+          <DataField>texto_codigo2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
