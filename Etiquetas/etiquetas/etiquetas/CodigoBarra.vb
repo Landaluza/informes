@@ -68,8 +68,13 @@
         'Return "(01)" & ean14 & "(10)" & lote
         'Me.codigo1 = "(01)" & ean14 & "(10)" & lote
         Dim gs As New GS1
+
         gs.Codigo1 = "(01)" & ean14
-        gs.Codugo2 = "(10)" & lote
+        If lote <> "" Then
+            gs.Codugo2 = "(10)" & lote
+        Else
+            gs.Codugo2 = ""
+        End If
         Return gs
         'Return "(01)" & ean14 & "(10)" & lote
 
@@ -163,6 +168,10 @@
         Dim sccCorregido As String = CODIGO_EMPRESA
         Dim cont As Integer = Len(cod) - 4
         Dim tope As Integer = LONGITUD_BARCODE_2 - 1 - Len(scc)
+
+        If g13 = "" Then
+            Return "(00)" & scc
+        End If
 
         While cont < tope
             sccCorregido = sccCorregido & "0"

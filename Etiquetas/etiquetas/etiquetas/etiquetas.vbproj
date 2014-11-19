@@ -88,6 +88,12 @@
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmEtiquetaDoypack.Designer.vb">
+      <DependentUpon>frmEtiquetaDoypack.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEtiquetaDoypack.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GS1.vb" />
     <Compile Include="LADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -115,6 +121,9 @@
     <EmbeddedResource Include="frmEtiqueta.resx">
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEtiquetaDoypack.resx">
+      <DependentUpon>frmEtiquetaDoypack.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -122,6 +131,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportDoypack.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="LADataSet.xsc">

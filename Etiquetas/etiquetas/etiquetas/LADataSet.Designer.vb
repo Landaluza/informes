@@ -27,6 +27,8 @@ Partial Public Class LADataSet
 
     Private tableEtiquetasPaletSelect As EtiquetasPaletSelectDataTable
 
+    Private tableEtiquetasPaletSelectMonodosis As EtiquetasPaletSelectMonodosisDataTable
+
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -59,6 +61,9 @@ Partial Public Class LADataSet
             If (Not (ds.Tables("EtiquetasPaletSelect")) Is Nothing) Then
                 MyBase.Tables.Add(New EtiquetasPaletSelectDataTable(ds.Tables("EtiquetasPaletSelect")))
             End If
+            If (Not (ds.Tables("EtiquetasPaletSelectMonodosis")) Is Nothing) Then
+                MyBase.Tables.Add(New EtiquetasPaletSelectMonodosisDataTable(ds.Tables("EtiquetasPaletSelectMonodosis")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -83,6 +88,16 @@ Partial Public Class LADataSet
     Public ReadOnly Property EtiquetasPaletSelect() As EtiquetasPaletSelectDataTable
         Get
             Return Me.tableEtiquetasPaletSelect
+        End Get
+    End Property
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+     Global.System.ComponentModel.Browsable(False), _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)> _
+    Public ReadOnly Property EtiquetasPaletSelectMonodosis() As EtiquetasPaletSelectMonodosisDataTable
+        Get
+            Return Me.tableEtiquetasPaletSelectMonodosis
         End Get
     End Property
 
@@ -156,6 +171,9 @@ Partial Public Class LADataSet
             If (Not (ds.Tables("EtiquetasPaletSelect")) Is Nothing) Then
                 MyBase.Tables.Add(New EtiquetasPaletSelectDataTable(ds.Tables("EtiquetasPaletSelect")))
             End If
+            If (Not (ds.Tables("EtiquetasPaletSelectMonodosis")) Is Nothing) Then
+                MyBase.Tables.Add(New EtiquetasPaletSelectMonodosisDataTable(ds.Tables("EtiquetasPaletSelectMonodosis")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -194,6 +212,12 @@ Partial Public Class LADataSet
                 Me.tableEtiquetasPaletSelect.InitVars()
             End If
         End If
+        Me.tableEtiquetasPaletSelectMonodosis = CType(MyBase.Tables("EtiquetasPaletSelectMonodosis"), EtiquetasPaletSelectMonodosisDataTable)
+        If (initTable = True) Then
+            If (Not (Me.tableEtiquetasPaletSelectMonodosis) Is Nothing) Then
+                Me.tableEtiquetasPaletSelectMonodosis.InitVars()
+            End If
+        End If
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -206,11 +230,19 @@ Partial Public Class LADataSet
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableEtiquetasPaletSelect = New EtiquetasPaletSelectDataTable()
         MyBase.Tables.Add(Me.tableEtiquetasPaletSelect)
+        Me.tableEtiquetasPaletSelectMonodosis = New EtiquetasPaletSelectMonodosisDataTable()
+        MyBase.Tables.Add(Me.tableEtiquetasPaletSelectMonodosis)
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Function ShouldSerializeEtiquetasPaletSelect() As Boolean
+        Return False
+    End Function
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Private Function ShouldSerializeEtiquetasPaletSelectMonodosis() As Boolean
         Return False
     End Function
 
@@ -274,6 +306,9 @@ Partial Public Class LADataSet
 
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Public Delegate Sub EtiquetasPaletSelectRowChangeEventHandler(ByVal sender As Object, ByVal e As EtiquetasPaletSelectRowChangeEvent)
+
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Delegate Sub EtiquetasPaletSelectMonodosisRowChangeEventHandler(ByVal sender As Object, ByVal e As EtiquetasPaletSelectMonodosisRowChangeEvent)
 
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -785,6 +820,465 @@ Partial Public Class LADataSet
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "EtiquetasPaletSelectDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+
+                            Do While ((s1.Position <> s1.Length) _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+
+
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close()
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close()
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(), _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")> _
+    Partial Public Class EtiquetasPaletSelectMonodosisDataTable
+        Inherits Global.System.Data.TypedTableBase(Of EtiquetasPaletSelectMonodosisRow)
+
+        Private columnmarca As Global.System.Data.DataColumn
+
+        Private columnproducto As Global.System.Data.DataColumn
+
+        Private columnbotellas As Global.System.Data.DataColumn
+
+        Private columnpalet As Global.System.Data.DataColumn
+
+        Private columncajas As Global.System.Data.DataColumn
+
+        Private columncantidadBotellas As Global.System.Data.DataColumn
+
+        Private columnean13 As Global.System.Data.DataColumn
+
+        Private columnean14 As Global.System.Data.DataColumn
+
+        Private columnlote As Global.System.Data.DataColumn
+
+        Private columnSCC As Global.System.Data.DataColumn
+
+        Private columnpaletproducidoid As Global.System.Data.DataColumn
+
+        Private columnanoscaducidad As Global.System.Data.DataColumn
+
+        Private columncabecera As Global.System.Data.DataColumn
+
+        Private columntipopalet As Global.System.Data.DataColumn
+
+        Private columnTipoLoteado As Global.System.Data.DataColumn
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.TableName = "EtiquetasPaletSelectMonodosis"
+            Me.BeginInit()
+            Me.InitClass()
+            Me.EndInit()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New()
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars()
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property marcaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmarca
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property productoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnproducto
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property botellasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnbotellas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property paletColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpalet
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property cajasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncajas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property cantidadBotellasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncantidadBotellas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property ean13Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnean13
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property ean14Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnean14
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property loteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnlote
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property SCCColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSCC
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property paletproducidoidColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpaletproducidoid
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property anoscaducidadColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnanoscaducidad
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property cabeceraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncabecera
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property tipopaletColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipopalet
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property TipoLoteadoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTipoLoteado
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Browsable(False)> _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Default Public ReadOnly Property Item(ByVal index As Integer) As EtiquetasPaletSelectMonodosisRow
+            Get
+                Return CType(Me.Rows(index), EtiquetasPaletSelectMonodosisRow)
+            End Get
+        End Property
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EtiquetasPaletSelectMonodosisRowChanging As EtiquetasPaletSelectMonodosisRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EtiquetasPaletSelectMonodosisRowChanged As EtiquetasPaletSelectMonodosisRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EtiquetasPaletSelectMonodosisRowDeleting As EtiquetasPaletSelectMonodosisRowChangeEventHandler
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Event EtiquetasPaletSelectMonodosisRowDeleted As EtiquetasPaletSelectMonodosisRowChangeEventHandler
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Sub AddEtiquetasPaletSelectMonodosisRow(ByVal row As EtiquetasPaletSelectMonodosisRow)
+            Me.Rows.Add(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overloads Function AddEtiquetasPaletSelectMonodosisRow(ByVal marca As String, ByVal producto As String, ByVal botellas As String, ByVal palet As String, ByVal cajas As String, ByVal cantidadBotellas As String, ByVal ean13 As String, ByVal ean14 As String, ByVal lote As Date, ByVal SCC As Integer, ByVal anoscaducidad As Integer, ByVal cabecera As String, ByVal tipopalet As Integer) As EtiquetasPaletSelectMonodosisRow
+            Dim rowEtiquetasPaletSelectMonodosisRow As EtiquetasPaletSelectMonodosisRow = CType(Me.NewRow, EtiquetasPaletSelectMonodosisRow)
+            Dim columnValuesArray() As Object = New Object() {marca, producto, botellas, palet, cajas, cantidadBotellas, ean13, ean14, lote, SCC, Nothing, anoscaducidad, cabecera, tipopalet, Nothing}
+            rowEtiquetasPaletSelectMonodosisRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowEtiquetasPaletSelectMonodosisRow)
+            Return rowEtiquetasPaletSelectMonodosisRow
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As EtiquetasPaletSelectMonodosisDataTable = CType(MyBase.Clone, EtiquetasPaletSelectMonodosisDataTable)
+            cln.InitVars()
+            Return cln
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New EtiquetasPaletSelectMonodosisDataTable()
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub InitVars()
+            Me.columnmarca = MyBase.Columns("marca")
+            Me.columnproducto = MyBase.Columns("producto")
+            Me.columnbotellas = MyBase.Columns("botellas")
+            Me.columnpalet = MyBase.Columns("palet")
+            Me.columncajas = MyBase.Columns("cajas")
+            Me.columncantidadBotellas = MyBase.Columns("cantidadBotellas")
+            Me.columnean13 = MyBase.Columns("ean13")
+            Me.columnean14 = MyBase.Columns("ean14")
+            Me.columnlote = MyBase.Columns("lote")
+            Me.columnSCC = MyBase.Columns("SCC")
+            Me.columnpaletproducidoid = MyBase.Columns("paletproducidoid")
+            Me.columnanoscaducidad = MyBase.Columns("anoscaducidad")
+            Me.columncabecera = MyBase.Columns("cabecera")
+            Me.columntipopalet = MyBase.Columns("tipopalet")
+            Me.columnTipoLoteado = MyBase.Columns("TipoLoteado")
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitClass()
+            Me.columnmarca = New Global.System.Data.DataColumn("marca", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmarca)
+            Me.columnproducto = New Global.System.Data.DataColumn("producto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnproducto)
+            Me.columnbotellas = New Global.System.Data.DataColumn("botellas", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnbotellas)
+            Me.columnpalet = New Global.System.Data.DataColumn("palet", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpalet)
+            Me.columncajas = New Global.System.Data.DataColumn("cajas", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncajas)
+            Me.columncantidadBotellas = New Global.System.Data.DataColumn("cantidadBotellas", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncantidadBotellas)
+            Me.columnean13 = New Global.System.Data.DataColumn("ean13", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnean13)
+            Me.columnean14 = New Global.System.Data.DataColumn("ean14", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnean14)
+            Me.columnlote = New Global.System.Data.DataColumn("lote", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnlote)
+            Me.columnSCC = New Global.System.Data.DataColumn("SCC", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSCC)
+            Me.columnpaletproducidoid = New Global.System.Data.DataColumn("paletproducidoid", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpaletproducidoid)
+            Me.columnanoscaducidad = New Global.System.Data.DataColumn("anoscaducidad", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnanoscaducidad)
+            Me.columncabecera = New Global.System.Data.DataColumn("cabecera", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncabecera)
+            Me.columntipopalet = New Global.System.Data.DataColumn("tipopalet", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipopalet)
+            Me.columnTipoLoteado = New Global.System.Data.DataColumn("TipoLoteado", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTipoLoteado)
+            Me.columnmarca.MaxLength = 200
+            Me.columnproducto.ReadOnly = True
+            Me.columnproducto.MaxLength = 50
+            Me.columnbotellas.ReadOnly = True
+            Me.columnbotellas.MaxLength = 413
+            Me.columnpalet.ReadOnly = True
+            Me.columnpalet.MaxLength = 2147483647
+            Me.columncajas.ReadOnly = True
+            Me.columncajas.MaxLength = 341
+            Me.columncantidadBotellas.ReadOnly = True
+            Me.columncantidadBotellas.MaxLength = 341
+            Me.columnean13.MaxLength = 13
+            Me.columnean14.MaxLength = 18
+            Me.columnlote.ReadOnly = True
+            Me.columnpaletproducidoid.AutoIncrement = True
+            Me.columnpaletproducidoid.AutoIncrementSeed = -1
+            Me.columnpaletproducidoid.AutoIncrementStep = -1
+            Me.columnpaletproducidoid.AllowDBNull = False
+            Me.columnpaletproducidoid.ReadOnly = True
+            Me.columncabecera.MaxLength = 300
+            Me.columntipopalet.ReadOnly = True
+            Me.columnTipoLoteado.AutoIncrement = True
+            Me.columnTipoLoteado.AutoIncrementSeed = -1
+            Me.columnTipoLoteado.AutoIncrementStep = -1
+            Me.columnTipoLoteado.ReadOnly = True
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function NewEtiquetasPaletSelectMonodosisRow() As EtiquetasPaletSelectMonodosisRow
+            Return CType(Me.NewRow, EtiquetasPaletSelectMonodosisRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New EtiquetasPaletSelectMonodosisRow(builder)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(EtiquetasPaletSelectMonodosisRow)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.EtiquetasPaletSelectMonodosisRowChangedEvent) Is Nothing) Then
+                RaiseEvent EtiquetasPaletSelectMonodosisRowChanged(Me, New EtiquetasPaletSelectMonodosisRowChangeEvent(CType(e.Row, EtiquetasPaletSelectMonodosisRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.EtiquetasPaletSelectMonodosisRowChangingEvent) Is Nothing) Then
+                RaiseEvent EtiquetasPaletSelectMonodosisRowChanging(Me, New EtiquetasPaletSelectMonodosisRowChangeEvent(CType(e.Row, EtiquetasPaletSelectMonodosisRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.EtiquetasPaletSelectMonodosisRowDeletedEvent) Is Nothing) Then
+                RaiseEvent EtiquetasPaletSelectMonodosisRowDeleted(Me, New EtiquetasPaletSelectMonodosisRowChangeEvent(CType(e.Row, EtiquetasPaletSelectMonodosisRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.EtiquetasPaletSelectMonodosisRowDeletingEvent) Is Nothing) Then
+                RaiseEvent EtiquetasPaletSelectMonodosisRowDeleting(Me, New EtiquetasPaletSelectMonodosisRowChangeEvent(CType(e.Row, EtiquetasPaletSelectMonodosisRow), e.Action))
+            End If
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub RemoveEtiquetasPaletSelectMonodosisRow(ByVal row As EtiquetasPaletSelectMonodosisRow)
+            Me.Rows.Remove(row)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As LADataSet = New LADataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "EtiquetasPaletSelectMonodosisDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1401,6 +1895,425 @@ Partial Public Class LADataSet
     End Class
 
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class EtiquetasPaletSelectMonodosisRow
+        Inherits Global.System.Data.DataRow
+
+        Private tableEtiquetasPaletSelectMonodosis As EtiquetasPaletSelectMonodosisDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableEtiquetasPaletSelectMonodosis = CType(Me.Table, EtiquetasPaletSelectMonodosisDataTable)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property marca() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.marcaColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'marca' de la tabla 'EtiquetasPaletSelectMonodosis' es DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.marcaColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property producto() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.productoColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'producto' de la tabla 'EtiquetasPaletSelectMonodosis' es " & _
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.productoColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property botellas() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.botellasColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'botellas' de la tabla 'EtiquetasPaletSelectMonodosis' es " & _
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.botellasColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property palet() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.paletColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'palet' de la tabla 'EtiquetasPaletSelectMonodosis' es DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.paletColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property cajas() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.cajasColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cajas' de la tabla 'EtiquetasPaletSelectMonodosis' es DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.cajasColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property cantidadBotellas() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.cantidadBotellasColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidadBotellas' de la tabla 'EtiquetasPaletSelectMonodo" & _
+                            "sis' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.cantidadBotellasColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ean13() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.ean13Column), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ean13' de la tabla 'EtiquetasPaletSelectMonodosis' es DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.ean13Column) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ean14() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.ean14Column), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ean14' de la tabla 'EtiquetasPaletSelectMonodosis' es DBN" & _
+                            "ull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.ean14Column) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property lote() As Date
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.loteColumn), Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'lote' de la tabla 'EtiquetasPaletSelectMonodosis' es DBNu" & _
+                            "ll.", e)
+                End Try
+            End Get
+            Set(value As Date)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.loteColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property SCC() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.SCCColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'SCC' de la tabla 'EtiquetasPaletSelectMonodosis' es DBNul" & _
+                            "l.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.SCCColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property paletproducidoid() As Integer
+            Get
+                Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.paletproducidoidColumn), Integer)
+            End Get
+            Set(value As Integer)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.paletproducidoidColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property anoscaducidad() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.anoscaducidadColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'anoscaducidad' de la tabla 'EtiquetasPaletSelectMonodosis" & _
+                            "' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.anoscaducidadColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property cabecera() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.cabeceraColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cabecera' de la tabla 'EtiquetasPaletSelectMonodosis' es " & _
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set(value As String)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.cabeceraColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property tipopalet() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.tipopaletColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tipopalet' de la tabla 'EtiquetasPaletSelectMonodosis' es" & _
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.tipopaletColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property TipoLoteado() As Integer
+            Get
+                Try
+                    Return CType(Me(Me.tableEtiquetasPaletSelectMonodosis.TipoLoteadoColumn), Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TipoLoteado' de la tabla 'EtiquetasPaletSelectMonodosis' " & _
+                            "es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Integer)
+                Me(Me.tableEtiquetasPaletSelectMonodosis.TipoLoteadoColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsmarcaNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.marcaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetmarcaNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.marcaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsproductoNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.productoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetproductoNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.productoColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsbotellasNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.botellasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetbotellasNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.botellasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IspaletNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.paletColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetpaletNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.paletColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IscajasNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.cajasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetcajasNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.cajasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IscantidadBotellasNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.cantidadBotellasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetcantidadBotellasNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.cantidadBotellasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Isean13Null() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.ean13Column)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setean13Null()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.ean13Column) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function Isean14Null() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.ean14Column)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub Setean14Null()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.ean14Column) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsloteNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.loteColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetloteNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.loteColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsSCCNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.SCCColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetSCCNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.SCCColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsanoscaducidadNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.anoscaducidadColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetanoscaducidadNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.anoscaducidadColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IscabeceraNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.cabeceraColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetcabeceraNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.cabeceraColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IstipopaletNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.tipopaletColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SettipopaletNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.tipopaletColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsTipoLoteadoNull() As Boolean
+            Return Me.IsNull(Me.tableEtiquetasPaletSelectMonodosis.TipoLoteadoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetTipoLoteadoNull()
+            Me(Me.tableEtiquetasPaletSelectMonodosis.TipoLoteadoColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -1422,6 +2335,42 @@ Partial Public Class LADataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public ReadOnly Property Row() As EtiquetasPaletSelectRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+    Public Class EtiquetasPaletSelectMonodosisRowChangeEvent
+        Inherits Global.System.EventArgs
+
+        Private eventRow As EtiquetasPaletSelectMonodosisRow
+
+        Private eventAction As Global.System.Data.DataRowAction
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New(ByVal row As EtiquetasPaletSelectMonodosisRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New()
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property Row() As EtiquetasPaletSelectMonodosisRow
             Get
                 Return Me.eventRow
             End Get
@@ -1633,6 +2582,205 @@ Namespace LADataSetTableAdapters
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
             Dim dataTable As LADataSet.EtiquetasPaletSelectDataTable = New LADataSet.EtiquetasPaletSelectDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+    End Class
+
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"), _
+     Global.System.ComponentModel.ToolboxItem(True), _
+     Global.System.ComponentModel.DataObjectAttribute(True), _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" & _
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"), _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")> _
+    Partial Public Class EtiquetasPaletSelectMonodosisTableAdapter
+        Inherits Global.System.ComponentModel.Component
+
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+
+        Private _clearBeforeFill As Boolean
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub New()
+            MyBase.New()
+            Me.ClearBeforeFill = True
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter()
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection()
+                End If
+                Return Me._connection
+            End Get
+            Set(value As Global.System.Data.SqlClient.SqlConnection)
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set(value As Global.System.Data.SqlClient.SqlTransaction)
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing) _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection()
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set(value As Boolean)
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "EtiquetasPaletSelectMonodosis"
+            tableMapping.ColumnMappings.Add("marca", "marca")
+            tableMapping.ColumnMappings.Add("producto", "producto")
+            tableMapping.ColumnMappings.Add("botellas", "botellas")
+            tableMapping.ColumnMappings.Add("palet", "palet")
+            tableMapping.ColumnMappings.Add("cajas", "cajas")
+            tableMapping.ColumnMappings.Add("cantidadBotellas", "cantidadBotellas")
+            tableMapping.ColumnMappings.Add("ean13", "ean13")
+            tableMapping.ColumnMappings.Add("ean14", "ean14")
+            tableMapping.ColumnMappings.Add("lote", "lote")
+            tableMapping.ColumnMappings.Add("SCC", "SCC")
+            tableMapping.ColumnMappings.Add("paletproducidoid", "paletproducidoid")
+            tableMapping.ColumnMappings.Add("anoscaducidad", "anoscaducidad")
+            tableMapping.ColumnMappings.Add("cabecera", "cabecera")
+            tableMapping.ColumnMappings.Add("tipopalet", "tipopalet")
+            tableMapping.ColumnMappings.Add("TipoLoteado", "TipoLoteado")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.etiquetas.My.MySettings.Default.LAConnectionString
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "dbo.EtiquetasPaletSelectMonodosis"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@paletProducidoid", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
+        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.EtiquetasPaletSelectMonodosisDataTable, ByVal paletProducidoid As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (paletProducidoid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(paletProducidoid.Value, Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
+        Public Overridable Overloads Function GetData(ByVal paletProducidoid As Global.System.Nullable(Of Integer)) As LADataSet.EtiquetasPaletSelectMonodosisDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (paletProducidoid.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(paletProducidoid.Value, Integer)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As LADataSet.EtiquetasPaletSelectMonodosisDataTable = New LADataSet.EtiquetasPaletSelectMonodosisDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
