@@ -574,7 +574,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!CaducidadTexto.Value, "DataSet1")</Value>
+                    <Value>=IIf(First(Fields!CaducidadTexto.Value, "DataSet1") = "", "", Left(First(Fields!CaducidadTexto.Value, "DataSet1"), 2) &amp; "/" &amp; Mid(First(Fields!CaducidadTexto.Value, "DataSet1"), 2,2) &amp; "/" &amp; Right(First(Fields!CaducidadTexto.Value, "DataSet1"), 2) )</Value>
                     <Style>
                       <FontSize>5pt</FontSize>
                     </Style>

@@ -7,7 +7,8 @@
 
         ' Llamada necesaria para el diseñador.
         InitializeComponent()
-        
+
+        id = 56012
         loteador = New Loteado
         barcode = New CodigoBarra
         barc = New BarcodeLib.Barcode
@@ -47,8 +48,8 @@
         End Try
 
         Try
-            If Not Convert.IsDBNull(Me.LADataSet.EtiquetasPaletSelect(0).ean13) Then
-                Me.LADataSet.EtiquetasPaletSelect(0).SCC = barcode.ajustarSCC_Con_Digito_Control(Me.LADataSet.EtiquetasPaletSelect(0).SCC, Me.LADataSet.EtiquetasPaletSelect(0).ean13)
+            If Not Convert.IsDBNull(Me.LADataSet.EtiquetasPaletSelect(0).ean14) Then
+                Me.LADataSet.EtiquetasPaletSelect(0).SCC = barcode.ajustarSCC_Con_Digito_Control(Me.LADataSet.EtiquetasPaletSelect(0).SCC, Me.LADataSet.EtiquetasPaletSelect(0).ean14)
             Else
                 Me.LADataSet.EtiquetasPaletSelect(0).SCC = barcode.ajustarSCC_Con_Digito_Control(Me.LADataSet.EtiquetasPaletSelect(0).SCC, "")
             End If
@@ -63,18 +64,41 @@
             Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = Convert.ToDateTime(Me.LADataSet.EtiquetasPaletSelect(0).lote).AddYears(Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad).ToString("yyMMdd")
         End If
 
+        Try
+            If Not Convert.IsDBNull(Me.LADataSet.EtiquetasPaletSelect(0).ean14) Then
+                If Me.LADataSet.EtiquetasPaletSelect(0).loteTexto <> "" Then
+                    generarCB1()
+                Else
+                    generarCB1Corto()
+                End If
+            Else
+                Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia
+            End If
+        Catch ex As Exception
+            Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia
+        End Try
 
-        If Me.LADataSet.EtiquetasPaletSelect(0).loteTexto <> "" Then
-            generarCB1()
-        Else
-            generarCB1Corto()
-        End If
+        
 
         generarCB2()
 
 
         Me.ReportViewer1.RefreshReport()
     End Sub
+
+
+    Private Function imagenVacia() As Byte()
+        Dim temp As New Bitmap(1280, 700)
+        'temp.SetPixel(0, 0, Me.BackColor)
+
+
+        Dim bitmapbytes As Byte()
+        Using stream As New System.IO.MemoryStream()
+            temp.Save(stream, Imaging.ImageFormat.Jpeg)
+            bitmapbytes = stream.ToArray
+        End Using
+        Return bitmapbytes
+    End Function
 
     Private Sub generarCB1()
         Dim gs As GS1 = Me.barcode.calcular_codigo_barras_1(Me.LADataSet.EtiquetasPaletSelect(0).ean14, Me.LADataSet.EtiquetasPaletSelect(0).loteTexto)
