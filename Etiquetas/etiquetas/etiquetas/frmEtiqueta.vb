@@ -110,11 +110,11 @@
 
 
         barc.Alignment = BarcodeLib.AlignmentPositions.LEFT
-        barc.IncludeLabel = True
+        barc.IncludeLabel = False
         barc.LabelPosition = BarcodeLib.LabelPositions.BOTTOMLEFT
         '        Barcode1.Image = barc.Encode(BarcodeLib.TYPE.CODE128, texto, Color.Black, Color.White, 350, 120)
 
-        temp = New Bitmap(barc.Encode(BarcodeLib.TYPE.LOTE, texto, Color.Black, Color.White, 1280, 700))     
+        temp = New Bitmap(barc.Encode(BarcodeLib.TYPE.LOTE, texto, Color.Black, Color.White, 1280, 700))
 
         Dim bitmapbytes As Byte()
         Using stream As New System.IO.MemoryStream()
@@ -141,7 +141,7 @@
         Dim temp As Bitmap
 
         barc.Alignment = BarcodeLib.AlignmentPositions.LEFT
-        barc.IncludeLabel = True
+        barc.IncludeLabel = False
         barc.LabelPosition = BarcodeLib.LabelPositions.BOTTOMLEFT
 
         temp = New Bitmap(barc.Encode(BarcodeLib.TYPE.DOYPACK, texto, Color.Black, Color.White, 1280, 700))
@@ -165,7 +165,7 @@
         ' temp.SetPixel(0, 0, Me.BackColor)
 
         barc.Alignment = BarcodeLib.AlignmentPositions.LEFT
-        barc.IncludeLabel = True
+        barc.IncludeLabel = False
         barc.LabelPosition = BarcodeLib.LabelPositions.BOTTOMLEFT
         '        Barcode2.Image = barc.Encode(BarcodeLib.TYPE.CODE128, texto, Color.Black, Color.White, Me.Width - 20, 120)
         temp = New Bitmap(barc.Encode(BarcodeLib.TYPE.SSCC, texto, Color.Black, Color.White, 1280, 700))

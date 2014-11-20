@@ -16,7 +16,6 @@ C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\De
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.pdb
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.xml
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\BarcodeLib.dll
-C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.vbprojResolveAssemblyReference.cache
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.frmEtiqueta.resources
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.frmEtiquetaDoypack.resources
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.Resources.resources
