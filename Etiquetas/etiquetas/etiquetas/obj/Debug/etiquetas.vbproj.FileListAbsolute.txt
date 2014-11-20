@@ -11,8 +11,6 @@ C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\eti
 C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe.config
 C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe
 C:\Users\miguel\Desktop\git\informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.exe
-C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.dll.config
-C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.dll
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.pdb
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.xml
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\BarcodeLib.dll
@@ -22,6 +20,8 @@ C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\De
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.vbproj.GenerateResource.Cache
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\RdlCompile.cache
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\RdlCompile.compiled
-C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.dll
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.xml
 C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.pdb
+C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe.config
+C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\bin\Debug\etiquetas.exe
+C:\Users\Administrador\Desktop\git\Informes\Etiquetas\etiquetas\etiquetas\obj\Debug\etiquetas.exe

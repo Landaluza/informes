@@ -8,7 +8,7 @@
         ' Llamada necesaria para el diseñador.
         InitializeComponent()
 
-        id = 56012
+        id = 56015
         loteador = New Loteado
         barcode = New CodigoBarra
         barc = New BarcodeLib.Barcode

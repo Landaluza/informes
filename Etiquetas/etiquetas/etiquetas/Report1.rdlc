@@ -11,6 +11,7 @@
               <TextRun>
                 <Value>=First(Fields!cabecera.Value, "DataSet1")</Value>
                 <Style>
+                  <FontSize>11pt</FontSize>
                   <FontWeight>ExtraBold</FontWeight>
                 </Style>
               </TextRun>
@@ -390,7 +391,7 @@
                   <TextRun>
                     <Value>=First(Fields!SCC.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -751,12 +752,12 @@
   </Body>
   <Width>4.17931in</Width>
   <Page>
-    <PageHeight>29cm</PageHeight>
-    <PageWidth>24cm</PageWidth>
-    <InteractiveHeight>12cm</InteractiveHeight>
-    <InteractiveWidth>21cm</InteractiveWidth>
-    <LeftMargin>0cm</LeftMargin>
-    <RightMargin>0cm</RightMargin>
+    <PageHeight>16cm</PageHeight>
+    <PageWidth>12cm</PageWidth>
+    <InteractiveHeight>16cm</InteractiveHeight>
+    <InteractiveWidth>12cm</InteractiveWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>
     <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
@@ -1945,6 +1946,7 @@ MY/+bov+5U/9zVfv9X4A/wDBjH/zdF/3Kn/uar9/qAP4A6KKKACv7/K/gDr+/wAoAKKKKACiiigAr+AO
 4A6KKACiiigD+/yiiigAr+AOiigAooooA/v8r8Af+D5z/m13/ua//cLRRQB+ANFFFAH7/f8ABjH/AM3Rf9yp/wC5qv3+oooAK/AH/g+c/wCbXf8Aua//AHC0UUAfgDRRRQB+/wB/wYx/83Rf9yp/7mq/f6iigAr8Af8Ag+c/5td/7mv/ANwtFFAH4A0UUUAfv9/wYx/83Rf9yp/7mq/f6iigAooooAK/gDoooA/f7/gxj/5ui/7lT/3NV+/1FFAH8Adfv9/wYx/83Rf9yp/7mqKKAP3+ooooAKKKKAP4A6KKKACv7/KKKACiiigD+AOv3+/4MY/+bov+5U/9zVFFAH7/AFfwB0UUAFFFFABX7/f8GMf/ADdF/wByp/7mqKKAP3+ooooA/AH/AIPnP+bXf+5r/wDcLX4A0UUAf3+UUUUAFfwB0UUAfv8Af8GMf/N0X/cqf+5qv3+oooAKKKKACv4A6KKACiiigD+/yiiigAr+AOiigAooooAK/f7/AIMY/wDm6L/uVP8A3NUUUAfv9RRRQB+AP/B85/za7/3Nf/uFr8AaKKACv3+/4MY/+bov+5U/9zVFFAH7/UUUUAfgD/wfOf8ANrv/AHNf/uFr8AaKKAP7/K/AH/g+c/5td/7mv/3C0UUAfgDRRRQB+/3/AAYx/wDN0X/cqf8Auar9/qKKACiiigAr+AOiigAooooAK/f7/gxj/wCbov8AuVP/AHNUUUAfv9X8AdFFAH7/AH/BjH/zdF/3Kn/uar9/qKKAP4A6KKKACv7/ACiigAooooA//9k=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>4c9499db-7a71-4d93-8152-9f2d15f9a09f</rd:ReportID>
 </Report>
