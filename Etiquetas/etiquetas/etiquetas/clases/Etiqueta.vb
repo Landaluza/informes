@@ -2,7 +2,7 @@
     Private loteador As Loteado
     Private barcode As CodigoBarra
     Private barc As BarcodeLib.Barcode
-    Private id As Integer
+    Public id As Integer
     Private LADataSet As etiquetas.LADataSet
     Private EtiquetasPaletSelectTableAdapter As etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter
     Private EtiquetasPaletSelectBindingSource As System.Windows.Forms.BindingSource
