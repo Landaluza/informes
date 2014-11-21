@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clases\Calendar.vb" />
+    <Compile Include="clases\Etiqueta.vb" />
     <Compile Include="CodigoBarras\CodigoBarra.vb" />
     <Compile Include="clases\File.vb" />
     <Compile Include="gui\frmEtiqueta.vb">
@@ -118,7 +119,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="impresion\printer.vb" />
-    <Compile Include="impresion\print_reports.vb" />
     <Compile Include="impresion\prueba.vb" />
   </ItemGroup>
   <ItemGroup>

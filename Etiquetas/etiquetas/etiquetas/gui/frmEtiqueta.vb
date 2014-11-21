@@ -124,16 +124,6 @@
         End Using
         Me.LADataSet.EtiquetasPaletSelect(0).img1 = bitmapbytes
         Me.LADataSet.EtiquetasPaletSelect(0).texto_codigo1 = gs.Empresa_etiqueta
-        'barc.SaveImage(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\bar1.jpg", BarcodeLib.SaveTypes.JPG)
-
-        'Dim fs As System.IO.FileStream
-        'Dim br As IO.BinaryReader
-
-        'fs = New IO.FileStream(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\bar1.jpg", IO.FileMode.OpenOrCreate)
-        'br = New IO.BinaryReader(fs)
-        'Me.LADataSet.EtiquetasPaletSelect(0).img1 = br.ReadBytes(Convert.ToInt32(fs.Length))
-        'br.Close()
-        'fs.Close()
     End Sub
 
     Private Sub generarCB1Corto()
@@ -162,13 +152,10 @@
         Dim texto As String = gs.SSCC
 
         Dim temp As Bitmap
-        'Dim temp As New Bitmap(1280, 700)
-        ' temp.SetPixel(0, 0, Me.BackColor)
 
         barc.Alignment = BarcodeLib.AlignmentPositions.LEFT
         barc.IncludeLabel = False
         barc.LabelPosition = BarcodeLib.LabelPositions.BOTTOMLEFT
-        '        Barcode2.Image = barc.Encode(BarcodeLib.TYPE.CODE128, texto, Color.Black, Color.White, Me.Width - 20, 120)
         temp = New Bitmap(barc.Encode(BarcodeLib.TYPE.SSCC, texto, Color.Black, Color.White, 1280, 700))
 
         Dim bitmapbytes As Byte()
@@ -178,21 +165,12 @@
         End Using
         Me.LADataSet.EtiquetasPaletSelect(0).img2 = bitmapbytes
         Me.LADataSet.EtiquetasPaletSelect(0).texto_codigo2 = gs.SSCC_etiqueta
-
-        'barc.SaveImage(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\bar2.jpg", BarcodeLib.SaveTypes.JPG)
-
-        'Dim fs As System.IO.FileStream
-        'Dim br As IO.BinaryReader
-
-        'fs = New IO.FileStream(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\bar2.jpg", IO.FileMode.OpenOrCreate)
-        'br = New IO.BinaryReader(fs)
-        'Me.LADataSet.EtiquetasPaletSelect(0).img2 = br.ReadBytes(Convert.ToInt32(fs.Length))
-        'br.Close()
-        'fs.Close()
     End Sub
 
     
     Private Sub frmEtiqueta_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        print_reports.print_microsoft_report(Me.ReportViewer1.LocalReport)
+        Dim pr As New printer
+        pr.print_microsoft_report(Me.ReportViewer1.LocalReport)
+        'print_reports.print_microsoft_report(Me.ReportViewer1.LocalReport)
     End Sub
 End Class
