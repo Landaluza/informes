@@ -79,28 +79,29 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calendar.vb" />
-    <Compile Include="CodigoBarra.vb" />
-    <Compile Include="frmEtiqueta.vb">
+    <Compile Include="clases\Calendar.vb" />
+    <Compile Include="CodigoBarras\CodigoBarra.vb" />
+    <Compile Include="clases\File.vb" />
+    <Compile Include="gui\frmEtiqueta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEtiqueta.Designer.vb">
+    <Compile Include="gui\frmEtiqueta.Designer.vb">
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPrueba.Designer.vb">
+    <Compile Include="gui\frmPrueba.Designer.vb">
       <DependentUpon>frmPrueba.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmPrueba.vb">
+    <Compile Include="gui\frmPrueba.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GS1.vb" />
+    <Compile Include="CodigoBarras\GS1.vb" />
     <Compile Include="LADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LADataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Loteado.vb" />
+    <Compile Include="CodigoBarras\Loteado.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -116,14 +117,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="print_reports.vb" />
-    <Compile Include="prueba.vb" />
+    <Compile Include="impresion\printer.vb" />
+    <Compile Include="impresion\print_reports.vb" />
+    <Compile Include="impresion\prueba.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmEtiqueta.resx">
+    <EmbeddedResource Include="gui\frmEtiqueta.resx">
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPrueba.resx">
+    <EmbeddedResource Include="gui\frmPrueba.resx">
       <DependentUpon>frmPrueba.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
@@ -161,6 +163,7 @@
   <ItemGroup>
     <None Include="librerias\BarcodeLib.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
