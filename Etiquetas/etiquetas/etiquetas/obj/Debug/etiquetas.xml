@@ -71,25 +71,6 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
-</member><member name="M:etiquetas.print_reports.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport@,System.Int32,System.Int32,System.Boolean,System.String)">
-	<summary>
- Print rdlc report with custom page width and height
- </summary>
-	<param name="report"></param>
-	<param name="page_width">the width of the papger, in hunderdths of an inch</param>
-	<param name="page_height">the height of the papger, in hunderdths of an inch</param>
-	<param name="islandscap"></param>
-	<param name="printer_name">Ignore this parameter to use default printer</param>
-	<remarks></remarks>
-</member><member name="M:etiquetas.print_reports.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport,System.String,System.Boolean,System.String)">
-	<summary>
- Print rdlc report with specific paper kind
- </summary>
-	<param name="report"></param>
-	<param name="paperkind">String paper Kind, ex:"letter"</param>
-	<param name="islandscap"></param>
-	<param name="printer_name">Ignore this parameter to use default printer</param>
-	<remarks></remarks>
 </member><member name="M:etiquetas.printer.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport@,System.Int32,System.Int32,System.Boolean,System.String)">
 	<summary>
  Print rdlc report with custom page width and height
