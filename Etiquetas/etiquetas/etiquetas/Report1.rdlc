@@ -424,7 +424,7 @@
                   <TextRun>
                     <Value>GTIN14:</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -458,7 +458,7 @@
                   <TextRun>
                     <Value>GTIN13:</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -492,7 +492,7 @@
                   <TextRun>
                     <Value>=First(Fields!loteTexto.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -525,7 +525,7 @@
                   <TextRun>
                     <Value>=First(Fields!ean13.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -558,7 +558,7 @@
                   <TextRun>
                     <Value>=First(Fields!ean14.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -626,7 +626,7 @@
                   <TextRun>
                     <Value>LOTE:</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -695,7 +695,7 @@
                   <TextRun>
                     <Value>SSCC:</Value>
                     <Style>
-                      <FontSize>7pt</FontSize>
+                      <FontSize>8pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
