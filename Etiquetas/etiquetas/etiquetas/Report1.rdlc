@@ -163,6 +163,7 @@
                   <TextRun>
                     <Value>=First(Fields!marca.Value, "DataSet1")</Value>
                     <Style>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                     </Style>
                   </TextRun>
@@ -275,7 +276,7 @@
                   <TextRun>
                     <Value>=First(Fields!cantidadBotellas.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
+                      <FontSize>9pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -308,7 +309,7 @@
                   <TextRun>
                     <Value>=First(Fields!cajas.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
+                      <FontSize>9pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -342,7 +343,7 @@
                   <TextRun>
                     <Value>=First(Fields!palet.Value, "DataSet1")</Value>
                     <Style>
-                      <FontSize>8pt</FontSize>
+                      <FontSize>9pt</FontSize>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -752,14 +753,14 @@
   </Body>
   <Width>4.17931in</Width>
   <Page>
-    <PageHeight>16cm</PageHeight>
-    <PageWidth>12cm</PageWidth>
+    <PageHeight>14cm</PageHeight>
+    <PageWidth>11cm</PageWidth>
     <InteractiveHeight>16cm</InteractiveHeight>
     <InteractiveWidth>12cm</InteractiveWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1.75cm</LeftMargin>
+    <RightMargin>1.75cm</RightMargin>
+    <TopMargin>1.75cm</TopMargin>
+    <BottomMargin>1.75cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

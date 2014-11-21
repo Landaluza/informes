@@ -34,7 +34,9 @@
         local.DataSources.Add(ReportDataSource1)
         local.ReportEmbeddedResource = "etiquetas.Report1.rdlc"
 
-        print_reports.print_microsoft_report(local, "A4")
+        'print_reports.print_microsoft_report(local, "A4")
+        Dim pr As New printer
+        pr.print_microsoft_report(local)
     End Sub
 
 

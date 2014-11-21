@@ -6,26 +6,7 @@ etiquetas
 </name>
 </assembly>
 <members>
-<member name="M:etiquetas.print_reports.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport@,System.Int32,System.Int32,System.Boolean,System.String)">
-	<summary>
- Print rdlc report with custom page width and height
- </summary>
-	<param name="report"></param>
-	<param name="page_width">the width of the papger, in hunderdths of an inch</param>
-	<param name="page_height">the height of the papger, in hunderdths of an inch</param>
-	<param name="islandscap"></param>
-	<param name="printer_name">Ignore this parameter to use default printer</param>
-	<remarks></remarks>
-</member><member name="M:etiquetas.print_reports.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport,System.String,System.Boolean,System.String)">
-	<summary>
- Print rdlc report with specific paper kind
- </summary>
-	<param name="report"></param>
-	<param name="paperkind">String paper Kind, ex:"letter"</param>
-	<param name="islandscap"></param>
-	<param name="printer_name">Ignore this parameter to use default printer</param>
-	<remarks></remarks>
-</member><member name="P:etiquetas.My.Resources.Resources.ResourceManager">
+<member name="P:etiquetas.My.Resources.Resources.ResourceManager">
 	<summary>
   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
 </summary>
@@ -42,23 +23,11 @@ etiquetas
 	<summary>
 Represents the strongly named DataTable class.
 </summary>
-</member><member name="T:etiquetas.LADataSet.EtiquetasPaletSelectMonodosisDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
 </member><member name="T:etiquetas.LADataSet.EtiquetasPaletSelectRow">
 	<summary>
 Represents strongly named DataRow class.
 </summary>
-</member><member name="T:etiquetas.LADataSet.EtiquetasPaletSelectMonodosisRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
 </member><member name="T:etiquetas.LADataSet.EtiquetasPaletSelectRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:etiquetas.LADataSet.EtiquetasPaletSelectMonodosisRowChangeEvent">
 	<summary>
 Row event argument class
 </summary>
@@ -67,10 +36,6 @@ Row event argument class
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member><member name="T:etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectMonodosisTableAdapter">
 	<summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -106,6 +71,44 @@ Used to sort self-referenced table's rows
 	<summary>
 TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
+</member><member name="M:etiquetas.print_reports.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport@,System.Int32,System.Int32,System.Boolean,System.String)">
+	<summary>
+ Print rdlc report with custom page width and height
+ </summary>
+	<param name="report"></param>
+	<param name="page_width">the width of the papger, in hunderdths of an inch</param>
+	<param name="page_height">the height of the papger, in hunderdths of an inch</param>
+	<param name="islandscap"></param>
+	<param name="printer_name">Ignore this parameter to use default printer</param>
+	<remarks></remarks>
+</member><member name="M:etiquetas.print_reports.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport,System.String,System.Boolean,System.String)">
+	<summary>
+ Print rdlc report with specific paper kind
+ </summary>
+	<param name="report"></param>
+	<param name="paperkind">String paper Kind, ex:"letter"</param>
+	<param name="islandscap"></param>
+	<param name="printer_name">Ignore this parameter to use default printer</param>
+	<remarks></remarks>
+</member><member name="M:etiquetas.printer.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport@,System.Int32,System.Int32,System.Boolean,System.String)">
+	<summary>
+ Print rdlc report with custom page width and height
+ </summary>
+	<param name="report"></param>
+	<param name="page_width">the width of the papger, in hunderdths of an inch</param>
+	<param name="page_height">the height of the papger, in hunderdths of an inch</param>
+	<param name="islandscap"></param>
+	<param name="printer_name">Ignore this parameter to use default printer</param>
+	<remarks></remarks>
+</member><member name="M:etiquetas.printer.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport,System.String,System.Boolean,System.String)">
+	<summary>
+ Print rdlc report with specific paper kind
+ </summary>
+	<param name="report"></param>
+	<param name="paperkind">String paper Kind, ex:"letter"</param>
+	<param name="islandscap"></param>
+	<param name="printer_name">Ignore this parameter to use default printer</param>
+	<remarks></remarks>
 </member>
 </members>
 </doc>

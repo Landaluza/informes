@@ -15,9 +15,9 @@ Public Class printer
     Private PrintDialogEtiquetas As PrintDialog
     Private PageSetupDialogEtiquetas As PageSetupDialog
     Private PrintPreviewDialogEtiquetas As PrintPreviewDialog
+    Private panel As Panel
 
     Public Sub New()
-
         PrintDialogEtiquetas = New PrintDialog()
         PageSetupDialogEtiquetas = New PageSetupDialog
         printdoc = New System.Drawing.Printing.PrintDocument
@@ -32,9 +32,9 @@ Public Class printer
         PageSetupDialogEtiquetas.PrinterSettings = archivo.loadObject(Environment.GetFolderPath(Environment.SpecialFolder.Personal) & "/PageSetupDialogEtiquetas.obj")
         PageSetupDialogEtiquetas.PageSettings = archivo.loadObject(Environment.GetFolderPath(Environment.SpecialFolder.Personal) & "/PageSetupDialogEtiquetas2.obj")
         'PrintPreviewDialogEtiquetas = archivo.loadObject("PrintPreviewDialogEtiquetas.obj")
-        printdoc.PrinterSettings = archivo.loadObject(Environment.GetFolderPath(Environment.SpecialFolder.Personal) & "/documentoImpresoraEtiquetas.obj")
-        PageSetupDialogEtiquetas.Document = printdoc
-        PrintDialogEtiquetas.Document = printdoc
+        documentoImpresoraEtiquetas.PrinterSettings = archivo.loadObject(Environment.GetFolderPath(Environment.SpecialFolder.Personal) & "/documentoImpresoraEtiquetas.obj")
+        PageSetupDialogEtiquetas.Document = documentoImpresoraEtiquetas
+        PrintDialogEtiquetas.Document = documentoImpresoraEtiquetas
     End Sub
 
     ''' <summary>
@@ -142,14 +142,6 @@ Public Class printer
 
         ' Draw a white background for the report
         ev.Graphics.FillRectangle(Brushes.White, adjustedRect)
-
-        ev.Graphics.CompositingMode = Drawing2D.CompositingMode.SourceCopy
-        ev.Graphics.CompositingQuality = Drawing2D.CompositingQuality.HighQuality
-        ev.Graphics.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
-        ev.Graphics.TextRenderingHint = Drawing.Text.TextRenderingHint.AntiAliasGridFit
-        ev.Graphics.SmoothingMode = Drawing2D.SmoothingMode.HighQuality
-
-        ev.Graphics.PageUnit = GraphicsUnit.Display
 
         ' Draw the report content
         ev.Graphics.DrawImage(pageImage, adjustedRect)
