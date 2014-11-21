@@ -9,7 +9,8 @@
     Private ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource
     Private local As Microsoft.Reporting.WinForms.LocalReport
     Private printer As printer
-    Public Sub New(ByVal id As Integer)
+    Public Sub New(ByVal id As Integer, ByVal connection As String)
+        My.Settings.Item("LAConnectionString") = connection
         Me.id = id
         loteador = New Loteado
         barcode = New CodigoBarra
@@ -25,6 +26,7 @@
         ReportDataSource1 = New Microsoft.Reporting.WinForms.ReportDataSource()
         local = New Microsoft.Reporting.WinForms.LocalReport()
         printer = New printer
+        printer.cargar_ajustes()
     End Sub
 
     Public Sub print()

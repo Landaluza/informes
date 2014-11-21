@@ -26,7 +26,7 @@ Public Class printer
         PrintDialogEtiquetas.Document = printdoc
     End Sub
 
-    Private Sub cargar_ajustes()
+    Public Sub cargar_ajustes()
         Dim archivo As New File
         PrintDialogEtiquetas.PrinterSettings = archivo.loadObject(Environment.GetFolderPath(Environment.SpecialFolder.Personal) & "/PrintDialogEtiquetas.obj")
         PageSetupDialogEtiquetas.PrinterSettings = archivo.loadObject(Environment.GetFolderPath(Environment.SpecialFolder.Personal) & "/PageSetupDialogEtiquetas.obj")
@@ -73,22 +73,22 @@ Public Class printer
                                       Optional ByVal islandscap As Boolean = False, _
                                       Optional ByVal printer_name As String = Nothing)
 
-        printdoc = New PrintDocument()
+        'printdoc = New PrintDocument()
         If printer_name <> Nothing Then printdoc.PrinterSettings.PrinterName = printer_name
         If Not printdoc.PrinterSettings.IsValid Then ' detecate is the printer is exist
             Throw New Exception("Cannot find the specified printer")
         Else
-            Dim ps As PaperSize
-            Dim pagekind_found As Boolean = False
-            For i = 0 To printdoc.PrinterSettings.PaperSizes.Count - 1
-                If printdoc.PrinterSettings.PaperSizes.Item(i).Kind.ToString = paperkind Then
-                    ps = printdoc.PrinterSettings.PaperSizes.Item(i)
-                    printdoc.DefaultPageSettings.PaperSize = ps
-                    pagekind_found = True
-                End If
-            Next
-            If Not pagekind_found Then Throw New Exception("paper size is invalid")
-            printdoc.DefaultPageSettings.Landscape = islandscap
+            ' Dim ps As PaperSize
+            ' Dim pagekind_found As Boolean = False
+            'For i = 0 To printdoc.PrinterSettings.PaperSizes.Count - 1
+            '    If printdoc.PrinterSettings.PaperSizes.Item(i).Kind.ToString = paperkind Then
+            '        ps = printdoc.PrinterSettings.PaperSizes.Item(i)
+            '        printdoc.DefaultPageSettings.PaperSize = ps
+            '        pagekind_found = True
+            '    End If
+            'Next
+            'If Not pagekind_found Then Throw New Exception("paper size is invalid")
+            ' printdoc.DefaultPageSettings.Landscape = islandscap
             Export(report)
             Print()
         End If

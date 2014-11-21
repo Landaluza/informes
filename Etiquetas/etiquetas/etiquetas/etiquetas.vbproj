@@ -4,11 +4,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{35BA148E-E94F-482C-ABEE-9668BE2737A0}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <StartupObject>etiquetas.My.MyApplication</StartupObject>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
     <RootNamespace>etiquetas</RootNamespace>
     <AssemblyName>etiquetas</AssemblyName>
-    <MyType>WindowsForms</MyType>
+    <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -90,12 +91,6 @@
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="gui\frmPrueba.Designer.vb">
-      <DependentUpon>frmPrueba.vb</DependentUpon>
-    </Compile>
-    <Compile Include="gui\frmPrueba.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CodigoBarras\GS1.vb" />
     <Compile Include="LADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,9 +119,6 @@
   <ItemGroup>
     <EmbeddedResource Include="gui\frmEtiqueta.resx">
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="gui\frmPrueba.resx">
-      <DependentUpon>frmPrueba.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
