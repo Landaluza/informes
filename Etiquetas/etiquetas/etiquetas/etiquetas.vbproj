@@ -88,6 +88,12 @@
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPrueba.Designer.vb">
+      <DependentUpon>frmPrueba.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrueba.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GS1.vb" />
     <Compile Include="LADataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -110,10 +116,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="print_reports.vb" />
+    <Compile Include="prueba.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmEtiqueta.resx">
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrueba.resx">
+      <DependentUpon>frmPrueba.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">

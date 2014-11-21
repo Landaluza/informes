@@ -24,13 +24,23 @@ Partial Class frmEtiqueta
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.LADataSet = New etiquetas.LADataSet()
         Me.EtiquetasPaletSelectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LADataSet = New etiquetas.LADataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.EtiquetasPaletSelectTableAdapter = New etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter()
-        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EtiquetasPaletSelectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'EtiquetasPaletSelectBindingSource
+        '
+        Me.EtiquetasPaletSelectBindingSource.DataMember = "EtiquetasPaletSelect"
+        Me.EtiquetasPaletSelectBindingSource.DataSource = Me.LADataSet
+        '
+        'LADataSet
+        '
+        Me.LADataSet.DataSetName = "LADataSet"
+        Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -44,30 +54,20 @@ Partial Class frmEtiqueta
         Me.ReportViewer1.Size = New System.Drawing.Size(752, 761)
         Me.ReportViewer1.TabIndex = 0
         '
-        'LADataSet
-        '
-        Me.LADataSet.DataSetName = "LADataSet"
-        Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EtiquetasPaletSelectBindingSource
-        '
-        Me.EtiquetasPaletSelectBindingSource.DataMember = "EtiquetasPaletSelect"
-        Me.EtiquetasPaletSelectBindingSource.DataSource = Me.LADataSet
-        '
         'EtiquetasPaletSelectTableAdapter
         '
         Me.EtiquetasPaletSelectTableAdapter.ClearBeforeFill = True
         '
-        'Form1
+        'frmEtiqueta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(752, 761)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Name = "Form1"
+        Me.Name = "frmEtiqueta"
         Me.Text = "Form1"
-        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EtiquetasPaletSelectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

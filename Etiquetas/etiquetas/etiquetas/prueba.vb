@@ -1,34 +1,42 @@
-﻿Public Class frmEtiqueta
+﻿Public Class prueba
     Private loteador As Loteado
     Private barcode As CodigoBarra
     Private barc As BarcodeLib.Barcode
     Private id As Integer
+    Private LADataSet As etiquetas.LADataSet
+    Private EtiquetasPaletSelectTableAdapter As etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter
+    Private EtiquetasPaletSelectBindingSource As System.Windows.Forms.BindingSource
+
     Public Sub New()
-
-        ' Llamada necesaria para el diseñador.
-        InitializeComponent()
-
         id = 56015
         loteador = New Loteado
         barcode = New CodigoBarra
         barc = New BarcodeLib.Barcode
+        Me.LADataSet = New etiquetas.LADataSet()
+        Me.EtiquetasPaletSelectTableAdapter = New etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter()
+        Me.LADataSet.DataSetName = "LADataSet"
+        Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.EtiquetasPaletSelectTableAdapter.ClearBeforeFill = True
+        Me.EtiquetasPaletSelectBindingSource = New System.Windows.Forms.BindingSource
+        Me.EtiquetasPaletSelectBindingSource.DataMember = "EtiquetasPaletSelect"
+        Me.EtiquetasPaletSelectBindingSource.DataSource = Me.LADataSet
     End Sub
 
-    Public Sub New(ByVal id As Integer, ByVal connection As String)
-
-        ' Llamada necesaria para el diseñador.
-        InitializeComponent()
-        Me.id = id
-        My.Settings.Item("LAConnectionString") = connection
-        loteador = New Loteado
-        barcode = New CodigoBarra
-        barc = New BarcodeLib.Barcode
-    End Sub
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'LADataSet.EtiquetasPaletSelect' Puede moverla o quitarla según sea necesario.
-
+    Public Sub print()
         cargar()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim local As New Microsoft.Reporting.WinForms.LocalReport()
+
+        local.DataSources.Clear()
+
+        ReportDataSource1.Name = "DataSet1"
+        ReportDataSource1.Value = Me.EtiquetasPaletSelectBindingSource
+        local.DataSources.Add(ReportDataSource1)
+        local.ReportEmbeddedResource = "etiquetas.Report1.rdlc"
+
+        print_reports.print_microsoft_report(local, "A4")
     End Sub
+
 
     Private Sub cargar()
         Dim dt As etiquetas.LADataSet.EtiquetasPaletSelectDataTable = Me.LADataSet.EtiquetasPaletSelect
@@ -44,7 +52,7 @@
                 End If
             End If
         Catch ex As Exception
-            Me.LADataSet.EtiquetasPaletSelect(0).loteTexto = ""            
+            Me.LADataSet.EtiquetasPaletSelect(0).loteTexto = ""
         End Try
 
         Try
@@ -78,12 +86,12 @@
             Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia
         End Try
 
-        
+
 
         generarCB2()
 
 
-        Me.ReportViewer1.RefreshReport()
+
 
     End Sub
 
@@ -191,8 +199,5 @@
         'fs.Close()
     End Sub
 
-    
-    Private Sub frmEtiqueta_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        print_reports.print_microsoft_report(Me.ReportViewer1.LocalReport)
-    End Sub
+
 End Class
