@@ -84,6 +84,12 @@
     <Compile Include="clases\Etiqueta.vb" />
     <Compile Include="CodigoBarras\CodigoBarra.vb" />
     <Compile Include="clases\File.vb" />
+    <Compile Include="gui\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="gui\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="gui\frmEtiqueta.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="impresion\prueba.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="gui\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="gui\frmEtiqueta.resx">
       <DependentUpon>frmEtiqueta.vb</DependentUpon>
     </EmbeddedResource>
