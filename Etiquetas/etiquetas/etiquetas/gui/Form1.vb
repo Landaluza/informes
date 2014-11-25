@@ -1,7 +1,7 @@
 ﻿Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim et As New Etiqueta("6759")
+        Dim et As New Etiqueta("40681")
         et.print()
     End Sub
 End Class

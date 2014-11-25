@@ -93,7 +93,7 @@
         If Me.LADataSet.EtiquetasPaletSelect(0).IsanoscaducidadNull Then
             Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = ""
         Else
-            If Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad = "" Then
+            If Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad = "" Or Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad = "0" Then
                 Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = ""
             Else
                 Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = Convert.ToDateTime(Me.LADataSet.EtiquetasPaletSelect(0).lote).AddYears(Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad).ToString("yyMMdd")
