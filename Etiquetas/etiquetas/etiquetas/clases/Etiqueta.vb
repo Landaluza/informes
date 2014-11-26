@@ -29,24 +29,24 @@
         printer.cargar_ajustes()
     End Sub
 
-    Public Sub New(ByVal id As Integer)
-        Me.id = id
-        loteador = New Loteado
-        barcode = New CodigoBarra
-        barc = New BarcodeLib.Barcode
-        Me.LADataSet = New etiquetas.LADataSet()
-        Me.EtiquetasPaletSelectTableAdapter = New etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter()
-        Me.LADataSet.DataSetName = "LADataSet"
-        Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        Me.EtiquetasPaletSelectTableAdapter.ClearBeforeFill = True
-        Me.EtiquetasPaletSelectBindingSource = New System.Windows.Forms.BindingSource
-        Me.EtiquetasPaletSelectBindingSource.DataMember = "EtiquetasPaletSelect"
-        Me.EtiquetasPaletSelectBindingSource.DataSource = Me.LADataSet
-        ReportDataSource1 = New Microsoft.Reporting.WinForms.ReportDataSource()
-        local = New Microsoft.Reporting.WinForms.LocalReport()
-        printer = New printer
-        printer.cargar_ajustes()
-    End Sub
+    'Public Sub New(ByVal id As Integer)
+    '    Me.id = id
+    '    loteador = New Loteado
+    '    barcode = New CodigoBarra
+    '    barc = New BarcodeLib.Barcode
+    '    Me.LADataSet = New etiquetas.LADataSet()
+    '    Me.EtiquetasPaletSelectTableAdapter = New etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter()
+    '    Me.LADataSet.DataSetName = "LADataSet"
+    '    Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+    '    Me.EtiquetasPaletSelectTableAdapter.ClearBeforeFill = True
+    '    Me.EtiquetasPaletSelectBindingSource = New System.Windows.Forms.BindingSource
+    '    Me.EtiquetasPaletSelectBindingSource.DataMember = "EtiquetasPaletSelect"
+    '    Me.EtiquetasPaletSelectBindingSource.DataSource = Me.LADataSet
+    '    ReportDataSource1 = New Microsoft.Reporting.WinForms.ReportDataSource()
+    '    local = New Microsoft.Reporting.WinForms.LocalReport()
+    '    printer = New printer
+    '    printer.cargar_ajustes()
+    'End Sub
     Public Sub print()
         cargar()
 
