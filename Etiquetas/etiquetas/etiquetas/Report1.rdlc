@@ -22,7 +22,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
-        <Left>0.39371cm</Left>
+        <Left>0.71121cm</Left>
         <Height>0.57009cm</Height>
         <Width>9.84251cm</Width>
         <Style>
@@ -42,9 +42,9 @@
         <MIMEType>image/jpeg</MIMEType>
         <Sizing>Fit</Sizing>
         <Top>6.60258cm</Top>
-        <Left>0.36724cm</Left>
+        <Left>0.84349cm</Left>
         <Height>2.76987cm</Height>
-        <Width>9.86897cm</Width>
+        <Width>9.46326cm</Width>
         <ZIndex>1</ZIndex>
         <Visibility>
           <Hidden>=IIf(  Sum(Fields!tipopalet.Value, "DataSet1")=  94 Or First(Fields!ean13.Value, "DataSet1") = "", true, false)</Hidden>
@@ -61,9 +61,9 @@
         <MIMEType>image/jpeg</MIMEType>
         <Sizing>Fit</Sizing>
         <Top>10.10447cm</Top>
-        <Left>0.39371cm</Left>
+        <Left>0.84349cm</Left>
         <Height>2.6464cm</Height>
-        <Width>9.8425cm</Width>
+        <Width>9.46326cm</Width>
         <ZIndex>2</ZIndex>
         <Visibility>
           <Hidden>=IIf( First(Fields!ean14.Value, "DataSet1")="" and First(Fields!ean13.Value, "DataSet1")&lt;&gt;"" , true, false)</Hidden>
@@ -95,7 +95,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox48</rd:DefaultName>
         <Top>9.54884cm</Top>
-        <Left>0.36724cm</Left>
+        <Left>0.68474cm</Left>
         <Height>0.34396cm</Height>
         <Width>9.86898cm</Width>
         <ZIndex>3</ZIndex>
@@ -134,7 +134,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox48</rd:DefaultName>
         <Top>12.8567cm</Top>
-        <Left>0.36724cm</Left>
+        <Left>0.68474cm</Left>
         <Height>0.44097cm</Height>
         <Width>9.86898cm</Width>
         <ZIndex>4</ZIndex>
@@ -371,7 +371,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>0.7112cm</Top>
-        <Left>0.36724cm</Left>
+        <Left>0.68474cm</Left>
         <Height>2.1875cm</Height>
         <Width>9.86898cm</Width>
         <ZIndex>5</ZIndex>
@@ -734,7 +734,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>2.92488cm</Top>
-        <Left>0.36724cm</Left>
+        <Left>0.68474cm</Left>
         <Height>3.50131cm</Height>
         <Width>9.86898cm</Width>
         <ZIndex>6</ZIndex>
