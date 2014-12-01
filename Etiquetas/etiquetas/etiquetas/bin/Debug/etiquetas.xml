@@ -81,7 +81,7 @@ TableAdapterManager is used to coordinate TableAdapters in the dataset to enable
 	<param name="islandscap"></param>
 	<param name="printer_name">Ignore this parameter to use default printer</param>
 	<remarks></remarks>
-</member><member name="M:etiquetas.printer.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport,System.String,System.Boolean,System.String)">
+</member><member name="M:etiquetas.printer.print_microsoft_report(Microsoft.Reporting.WinForms.LocalReport,System.Int32,System.String,System.Boolean,System.String)">
 	<summary>
  Print rdlc report with specific paper kind
  </summary>

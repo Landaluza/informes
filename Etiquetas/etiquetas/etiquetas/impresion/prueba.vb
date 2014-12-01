@@ -22,7 +22,7 @@
         Me.EtiquetasPaletSelectBindingSource.DataSource = Me.LADataSet
     End Sub
 
-    Public Sub print()
+    Public Sub print(ByVal numberCopies As Integer)
         cargar()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim local As New Microsoft.Reporting.WinForms.LocalReport()
@@ -36,7 +36,7 @@
 
         'print_reports.print_microsoft_report(local, "A4")
         Dim pr As New printer
-        pr.print_microsoft_report(local)
+        pr.print_microsoft_report(local, numberCopies)
     End Sub
 
 

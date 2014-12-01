@@ -69,7 +69,7 @@ Public Class printer
     ''' <param name="islandscap"></param>
     ''' <param name="printer_name">Ignore this parameter to use default printer</param>
     ''' <remarks></remarks>
-    Public Sub print_microsoft_report(ByVal report As LocalReport, Optional ByVal paperkind As String = "A4", _
+    Public Sub print_microsoft_report(ByVal report As LocalReport, ByVal numberCopies As Integer, Optional ByVal paperkind As String = "A4", _
                                       Optional ByVal islandscap As Boolean = False, _
                                       Optional ByVal printer_name As String = Nothing)
 
@@ -89,6 +89,7 @@ Public Class printer
             'Next
             'If Not pagekind_found Then Throw New Exception("paper size is invalid")
             ' printdoc.DefaultPageSettings.Landscape = islandscap
+            Me.printdoc.DefaultPageSettings.PrinterSettings.Copies = numberCopies
             Export(report)
             Print()
         End If

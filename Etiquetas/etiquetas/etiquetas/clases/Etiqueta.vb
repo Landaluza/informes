@@ -47,7 +47,7 @@
     '    printer = New printer
     '    printer.cargar_ajustes()
     'End Sub
-    Public Sub print()
+    Public Sub print(ByVal numberCopies As Integer)
         cargar()
 
         local.DataSources.Clear()
@@ -59,7 +59,7 @@
 
         'print_reports.print_microsoft_report(local, "A4")
 
-        printer.print_microsoft_report(local)
+        printer.print_microsoft_report(local, numberCopies)
     End Sub
 
 
