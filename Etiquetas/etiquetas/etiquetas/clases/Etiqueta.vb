@@ -9,6 +9,16 @@
     Private ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource
     Private local As Microsoft.Reporting.WinForms.LocalReport
     Private printer As printer
+
+    Public Property DataSet As LADataSet
+        Get
+            Return Me.LADataSet
+        End Get
+        Set(value As LADataSet)
+            Me.LADataSet = value
+        End Set
+    End Property
+
     Public Sub New(ByVal id As Integer, ByVal connection As String)
         My.Settings.Item("LAConnectionString") = connection
         Me.id = id
@@ -18,6 +28,23 @@
         Me.LADataSet = New etiquetas.LADataSet()
         Me.EtiquetasPaletSelectTableAdapter = New etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter()
         Me.LADataSet.DataSetName = "LADataSet"
+        Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.EtiquetasPaletSelectTableAdapter.ClearBeforeFill = True
+        Me.EtiquetasPaletSelectBindingSource = New System.Windows.Forms.BindingSource
+        Me.EtiquetasPaletSelectBindingSource.DataMember = "EtiquetasPaletSelect"
+        Me.EtiquetasPaletSelectBindingSource.DataSource = Me.LADataSet
+        ReportDataSource1 = New Microsoft.Reporting.WinForms.ReportDataSource()
+        local = New Microsoft.Reporting.WinForms.LocalReport()
+        printer = New printer
+        printer.cargar_ajustes()
+    End Sub
+
+    Public Sub New(ByVal dataset As LADataSet)        
+        Me.LADataSet = dataset
+        loteador = New Loteado
+        barcode = New CodigoBarra
+        barc = New BarcodeLib.Barcode
+        Me.EtiquetasPaletSelectTableAdapter = New etiquetas.LADataSetTableAdapters.EtiquetasPaletSelectTableAdapter()
         Me.LADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         Me.EtiquetasPaletSelectTableAdapter.ClearBeforeFill = True
         Me.EtiquetasPaletSelectBindingSource = New System.Windows.Forms.BindingSource
@@ -47,8 +74,8 @@
     '    printer = New printer
     '    printer.cargar_ajustes()
     'End Sub
-    Public Sub print(ByVal numberCopies As Integer)
-        cargar()
+    Public Sub print(ByVal numberCopies As Integer, ByVal recargarDatos As Boolean)
+        If recargarDatos Then cargar()
 
         local.DataSources.Clear()
 
@@ -63,7 +90,7 @@
     End Sub
 
 
-    Private Sub cargar()
+    Public Sub cargar()
         Dim dt As etiquetas.LADataSet.EtiquetasPaletSelectDataTable = Me.LADataSet.EtiquetasPaletSelect
         Me.EtiquetasPaletSelectTableAdapter.Fill(dt, id)
 
@@ -112,7 +139,40 @@
                 Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia()
             End If
         Catch ex As Exception
-            Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia
+            Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia()
+        End Try
+
+        generarCB2()
+
+    End Sub
+
+    Public Sub calcular()
+
+
+        Try
+            If Not Me.LADataSet.EtiquetasPaletSelect(0).Isean14Null Then
+                Me.LADataSet.EtiquetasPaletSelect(0).SCC = barcode.ajustarSCC_Con_Digito_Control(Me.LADataSet.EtiquetasPaletSelect(0).SCC, Me.LADataSet.EtiquetasPaletSelect(0).ean14)
+            Else
+                Me.LADataSet.EtiquetasPaletSelect(0).SCC = barcode.ajustarSCC_Con_Digito_Control(Me.LADataSet.EtiquetasPaletSelect(0).SCC, "")
+            End If
+        Catch ex As Exception
+            Me.LADataSet.EtiquetasPaletSelect(0).SCC = barcode.ajustarSCC_Con_Digito_Control(Me.LADataSet.EtiquetasPaletSelect(0).SCC, "")
+        End Try
+
+
+
+        Try
+            If Not Me.LADataSet.EtiquetasPaletSelect(0).Isean14Null Then
+                If Me.LADataSet.EtiquetasPaletSelect(0).loteTexto <> "" Then
+                    generarCB1()
+                Else
+                    generarCB1Corto()
+                End If
+            Else
+                Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia()
+            End If
+        Catch ex As Exception
+            Me.LADataSet.EtiquetasPaletSelect(0).img1 = imagenVacia()
         End Try
 
         generarCB2()

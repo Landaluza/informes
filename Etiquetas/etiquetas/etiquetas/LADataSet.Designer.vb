@@ -678,27 +678,18 @@ Partial Public Class LADataSet
             Me.columntexto_codigo2 = New Global.System.Data.DataColumn("texto_codigo2", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntexto_codigo2)
             Me.columnmarca.MaxLength = 200
-            Me.columnproducto.ReadOnly = True
             Me.columnproducto.MaxLength = 50
-            Me.columnbotellas.ReadOnly = True
             Me.columnbotellas.MaxLength = 413
-            Me.columnpalet.ReadOnly = True
             Me.columnpalet.MaxLength = 2147483647
-            Me.columncajas.ReadOnly = True
             Me.columncajas.MaxLength = 341
-            Me.columncantidadBotellas.ReadOnly = True
             Me.columncantidadBotellas.MaxLength = 341
             Me.columnean13.MaxLength = 13
             Me.columnean14.MaxLength = 18
-            Me.columnlote.ReadOnly = True
             Me.columnpaletproducidoid.AutoIncrement = True
             Me.columnpaletproducidoid.AllowDBNull = False
-            Me.columnpaletproducidoid.ReadOnly = True
             Me.columnanoscaducidad.DefaultValue = CType("""""", String)
             Me.columncabecera.MaxLength = 300
-            Me.columntipopalet.ReadOnly = True
             Me.columnTipoLoteado.AutoIncrement = True
-            Me.columnTipoLoteado.ReadOnly = True
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
