@@ -123,7 +123,7 @@
             If Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad = "" Or Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad = "0" Then
                 Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = ""
             Else
-                Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = Convert.ToDateTime(Me.LADataSet.EtiquetasPaletSelect(0).lote).AddYears(Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad).ToString("yyMMdd")
+                Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto = Convert.ToDateTime(Me.LADataSet.EtiquetasPaletSelect(0).lote).AddYears(Me.LADataSet.EtiquetasPaletSelect(0).anoscaducidad).ToString("yy/MM/dd")
             End If
         End If
 
@@ -233,7 +233,7 @@
 
 
     Private Sub generarCB2()
-        Dim gs As GS1 = Me.barcode.calcular_codigoBarras2(Me.LADataSet.EtiquetasPaletSelect(0).SCC, Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto)
+        Dim gs As GS1 = Me.barcode.calcular_codigoBarras2(Me.LADataSet.EtiquetasPaletSelect(0).SCC, Me.LADataSet.EtiquetasPaletSelect(0).CaducidadTexto.Replace("/", "").Replace("-", ""))
         Dim texto As String = gs.SSCC
         Dim temp As Bitmap
 

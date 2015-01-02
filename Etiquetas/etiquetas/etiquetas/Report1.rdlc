@@ -589,7 +589,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=IIf(First(Fields!CaducidadTexto.Value, "DataSet1") = "", "", Left(First(Fields!CaducidadTexto.Value, "DataSet1"), 2) &amp; "/" &amp; Mid(First(Fields!CaducidadTexto.Value, "DataSet1"), 3,2) &amp; "/" &amp; Right(First(Fields!CaducidadTexto.Value, "DataSet1"), 2) )</Value>
+                    <Value>=First(Fields!CaducidadTexto.Value, "DataSet1")</Value>
                     <Style>
                       <FontSize>6pt</FontSize>
                     </Style>
@@ -658,7 +658,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fecha de consumo preferente(aammdd):</Value>
+                    <Value>Fecha de consumo preferente:</Value>
                     <Style>
                       <FontSize>6pt</FontSize>
                     </Style>
