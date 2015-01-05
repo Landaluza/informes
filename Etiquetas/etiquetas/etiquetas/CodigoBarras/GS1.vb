@@ -15,10 +15,18 @@
     Public ReadOnly Property Empresa As String
         Get
             Dim lote As String = Codugo2
+            'If lote.Length Mod 2 <> 0 Then
+            '    Dim lot1 As String = lote.Substring(0, lote.Length - 1)
+            '    Dim lot2 As String = lote.Substring(lote.Length - 1, 1)
+            '    lote = lot1 & "B" & lot2
+            'End If
+
             If lote.Length Mod 2 <> 0 Then
                 Dim lot1 As String = lote.Substring(0, lote.Length - 1)
                 Dim lot2 As String = lote.Substring(lote.Length - 1, 1)
                 lote = lot1 & "B" & lot2
+            Else
+                lote = lote & "B"
             End If
 
             Return FNC1 & Codigo1 & lote

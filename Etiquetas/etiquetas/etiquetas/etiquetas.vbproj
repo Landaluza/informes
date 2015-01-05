@@ -143,10 +143,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="librerias\BarcodeLib.dll" />
+    <Folder Include="gui\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="gui\" />
+    <None Include="librerias\BarcodeLib.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
