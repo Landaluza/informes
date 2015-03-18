@@ -9,96 +9,139 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListadoFormatosTableAdapter" GeneratorDataComponentClassName="ListadoFormatosTableAdapter" Name="ListadoFormatos" UserDataComponentName="ListadoFormatosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="LAConnectionString (MySettings)" DbObjectName="SELECT TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, TiposFormatosLineas_4.Descripcion AS Formato, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS VelocidadMaquina FROM PaletsContenidos INNER JOIN Envasados INNER JOIN FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN ArticulosEnvasadosHistoricoSinLinea AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID WHERE (Envasados.Fecha BETWEEN @Fecha AND @FechaFin) GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion ORDER BY Linea" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="LAConnectionString (MySettings)" DbObjectName="SELECT TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, TiposFormatosLineas_4.Descripcion AS Formato, TiposFormatosLineas_4.TipoFormatoLineaID FormatoId, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS VelocidadMaquina FROM PaletsContenidos INNER JOIN Envasados INNER JOIN FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN ArticulosEnvasadosHistoricoSinLinea AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID WHERE (Envasados.Fecha BETWEEN @Fecha AND @FechaFin) GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.TipoFormatoLineaid, TiposFormatosLineas_4.descripcion ORDER BY Linea" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        EficaciaPorFormato.Linea, EficaciaPorFormato.Formato, sum(EficaciaPorFormato.TiempoEnvasado) AS TiempoRegistradoEnvasado, 
+                    <CommandText>SELECT        EficaciaPorFormato.Linea, EficaciaPorFormato.Formato, sum(EficaciaPorFormato.TiempoEnvasado) AS TiempoRegistradoEnvasado
+, 
                          avg(EficaciaPorFormato.VelocidadTeorica) VelocidadTeorica, sum(EficaciaPorFormato.UnidadesFabricadas) as UnidadesFabricadas, 
 						 sum(ISNULL(TiempoPlanificadas.MinutosIncidencia, 0)) AS Planificadas, 
                          sum(ISNULL(TiempoGestionRecursos.MinutosIncidencia, 0)) AS GestionRecursos, 
 						 sum(ISNULL(TiempoIntrinsecas.MinutosIncidencia, 0)) AS Intrinsecas, 
-                         ISNULL(SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio, CambiosFormatosEnvasados.HoraFin)), 0) AS CambiosFormato
-FROM            (SELECT        Envasados_1.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin)) AS MinutosIncidencia, 
-                                                    CategoriaIncidencias.Descripcion AS Categoria, LineasEnvasado_1.Descripcion AS Linea, CategoriaIncidencias.CategoriaIncidenciaID, 
-                                                    TiposFormatosLineas_1.Descripcion AS Formato
-                          FROM            ClasesIncidencias INNER JOIN
-                                                    Envasados AS Envasados_1 INNER JOIN
-                                                    FormatosEnvasados AS FormatosEnvasados_1 ON Envasados_1.EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN
-                                                    Incidencias ON FormatosEnvasados_1.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN
-                                                    TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON 
-                                                    ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN
-                                                    TiposFormatosLineas AS TiposFormatosLineas_1 ON 
-                                                    FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN
-                                                    LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = LineasEnvasado_1.LineaEnvasadoID RIGHT OUTER JOIN
-                                                    CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID
-                          GROUP BY LineasEnvasado_1.Descripcion, Envasados_1.EnvasadoID, CategoriaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID, 
-                                                    TiposFormatosLineas_1.Descripcion
-                          HAVING         (CategoriaIncidencias.CategoriaIncidenciaID = 11)) AS TiempoPlanificadas RIGHT OUTER JOIN
-                             (SELECT        TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, 
-                                                         TiposFormatosLineas_4.Descripcion AS Formato, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, 
-                                                         AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) 
-                                                         AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) 
-                                                         * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, 
-                                                         AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) 
-                                                         AS VelocidadMaquina
-                               FROM            PaletsContenidos INNER JOIN
-                                                         Envasados INNER JOIN
-                                                         FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON 
-                                                         PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN
-                                                         ArticulosEnvasadosHistoricoSinLinea  AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN
-                                                         TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN
-                                                         TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN
-                                                         TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN
-                                                         LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON 
-                                                         TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON 
-                                                         TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND 
-                                                         FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID
-                               WHERE        (Envasados.Fecha between @Fecha and @FechaFin)
-                               GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion
-                               ORDER BY Linea) AS EficaciaPorFormato LEFT OUTER JOIN
-                         TiposFormatosLineas INNER JOIN
-                         FormatosEnvasados INNER JOIN
-                         CambiosFormatosEnvasados ON FormatosEnvasados.FormatoEnvasadoID = CambiosFormatosEnvasados.FormatoEnvasadoAID ON 
-                         TiposFormatosLineas.TipoFormatoLineaID = FormatosEnvasados.TipoFormatoLineaID ON EficaciaPorFormato.Formato = TiposFormatosLineas.Descripcion AND 
-                         EficaciaPorFormato.EnvasadoID = FormatosEnvasados.EnvasadoID LEFT OUTER JOIN
-                             (SELECT        Envasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin)) AS MinutosIncidencia, 
-                                                         CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, 
-                                                         TiposFormatosLineas_3.Descripcion AS Formato
-                               FROM            ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN
-                                                         Envasados AS Envasados_3 INNER JOIN
-                                                         FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN
-                                                         Incidencias AS Incidencias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INNER JOIN
-                                                         TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON 
-                                                         ClasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN
-                                                         TiposFormatosLineas AS TiposFormatosLineas_3 ON 
-                                                         FormatosEnvasados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER JOIN
-                                                         LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID = LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN
-                                                         CategoriaIncidencias AS CategoriaIncidencias_2 ON 
-                                                         ClasesIncidencias_2.id_categoriaIncidencia = CategoriaIncidencias_2.CategoriaIncidenciaID
-                               GROUP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenciaID, 
-                                                         TiposFormatosLineas_3.Descripcion
-                               HAVING         (CategoriaIncidencias_2.CategoriaIncidenciaID = 10)) AS TiempoIntrinsecas ON EficaciaPorFormato.EnvasadoID = TiempoIntrinsecas.EnvasadoID AND 
-                         EficaciaPorFormato.Linea = TiempoIntrinsecas.Linea AND EficaciaPorFormato.Formato = TiempoIntrinsecas.Formato LEFT OUTER JOIN
-                             (SELECT        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidencias_1.HoraFin)) AS MinutosIncidencia, 
-                                                         CategoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID, 
-                                                         TiposFormatosLineas_2.Descripcion AS Formato
-                               FROM            ClasesIncidencias AS ClasesIncidencias_1 INNER JOIN
-                                                         Envasados AS Envasados_2 INNER JOIN
-                                                         FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = FormatosEnvasados_2.EnvasadoID INNER JOIN
-                                                         Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnvasadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN
-                                                         TiposIncidencias AS TiposIncidencias_1 ON Incidencias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON 
-                                                         ClasesIncidencias_1.ClaseIncidenciaID = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN
-                                                         TiposFormatosLineas AS TiposFormatosLineas_2 ON 
-                                                         FormatosEnvasados_2.TipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN
-                                                         LineasEnvasado AS LineasEnvasado_2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGHT OUTER JOIN
-                                                         CategoriaIncidencias AS CategoriaIncidencias_1 ON 
-                                                         ClasesIncidencias_1.id_categoriaIncidencia = CategoriaIncidencias_1.CategoriaIncidenciaID
-                               GROUP BY LineasEnvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion, CategoriaIncidencias_1.CategoriaIncidenciaID, 
-                                                         TiposFormatosLineas_2.Descripcion
-                               HAVING         (CategoriaIncidencias_1.CategoriaIncidenciaID = 12)) AS TiempoGestionRecursos ON 
-                         EficaciaPorFormato.EnvasadoID = TiempoGestionRecursos.EnvasadoID AND EficaciaPorFormato.Linea = TiempoGestionRecursos.Linea AND 
-                         EficaciaPorFormato.Formato = TiempoGestionRecursos.Formato ON TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND 
-                         TiempoPlanificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID AND TiempoPlanificadas.Formato = EficaciaPorFormato.Formato
+                         --ISNULL(SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio, CambiosFormatosEnvasados.HoraFin)), 0) AS CambiosFormato
+						 SUM(isnull(CambiosDeFormato.Minutos,0)) AS CambiosFormato
+FROM            
+	(SELECT        
+		Envasados_1.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin)) AS MinutosIncidencia, 
+        CategoriaIncidencias.Descripcion AS Categoria, LineasEnvasado_1.Descripcion AS Linea, CategoriaIncidencias.CategoriaIncidenciaID, 
+		TiposFormatosLineas_1.Descripcion AS Formato, TiposFormatosLineas_1.TipoFormatoLineaid FormatoId
+     FROM            
+		ClasesIncidencias INNER JOIN
+        Envasados AS Envasados_1 INNER JOIN
+        FormatosEnvasados AS FormatosEnvasados_1 ON Envasados_1.EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN
+        Incidencias ON FormatosEnvasados_1.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN
+        TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON 
+        ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN
+        TiposFormatosLineas AS TiposFormatosLineas_1 ON 
+        FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN
+        LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = LineasEnvasado_1.LineaEnvasadoID RIGHT OUTER JOIN
+        CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID
+	GROUP BY 
+		LineasEnvasado_1.Descripcion, Envasados_1.EnvasadoID, CategoriaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID, TiposFormatosLineas_1.TipoformatolineaID, TiposFormatosLineas_1.Descripcion
+    HAVING         
+		(CategoriaIncidencias.CategoriaIncidenciaID = 11)
+	
+	) AS TiempoPlanificadas 
+			RIGHT OUTER JOIN
+    (SELECT        
+		TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, 
+        TiposFormatosLineas_4.Descripcion AS Formato, TiposFormatosLineas_4.TipoFormatoLineaID FormatoId, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, 
+        AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) 
+        AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) 
+        * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, 
+        AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) 
+        AS VelocidadMaquina
+    FROM            
+		PaletsContenidos INNER JOIN
+        Envasados INNER JOIN
+        FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON 
+        PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN
+        ArticulosEnvasadosHistoricoSinLinea  AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN
+        TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN
+        TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN
+        TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN
+        LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON 
+        TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON 
+        TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND 
+        FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID
+    WHERE        
+		(Envasados.Fecha between @Fecha and @FechaFin)
+    GROUP BY 
+		Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.TipoFormatoLineaid, TiposFormatosLineas_4.descripcion
+    ORDER BY 
+		Linea
+	) AS EficaciaPorFormato ON 
+						TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND 
+						TiempoPlanificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID AND 
+						TiempoPlanificadas.Formatoid = EficaciaPorFormato.Formatoid							   						
+	left outer join
+	(SELECT        
+		Envasados.EnvasadoID, 
+		Envasados.Fecha, 
+		LineasEnvasado.Descripcion AS Linea, 
+        TiposFormatos_10.FormatosLineas AS Formato, TiposFormatos_10.TipoFormatoLineaid FormatoId, 
+		SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio , CambiosFormatosEnvasados.HoraFin)) as Minutos
+    FROM            
+        Envasados INNER JOIN
+        FormatosEnvasados AS FormatosEnvasados_50 ON Envasados.EnvasadoID = FormatosEnvasados_50.EnvasadoID 
+		INNER JOIN
+        ArticulosEnvasadosHistorico AS TiposFormatos_10 ON FormatosEnvasados_50.TipoFormatoEnvasadoID = TiposFormatos_10.TipoFormato    
+		inner join LineasEnvasado on LineasEnvasado.LineaEnvasadoID = TiposFormatos_10.Linea     
+		inner join CambiosFormatosEnvasados on CambiosFormatosEnvasados.FormatoEnvasadoAID = FormatosEnvasados_50.FormatoEnvasadoID 
+    WHERE        
+		(Envasados.Fecha between @Fecha and @FechaFin)
+    GROUP BY 
+		Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatos_10.TipoFormatoLineaid, TiposFormatos_10.FormatosLineas
+    ) as CambiosDeFormato
+	ON 
+						EficaciaPorFormato.Linea = CambiosDeFormato.Linea AND 
+						EficaciaPorFormato.EnvasadoID = CambiosDeFormato.EnvasadoID AND 
+						EficaciaPorFormato.Formatoid = CambiosDeFormato.Formatoid	 
+	LEFT OUTER JOIN
+	(SELECT        Envasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin)) AS MinutosIncidencia, 
+								CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, 
+								TiposFormatosLineas_3.Descripcion AS Formato
+	FROM            ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN
+								Envasados AS Envasados_3 INNER JOIN
+								FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN
+								Incidencias AS Incidencias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INNER JOIN
+								TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON 
+								ClasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN
+								TiposFormatosLineas AS TiposFormatosLineas_3 ON 
+								FormatosEnvasados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER JOIN
+								LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID = LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN
+								CategoriaIncidencias AS CategoriaIncidencias_2 ON 
+								ClasesIncidencias_2.id_categoriaIncidencia = CategoriaIncidencias_2.CategoriaIncidenciaID
+	GROUP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenciaID, 
+								TiposFormatosLineas_3.Descripcion
+	HAVING         (CategoriaIncidencias_2.CategoriaIncidenciaID = 10)
+	) AS TiempoIntrinsecas 
+		ON EficaciaPorFormato.EnvasadoID = TiempoIntrinsecas.EnvasadoID 
+		AND 
+        EficaciaPorFormato.Linea = TiempoIntrinsecas.Linea AND EficaciaPorFormato.Formato = TiempoIntrinsecas.Formato 
+	LEFT OUTER JOIN
+    (SELECT        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidencias_1.HoraFin)) AS MinutosIncidencia, 
+                                CategoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID, 
+                                TiposFormatosLineas_2.Descripcion AS Formato
+    FROM            ClasesIncidencias AS ClasesIncidencias_1 INNER JOIN
+                                Envasados AS Envasados_2 INNER JOIN
+                                FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = FormatosEnvasados_2.EnvasadoID INNER JOIN
+                                Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnvasadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN
+                                TiposIncidencias AS TiposIncidencias_1 ON Incidencias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON 
+                                ClasesIncidencias_1.ClaseIncidenciaID = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN
+                                TiposFormatosLineas AS TiposFormatosLineas_2 ON 
+                                FormatosEnvasados_2.TipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN
+                                LineasEnvasado AS LineasEnvasado_2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGHT OUTER JOIN
+                                CategoriaIncidencias AS CategoriaIncidencias_1 ON 
+                                ClasesIncidencias_1.id_categoriaIncidencia = CategoriaIncidencias_1.CategoriaIncidenciaID
+    GROUP BY LineasEnvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion, CategoriaIncidencias_1.CategoriaIncidenciaID, 
+                                TiposFormatosLineas_2.Descripcion
+    HAVING         (CategoriaIncidencias_1.CategoriaIncidenciaID = 12)
+	) AS TiempoGestionRecursos ON 
+            EficaciaPorFormato.EnvasadoID = TiempoGestionRecursos.EnvasadoID 
+			AND EficaciaPorFormato.Linea = TiempoGestionRecursos.Linea 
+			AND 
+            EficaciaPorFormato.Formato = TiempoGestionRecursos.Formato 
 GROUP BY  EficaciaPorFormato.Linea, EficaciaPorFormato.Formato                        
 ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato</CommandText>
                     <Parameters>
@@ -124,120 +167,141 @@ ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ListadoFormatosPorMesTableAdapter" GeneratorDataComponentClassName="ListadoFormatosPorMesTableAdapter" Name="ListadoFormatosPorMes" UserDataComponentName="ListadoFormatosPorMesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="LAConnectionString (MySettings)" DbObjectName="SELECT TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, TiposFormatosLineas_4.Descripcion AS Formato, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS VelocidadMaquina FROM PaletsContenidos INNER JOIN Envasados INNER JOIN FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN ArticulosEnvasadosHistoricoSinLinea AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID WHERE (Envasados.Fecha BETWEEN @Fecha AND @FechaFin) GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion ORDER BY Linea" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="LAConnectionString (MySettings)" DbObjectName="SELECT TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, TiposFormatosLineas_4.Descripcion AS Formato, TiposFormatosLineas_4.TipoFormatoLineaID FormatoId, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS VelocidadMaquina FROM PaletsContenidos INNER JOIN Envasados INNER JOIN FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN ArticulosEnvasadosHistoricoSinLinea AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID WHERE (Envasados.Fecha BETWEEN @Fecha AND @FechaFin) GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.TipoFormatoLineaid, TiposFormatosLineas_4.descripcion ORDER BY Linea" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT   month(EficaciaPorFormato.fecha) mes,  EficaciaPorFormato.Linea, EficaciaPorFormato.Formato, sum(EficaciaPorFormato.TiempoEnvasado) AS TiempoRegistradoEnvasado, 
-								 avg(EficaciaPorFormato.VelocidadTeorica) VelocidadTeorica, sum(EficaciaPorFormato.UnidadesFabricadas) as UnidadesFabricadas, 
-								 sum(ISNULL(TiempoPlanificadas.MinutosIncidencia, 0)) AS Planificadas, 
-								 sum(ISNULL(TiempoGestionRecursos.MinutosIncidencia, 0)) AS GestionRecursos, 
-								 sum(ISNULL(TiempoIntrinsecas.MinutosIncidencia, 0)) AS Intrinsecas, 
-								 ISNULL(SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio, CambiosFormatosEnvasados.HoraFin)), 0) AS CambiosFormato
-		FROM            (SELECT       Envasados_1.fecha, Envasados_1.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin)) AS MinutosIncidencia, 
-															CategoriaIncidencias.Descripcion AS Categoria, LineasEnvasado_1.Descripcion AS Linea, CategoriaIncidencias.CategoriaIncidenciaID, 
-															TiposFormatosLineas_1.Descripcion AS Formato
-								  FROM            ClasesIncidencias INNER JOIN
-															Envasados AS Envasados_1 INNER JOIN
-															FormatosEnvasados AS FormatosEnvasados_1 ON Envasados_1.EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN
-															Incidencias ON FormatosEnvasados_1.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN
-															TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON 
-															ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN
-															TiposFormatosLineas AS TiposFormatosLineas_1 ON 
-															FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN
-															LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = LineasEnvasado_1.LineaEnvasadoID RIGHT OUTER JOIN
-															CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID
-								  GROUP BY LineasEnvasado_1.Descripcion, Envasados_1.EnvasadoID, CategoriaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID, 
-															TiposFormatosLineas_1.Descripcion, envasados_1.fecha
-								  HAVING         (CategoriaIncidencias.CategoriaIncidenciaID = 11)
-						) AS TiempoPlanificadas 
-						
-						RIGHT OUTER JOIN
-						
-						(SELECT        
-							TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, 
-												TiposFormatosLineas_4.Descripcion AS Formato, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, 
-												AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) 
-												AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) 
-												* TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, 
-												AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) 
-												AS VelocidadMaquina
-									FROM            PaletsContenidos INNER JOIN
-																 Envasados INNER JOIN
-																 FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON 
-																 PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN
-																 ArticulosEnvasadosHistoricoSinLinea  AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN
-																 TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN
-																 TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN
-																 TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN
-																 LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON 
-																 TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON 
-																 TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND 
-																 FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID
-									WHERE        (Envasados.Fecha between @Fecha and @FechaFin)
-									GROUP BY Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.Descripcion
-									ORDER BY Linea
-						) AS EficaciaPorFormato 
-						
-						LEFT OUTER JOIN
-								
-						TiposFormatosLineas INNER JOIN
-						FormatosEnvasados INNER JOIN
-						CambiosFormatosEnvasados ON FormatosEnvasados.FormatoEnvasadoID = CambiosFormatosEnvasados.FormatoEnvasadoAID ON 
-						TiposFormatosLineas.TipoFormatoLineaID = FormatosEnvasados.TipoFormatoLineaID ON EficaciaPorFormato.Formato = TiposFormatosLineas.Descripcion AND 
-						EficaciaPorFormato.EnvasadoID = FormatosEnvasados.EnvasadoID 
-						
-						LEFT OUTER JOIN
-						
-						(SELECT        Envasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin)) AS MinutosIncidencia, 
-																 CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, 
-																 TiposFormatosLineas_3.Descripcion AS Formato
-									   FROM            ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN
-																 Envasados AS Envasados_3 INNER JOIN
-																 FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN
-																 Incidencias AS Incidencias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INNER JOIN
-																 TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON 
-																 ClasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN
-																 TiposFormatosLineas AS TiposFormatosLineas_3 ON 
-																 FormatosEnvasados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER JOIN
-																 LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID = LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN
-																 CategoriaIncidencias AS CategoriaIncidencias_2 ON 
-																 ClasesIncidencias_2.id_categoriaIncidencia = CategoriaIncidencias_2.CategoriaIncidenciaID
-									   GROUP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenciaID, 
-																 TiposFormatosLineas_3.Descripcion
-									   HAVING         (CategoriaIncidencias_2.CategoriaIncidenciaID = 10)
-						) AS TiempoIntrinsecas 
-						ON EficaciaPorFormato.EnvasadoID = TiempoIntrinsecas.EnvasadoID 
-						AND 
-						EficaciaPorFormato.Linea = TiempoIntrinsecas.Linea 
-						AND EficaciaPorFormato.Formato = TiempoIntrinsecas.Formato 
-						
-						LEFT OUTER JOIN
-						(SELECT        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidencias_1.HoraFin)) AS MinutosIncidencia, 
-													CategoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID, 
-													TiposFormatosLineas_2.Descripcion AS Formato
-							FROM            ClasesIncidencias AS ClasesIncidencias_1 INNER JOIN
-														Envasados AS Envasados_2 INNER JOIN
-														FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = FormatosEnvasados_2.EnvasadoID INNER JOIN
-														Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnvasadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN
-														TiposIncidencias AS TiposIncidencias_1 ON Incidencias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON 
-														ClasesIncidencias_1.ClaseIncidenciaID = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN
-														TiposFormatosLineas AS TiposFormatosLineas_2 ON 
-														FormatosEnvasados_2.TipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN
-														LineasEnvasado AS LineasEnvasado_2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGHT OUTER JOIN
-														CategoriaIncidencias AS CategoriaIncidencias_1 ON 
-														ClasesIncidencias_1.id_categoriaIncidencia = CategoriaIncidencias_1.CategoriaIncidenciaID
-							GROUP BY LineasEnvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion, CategoriaIncidencias_1.CategoriaIncidenciaID, 
-														TiposFormatosLineas_2.Descripcion
-							HAVING         (CategoriaIncidencias_1.CategoriaIncidenciaID = 12)
-						) AS TiempoGestionRecursos 
-						ON 
-						EficaciaPorFormato.EnvasadoID = TiempoGestionRecursos.EnvasadoID AND EficaciaPorFormato.Linea = TiempoGestionRecursos.Linea AND 
-						EficaciaPorFormato.Formato = TiempoGestionRecursos.Formato ON TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND 
-						TiempoPlanificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID AND TiempoPlanificadas.Formato = EficaciaPorFormato.Formato
-		GROUP BY  EficaciaPorFormato.Linea, EficaciaPorFormato.Formato    
-			,month(EficaciaPorFormato.fecha)                    
-		--ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato
-</CommandText>
+                    <CommandText>SELECT        month(EficaciaPorFormato.fecha) mes, EficaciaPorFormato.Linea, EficaciaPorFormato.Formato, sum(EficaciaPorFormato.TiempoEnvasado) AS TiempoRegistradoEnvasado
+, 
+                         avg(EficaciaPorFormato.VelocidadTeorica) VelocidadTeorica, sum(EficaciaPorFormato.UnidadesFabricadas) as UnidadesFabricadas, 
+						 sum(ISNULL(TiempoPlanificadas.MinutosIncidencia, 0)) AS Planificadas, 
+                         sum(ISNULL(TiempoGestionRecursos.MinutosIncidencia, 0)) AS GestionRecursos, 
+						 sum(ISNULL(TiempoIntrinsecas.MinutosIncidencia, 0)) AS Intrinsecas, 
+                         --ISNULL(SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio, CambiosFormatosEnvasados.HoraFin)), 0) AS CambiosFormato
+						 SUM(isnull(CambiosDeFormato.Minutos,0)) AS CambiosFormato
+FROM            
+	(SELECT        
+		Envasados_1.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.HoraFin)) AS MinutosIncidencia, 
+        CategoriaIncidencias.Descripcion AS Categoria, LineasEnvasado_1.Descripcion AS Linea, CategoriaIncidencias.CategoriaIncidenciaID, 
+		TiposFormatosLineas_1.Descripcion AS Formato, TiposFormatosLineas_1.TipoFormatoLineaid FormatoId
+     FROM            
+		ClasesIncidencias INNER JOIN
+        Envasados AS Envasados_1 INNER JOIN
+        FormatosEnvasados AS FormatosEnvasados_1 ON Envasados_1.EnvasadoID = FormatosEnvasados_1.EnvasadoID INNER JOIN
+        Incidencias ON FormatosEnvasados_1.FormatoEnvasadoID = Incidencias.FormatoEnvasadoID INNER JOIN
+        TiposIncidencias ON Incidencias.TipoIncidenciaID = TiposIncidencias.TipoIncidenciaID ON 
+        ClasesIncidencias.ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN
+        TiposFormatosLineas AS TiposFormatosLineas_1 ON 
+        FormatosEnvasados_1.TipoFormatoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN
+        LineasEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = LineasEnvasado_1.LineaEnvasadoID RIGHT OUTER JOIN
+        CategoriaIncidencias ON ClasesIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaID
+	GROUP BY 
+		LineasEnvasado_1.Descripcion, Envasados_1.EnvasadoID, CategoriaIncidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID, TiposFormatosLineas_1.TipoformatolineaID, TiposFormatosLineas_1.Descripcion
+    HAVING         
+		(CategoriaIncidencias.CategoriaIncidenciaID = 11)
+	
+	) AS TiempoPlanificadas 
+			RIGHT OUTER JOIN
+    (SELECT        
+		TOP (100) PERCENT Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, 
+        TiposFormatosLineas_4.Descripcion AS Formato, TiposFormatosLineas_4.TipoFormatoLineaID FormatoId, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) AS TiempoEnvasado, 
+        AVG(TiposFormatosLineas_TiposFormatos_1.Velocidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad) 
+        AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin) 
+        * TiposFormatosLineas_TiposFormatos_1.Velocidad / 3600) AS UnidadesEsperadas, 
+        AVG(PaletsContenidos.CantidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.HoraInicio, PaletsContenidos.HoraFin)) 
+        AS VelocidadMaquina
+    FROM            
+		PaletsContenidos INNER JOIN
+        Envasados INNER JOIN
+        FormatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasados_4.EnvasadoID ON 
+        PaletsContenidos.id_formatoEnvasado = FormatosEnvasados_4.FormatoEnvasadoID INNER JOIN
+        ArticulosEnvasadosHistoricoSinLinea  AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormatos_1.TipoFormato INNER JOIN
+        TiposCajas ON TiposFormatos_1.TipoCajaID = TiposCajas.TipoCajaID INNER JOIN
+        TiposFormatosLineas_TiposFormatos AS TiposFormatosLineas_TiposFormatos_1 INNER JOIN
+        TiposFormatosLineas AS TiposFormatosLineas_4 INNER JOIN
+        LineasEnvasado ON TiposFormatosLineas_4.LineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON 
+        TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID ON 
+        TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.TipoFormatoID AND 
+        FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatosLineas_TiposFormatos_1.TipoFormatoLineaID
+    WHERE        
+		(Envasados.Fecha between @Fecha and @FechaFin)
+    GROUP BY 
+		Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.TipoFormatoLineaid, TiposFormatosLineas_4.descripcion
+    ORDER BY 
+		Linea
+	) AS EficaciaPorFormato ON 
+						TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND 
+						TiempoPlanificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID AND 
+						TiempoPlanificadas.Formatoid = EficaciaPorFormato.Formatoid							   						
+	left outer join
+	(SELECT        
+		Envasados.EnvasadoID, 
+		Envasados.Fecha, 
+		LineasEnvasado.Descripcion AS Linea, 
+        TiposFormatos_10.FormatosLineas AS Formato, TiposFormatos_10.TipoFormatoLineaid FormatoId, 
+		SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio , CambiosFormatosEnvasados.HoraFin)) as Minutos
+    FROM            
+        Envasados INNER JOIN
+        FormatosEnvasados AS FormatosEnvasados_50 ON Envasados.EnvasadoID = FormatosEnvasados_50.EnvasadoID 
+		INNER JOIN
+        ArticulosEnvasadosHistorico AS TiposFormatos_10 ON FormatosEnvasados_50.TipoFormatoEnvasadoID = TiposFormatos_10.TipoFormato    
+		inner join LineasEnvasado on LineasEnvasado.LineaEnvasadoID = TiposFormatos_10.Linea     
+		inner join CambiosFormatosEnvasados on CambiosFormatosEnvasados.FormatoEnvasadoAID = FormatosEnvasados_50.FormatoEnvasadoID 
+    WHERE        
+		(Envasados.Fecha between @Fecha and @FechaFin)
+    GROUP BY 
+		Envasados.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatos_10.TipoFormatoLineaid, TiposFormatos_10.FormatosLineas
+    ) as CambiosDeFormato
+	ON 
+						EficaciaPorFormato.Linea = CambiosDeFormato.Linea AND 
+						EficaciaPorFormato.EnvasadoID = CambiosDeFormato.EnvasadoID AND 
+						EficaciaPorFormato.Formatoid = CambiosDeFormato.Formatoid	 
+	LEFT OUTER JOIN
+	(SELECT        Envasados_3.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin)) AS MinutosIncidencia, 
+								CategoriaIncidencias_2.Descripcion AS Categoria, LineasEnvasado_3.Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, 
+								TiposFormatosLineas_3.Descripcion AS Formato
+	FROM            ClasesIncidencias AS ClasesIncidencias_2 INNER JOIN
+								Envasados AS Envasados_3 INNER JOIN
+								FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3.EnvasadoID = FormatosEnvasados_3.EnvasadoID INNER JOIN
+								Incidencias AS Incidencias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasadoID INNER JOIN
+								TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.TipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON 
+								ClasesIncidencias_2.ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN
+								TiposFormatosLineas AS TiposFormatosLineas_3 ON 
+								FormatosEnvasados_3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER JOIN
+								LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID = LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN
+								CategoriaIncidencias AS CategoriaIncidencias_2 ON 
+								ClasesIncidencias_2.id_categoriaIncidencia = CategoriaIncidencias_2.CategoriaIncidenciaID
+	GROUP BY LineasEnvasado_3.Descripcion, Envasados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, CategoriaIncidencias_2.CategoriaIncidenciaID, 
+								TiposFormatosLineas_3.Descripcion
+	HAVING         (CategoriaIncidencias_2.CategoriaIncidenciaID = 10)
+	) AS TiempoIntrinsecas 
+		ON EficaciaPorFormato.EnvasadoID = TiempoIntrinsecas.EnvasadoID 
+		AND 
+        EficaciaPorFormato.Linea = TiempoIntrinsecas.Linea AND EficaciaPorFormato.Formato = TiempoIntrinsecas.Formato 
+	LEFT OUTER JOIN
+    (SELECT        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, Incidencias_1.HoraFin)) AS MinutosIncidencia, 
+                                CategoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS Linea, CategoriaIncidencias_1.CategoriaIncidenciaID, 
+                                TiposFormatosLineas_2.Descripcion AS Formato
+    FROM            ClasesIncidencias AS ClasesIncidencias_1 INNER JOIN
+                                Envasados AS Envasados_2 INNER JOIN
+                                FormatosEnvasados AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = FormatosEnvasados_2.EnvasadoID INNER JOIN
+                                Incidencias AS Incidencias_1 ON FormatosEnvasados_2.FormatoEnvasadoID = Incidencias_1.FormatoEnvasadoID INNER JOIN
+                                TiposIncidencias AS TiposIncidencias_1 ON Incidencias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON 
+                                ClasesIncidencias_1.ClaseIncidenciaID = TiposIncidencias_1.ClaseIncidenciaID INNER JOIN
+                                TiposFormatosLineas AS TiposFormatosLineas_2 ON 
+                                FormatosEnvasados_2.TipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOIN
+                                LineasEnvasado AS LineasEnvasado_2 ON TiposFormatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGHT OUTER JOIN
+                                CategoriaIncidencias AS CategoriaIncidencias_1 ON 
+                                ClasesIncidencias_1.id_categoriaIncidencia = CategoriaIncidencias_1.CategoriaIncidenciaID
+    GROUP BY LineasEnvasado_2.Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion, CategoriaIncidencias_1.CategoriaIncidenciaID, 
+                                TiposFormatosLineas_2.Descripcion
+    HAVING         (CategoriaIncidencias_1.CategoriaIncidenciaID = 12)
+	) AS TiempoGestionRecursos ON 
+            EficaciaPorFormato.EnvasadoID = TiempoGestionRecursos.EnvasadoID 
+			AND EficaciaPorFormato.Linea = TiempoGestionRecursos.Linea 
+			AND 
+            EficaciaPorFormato.Formato = TiempoGestionRecursos.Formato 
+GROUP BY  EficaciaPorFormato.Linea, EficaciaPorFormato.Formato,month(EficaciaPorFormato.fecha)                         
+--ORDER BY EficaciaPorFormato.Linea, EficaciaPorFormato.Formato</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="Fecha" ColumnName="" DataSourceName="" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@Fecha" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="FechaFin" ColumnName="" DataSourceName="" DataTypeServer="smalldatetime" DbType="DateTime" Direction="Input" ParameterName="@FechaFin" Precision="0" Scale="0" Size="4" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
