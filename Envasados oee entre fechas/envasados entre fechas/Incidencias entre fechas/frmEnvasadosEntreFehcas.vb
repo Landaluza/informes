@@ -6,7 +6,7 @@
 
     Public Sub New()
         InitializeComponent()
-        Me.fecha = DateTime.Now.Date.AddMonths(-1)
+        Me.fecha = DateTime.Now.Date.AddMonths(-12)
         Me.fecha2 = DateTime.Now.Date.AddDays(-1)
         'Throw New Exception("Constructor no valido")
         My.Settings.Item("LAConnectionString") = "Data Source=192.168.1.200;Initial Catalog=LA;Persist Security Info=False;User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"

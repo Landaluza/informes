@@ -234,34 +234,34 @@ Partial Public Class LADataSet
         Me.Namespace = "http://tempuri.org/LADataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableListadoFormatos = New ListadoFormatosDataTable(false)
+        Me.tableListadoFormatos = New ListadoFormatosDataTable()
         MyBase.Tables.Add(Me.tableListadoFormatos)
-        Me.tableListadoFormatosPorMes = New ListadoFormatosPorMesDataTable(false)
+        Me.tableListadoFormatosPorMes = New ListadoFormatosPorMesDataTable(False)
         MyBase.Tables.Add(Me.tableListadoFormatosPorMes)
     End Sub
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Function ShouldSerializeListadoFormatos() As Boolean
-        Return false
+        Return False
     End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Function ShouldSerializeListadoFormatosPorMes() As Boolean
-        Return false
+        Return False
     End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As Global.System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = Global.System.ComponentModel.CollectionChangeAction.Remove) Then
-            Me.InitVars
+            Me.InitVars()
         End If
     End Sub
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
         Dim ds As LADataSet = New LADataSet()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
@@ -274,56 +274,50 @@ Partial Public Class LADataSet
         If xs.Contains(dsSchema.TargetNamespace) Then
             Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
             Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-            Try 
+            Try
                 Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
                 dsSchema.Write(s1)
                 Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
                 Do While schemas.MoveNext
-                    schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                    schema = CType(schemas.Current, Global.System.Xml.Schema.XmlSchema)
                     s2.SetLength(0)
                     schema.Write(s2)
                     If (s1.Length = s2.Length) Then
                         s1.Position = 0
                         s2.Position = 0
-                        
-                        Do While ((s1.Position <> s1.Length)  _
+
+                        Do While ((s1.Position <> s1.Length) _
                                     AndAlso (s1.ReadByte = s2.ReadByte))
-                            
-                            
+
+
                         Loop
                         If (s1.Position = s1.Length) Then
                             Return type
                         End If
                     End If
-                    
+
                 Loop
             Finally
                 If (Not (s1) Is Nothing) Then
-                    s1.Close
+                    s1.Close()
                 End If
                 If (Not (s2) Is Nothing) Then
-                    s2.Close
+                    s2.Close()
                 End If
             End Try
         End If
         xs.Add(dsSchema)
         Return type
     End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
     Private Sub InitExpressions()
-        Me.ListadoFormatos.TiempoEnvasadoCorregidoColumn.Expression = "TiempoRegistradoEnvasado-Planificadas-GestionRecursos-Intrinsecas-CambiosFormato"
-        Me.ListadoFormatos.UnidadesEsperadasColumn.Expression = "(VelocidadTeorica/60)*TiempoEnvasadoCorregido"
-        Me.ListadoFormatos.EficaciaColumn.Expression = "UnidadesFabricadas/UnidadesEsperadas"
-        Me.ListadoFormatos.VelocidadMaquinaColumn.Expression = "UnidadesFabricadas/(TiempoEnvasadoCorregido/60)"
-        Me.ListadoFormatos.DisponibilidadColumn.Expression = "TiempoEnvasadoCorregido/TiempoRegistradoEnvasado"
-        Me.ListadoFormatos.OEEColumn.Expression = "Disponibilidad*Eficacia"
         Me.ListadoFormatosPorMes.TiempoEnvasadoCorregidoColumn.Expression = "TiempoRegistradoEnvasado-Planificadas-GestionRecursos-Intrinsecas-CambiosFormato"
         Me.ListadoFormatosPorMes.UnidadesEsperadasColumn.Expression = "(VelocidadTeorica/60)*TiempoEnvasadoCorregido"
         Me.ListadoFormatosPorMes.EficaciaColumn.Expression = "iif(UnidadesEsperadas=0 ,0,UnidadesFabricadas/UnidadesEsperadas)"
         Me.ListadoFormatosPorMes.VelocidadMaquinaColumn.Expression = "UnidadesFabricadas/(TiempoEnvasadoCorregido/60)"
-        Me.ListadoFormatosPorMes.DisponibilidadColumn.Expression = "iif(TiempoRegistradoEnvasado=0, 0, TiempoEnvasadoCorregido/TiempoRegistradoEnvasa"& _ 
+        Me.ListadoFormatosPorMes.DisponibilidadColumn.Expression = "iif(TiempoRegistradoEnvasado=0, 0, TiempoEnvasadoCorregido/TiempoRegistradoEnvasa" & _
             "do)"
         Me.ListadoFormatosPorMes.OEEColumn.Expression = "Disponibilidad*Eficacia*100"
     End Sub
@@ -372,22 +366,21 @@ Partial Public Class LADataSet
 
         Private columnOEE As Global.System.Data.DataColumn
 
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub New()
-            Me.New(False)
-        End Sub
+        Private columnpeso As Global.System.Data.DataColumn
+
+        Private columnEficaciaPonderada As Global.System.Data.DataColumn
+
+        Private columnDisponibilidadPonderada As Global.System.Data.DataColumn
+
+        Private columnOEEPonderada As Global.System.Data.DataColumn
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Sub New(ByVal initExpressions As Boolean)
+        Public Sub New()
             MyBase.New()
             Me.TableName = "ListadoFormatos"
             Me.BeginInit()
             Me.InitClass()
-            If (initExpressions = True) Then
-                Me.InitExpressions()
-            End If
             Me.EndInit()
         End Sub
 
@@ -537,6 +530,38 @@ Partial Public Class LADataSet
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property pesoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpeso
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property EficaciaPonderadaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEficaciaPonderada
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property DisponibilidadPonderadaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDisponibilidadPonderada
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property OEEPonderadaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnOEEPonderada
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -573,19 +598,28 @@ Partial Public Class LADataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddListadoFormatosRow(ByVal Linea As String, ByVal Formato As String, ByVal TiempoRegistradoEnvasado As Integer, ByVal VelocidadTeorica As Integer, ByVal UnidadesFabricadas As Integer, ByVal Planificadas As Integer, ByVal GestionRecursos As Integer, ByVal Intrinsecas As Integer, ByVal CambiosFormato As Integer, ByVal TiempoEnvasadoCorregido As Decimal, ByVal UnidadesEsperadas As Decimal, ByVal Eficacia As Decimal, ByVal VelocidadMaquina As Decimal, ByVal Disponibilidad As Decimal, ByVal OEE As Decimal) As ListadoFormatosRow
+        Public Overloads Function AddListadoFormatosRow( _
+                    ByVal Linea As String, _
+                    ByVal Formato As String, _
+                    ByVal TiempoRegistradoEnvasado As Double, _
+                    ByVal VelocidadTeorica As Double, _
+                    ByVal UnidadesFabricadas As Double, _
+                    ByVal Planificadas As Double, _
+                    ByVal GestionRecursos As Double, _
+                    ByVal Intrinsecas As Double, _
+                    ByVal CambiosFormato As Double, _
+                    ByVal TiempoEnvasadoCorregido As Double, _
+                    ByVal UnidadesEsperadas As Double, _
+                    ByVal Eficacia As Double, _
+                    ByVal VelocidadMaquina As Double, _
+                    ByVal Disponibilidad As Double, _
+                    ByVal OEE As Double, _
+                    ByVal peso As Double, _
+                    ByVal EficaciaPonderada As Double, _
+                    ByVal DisponibilidadPonderada As Double, _
+                    ByVal OEEPonderada As Double) As ListadoFormatosRow
             Dim rowListadoFormatosRow As ListadoFormatosRow = CType(Me.NewRow, ListadoFormatosRow)
-            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, TiempoEnvasadoCorregido, UnidadesEsperadas, Eficacia, VelocidadMaquina, Disponibilidad, OEE}
-            rowListadoFormatosRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowListadoFormatosRow)
-            Return rowListadoFormatosRow
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Overloads Function AddListadoFormatosRow(ByVal Linea As String, ByVal Formato As String, ByVal TiempoRegistradoEnvasado As Integer, ByVal VelocidadTeorica As Integer, ByVal UnidadesFabricadas As Integer, ByVal Planificadas As Integer, ByVal GestionRecursos As Integer, ByVal Intrinsecas As Integer, ByVal CambiosFormato As Integer) As ListadoFormatosRow
-            Dim rowListadoFormatosRow As ListadoFormatosRow = CType(Me.NewRow, ListadoFormatosRow)
-            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, TiempoEnvasadoCorregido, UnidadesEsperadas, Eficacia, VelocidadMaquina, Disponibilidad, OEE, peso, EficaciaPonderada, DisponibilidadPonderada, OEEPonderada}
             rowListadoFormatosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowListadoFormatosRow)
             Return rowListadoFormatosRow
@@ -623,6 +657,10 @@ Partial Public Class LADataSet
             Me.columnVelocidadMaquina = MyBase.Columns("VelocidadMaquina")
             Me.columnDisponibilidad = MyBase.Columns("Disponibilidad")
             Me.columnOEE = MyBase.Columns("OEE")
+            Me.columnpeso = MyBase.Columns("peso")
+            Me.columnEficaciaPonderada = MyBase.Columns("EficaciaPonderada")
+            Me.columnDisponibilidadPonderada = MyBase.Columns("DisponibilidadPonderada")
+            Me.columnOEEPonderada = MyBase.Columns("OEEPonderada")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -632,47 +670,42 @@ Partial Public Class LADataSet
             MyBase.Columns.Add(Me.columnLinea)
             Me.columnFormato = New Global.System.Data.DataColumn("Formato", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFormato)
-            Me.columnTiempoRegistradoEnvasado = New Global.System.Data.DataColumn("TiempoRegistradoEnvasado", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnTiempoRegistradoEnvasado = New Global.System.Data.DataColumn("TiempoRegistradoEnvasado", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTiempoRegistradoEnvasado)
-            Me.columnVelocidadTeorica = New Global.System.Data.DataColumn("VelocidadTeorica", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnVelocidadTeorica = New Global.System.Data.DataColumn("VelocidadTeorica", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnVelocidadTeorica)
-            Me.columnUnidadesFabricadas = New Global.System.Data.DataColumn("UnidadesFabricadas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnUnidadesFabricadas = New Global.System.Data.DataColumn("UnidadesFabricadas", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUnidadesFabricadas)
-            Me.columnPlanificadas = New Global.System.Data.DataColumn("Planificadas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnPlanificadas = New Global.System.Data.DataColumn("Planificadas", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPlanificadas)
-            Me.columnGestionRecursos = New Global.System.Data.DataColumn("GestionRecursos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnGestionRecursos = New Global.System.Data.DataColumn("GestionRecursos", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnGestionRecursos)
-            Me.columnIntrinsecas = New Global.System.Data.DataColumn("Intrinsecas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnIntrinsecas = New Global.System.Data.DataColumn("Intrinsecas", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIntrinsecas)
-            Me.columnCambiosFormato = New Global.System.Data.DataColumn("CambiosFormato", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCambiosFormato = New Global.System.Data.DataColumn("CambiosFormato", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCambiosFormato)
-            Me.columnTiempoEnvasadoCorregido = New Global.System.Data.DataColumn("TiempoEnvasadoCorregido", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnTiempoEnvasadoCorregido = New Global.System.Data.DataColumn("TiempoEnvasadoCorregido", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTiempoEnvasadoCorregido)
-            Me.columnUnidadesEsperadas = New Global.System.Data.DataColumn("UnidadesEsperadas", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnUnidadesEsperadas = New Global.System.Data.DataColumn("UnidadesEsperadas", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUnidadesEsperadas)
-            Me.columnEficacia = New Global.System.Data.DataColumn("Eficacia", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnEficacia = New Global.System.Data.DataColumn("Eficacia", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnEficacia)
-            Me.columnVelocidadMaquina = New Global.System.Data.DataColumn("VelocidadMaquina", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnVelocidadMaquina = New Global.System.Data.DataColumn("VelocidadMaquina", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnVelocidadMaquina)
-            Me.columnDisponibilidad = New Global.System.Data.DataColumn("Disponibilidad", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnDisponibilidad = New Global.System.Data.DataColumn("Disponibilidad", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDisponibilidad)
-            Me.columnOEE = New Global.System.Data.DataColumn("OEE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnOEE = New Global.System.Data.DataColumn("OEE", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOEE)
+            Me.columnpeso = New Global.System.Data.DataColumn("peso", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpeso)
+            Me.columnEficaciaPonderada = New Global.System.Data.DataColumn("EficaciaPonderada", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEficaciaPonderada)
+            Me.columnDisponibilidadPonderada = New Global.System.Data.DataColumn("DisponibilidadPonderada", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDisponibilidadPonderada)
+            Me.columnOEEPonderada = New Global.System.Data.DataColumn("OEEPonderada", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOEEPonderada)
             Me.columnLinea.MaxLength = 50
             Me.columnFormato.MaxLength = 50
-            Me.columnTiempoRegistradoEnvasado.ReadOnly = True
-            Me.columnVelocidadTeorica.ReadOnly = True
-            Me.columnUnidadesFabricadas.ReadOnly = True
-            Me.columnPlanificadas.ReadOnly = True
-            Me.columnGestionRecursos.ReadOnly = True
-            Me.columnIntrinsecas.ReadOnly = True
-            Me.columnCambiosFormato.ReadOnly = True
-            Me.columnTiempoEnvasadoCorregido.ReadOnly = True
-            Me.columnUnidadesEsperadas.ReadOnly = True
-            Me.columnEficacia.ReadOnly = True
-            Me.columnVelocidadMaquina.ReadOnly = True
-            Me.columnDisponibilidad.ReadOnly = True
-            Me.columnOEE.ReadOnly = True
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -692,17 +725,6 @@ Partial Public Class LADataSet
         Protected Overrides Function GetRowType() As Global.System.Type
             Return GetType(ListadoFormatosRow)
         End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Private Sub InitExpressions()
-            Me.TiempoEnvasadoCorregidoColumn.Expression = "TiempoRegistradoEnvasado-Planificadas-GestionRecursos-Intrinsecas-CambiosFormato"
-            Me.UnidadesEsperadasColumn.Expression = "(VelocidadTeorica/60)*TiempoEnvasadoCorregido"
-            Me.EficaciaColumn.Expression = "UnidadesFabricadas/UnidadesEsperadas"
-            Me.VelocidadMaquinaColumn.Expression = "UnidadesFabricadas/(TiempoEnvasadoCorregido/60)"
-            Me.DisponibilidadColumn.Expression = "TiempoEnvasadoCorregido/TiempoRegistradoEnvasado"
-            Me.OEEColumn.Expression = "Disponibilidad*Eficacia"
-        End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -1370,203 +1392,265 @@ Partial Public Class LADataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property TiempoRegistradoEnvasado() As Integer
+        Public Property TiempoRegistradoEnvasado() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.TiempoRegistradoEnvasadoColumn), Integer)
+                    Return CType(Me(Me.tableListadoFormatos.TiempoRegistradoEnvasadoColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TiempoRegistradoEnvasado' de la tabla 'ListadoFormatos' e" & _
                             "s DBNull.", e)
                 End Try
             End Get
-            Set(value As Integer)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.TiempoRegistradoEnvasadoColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property VelocidadTeorica() As Integer
+        Public Property VelocidadTeorica() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.VelocidadTeoricaColumn), Integer)
+                    Return CType(Me(Me.tableListadoFormatos.VelocidadTeoricaColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'VelocidadTeorica' de la tabla 'ListadoFormatos' es DBNull" & _
                             ".", e)
                 End Try
             End Get
-            Set(value As Integer)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.VelocidadTeoricaColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property UnidadesFabricadas() As Integer
+        Public Property UnidadesFabricadas() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.UnidadesFabricadasColumn), Integer)
+                    Return CType(Me(Me.tableListadoFormatos.UnidadesFabricadasColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'UnidadesFabricadas' de la tabla 'ListadoFormatos' es DBNu" & _
                             "ll.", e)
                 End Try
             End Get
-            Set(value As Integer)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.UnidadesFabricadasColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Planificadas() As Integer
+        Public Property Planificadas() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.PlanificadasColumn), Integer)
+                    Return CType(Me(Me.tableListadoFormatos.PlanificadasColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Planificadas' de la tabla 'ListadoFormatos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Integer)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.PlanificadasColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property GestionRecursos() As Integer
+        Public Property GestionRecursos() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.GestionRecursosColumn), Integer)
+                    Return CType(Me(Me.tableListadoFormatos.GestionRecursosColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'GestionRecursos' de la tabla 'ListadoFormatos' es DBNull." & _
                             "", e)
                 End Try
             End Get
-            Set(value As Integer)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.GestionRecursosColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Intrinsecas() As Integer
+        Public Property Intrinsecas() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.IntrinsecasColumn), Integer)
+                    Return CType(Me(Me.tableListadoFormatos.IntrinsecasColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Intrinsecas' de la tabla 'ListadoFormatos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Integer)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.IntrinsecasColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property CambiosFormato() As Integer
+        Public Property CambiosFormato() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.CambiosFormatoColumn), Integer)
+                    Return CType(Me(Me.tableListadoFormatos.CambiosFormatoColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'CambiosFormato' de la tabla 'ListadoFormatos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Integer)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.CambiosFormatoColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property TiempoEnvasadoCorregido() As Decimal
+        Public Property TiempoEnvasadoCorregido() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.TiempoEnvasadoCorregidoColumn), Decimal)
+                    Return CType(Me(Me.tableListadoFormatos.TiempoEnvasadoCorregidoColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'TiempoEnvasadoCorregido' de la tabla 'ListadoFormatos' es" & _
                             " DBNull.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.TiempoEnvasadoCorregidoColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property UnidadesEsperadas() As Decimal
+        Public Property UnidadesEsperadas() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.UnidadesEsperadasColumn), Decimal)
+                    Return CType(Me(Me.tableListadoFormatos.UnidadesEsperadasColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'UnidadesEsperadas' de la tabla 'ListadoFormatos' es DBNul" & _
                             "l.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.UnidadesEsperadasColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Eficacia() As Decimal
+        Public Property Eficacia() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.EficaciaColumn), Decimal)
+                    Return CType(Me(Me.tableListadoFormatos.EficaciaColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Eficacia' de la tabla 'ListadoFormatos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.EficaciaColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property VelocidadMaquina() As Decimal
+        Public Property VelocidadMaquina() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.VelocidadMaquinaColumn), Decimal)
+                    Return CType(Me(Me.tableListadoFormatos.VelocidadMaquinaColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'VelocidadMaquina' de la tabla 'ListadoFormatos' es DBNull" & _
                             ".", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.VelocidadMaquinaColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property Disponibilidad() As Decimal
+        Public Property Disponibilidad() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.DisponibilidadColumn), Decimal)
+                    Return CType(Me(Me.tableListadoFormatos.DisponibilidadColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Disponibilidad' de la tabla 'ListadoFormatos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.DisponibilidadColumn) = value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property OEE() As Decimal
+        Public Property OEE() As Double
             Get
                 Try
-                    Return CType(Me(Me.tableListadoFormatos.OEEColumn), Decimal)
+                    Return CType(Me(Me.tableListadoFormatos.OEEColumn), Double)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'OEE' de la tabla 'ListadoFormatos' es DBNull.", e)
                 End Try
             End Get
-            Set(value As Decimal)
+            Set(value As Double)
                 Me(Me.tableListadoFormatos.OEEColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property peso() As Double
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.pesoColumn), Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'peso' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Double)
+                Me(Me.tableListadoFormatos.pesoColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property EficaciaPonderada() As Double
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.EficaciaPonderadaColumn), Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'EficaciaPonderada' de la tabla 'ListadoFormatos' es DBNul" & _
+                            "l.", e)
+                End Try
+            End Get
+            Set(value As Double)
+                Me(Me.tableListadoFormatos.EficaciaPonderadaColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property DisponibilidadPonderada() As Double
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.DisponibilidadPonderadaColumn), Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'DisponibilidadPonderada' de la tabla 'ListadoFormatos' es" & _
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set(value As Double)
+                Me(Me.tableListadoFormatos.DisponibilidadPonderadaColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property OEEPonderada() As Double
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.OEEPonderadaColumn), Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'OEEPonderada' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Double)
+                Me(Me.tableListadoFormatos.OEEPonderadaColumn) = value
             End Set
         End Property
 
@@ -1748,6 +1832,54 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub SetOEENull()
             Me(Me.tableListadoFormatos.OEEColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IspesoNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.pesoColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetpesoNull()
+            Me(Me.tableListadoFormatos.pesoColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsEficaciaPonderadaNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.EficaciaPonderadaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetEficaciaPonderadaNull()
+            Me(Me.tableListadoFormatos.EficaciaPonderadaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsDisponibilidadPonderadaNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.DisponibilidadPonderadaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetDisponibilidadPonderadaNull()
+            Me(Me.tableListadoFormatos.DisponibilidadPonderadaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsOEEPonderadaNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.OEEPonderadaColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetOEEPonderadaNull()
+            Me(Me.tableListadoFormatos.OEEPonderadaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
 
@@ -2421,6 +2553,16 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("GestionRecursos", "GestionRecursos")
             tableMapping.ColumnMappings.Add("Intrinsecas", "Intrinsecas")
             tableMapping.ColumnMappings.Add("CambiosFormato", "CambiosFormato")
+            tableMapping.ColumnMappings.Add("TiempoEnvasadoCorregido", "TiempoEnvasadoCorregido")
+            tableMapping.ColumnMappings.Add("UnidadesEsperadas", "UnidadesEsperadas")
+            tableMapping.ColumnMappings.Add("Eficacia", "Eficacia")
+            tableMapping.ColumnMappings.Add("VelocidadMaquina", "VelocidadMaquina")
+            tableMapping.ColumnMappings.Add("Disponibilidad", "Disponibilidad")
+            tableMapping.ColumnMappings.Add("OEE", "OEE")
+            tableMapping.ColumnMappings.Add("peso", "peso")
+            tableMapping.ColumnMappings.Add("EficaciaPonderada", "EficaciaPonderada")
+            tableMapping.ColumnMappings.Add("DisponibilidadPonderada", "DisponibilidadPonderada")
+            tableMapping.ColumnMappings.Add("OEEPonderada", "OEEPonderada")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
 
@@ -2437,150 +2579,29 @@ Namespace LADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        EficaciaPorFormato.Linea, EficaciaPorFormato.Formato, sum(EficaciaP" & _
-                "orFormato.TiempoEnvasado) AS TiempoRegistradoEnvasado" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & ", " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     " & _
-                "    avg(EficaciaPorFormato.VelocidadTeorica) VelocidadTeorica, sum(EficaciaPorFo" & _
-                "rmato.UnidadesFabricadas) as UnidadesFabricadas, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & " sum(ISNULL(TiempoPlani" & _
-                "ficadas.MinutosIncidencia, 0)) AS Planificadas, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                         sum(I" & _
-                "SNULL(TiempoGestionRecursos.MinutosIncidencia, 0)) AS GestionRecursos, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & " " & _
-                "sum(ISNULL(TiempoIntrinsecas.MinutosIncidencia, 0)) AS Intrinsecas, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "          " & _
-                "               --ISNULL(SUM(DATEDIFF(mi, CambiosFormatosEnvasados.HoraInicio, Ca" & _
-                "mbiosFormatosEnvasados.HoraFin)), 0) AS CambiosFormato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & " SUM(isnull(Cambio" & _
-                "sDeFormato.Minutos,0)) AS CambiosFormato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "FROM            " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "(SELECT        " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & _
-                "Envasados_1.EnvasadoID, SUM(DATEDIFF(mi, Incidencias.HoraInicio, Incidencias.Hor" & _
-                "aFin)) AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CategoriaIncidencias.Descripcion AS Categ" & _
-                "oria, LineasEnvasado_1.Descripcion AS Linea, CategoriaIncidencias.CategoriaIncid" & _
-                "enciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TiposFormatosLineas_1.Descripcion AS Formato, TiposFormatosLineas_1" & _
-                ".TipoFormatoLineaid FormatoId" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "     FROM            " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "ClasesIncidencias INNER " & _
-                "JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Envasados AS Envasados_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        FormatosEnvasados AS " & _
-                "FormatosEnvasados_1 ON Envasados_1.EnvasadoID = FormatosEnvasados_1.EnvasadoID I" & _
-                "NNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Incidencias ON FormatosEnvasados_1.FormatoEnvasadoID = Incide" & _
-                "ncias.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TiposIncidencias ON Incidencias.Tipo" & _
-                "IncidenciaID = TiposIncidencias.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        ClasesIncidencias." & _
-                "ClaseIncidenciaID = TiposIncidencias.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Tipos" & _
-                "FormatosLineas AS TiposFormatosLineas_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        FormatosEnvasados_1.TipoFor" & _
-                "matoLineaID = TiposFormatosLineas_1.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Linea" & _
-                "sEnvasado AS LineasEnvasado_1 ON TiposFormatosLineas_1.LineaEnvasadoID = LineasE" & _
-                "nvasado_1.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        CategoriaIncidencias ON Clas" & _
-                "esIncidencias.id_categoriaIncidencia = CategoriaIncidencias.CategoriaIncidenciaI" & _
-                "D" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "GROUP BY " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "LineasEnvasado_1.Descripcion, Envasados_1.EnvasadoID, Categoria" & _
-                "Incidencias.Descripcion, CategoriaIncidencias.CategoriaIncidenciaID, TiposFormat" & _
-                "osLineas_1.TipoformatolineaID, TiposFormatosLineas_1.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    HAVING    " & _
-                "     " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "(CategoriaIncidencias.CategoriaIncidenciaID = 11)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & ") AS TiempoPlani" & _
-                "ficadas " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    (SELECT        " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TOP (100) PERCENT Envasado" & _
-                "s.EnvasadoID, Envasados.Fecha, LineasEnvasado.Descripcion AS Linea, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Ti" & _
-                "posFormatosLineas_4.Descripcion AS Formato, TiposFormatosLineas_4.TipoFormatoLin" & _
-                "eaID FormatoId, SUM(DATEDIFF(mi, PaletsContenidos.HoraInicio, PaletsContenidos.H" & _
-                "oraFin)) AS TiempoEnvasado, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        AVG(TiposFormatosLineas_TiposFormatos_1.Ve" & _
-                "locidad) AS VelocidadTeorica, SUM(PaletsContenidos.CantidadCajas * TiposCajas.Ca" & _
-                "pacidad) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        AS UnidadesFabricadas, SUM(DATEDIFF(second, PaletsContenidos." & _
-                "HoraInicio, PaletsContenidos.HoraFin) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        * TiposFormatosLineas_TiposForma" & _
-                "tos_1.Velocidad / 3600) AS UnidadesEsperadas, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        AVG(PaletsContenidos.Can" & _
-                "tidadCajas * TiposCajas.Capacidad * 3600 / DATEDIFF(second, PaletsContenidos.Hor" & _
-                "aInicio, PaletsContenidos.HoraFin)) " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        AS VelocidadMaquina" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    FROM     " & _
-                "       " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "PaletsContenidos INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Fo" & _
-                "rmatosEnvasados AS FormatosEnvasados_4 ON Envasados.EnvasadoID = FormatosEnvasad" & _
-                "os_4.EnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        PaletsContenidos.id_formatoEnvasado = FormatosEnvas" & _
-                "ados_4.FormatoEnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        ArticulosEnvasadosHistoricoSinLinea" & _
-                "  AS TiposFormatos_1 ON FormatosEnvasados_4.TipoFormatoEnvasadoID = TiposFormato" & _
-                "s_1.TipoFormato INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TiposCajas ON TiposFormatos_1.TipoCajaID = T" & _
-                "iposCajas.TipoCajaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TiposFormatosLineas_TiposFormatos AS Ti" & _
-                "posFormatosLineas_TiposFormatos_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TiposFormatosLineas AS Tip" & _
-                "osFormatosLineas_4 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        LineasEnvasado ON TiposFormatosLineas_4.L" & _
-                "ineaEnvasadoID = LineasEnvasado.LineaEnvasadoID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TiposFormatosLineas" & _
-                "_TiposFormatos_1.TipoFormatoLineaID = TiposFormatosLineas_4.TipoFormatoLineaID O" & _
-                "N " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TiposFormatos_1.TipoFormato = TiposFormatosLineas_TiposFormatos_1.Ti" & _
-                "poFormatoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        FormatosEnvasados_4.TipoFormatoLineaID = TiposFormatos" & _
-                "Lineas_TiposFormatos_1.TipoFormatoLineaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    WHERE        " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "(Envasados.Fecha" & _
-                " between @Fecha and @FechaFin)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    GROUP BY " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Envasados.EnvasadoID, Envasados" & _
-                ".Fecha, LineasEnvasado.Descripcion, TiposFormatosLineas_4.TipoFormatoLineaid, Ti" & _
-                "posFormatosLineas_4.descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    ORDER BY " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Linea" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & ") AS EficaciaPorFormat" & _
-                "o ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TiempoPlanificadas.Linea = EficaciaPorFormato.Linea AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Tie" & _
-                "mpoPlanificadas.EnvasadoID = EficaciaPorFormato.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TiempoPla" & _
-                "nificadas.Formatoid = EficaciaPorFormato.Formatoid" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "   " & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "left outer " & _
-                "join" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "(SELECT        " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Envasados.EnvasadoID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Envasados.Fecha, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "LineasE" & _
-                "nvasado.Descripcion AS Linea, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        TiposFormatos_10.FormatosLineas AS Forma" & _
-                "to, TiposFormatos_10.TipoFormatoLineaid FormatoId, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "SUM(DATEDIFF(mi, CambiosF" & _
-                "ormatosEnvasados.HoraInicio , CambiosFormatosEnvasados.HoraFin)) as Minutos" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   " & _
-                " FROM            " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        Envasados INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        FormatosEnvasados AS Fo" & _
-                "rmatosEnvasados_50 ON Envasados.EnvasadoID = FormatosEnvasados_50.EnvasadoID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & _
-                "" & Global.Microsoft.VisualBasic.ChrW(9) & "INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        ArticulosEnvasadosHistorico AS TiposFormatos_10 ON Formatos" & _
-                "Envasados_50.TipoFormatoEnvasadoID = TiposFormatos_10.TipoFormato    " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "inner j" & _
-                "oin LineasEnvasado on LineasEnvasado.LineaEnvasadoID = TiposFormatos_10.Linea   " & _
-                "  " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "inner join CambiosFormatosEnvasados on CambiosFormatosEnvasados.FormatoEnv" & _
-                "asadoAID = FormatosEnvasados_50.FormatoEnvasadoID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    WHERE        " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "(Envasa" & _
-                "dos.Fecha between @Fecha and @FechaFin)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    GROUP BY " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Envasados.EnvasadoID, " & _
-                "Envasados.Fecha, LineasEnvasado.Descripcion, TiposFormatos_10.TipoFormatoLineaid" & _
-                ", TiposFormatos_10.FormatosLineas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    ) as CambiosDeFormato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Eficac" & _
-                "iaPorFormato.Linea = CambiosDeFormato.Linea AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "EficaciaPorFormato.Envas" & _
-                "adoID = CambiosDeFormato.EnvasadoID AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "EficaciaPorFormato.Formatoid = C" & _
-                "ambiosDeFormato.Formatoid" & Global.Microsoft.VisualBasic.ChrW(9) & " " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "(SELECT        Envasados_3.Envas" & _
-                "adoID, SUM(DATEDIFF(mi, Incidencias_2.HoraInicio, Incidencias_2.HoraFin)) AS Min" & _
-                "utosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "CategoriaIncidencias_2.Descripcion AS Categoria, Linea" & _
-                "sEnvasado_3.Descripcion AS Linea, CategoriaIncidencias_2.CategoriaIncidenciaID, " & _
-                "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TiposFormatosLineas_3.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "FROM            ClasesI" & _
-                "ncidencias AS ClasesIncidencias_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Envasados AS Envasados_3 I" & _
-                "NNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "FormatosEnvasados AS FormatosEnvasados_3 ON Envasados_3.Envas" & _
-                "adoID = FormatosEnvasados_3.EnvasadoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "Incidencias AS Incide" & _
-                "ncias_2 ON FormatosEnvasados_3.FormatoEnvasadoID = Incidencias_2.FormatoEnvasado" & _
-                "ID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TiposIncidencias AS TiposIncidencias_2 ON Incidencias_2.T" & _
-                "ipoIncidenciaID = TiposIncidencias_2.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "ClasesInciden" & _
-                "cias_2.ClaseIncidenciaID = TiposIncidencias_2.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & _
-                "" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TiposFormatosLineas AS TiposFormatosLineas_3 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "FormatosEnvasados_" & _
-                "3.TipoFormatoLineaID = TiposFormatosLineas_3.TipoFormatoLineaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & _
-                "" & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "LineasEnvasado AS LineasEnvasado_3 ON TiposFormatosLineas_3.LineaEnvasadoID " & _
-                "= LineasEnvasado_3.LineaEnvasadoID RIGHT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "CategoriaIncidencia" & _
-                "s AS CategoriaIncidencias_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "ClasesIncidencias_2.id_categoriaInciden" & _
-                "cia = CategoriaIncidencias_2.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "GROUP BY LineasEnvasado_3.D" & _
-                "escripcion, Envasados_3.EnvasadoID, CategoriaIncidencias_2.Descripcion, Categori" & _
-                "aIncidencias_2.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "TiposFormatosLineas_3.Descripcio" & _
-                "n" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "HAVING         (CategoriaIncidencias_2.CategoriaIncidenciaID = 10)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & ") AS Ti" & _
-                "empoIntrinsecas " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "ON EficaciaPorFormato.EnvasadoID = TiempoIntrinsecas.Envasad" & _
-                "oID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "        EficaciaPorFormato.Linea = TiempoIntrinsecas.Linea AND Efi" & _
-                "caciaPorFormato.Formato = TiempoIntrinsecas.Formato " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & "LEFT OUTER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    (SEL" & _
-                "ECT        Envasados_2.EnvasadoID, SUM(DATEDIFF(mi, Incidencias_1.HoraInicio, In" & _
-                "cidencias_1.HoraFin)) AS MinutosIncidencia, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                Ca" & _
-                "tegoriaIncidencias_1.Descripcion AS Categoria, LineasEnvasado_2.Descripcion AS L" & _
-                "inea, CategoriaIncidencias_1.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                          " & _
-                "      TiposFormatosLineas_2.Descripcion AS Formato" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    FROM            ClasesIn" & _
-                "cidencias AS ClasesIncidencias_1 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                Env" & _
-                "asados AS Envasados_2 INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                FormatosEnvasa" & _
-                "dos AS FormatosEnvasados_2 ON Envasados_2.EnvasadoID = FormatosEnvasados_2.Envas" & _
-                "adoID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                Incidencias AS Incidencias_1 O" & _
-                "N FormatosEnvasados_2.FormatoEnvasadoID = Incidencias_1.FormatoEnvasadoID INNER " & _
-                "JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                TiposIncidencias AS TiposIncidencias_1 ON " & _
-                "Incidencias_1.TipoIncidenciaID = TiposIncidencias_1.TipoIncidenciaID ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "      " & _
-                "                          ClasesIncidencias_1.ClaseIncidenciaID = TiposIncidenci" & _
-                "as_1.ClaseIncidenciaID INNER JOIN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                TiposFormatos" & _
-                "Lineas AS TiposFormatosLineas_2 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                FormatosEnv" & _
-                "asados_2.TipoFormatoLineaID = TiposFormatosLineas_2.TipoFormatoLineaID INNER JOI" & _
-                "N" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                LineasEnvasado AS LineasEnvasado_2 ON TiposFo" & _
-                "rmatosLineas_2.LineaEnvasadoID = LineasEnvasado_2.LineaEnvasadoID RIGHT OUTER JO" & _
-                "IN" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                CategoriaIncidencias AS CategoriaIncidencias" & _
-                "_1 ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                ClasesIncidencias_1.id_categoriaIncidenc" & _
-                "ia = CategoriaIncidencias_1.CategoriaIncidenciaID" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    GROUP BY LineasEnvasado_2" & _
-                ".Descripcion, Envasados_2.EnvasadoID, CategoriaIncidencias_1.Descripcion, Catego" & _
-                "riaIncidencias_1.CategoriaIncidenciaID, " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                TiposF" & _
-                "ormatosLineas_2.Descripcion" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    HAVING         (CategoriaIncidencias_1.Categori" & _
-                "aIncidenciaID = 12)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & ") AS TiempoGestionRecursos ON " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            EficaciaPorFor" & _
-                "mato.EnvasadoID = TiempoGestionRecursos.EnvasadoID " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "AND EficaciaPorFormato.L" & _
-                "inea = TiempoGestionRecursos.Linea " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & Global.Microsoft.VisualBasic.ChrW(9) & "AND " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "            EficaciaPorFormato.For" & _
-                "mato = TiempoGestionRecursos.Formato " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "GROUP BY  EficaciaPorFormato.Linea, Efica" & _
-                "ciaPorFormato.Formato                        " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ORDER BY EficaciaPorFormato.Linea" & _
-                ", EficaciaPorFormato.Formato"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Fecha", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FechaFin", Global.System.Data.SqlDbType.DateTime, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).CommandText = "dbo.calculoOeeEntreMeses"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fechaFin", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, False, Nothing, "", "", ""))
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)> _
-        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ListadoFormatosDataTable, ByVal Fecha As Date, ByVal FechaFin As Date) As Integer
+        Public Overridable Overloads Function Fill(ByVal dataTable As LADataSet.ListadoFormatosDataTable, ByVal fecha As Global.System.Nullable(Of Date), ByVal fechaFin As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FechaFin, Date)
+            If (fecha.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (fechaFin.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(fechaFin.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
             If (Me.ClearBeforeFill = True) Then
                 dataTable.Clear()
             End If
@@ -2592,11 +2613,19 @@ Namespace LADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"), _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)> _
-        Public Overridable Overloads Function GetData(ByVal Fecha As Date, ByVal FechaFin As Date) As LADataSet.ListadoFormatosDataTable
+        Public Overridable Overloads Function GetData(ByVal fecha As Global.System.Nullable(Of Date), ByVal fechaFin As Global.System.Nullable(Of Date)) As LADataSet.ListadoFormatosDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Fecha, Date)
-            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FechaFin, Date)
-            Dim dataTable As LADataSet.ListadoFormatosDataTable = New LADataSet.ListadoFormatosDataTable(True)
+            If (fecha.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(fecha.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (fechaFin.HasValue = True) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(fechaFin.Value, Date)
+            Else
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            Dim dataTable As LADataSet.ListadoFormatosDataTable = New LADataSet.ListadoFormatosDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
