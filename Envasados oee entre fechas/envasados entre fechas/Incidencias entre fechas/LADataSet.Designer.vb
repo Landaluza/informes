@@ -374,6 +374,10 @@ Partial Public Class LADataSet
 
         Private columnOEEPonderada As Global.System.Data.DataColumn
 
+        Private columnCalidad As Global.System.Data.DataColumn
+
+        Private columnMecanicas As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -562,6 +566,22 @@ Partial Public Class LADataSet
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property CalidadColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCalidad
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property MecanicasColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMecanicas
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -617,9 +637,11 @@ Partial Public Class LADataSet
                     ByVal peso As Double, _
                     ByVal EficaciaPonderada As Double, _
                     ByVal DisponibilidadPonderada As Double, _
-                    ByVal OEEPonderada As Double) As ListadoFormatosRow
+                    ByVal OEEPonderada As Double, _
+                    ByVal Calidad As Double, _
+                    ByVal Mecanicas As Double) As ListadoFormatosRow
             Dim rowListadoFormatosRow As ListadoFormatosRow = CType(Me.NewRow, ListadoFormatosRow)
-            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, TiempoEnvasadoCorregido, UnidadesEsperadas, Eficacia, VelocidadMaquina, Disponibilidad, OEE, peso, EficaciaPonderada, DisponibilidadPonderada, OEEPonderada}
+            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, TiempoEnvasadoCorregido, UnidadesEsperadas, Eficacia, VelocidadMaquina, Disponibilidad, OEE, peso, EficaciaPonderada, DisponibilidadPonderada, OEEPonderada, Calidad, Mecanicas}
             rowListadoFormatosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowListadoFormatosRow)
             Return rowListadoFormatosRow
@@ -661,6 +683,8 @@ Partial Public Class LADataSet
             Me.columnEficaciaPonderada = MyBase.Columns("EficaciaPonderada")
             Me.columnDisponibilidadPonderada = MyBase.Columns("DisponibilidadPonderada")
             Me.columnOEEPonderada = MyBase.Columns("OEEPonderada")
+            Me.columnCalidad = MyBase.Columns("Calidad")
+            Me.columnMecanicas = MyBase.Columns("Mecanicas")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -704,6 +728,10 @@ Partial Public Class LADataSet
             MyBase.Columns.Add(Me.columnDisponibilidadPonderada)
             Me.columnOEEPonderada = New Global.System.Data.DataColumn("OEEPonderada", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOEEPonderada)
+            Me.columnCalidad = New Global.System.Data.DataColumn("Calidad", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCalidad)
+            Me.columnMecanicas = New Global.System.Data.DataColumn("Mecanicas", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMecanicas)
             Me.columnLinea.MaxLength = 50
             Me.columnFormato.MaxLength = 50
         End Sub
@@ -1656,6 +1684,36 @@ Partial Public Class LADataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Calidad() As Double
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.CalidadColumn), Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Calidad' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Double)
+                Me(Me.tableListadoFormatos.CalidadColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Mecanicas() As Double
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.MecanicasColumn), Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Mecanicas' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Double)
+                Me(Me.tableListadoFormatos.MecanicasColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function IsLineaNull() As Boolean
             Return Me.IsNull(Me.tableListadoFormatos.LineaColumn)
         End Function
@@ -1880,6 +1938,30 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub SetOEEPonderadaNull()
             Me(Me.tableListadoFormatos.OEEPonderadaColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsCalidadNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.CalidadColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetCalidadNull()
+            Me(Me.tableListadoFormatos.CalidadColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsMecanicasNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.MecanicasColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetMecanicasNull()
+            Me(Me.tableListadoFormatos.MecanicasColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
 
@@ -2563,6 +2645,8 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("EficaciaPonderada", "EficaciaPonderada")
             tableMapping.ColumnMappings.Add("DisponibilidadPonderada", "DisponibilidadPonderada")
             tableMapping.ColumnMappings.Add("OEEPonderada", "OEEPonderada")
+            tableMapping.ColumnMappings.Add("Calidad", "Calidad")
+            tableMapping.ColumnMappings.Add("Mecanicas", "Mecanicas")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
 
