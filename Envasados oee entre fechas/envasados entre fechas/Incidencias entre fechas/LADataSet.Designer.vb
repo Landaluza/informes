@@ -378,6 +378,8 @@ Partial Public Class LADataSet
 
         Private columnMecanicas As Global.System.Data.DataColumn
 
+        Private columnRecuperables As Global.System.Data.DataColumn
+
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub New()
@@ -582,6 +584,14 @@ Partial Public Class LADataSet
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public ReadOnly Property RecuperablesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRecuperables
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"), _
          Global.System.ComponentModel.Browsable(False)> _
         Public ReadOnly Property Count() As Integer
@@ -639,9 +649,10 @@ Partial Public Class LADataSet
                     ByVal DisponibilidadPonderada As Double, _
                     ByVal OEEPonderada As Double, _
                     ByVal Calidad As Double, _
-                    ByVal Mecanicas As Double) As ListadoFormatosRow
+                    ByVal Mecanicas As Double, _
+                    ByVal Recuperables As Double) As ListadoFormatosRow
             Dim rowListadoFormatosRow As ListadoFormatosRow = CType(Me.NewRow, ListadoFormatosRow)
-            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, TiempoEnvasadoCorregido, UnidadesEsperadas, Eficacia, VelocidadMaquina, Disponibilidad, OEE, peso, EficaciaPonderada, DisponibilidadPonderada, OEEPonderada, Calidad, Mecanicas}
+            Dim columnValuesArray() As Object = New Object() {Linea, Formato, TiempoRegistradoEnvasado, VelocidadTeorica, UnidadesFabricadas, Planificadas, GestionRecursos, Intrinsecas, CambiosFormato, TiempoEnvasadoCorregido, UnidadesEsperadas, Eficacia, VelocidadMaquina, Disponibilidad, OEE, peso, EficaciaPonderada, DisponibilidadPonderada, OEEPonderada, Calidad, Mecanicas, Recuperables}
             rowListadoFormatosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowListadoFormatosRow)
             Return rowListadoFormatosRow
@@ -685,6 +696,7 @@ Partial Public Class LADataSet
             Me.columnOEEPonderada = MyBase.Columns("OEEPonderada")
             Me.columnCalidad = MyBase.Columns("Calidad")
             Me.columnMecanicas = MyBase.Columns("Mecanicas")
+            Me.columnRecuperables = MyBase.Columns("Recuperables")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -732,6 +744,8 @@ Partial Public Class LADataSet
             MyBase.Columns.Add(Me.columnCalidad)
             Me.columnMecanicas = New Global.System.Data.DataColumn("Mecanicas", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMecanicas)
+            Me.columnRecuperables = New Global.System.Data.DataColumn("Recuperables", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRecuperables)
             Me.columnLinea.MaxLength = 50
             Me.columnFormato.MaxLength = 50
         End Sub
@@ -1714,6 +1728,21 @@ Partial Public Class LADataSet
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Property Recuperables() As Double
+            Get
+                Try
+                    Return CType(Me(Me.tableListadoFormatos.RecuperablesColumn), Double)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Recuperables' de la tabla 'ListadoFormatos' es DBNull.", e)
+                End Try
+            End Get
+            Set(value As Double)
+                Me(Me.tableListadoFormatos.RecuperablesColumn) = value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Function IsLineaNull() As Boolean
             Return Me.IsNull(Me.tableListadoFormatos.LineaColumn)
         End Function
@@ -1962,6 +1991,18 @@ Partial Public Class LADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Sub SetMecanicasNull()
             Me(Me.tableListadoFormatos.MecanicasColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Function IsRecuperablesNull() As Boolean
+            Return Me.IsNull(Me.tableListadoFormatos.RecuperablesColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
+        Public Sub SetRecuperablesNull()
+            Me(Me.tableListadoFormatos.RecuperablesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
 
@@ -2647,6 +2688,7 @@ Namespace LADataSetTableAdapters
             tableMapping.ColumnMappings.Add("OEEPonderada", "OEEPonderada")
             tableMapping.ColumnMappings.Add("Calidad", "Calidad")
             tableMapping.ColumnMappings.Add("Mecanicas", "Mecanicas")
+            tableMapping.ColumnMappings.Add("Recuperables", "Recuperables")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
 

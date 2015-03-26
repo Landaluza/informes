@@ -2,6 +2,7 @@ C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Enva
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.dll
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.pdb
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.xml
+C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados entre fechas.vbprojResolveAssemblyReference.cache
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados_entre_fechas.frmEnvasadosEntreFehcas.resources
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados_entre_fechas.frmEnvasadosMensuales.resources
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados_entre_fechas.Resources.resources
