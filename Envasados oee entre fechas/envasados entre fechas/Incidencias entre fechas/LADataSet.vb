@@ -5,6 +5,9 @@ End Class
 
 Namespace LADataSetTableAdapters
     
-    Partial Public Class ListadoFormatosPorMesTableAdapter
+    Partial Public Class ListadoFormatosTableAdapter
+
+
+       
     End Class
 End Namespace
