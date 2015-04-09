@@ -7,11 +7,11 @@
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-
+        Throw New NotImplementedException
     End Sub
     Public Sub New(ByVal cadena As String)
         InitializeComponent()
-
+        Throw New NotImplementedException
         Me.connection = cadena
         My.Settings.Item("LAConnectionString") = Me.connection
     End Sub
