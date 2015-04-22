@@ -1,5 +1,3 @@
-C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.dll.config
-C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.dll
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.pdb
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.xml
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados entre fechas.vbprojResolveAssemblyReference.cache
@@ -9,6 +7,8 @@ C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados entre fechas.vbproj.GenerateResource.Cache
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\RdlCompile.cache
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\RdlCompile.compiled
-C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados entre fechas.dll
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados entre fechas.xml
 C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados entre fechas.pdb
+C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.exe.config
+C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\temp\Envasados entre fechas.exe
+C:\Users\Administrador\Desktop\git\Informes\Envasados oee entre fechas\envasados entre fechas\Incidencias entre fechas\obj\Debug\Envasados entre fechas.exe
